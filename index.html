@@ -1,653 +1,699 @@
 
-/* =====================================
-   MECHANICAL WORLD
-   PREMIUM PINK DESIGN
-===================================== */
-
-:root {
-    --bg: #100d13;
-    --bg-card: #1b1720;
-    --pink: #f08ab9;
-    --pink-light: #ffc1dc;
-    --pink-dark: #bd5689;
-    --text: #fff3f8;
-    --muted: #b8a9b3;
-    --border: rgba(240,138,185,.25);
-    --shadow: 0 15px 45px rgba(240,138,185,.10);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
-}
-
-body {
-    font-family: 'Cairo', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.9;
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-button, input {
-    font: inherit;
-}
-
-.container {
-    width: min(1150px, 90%);
-    margin: auto;
-}
-
-/* HEADER */
-
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(16,13,19,.94);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border);
-}
-
-.navbar {
-    min-height: 85px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--pink-light);
-    white-space: nowrap;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-}
-
-.nav-links a {
-    color: var(--muted);
-    font-size: 14px;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: var(--pink);
-}
-
-.menu-toggle {
-    display: none;
-    background: var(--bg-card);
-    color: var(--pink);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 10px;
-    cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-    padding: 85px 0 65px;
-    text-align: center;
-    background:
-        radial-gradient(ellipse at top, rgba(240,138,185,.14), transparent 65%);
-}
-
-.hero-label {
-    color: var(--pink-light);
-    font-size: 17px;
-    font-weight: 600;
-}
-
-.hero h1 {
-    font-size: clamp(42px, 8vw, 82px);
-    font-weight: 900;
-    line-height: 1.35;
-    margin: 20px 0;
-}
-
-.hero h1 span {
-    display: block;
-    color: var(--pink);
-}
-
-.hero-content > p {
-    max-width: 750px;
-    margin: 0 auto 30px;
-    color: var(--muted);
-    font-size: 18px;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 45px;
-}
-
-/* BUTTONS */
-
-.btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 12px 28px;
-    border-radius: 12px;
-    font-weight: 700;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: .3s ease;
-}
-
-.primary-btn {
-    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
-    color: #210e19;
-    box-shadow: 0 8px 25px rgba(240,138,185,.2);
-}
-
-.secondary-btn {
-    color: var(--pink-light);
-    background: transparent;
-}
-
-.btn:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
-}
-
-/* HERO IMAGE */
-
-.hero-image {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border: 2px solid var(--pink-dark);
-    border-radius: 25px;
-    box-shadow: 0 20px 60px rgba(240,138,185,.12);
-}
-
-.hero-image img {
-    width: 100%;
-    height: 480px;
-    object-fit: cover;
-    display: block;
-}
-
-.image-caption {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: 25px;
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-    background: linear-gradient(transparent, rgba(0,0,0,.85));
-    color: white;
-    font-size: 13px;
-    letter-spacing: 1px;
-}
-
-/* SECTIONS */
-
-.section {
-    padding: 90px 0;
-}
-
-.mechanics-section {
-    background: rgba(255,255,255,.015);
-}
-
-.section-heading {
-    text-align: center;
-    max-width: 750px;
-    margin: 0 auto 45px;
-}
-
-.section-heading > span {
-    color: var(--pink);
-    font-size: 13px;
-    letter-spacing: 3px;
-    font-weight: 800;
-}
-
-.section-heading h2 {
-    font-size: clamp(27px, 5vw, 42px);
-    margin: 12px 0;
-    color: var(--pink-light);
-}
-
-.section-heading p {
-    color: var(--muted);
-}
-
-/* CARDS */
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
-}
-
-.info-card {
-    padding: 30px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    transition: .35s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--pink);
-    box-shadow: var(--shadow);
-}
-
-.info-card > i {
-    width: 48px;
-    height: 48px;
-    color: var(--pink);
-    margin-bottom: 15px;
-}
-
-.info-card h3 {
-    color: var(--pink-light);
-    font-size: 21px;
-    margin-bottom: 10px;
-}
-
-.info-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.info-button {
-    margin-top: 20px;
-    padding: 8px 18px;
-    background: rgba(240,138,185,.1);
-    color: var(--pink-light);
-    border: 1px solid var(--border);
-    border-radius: 9px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.info-button:hover {
-    background: var(--pink);
-    color: #210e19;
-}
-
-/* SIMULATION */
-
-.simulation-box {
-    max-width: 800px;
-    margin: auto;
-    padding: 40px;
-    text-align: center;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 25px;
-    box-shadow: var(--shadow);
-}
-
-.gears-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    margin: 20px auto 45px;
-}
-
-.gear {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--pink);
-}
-
-.gear-one {
-    font-size: 125px;
-}
-
-.gear-two {
-    font-size: 90px;
-    margin-right: -12px;
-}
-
-.gear svg {
-    width: 1em;
-    height: 1em;
-}
-
-.speed-control label {
-    display: block;
-    color: var(--pink-light);
-    margin-bottom: 15px;
-    font-size: 19px;
-}
-
-.speed-control input {
-    width: min(100%, 450px);
-    accent-color: var(--pink);
-    cursor: pointer;
-}
-
-.simulation-note {
-    color: var(--muted);
-    margin-top: 25px;
-}
-
-/* QUIZ */
-
-.quiz-box {
-    max-width: 750px;
-    margin: auto;
-    padding: 35px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-}
-
-.question {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--pink-light);
-    margin-bottom: 25px;
-}
-
-.options {
-    display: grid;
-    gap: 13px;
-}
-
-.option {
-    width: 100%;
-    padding: 14px;
-    background: #241e29;
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    text-align: right;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.option:hover:not(:disabled) {
-    border-color: var(--pink);
-    background: rgba(240,138,185,.1);
-}
-
-.option.correct {
-    background: rgba(60,180,110,.15);
-    border-color: #58c98a;
-}
-
-.option.wrong {
-    background: rgba(220,70,90,.15);
-    border-color: #e36b7d;
-}
-
-.option:disabled {
-    cursor: default;
-}
-
-#quiz-result {
-    color: var(--pink-light);
-    margin: 20px 0;
-    font-weight: 700;
-}
-
-/* CONCLUSION */
-
-.conclusion-box {
-    max-width: 850px;
-    margin: auto;
-    padding: 40px;
-    background: linear-gradient(135deg, #241b27, #17121a);
-    border: 1px solid var(--border);
-    border-radius: 22px;
-    text-align: center;
-}
-
-.conclusion-box p {
-    color: var(--muted);
-    font-size: 17px;
-}
-
-.conclusion-box h3 {
-    color: var(--pink);
-    margin-top: 25px;
-}
-
-/* FOOTER */
-
-.footer {
-    padding: 60px 0 25px;
-    text-align: center;
-    background: #0a080d;
-    border-top: 1px solid var(--border);
-}
-
-.footer-logo {
-    font-size: 27px;
-    font-weight: 900;
-    color: var(--pink);
-}
-
-.footer > .container > p {
-    color: var(--muted);
-    margin-top: 8px;
-}
-
-.footer-line {
-    height: 1px;
-    background: var(--border);
-    margin: 30px 0;
-}
-
-.project-credits {
-    padding: 25px;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    max-width: 450px;
-    margin: auto;
-    background: var(--bg-card);
-}
-
-.project-credits h3 {
-    color: var(--pink);
-    margin: 12px 0;
-    font-size: 18px;
-}
-
-.project-credits p {
-    color: var(--text);
-    font-size: 17px;
-    font-weight: 600;
-}
-
-.copyright {
-    margin-top: 30px;
-    color: #837582;
-    font-size: 12px;
-}
-
-/* MODAL */
-
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    padding: 20px;
-    background: rgba(0,0,0,.8);
-    justify-content: center;
-    align-items: center;
-}
-
-.modal.active {
-    display: flex;
-}
-
-.modal-content {
-    position: relative;
-    width: min(500px, 100%);
-    padding: 40px 30px;
-    background: var(--bg-card);
-    border: 1px solid var(--pink);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-}
-
-.modal-content h2 {
-    color: var(--pink);
-    margin-bottom: 15px;
-}
-
-.modal-content p {
-    color: var(--muted);
-}
-
-.close-modal {
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    border: none;
-    background: transparent;
-    color: var(--pink);
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* REVEAL ANIMATION */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(25px);
-    transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ACCESSIBILITY */
-
-button:focus-visible,
-a:focus-visible,
-input:focus-visible {
-    outline: 3px solid var(--pink-light);
-    outline-offset: 4px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101216">
+
+    <title>Mechanical World ♡ | عالم الميكانيك</title>
+
+    <meta name="description" content="مشروع تعليمي تفاعلي لاكتشاف عالم الميكانيك والهندسة والمحركات والتروس">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- DECORATIONS -->
+<div class="floating-decoration">♡</div>
+<div class="floating-decoration second">🌸</div>
+
+
+<!-- NAVIGATION -->
+<header class="navbar">
+
+    <a href="#home" class="logo">
+        <i data-lucide="settings"></i>
+        <span>MECHANICAL <b>WORLD ♡</b></span>
+    </a>
+
+    <button class="menu-btn menu-toggle" aria-label="فتح القائمة">
+        <i data-lucide="menu"></i>
+    </button>
+
+    <nav class="nav-links">
+
+        <a href="#home">♡ الرئيسية</a>
+        <a href="#basics">الأساسيات</a>
+        <a href="#components">المكونات</a>
+        <a href="#engines">المحركات</a>
+        <a href="#lab">المختبر</a>
+        <a href="#quiz">الاختبار</a>
+        <a href="#references">المراجع</a>
+        <a href="#about">عن المشروع</a>
+
+    </nav>
+
+</header>
+
+
+<main>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            🌸 اكتشفي عالم الهندسة والابتكار 🌸
+        </span>
+
+        <h1>
+            MECHANICAL
+            <span>WORLD ♡</span>
+        </h1>
+
+        <h2>
+            عالم الميكانيك يبدأ من هنا
+        </h2>
+
+        <p>
+            رحلة علمية ممتعة لاكتشاف أسرار الحركة والقوة والطاقة،
+            والتعرف على المحركات والتروس والأنظمة الميكانيكية
+            بطريقة تفاعلية ومبتكرة.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#basics" class="btn-primary">
+                ابدئي الاستكشاف ✨
+            </a>
+
+            <a href="#about" class="btn-secondary">
+                عن مشروعنا ♡
+            </a>
+
+        </div>
+
+        <div class="hero-tags">
+            <span>⚙️ Engineering</span>
+            <span>🌿 Innovation</span>
+            <span>💗 Technology</span>
+        </div>
+
+    </div>
+
+    <div class="hero-visual">
+
+        <!-- صورة السيارة -->
+        <img
+            src="car.jpg"
+            alt="سيارة رياضية بتصميم ميكانيكي"
+            class="hero-car"
+        >
+
+        <div class="car-caption">
+            <span>PORSCHE</span>
+            <p>MECHANICAL DESIGN ♡</p>
+        </div>
+
+        <div class="hero-heart">♡</div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK ACCESS -->
+<section class="quick-access">
+
+    <a href="#basics" class="quick-card">
+        <i data-lucide="book-open"></i>
+        <h3>أساسيات الميكانيك</h3>
+        <p>مفاهيم بسيطة</p>
+    </a>
+
+    <a href="#components" class="quick-card">
+        <i data-lucide="settings"></i>
+        <h3>المكونات</h3>
+        <p>التروس والمحاور</p>
+    </a>
+
+    <a href="#engines" class="quick-card">
+        <i data-lucide="zap"></i>
+        <h3>المحركات</h3>
+        <p>أنواعها وكيف تعمل</p>
+    </a>
+
+    <a href="#lab" class="quick-card">
+        <i data-lucide="flask-conical"></i>
+        <h3>المختبر التفاعلي</h3>
+        <p>تجارب ومحاكاة</p>
+    </a>
+
+    <a href="#quiz" class="quick-card">
+        <i data-lucide="trophy"></i>
+        <h3>اختبر معلوماتك</h3>
+        <p>اختبري قدراتك العلمية</p>
+    </a>
+
+</section>
+
+
+<!-- BASICS -->
+<section class="section" id="basics">
+
+    <div class="section-heading">
+
+        <span>01 / KNOWLEDGE 🌸</span>
+
+        <h2>أساسيات الميكانيك</h2>
+
+        <p>
+            لنتعرف على المبادئ الأساسية التي تقوم عليها الأنظمة الميكانيكية.
+        </p>
+
+    </div>
+
+    <div class="content-grid">
+
+        <article class="info-card">
+
+            <i data-lucide="activity"></i>
+
+            <h3>الحركة</h3>
+
+            <p>
+                تغير موضع الجسم مع مرور الزمن بالنسبة إلى مرجع معين.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <i data-lucide="zap"></i>
+
+            <h3>القوة</h3>
+
+            <p>
+                مؤثر ميكانيكي يمكنه تغيير حركة الجسم أو شكله.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <i data-lucide="battery-charging"></i>
+
+            <h3>الطاقة</h3>
+
+            <p>
+                القدرة على إنجاز شغل أو إحداث تغيير.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <i data-lucide="rotate-cw"></i>
+
+            <h3>الحركة الدورانية</h3>
+
+            <p>
+                حركة جسم حول محور معين، مثل دوران عجلة السيارة.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- COMPONENTS -->
+<section class="section dark-section" id="components">
+
+    <div class="section-heading">
+
+        <span>02 / COMPONENTS 💗</span>
+
+        <h2>المكونات الميكانيكية</h2>
+
+        <p>
+            اكتشفي العناصر التي تدخل في صناعة الآلات والأجهزة.
+        </p>
+
+    </div>
+
+    <div class="content-grid">
+
+        <article class="info-card">
+
+            <i data-lucide="settings"></i>
+
+            <h3>التروس</h3>
+
+            <p>
+                عجلات مسننة تستخدم لنقل الحركة الدورانية.
+            </p>
+
+            <button
+                class="details-btn"
+                data-title="⚙️ التروس الميكانيكية"
+                data-info="التروس عجلات مسننة تتشابك مع بعضها لنقل الحركة الدورانية والعزم بين المحاور. وتحدد أعداد الأسنان نسبة السرعة بين التروس."
+            >
+                اكتشفي المزيد ←
+            </button>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <i data-lucide="circle-dot"></i>
+
+            <h3>المحاور</h3>
+
+            <p>
+                عناصر تستخدم لحمل الأجزاء الدوارة أو نقل العزم.
+            </p>
+
+            <button
+                class="details-btn"
+                data-title="🌿 المحاور"
+                data-info="المحاور عناصر ميكانيكية تدعم الأجزاء الدوارة أو تنقل العزم والحركة الدورانية، وتتعرض لقوى وأحمال مختلفة أثناء العمل."
+            >
+                اكتشفي المزيد ←
+            </button>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <i data-lucide="circle"></i>
+
+            <h3>البكرات</h3>
+
+            <p>
+                عجلات تساعد في نقل الحركة بواسطة الأحزمة.
+            </p>
+
+            <button
+                class="details-btn"
+                data-title="🎀 البكرات"
+                data-info="البكرات عجلات تستخدم مع الأحزمة لنقل الحركة بين المحاور. وتؤثر أقطار البكرات في نسبة السرعة."
+            >
+                اكتشفي المزيد ←
+            </button>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <i data-lucide="spring"></i>
+
+            <h3>النوابض</h3>
+
+            <p>
+                عناصر مرنة تخزن الطاقة وتحررها.
+            </p>
+
+            <button
+                class="details-btn"
+                data-title="🌸 النوابض"
+                data-info="النوابض عناصر مرنة تخزن الطاقة عند تعرضها للتشوه، ثم تستعيد شكلها تقريباً عند إزالة القوة ضمن حدود مرونتها."
+            >
+                اكتشفي المزيد ←
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ENGINES -->
+<section class="section" id="engines">
+
+    <div class="section-heading">
+
+        <span>03 / ENGINES 🌿</span>
+
+        <h2>عالم المحركات</h2>
+
+        <p>
+            كيف تتحول الطاقة إلى حركة؟
+        </p>
+
+    </div>
+
+    <div class="content-grid">
+
+        <article class="info-card">
+
+            <i data-lucide="fuel"></i>
+
+            <h3>محرك الاحتراق الداخلي</h3>
+
+            <p>
+                يحول الطاقة الكيميائية للوقود إلى طاقة حرارية
+                ثم إلى شغل ميكانيكي.
+            </p>
+
+            <button
+                class="details-btn"
+                data-title="محرك الاحتراق الداخلي"
+                data-info="يعتمد محرك الاحتراق الداخلي على احتراق الوقود داخل الأسطوانات. وتدفع الغازات الناتجة المكبس، فتتحول الحركة الترددية إلى حركة دورانية بواسطة آلية المرفق."
+            >
+                اكتشفي المزيد ←
+            </button>
+
+        </article>
+
+
+        <article class="info-card">
+
+            <i data-lucide="zap"></i>
+
+            <h3>المحرك الكهربائي</h3>
+
+            <p>
+                يحول الطاقة الكهربائية إلى طاقة ميكانيكية.
+            </p>
+
+            <button
+                class="details-btn"
+                data-title="المحرك الكهربائي"
+                data-info="يعمل المحرك الكهربائي اعتماداً على التأثير الكهرومغناطيسي، حيث تنتج قوى داخل المحرك تسبب دوران الجزء المتحرك."
+            >
+                اكتشفي المزيد ←
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- LAB -->
+<section class="section dark-section" id="lab">
+
+    <div class="section-heading">
+
+        <span>04 / INTERACTIVE LAB 💗</span>
+
+        <h2>مختبر الميكانيك</h2>
+
+        <p>
+            هنا لا نكتفي بالقراءة، بل نجرب ونكتشف!
+        </p>
+
+    </div>
+
+    <div class="lab-box">
+
+        <div class="lab-icon">
+
+            <i data-lucide="settings"></i>
+
+            <i data-lucide="settings"></i>
+
+        </div>
+
+        <div class="lab-controls">
+
+            <h3>🌸 محاكاة نقل الحركة</h3>
+
+            <p>
+                جربي تغيير سرعة الترس الأول ولاحظي تأثيرها
+                على الترس الثاني.
+            </p>
+
+            <label for="speed">
+                سرعة الترس القائد
+            </label>
+
+            <input
+                type="range"
+                id="speed"
+                min="10"
+                max="100"
+                value="50"
+            >
+
+            <p>
+                السرعة:
+                <strong id="speed-value">50 RPM</strong>
+            </p>
+
+            <p>
+                نسبة عدد الأسنان:
+                <strong>20 : 40</strong>
+            </p>
+
+            <p>
+                نسبة السرعة:
+                <strong>1 : 2</strong>
+            </p>
+
+            <p id="gearResult">
+                غيري السرعة لملاحظة التغيير 💗
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUIZ -->
+<section class="section" id="quiz">
+
+    <div class="section-heading">
+
+        <span>05 / KNOWLEDGE TEST 🎀</span>
+
+        <h2>اختبري معلوماتك</h2>
+
+        <p>
+            هل أنت مستعدة لتحدي الميكانيك؟
+        </p>
+
+    </div>
+
+    <div class="quiz-box">
+
+        <div class="quiz-decoration">🌸 💗 🌿</div>
+
+        <h3 id="question">
+            ما وظيفة التروس في الأنظمة الميكانيكية؟
+        </h3>
+
+        <div id="options" class="quiz-options">
+
+            <!-- JavaScript generates the answers here -->
+
+        </div>
+
+        <p id="quiz-result" aria-live="polite"></p>
+
+        <button
+            id="next-question"
+            class="btn-primary"
+            type="button"
+            hidden
+        >
+            السؤال التالي
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- REFERENCES -->
+<section class="section dark-section" id="references">
+
+    <div class="section-heading">
+
+        <span>06 / REFERENCES 🌿</span>
+
+        <h2>المراجع العلمية</h2>
+
+        <p>
+            نعتمد على المعرفة العلمية والمعلومات الموثوقة.
+        </p>
+
+    </div>
+
+    <div class="content-grid">
+
+        <article class="info-card">
+
+            <i data-lucide="book-open"></i>
+
+            <h3>الكتب العلمية</h3>
+
+            <p>
+                الكتب المدرسية والمراجع التعليمية في الميكانيك والفيزياء.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <i data-lucide="globe"></i>
+
+            <h3>المصادر الإلكترونية</h3>
+
+            <p>
+                يمكن إضافة روابط المصادر العلمية التي تم الاعتماد عليها.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT PROJECT -->
+<section class="section project-section" id="about">
+
+    <div class="section-heading">
+
+        <span>07 / OUR PROJECT ♡</span>
+
+        <h2>عن مشروعنا</h2>
+
+        <p>
+            مشروعنا يجمع بين العلم والإبداع والابتكار.
+        </p>
+
+    </div>
+
+    <div class="project-credits">
+
+        <div class="credits-decoration">
+            🌸 💗 🌷
+        </div>
+
+        <h2>Mechanical World ♡</h2>
+
+        <p>
+            مشروع تعليمي يهدف إلى التعريف بعالم الميكانيك
+            وتبسيط مفاهيم الهندسة الميكانيكية،
+            من خلال المعلومات العلمية والتطبيقات التفاعلية.
+        </p>
+
+        <div class="students-card">
+
+            <h3>🎀 إعداد الطالبتين 🎀</h3>
+
+            <div class="student-name">
+                بن صالح كوثر 🌞
+            </div>
+
+            <div class="student-name">
+                بالعربي هاجر 🌚
+            </div>
+
+            <div class="teacher">
+
+                <span>تحت إشراف الأستاذ</span>
+
+                <h3>
+                    مزغراني سفيان
+                </h3>
+
+                <div class="teacher-decoration">
+                    🌿 ⚙️ 💗
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="footer-flower">
+        🌸 💗 🌿
+    </div>
+
+    <h3>
+        MECHANICAL <span>WORLD ♡</span>
+    </h3>
+
+    <p>
+        الهندسة اليوم تصنع مستقبل الغد
+    </p>
+
+    <p>
+        © 2026 Mechanical World
+    </p>
+
+    <a href="#home">
+        العودة إلى الأعلى ↑
+    </a>
+
+</footer>
+
+
+<!-- INFORMATION MODAL -->
+<div class="modal" aria-hidden="true">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            type="button"
+            aria-label="إغلاق النافذة"
+        >
+            ×
+        </button>
+
+        <div class="modal-decoration">
+            🌸 ♡
+        </div>
+
+        <h2 id="modal-title">
+            معلومات المكون
+        </h2>
+
+        <p id="modal-text">
+            اكتشفي المزيد عن المكونات الميكانيكية.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
+
+<script>
+    if (window.lucide) {
+        lucide.createIcons();
     }
-}
+</script>
 
-/* RESPONSIVE DESIGN */
+</body>
+</html>
 
-@media (max-width: 850px) {
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 85px;
-        right: 5%;
-        left: 5%;
-        padding: 20px;
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 15px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 550px) {
-
-    .hero {
-        padding-top: 55px;
-    }
-
-    .hero-content > p {
-        font-size: 15px;
-    }
-
-    .hero-image img {
-        height: 260px;
-    }
-
-    .image-caption {
-        font-size: 10px;
-    }
-
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section {
-        padding: 65px 0;
-    }
-
-    .simulation-box,
-    .quiz-box,
-    .conclusion-box {
-        padding: 22px;
-    }
-
-    .gear-one {
-        font-size: 95px;
-    }
-
-    .gear-two {
-        font-size: 70px;
-    }
-
-    .logo {
-        font-size: 18px;
-    }
-
-}
 
 
 
