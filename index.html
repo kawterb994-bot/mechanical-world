@@ -1,699 +1,286 @@
 
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101216">
-
-    <title>Mechanical World ♡ | عالم الميكانيك</title>
-
-    <meta name="description" content="مشروع تعليمي تفاعلي لاكتشاف عالم الميكانيك والهندسة والمحركات والتروس">
-
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <script src="https://unpkg.com/lucide@latest"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanical World ♡</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- DECORATIONS -->
-<div class="floating-decoration">♡</div>
-<div class="floating-decoration second">🌸</div>
+<header>
+    <div class="logo">♡ Mechanical World ⚙️</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-
-<!-- NAVIGATION -->
-<header class="navbar">
-
-    <a href="#home" class="logo">
-        <i data-lucide="settings"></i>
-        <span>MECHANICAL <b>WORLD ♡</b></span>
-    </a>
-
-    <button class="menu-btn menu-toggle" aria-label="فتح القائمة">
-        <i data-lucide="menu"></i>
-    </button>
-
-    <nav class="nav-links">
-
-        <a href="#home">♡ الرئيسية</a>
-        <a href="#basics">الأساسيات</a>
-        <a href="#components">المكونات</a>
-        <a href="#engines">المحركات</a>
-        <a href="#lab">المختبر</a>
-        <a href="#quiz">الاختبار</a>
-        <a href="#references">المراجع</a>
-        <a href="#about">عن المشروع</a>
-
+    <nav id="menu">
+        <a href="#home">الرئيسية 🏠</a>
+        <a href="#about">تعريف المشروع 🌸</a>
+        <a href="#sections">أقسام المشروع ⚙️</a>
+        <a href="#importance">أهمية الميكانيك 💡</a>
+        <a href="#gallery">معرض الصور 🚗</a>
+        <a href="#team">من نحن؟ 💗</a>
     </nav>
-
 </header>
-
 
 <main>
 
-<!-- HERO SECTION -->
+<!-- الرئيسية -->
 <section class="hero" id="home">
+    <p class="welcome">🌸 اكتشفي عالم الهندسة والابتكار 🌸</p>
 
-    <div class="hero-content">
+    <h1>MECHANICAL <span>WORLD ♡</span></h1>
 
-        <span class="eyebrow">
-            🌸 اكتشفي عالم الهندسة والابتكار 🌸
-        </span>
+    <h2>عالم الميكانيك يبدأ من هنا</h2>
 
-        <h1>
-            MECHANICAL
-            <span>WORLD ♡</span>
-        </h1>
+    <p class="description">
+        مرحباً بكم في عالم الميكانيك!
+        رحلة علمية ممتعة لاكتشاف أسرار الحركة والقوة والطاقة،
+        والتعرف على المحركات والتروس والآلات والأنظمة الميكانيكية.
+        انطلقي معنا في رحلة مليئة بالمعرفة والإبداع!
+    </p>
 
-        <h2>
-            عالم الميكانيك يبدأ من هنا
-        </h2>
+    <p class="explore">ابدئي الاستكشاف ✨ ♡</p>
 
-        <p>
-            رحلة علمية ممتعة لاكتشاف أسرار الحركة والقوة والطاقة،
-            والتعرف على المحركات والتروس والأنظمة الميكانيكية
-            بطريقة تفاعلية ومبتكرة.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="#basics" class="btn-primary">
-                ابدئي الاستكشاف ✨
-            </a>
-
-            <a href="#about" class="btn-secondary">
-                عن مشروعنا ♡
-            </a>
-
-        </div>
-
-        <div class="hero-tags">
-            <span>⚙️ Engineering</span>
-            <span>🌿 Innovation</span>
-            <span>💗 Technology</span>
-        </div>
-
-    </div>
-
-    <div class="hero-visual">
-
-        <!-- صورة السيارة -->
-        <img
-            src="car.jpg"
-            alt="سيارة رياضية بتصميم ميكانيكي"
-            class="hero-car"
-        >
-
-        <div class="car-caption">
-            <span>PORSCHE</span>
-            <p>MECHANICAL DESIGN ♡</p>
-        </div>
-
-        <div class="hero-heart">♡</div>
-
-    </div>
-
+    <p class="english">
+        Engineering 🌿 Innovation 💗 Technology ⚙️
+    </p>
 </section>
 
 
-<!-- QUICK ACCESS -->
-<section class="quick-access">
+<!-- تعريف المشروع -->
+<section class="content-section" id="about">
+    <h2>🌸 تعريف المشروع</h2>
 
-    <a href="#basics" class="quick-card">
-        <i data-lucide="book-open"></i>
-        <h3>أساسيات الميكانيك</h3>
-        <p>مفاهيم بسيطة</p>
-    </a>
+    <div class="info-card">
+        <div class="emoji">⚙️ ♡ 🌷</div>
 
-    <a href="#components" class="quick-card">
-        <i data-lucide="settings"></i>
-        <h3>المكونات</h3>
-        <p>التروس والمحاور</p>
-    </a>
+        <h3>Mechanical World</h3>
 
-    <a href="#engines" class="quick-card">
-        <i data-lucide="zap"></i>
-        <h3>المحركات</h3>
-        <p>أنواعها وكيف تعمل</p>
-    </a>
+        <p>
+            مشروع مدرسي تعليمي يهدف إلى التعريف بعلم الميكانيك
+            وأهميته ومكوناته وتطبيقاته في حياتنا اليومية.
+            نسعى من خلاله إلى تبسيط المفاهيم الميكانيكية
+            بطريقة ممتعة ومبتكرة، واكتشاف العلاقة بين العلم
+            والتكنولوجيا والهندسة.
+        </p>
 
-    <a href="#lab" class="quick-card">
-        <i data-lucide="flask-conical"></i>
-        <h3>المختبر التفاعلي</h3>
-        <p>تجارب ومحاكاة</p>
-    </a>
-
-    <a href="#quiz" class="quick-card">
-        <i data-lucide="trophy"></i>
-        <h3>اختبر معلوماتك</h3>
-        <p>اختبري قدراتك العلمية</p>
-    </a>
-
+        <p>
+            هدفنا هو نشر المعرفة وإبراز دور الميكانيك
+            في تطوير العالم وصناعة المستقبل.
+        </p>
+    </div>
 </section>
 
 
-<!-- BASICS -->
-<section class="section" id="basics">
+<!-- أقسام المشروع -->
+<section class="content-section" id="sections">
+    <h2>⚙️ أقسام المشروع</h2>
 
-    <div class="section-heading">
-
-        <span>01 / KNOWLEDGE 🌸</span>
-
-        <h2>أساسيات الميكانيك</h2>
-
+    <div class="info-card">
+        <div class="emoji">🔩</div>
+        <h3>1. المحركات</h3>
         <p>
-            لنتعرف على المبادئ الأساسية التي تقوم عليها الأنظمة الميكانيكية.
+            التعرف على المحركات وكيفية تحويل الطاقة
+            إلى حركة، ودورها في تشغيل السيارات والآلات.
         </p>
-
     </div>
 
-    <div class="content-grid">
-
-        <article class="info-card">
-
-            <i data-lucide="activity"></i>
-
-            <h3>الحركة</h3>
-
-            <p>
-                تغير موضع الجسم مع مرور الزمن بالنسبة إلى مرجع معين.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <i data-lucide="zap"></i>
-
-            <h3>القوة</h3>
-
-            <p>
-                مؤثر ميكانيكي يمكنه تغيير حركة الجسم أو شكله.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <i data-lucide="battery-charging"></i>
-
-            <h3>الطاقة</h3>
-
-            <p>
-                القدرة على إنجاز شغل أو إحداث تغيير.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <i data-lucide="rotate-cw"></i>
-
-            <h3>الحركة الدورانية</h3>
-
-            <p>
-                حركة جسم حول محور معين، مثل دوران عجلة السيارة.
-            </p>
-
-        </article>
-
+    <div class="info-card">
+        <div class="emoji">⚙️</div>
+        <h3>2. التروس والآلات</h3>
+        <p>
+            اكتشاف أنواع التروس وكيفية نقل الحركة
+            والقوة بين أجزاء الآلات المختلفة.
+        </p>
     </div>
 
+    <div class="info-card">
+        <div class="emoji">🔧</div>
+        <h3>3. الأنظمة الميكانيكية</h3>
+        <p>
+            فهم كيفية عمل الأنظمة الميكانيكية
+            وترابط أجزائها لتحقيق وظائف محددة.
+        </p>
+    </div>
+
+    <div class="info-card">
+        <div class="emoji">🚗</div>
+        <h3>4. ميكانيك السيارات</h3>
+        <p>
+            التعرف على مكونات السيارات مثل المحرك
+            ونظام الفرامل وناقل الحركة ونظام التعليق.
+        </p>
+    </div>
+
+    <div class="info-card">
+        <div class="emoji">🤖</div>
+        <h3>5. التكنولوجيا والابتكار</h3>
+        <p>
+            اكتشاف الروبوتات والتقنيات الحديثة
+            ودور الهندسة الميكانيكية في تطويرها.
+        </p>
+    </div>
 </section>
 
 
-<!-- COMPONENTS -->
-<section class="section dark-section" id="components">
+<!-- أهمية الميكانيك -->
+<section class="content-section" id="importance">
+    <h2>💡 أهمية علم الميكانيك</h2>
 
-    <div class="section-heading">
-
-        <span>02 / COMPONENTS 💗</span>
-
-        <h2>المكونات الميكانيكية</h2>
-
+    <div class="info-card">
         <p>
-            اكتشفي العناصر التي تدخل في صناعة الآلات والأجهزة.
+            🔹 يساعدنا على فهم كيفية عمل الآلات والأجهزة.
         </p>
 
+        <p>
+            🔹 يساهم في تطوير وسائل النقل والسيارات.
+        </p>
+
+        <p>
+            🔹 يدخل في صناعة المصانع والمعدات.
+        </p>
+
+        <p>
+            🔹 يساعد على توفير الطاقة وتحسين الأداء.
+        </p>
+
+        <p>
+            🔹 يفتح المجال أمام الابتكار والاختراعات الحديثة.
+        </p>
     </div>
-
-    <div class="content-grid">
-
-        <article class="info-card">
-
-            <i data-lucide="settings"></i>
-
-            <h3>التروس</h3>
-
-            <p>
-                عجلات مسننة تستخدم لنقل الحركة الدورانية.
-            </p>
-
-            <button
-                class="details-btn"
-                data-title="⚙️ التروس الميكانيكية"
-                data-info="التروس عجلات مسننة تتشابك مع بعضها لنقل الحركة الدورانية والعزم بين المحاور. وتحدد أعداد الأسنان نسبة السرعة بين التروس."
-            >
-                اكتشفي المزيد ←
-            </button>
-
-        </article>
-
-
-        <article class="info-card">
-
-            <i data-lucide="circle-dot"></i>
-
-            <h3>المحاور</h3>
-
-            <p>
-                عناصر تستخدم لحمل الأجزاء الدوارة أو نقل العزم.
-            </p>
-
-            <button
-                class="details-btn"
-                data-title="🌿 المحاور"
-                data-info="المحاور عناصر ميكانيكية تدعم الأجزاء الدوارة أو تنقل العزم والحركة الدورانية، وتتعرض لقوى وأحمال مختلفة أثناء العمل."
-            >
-                اكتشفي المزيد ←
-            </button>
-
-        </article>
-
-
-        <article class="info-card">
-
-            <i data-lucide="circle"></i>
-
-            <h3>البكرات</h3>
-
-            <p>
-                عجلات تساعد في نقل الحركة بواسطة الأحزمة.
-            </p>
-
-            <button
-                class="details-btn"
-                data-title="🎀 البكرات"
-                data-info="البكرات عجلات تستخدم مع الأحزمة لنقل الحركة بين المحاور. وتؤثر أقطار البكرات في نسبة السرعة."
-            >
-                اكتشفي المزيد ←
-            </button>
-
-        </article>
-
-
-        <article class="info-card">
-
-            <i data-lucide="spring"></i>
-
-            <h3>النوابض</h3>
-
-            <p>
-                عناصر مرنة تخزن الطاقة وتحررها.
-            </p>
-
-            <button
-                class="details-btn"
-                data-title="🌸 النوابض"
-                data-info="النوابض عناصر مرنة تخزن الطاقة عند تعرضها للتشوه، ثم تستعيد شكلها تقريباً عند إزالة القوة ضمن حدود مرونتها."
-            >
-                اكتشفي المزيد ←
-            </button>
-
-        </article>
-
-    </div>
-
 </section>
 
 
-<!-- ENGINES -->
-<section class="section" id="engines">
+<!-- معرض الصور -->
+<section class="content-section" id="gallery">
+    <h2>🚗 معرض عالم الميكانيك</h2>
 
-    <div class="section-heading">
-
-        <span>03 / ENGINES 🌿</span>
-
-        <h2>عالم المحركات</h2>
-
-        <p>
-            كيف تتحول الطاقة إلى حركة؟
-        </p>
-
+    <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=90" alt="Porsche">
+        <p>PORSCHE ♡</p>
     </div>
 
-    <div class="content-grid">
-
-        <article class="info-card">
-
-            <i data-lucide="fuel"></i>
-
-            <h3>محرك الاحتراق الداخلي</h3>
-
-            <p>
-                يحول الطاقة الكيميائية للوقود إلى طاقة حرارية
-                ثم إلى شغل ميكانيكي.
-            </p>
-
-            <button
-                class="details-btn"
-                data-title="محرك الاحتراق الداخلي"
-                data-info="يعتمد محرك الاحتراق الداخلي على احتراق الوقود داخل الأسطوانات. وتدفع الغازات الناتجة المكبس، فتتحول الحركة الترددية إلى حركة دورانية بواسطة آلية المرفق."
-            >
-                اكتشفي المزيد ←
-            </button>
-
-        </article>
-
-
-        <article class="info-card">
-
-            <i data-lucide="zap"></i>
-
-            <h3>المحرك الكهربائي</h3>
-
-            <p>
-                يحول الطاقة الكهربائية إلى طاقة ميكانيكية.
-            </p>
-
-            <button
-                class="details-btn"
-                data-title="المحرك الكهربائي"
-                data-info="يعمل المحرك الكهربائي اعتماداً على التأثير الكهرومغناطيسي، حيث تنتج قوى داخل المحرك تسبب دوران الجزء المتحرك."
-            >
-                اكتشفي المزيد ←
-            </button>
-
-        </article>
-
+    <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=90" alt="محرك سيارة">
+        <p>عالم المحركات ⚙️</p>
     </div>
 
+    <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=90" alt="الهندسة">
+        <p>الهندسة والابتكار 🔧</p>
+    </div>
 </section>
 
 
-<!-- LAB -->
-<section class="section dark-section" id="lab">
+<!-- معلومات ممتعة -->
+<section class="content-section">
+    <h2>✨ هل تعلمين؟</h2>
 
-    <div class="section-heading">
-
-        <span>04 / INTERACTIVE LAB 💗</span>
-
-        <h2>مختبر الميكانيك</h2>
-
+    <div class="info-card">
         <p>
-            هنا لا نكتفي بالقراءة، بل نجرب ونكتشف!
+            🌸 الميكانيك علم قديم ساهم في تطوير الكثير
+            من الاختراعات التي غيّرت حياة الإنسان.
         </p>
 
+        <p>
+            ⚙️ التروس تساعد على تغيير السرعة
+            واتجاه الحركة ونقل القوة.
+        </p>
+
+        <p>
+            🚗 المحرك هو أحد أهم أجزاء السيارة،
+            إذ يحوّل الطاقة إلى حركة.
+        </p>
+
+        <p>
+            🤖 الهندسة الميكانيكية تدخل اليوم
+            في تصميم الروبوتات والآلات الذكية.
+        </p>
     </div>
-
-    <div class="lab-box">
-
-        <div class="lab-icon">
-
-            <i data-lucide="settings"></i>
-
-            <i data-lucide="settings"></i>
-
-        </div>
-
-        <div class="lab-controls">
-
-            <h3>🌸 محاكاة نقل الحركة</h3>
-
-            <p>
-                جربي تغيير سرعة الترس الأول ولاحظي تأثيرها
-                على الترس الثاني.
-            </p>
-
-            <label for="speed">
-                سرعة الترس القائد
-            </label>
-
-            <input
-                type="range"
-                id="speed"
-                min="10"
-                max="100"
-                value="50"
-            >
-
-            <p>
-                السرعة:
-                <strong id="speed-value">50 RPM</strong>
-            </p>
-
-            <p>
-                نسبة عدد الأسنان:
-                <strong>20 : 40</strong>
-            </p>
-
-            <p>
-                نسبة السرعة:
-                <strong>1 : 2</strong>
-            </p>
-
-            <p id="gearResult">
-                غيري السرعة لملاحظة التغيير 💗
-            </p>
-
-        </div>
-
-    </div>
-
 </section>
 
 
-<!-- QUIZ -->
-<section class="section" id="quiz">
+<!-- الخاتمة -->
+<section class="content-section">
+    <h2>💗 كلمة أخيرة</h2>
 
-    <div class="section-heading">
-
-        <span>05 / KNOWLEDGE TEST 🎀</span>
-
-        <h2>اختبري معلوماتك</h2>
-
+    <div class="info-card">
         <p>
-            هل أنت مستعدة لتحدي الميكانيك؟
+            الميكانيك ليس مجرد آلات ومحركات،
+            بل هو علم يجمع بين التفكير والإبداع
+            والابتكار لصناعة مستقبل أفضل.
         </p>
 
+        <h3>العلم بداية كل إنجاز ♡</h3>
+        <p>🌸 شكراً لزيارتكم عالمنا 🌸</p>
     </div>
-
-    <div class="quiz-box">
-
-        <div class="quiz-decoration">🌸 💗 🌿</div>
-
-        <h3 id="question">
-            ما وظيفة التروس في الأنظمة الميكانيكية؟
-        </h3>
-
-        <div id="options" class="quiz-options">
-
-            <!-- JavaScript generates the answers here -->
-
-        </div>
-
-        <p id="quiz-result" aria-live="polite"></p>
-
-        <button
-            id="next-question"
-            class="btn-primary"
-            type="button"
-            hidden
-        >
-            السؤال التالي
-        </button>
-
-    </div>
-
 </section>
 
 
-<!-- REFERENCES -->
-<section class="section dark-section" id="references">
+<!-- من نحن -->
+<section class="content-section" id="team">
+    <h2>من نحن؟ 🌸</h2>
 
-    <div class="section-heading">
+    <div class="team-card">
 
-        <span>06 / REFERENCES 🌿</span>
+        <div class="emoji">⚙️ ♡ 🌷</div>
 
-        <h2>المراجع العلمية</h2>
+        <h3>Mechanical World</h3>
 
         <p>
-            نعتمد على المعرفة العلمية والمعلومات الموثوقة.
+            مشروع مدرسي يهدف إلى التعريف بعلم الميكانيك
+            وأهميته ومكوناته وتطبيقاته في حياتنا اليومية.
         </p>
 
-    </div>
+        <h2 class="pink-title">إعداد التلميذتين</h2>
 
-    <div class="content-grid">
+        <p class="student-name">
+            كوثر بن صالح 🌞
+        </p>
 
-        <article class="info-card">
+        <p class="student-name">
+            هاجر 🌚
+        </p>
 
-            <i data-lucide="book-open"></i>
+        <h2 class="pink-title">تحت إشراف الأستاذ</h2>
 
-            <h3>الكتب العلمية</h3>
+        <p class="student-name">
+            مزغزاني سفيان
+        </p>
 
-            <p>
-                الكتب المدرسية والمراجع التعليمية في الميكانيك والفيزياء.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <i data-lucide="globe"></i>
-
-            <h3>المصادر الإلكترونية</h3>
-
-            <p>
-                يمكن إضافة روابط المصادر العلمية التي تم الاعتماد عليها.
-            </p>
-
-        </article>
+        <div class="hearts">♡ 🌸 ♡</div>
 
     </div>
-
 </section>
-
-
-<!-- ABOUT PROJECT -->
-<section class="section project-section" id="about">
-
-    <div class="section-heading">
-
-        <span>07 / OUR PROJECT ♡</span>
-
-        <h2>عن مشروعنا</h2>
-
-        <p>
-            مشروعنا يجمع بين العلم والإبداع والابتكار.
-        </p>
-
-    </div>
-
-    <div class="project-credits">
-
-        <div class="credits-decoration">
-            🌸 💗 🌷
-        </div>
-
-        <h2>Mechanical World ♡</h2>
-
-        <p>
-            مشروع تعليمي يهدف إلى التعريف بعالم الميكانيك
-            وتبسيط مفاهيم الهندسة الميكانيكية،
-            من خلال المعلومات العلمية والتطبيقات التفاعلية.
-        </p>
-
-        <div class="students-card">
-
-            <h3>🎀 إعداد الطالبتين 🎀</h3>
-
-            <div class="student-name">
-                بن صالح كوثر 🌞
-            </div>
-
-            <div class="student-name">
-                بالعربي هاجر 🌚
-            </div>
-
-            <div class="teacher">
-
-                <span>تحت إشراف الأستاذ</span>
-
-                <h3>
-                    مزغراني سفيان
-                </h3>
-
-                <div class="teacher-decoration">
-                    🌿 ⚙️ 💗
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
 
 </main>
 
 
-<!-- FOOTER -->
-<footer class="footer">
-
-    <div class="footer-flower">
-        🌸 💗 🌿
-    </div>
-
-    <h3>
-        MECHANICAL <span>WORLD ♡</span>
-    </h3>
-
-    <p>
-        الهندسة اليوم تصنع مستقبل الغد
-    </p>
-
-    <p>
-        © 2026 Mechanical World
-    </p>
-
-    <a href="#home">
-        العودة إلى الأعلى ↑
-    </a>
-
+<footer>
+    <p>♡ MECHANICAL WORLD ⚙️</p>
+    <p>Engineering • Innovation • Technology</p>
+    <p>© 2026 Mechanical World</p>
+    <p>Made with 💗</p>
 </footer>
 
 
-<!-- INFORMATION MODAL -->
-<div class="modal" aria-hidden="true">
-
-    <div class="modal-content">
-
-        <button
-            class="close-modal"
-            type="button"
-            aria-label="إغلاق النافذة"
-        >
-            ×
-        </button>
-
-        <div class="modal-decoration">
-            🌸 ♡
-        </div>
-
-        <h2 id="modal-title">
-            معلومات المكون
-        </h2>
-
-        <p id="modal-text">
-            اكتشفي المزيد عن المكونات الميكانيكية.
-        </p>
-
-    </div>
-
-</div>
-
-
-<!-- JAVASCRIPT -->
-<script src="script.js"></script>
-
 <script>
-    if (window.lucide) {
-        lucide.createIcons();
-    }
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+
+document.querySelectorAll("#menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("active");
+    });
+});
 </script>
 
 </body>
 </html>
-
 
 
 
