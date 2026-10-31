@@ -1,1370 +1,654 @@
 
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#101923">
-
-    <meta name="description" content="Mechanical World - منصة تعليمية تفاعلية لاكتشاف الهندسة الميكانيكية والأنظمة الحركية">
-
-    <meta name="author" content="Kawter Ben Saleh">
-
-    <title>Mechanical World | Engineering Platform</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <style>
-        /* =========================================
-           01. DESIGN SYSTEM
-        ========================================= */
-
-        :root {
-            --background: #101923;
-            --surface: #172431;
-            --surface-light: #1e3040;
-            --primary: #49b9e8;
-            --primary-dark: #2488b5;
-            --accent: #b9d9e8;
-            --text: #f1f5f8;
-            --muted: #9cabb8;
-            --border: rgba(185,217,232,.15);
-            --success: #48c69b;
-            --danger: #ec7777;
-
-            --radius: 20px;
-            --shadow: 0 18px 50px rgba(0,0,0,.25);
-            --transition: .3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: var(--background);
-            color: var(--text);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input {
-            font: inherit;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
-        .container {
-            width: min(1160px, 90%);
-            margin-inline: auto;
-        }
-
-        .section {
-            padding: 95px 0;
-        }
-
-        .section-heading {
-            margin-bottom: 45px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            color: var(--primary);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 25px;
-            height: 2px;
-            background: var(--primary);
-        }
-
-        .section-heading h2 {
-            font-size: clamp(28px, 5vw, 42px);
-            line-height: 1.4;
-            font-weight: 800;
-        }
-
-        .section-heading h2 span {
-            color: var(--primary);
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            margin-top: 12px;
-            max-width: 650px;
-        }
-
-        /* =========================================
-           02. HEADER
-        ========================================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(16,25,35,.94);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .navbar {
-            min-height: 82px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 20px;
-            font-weight: 800;
-            white-space: nowrap;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            display: grid;
-            place-items: center;
-            background: rgba(73,185,232,.12);
-            border: 1px solid rgba(73,185,232,.35);
-            border-radius: 12px;
-            color: var(--primary);
-            font-size: 23px;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 14px;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: var(--surface);
-            color: var(--primary);
-            border: 1px solid var(--border);
-            padding: 8px 14px;
-            border-radius: 12px;
-            font-size: 23px;
-        }
-
-        /* =========================================
-           03. HERO
-        ========================================= */
-
-        .hero {
-            position: relative;
-            padding: 105px 0 85px;
-            overflow: hidden;
-            background:
-                radial-gradient(
-                    ellipse at 80% 10%,
-                    rgba(36,136,181,.19),
-                    transparent 50%
-                ),
-                linear-gradient(180deg,#101923,#131f2c);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border: 1px solid rgba(73,185,232,.08);
-            border-radius: 50%;
-            top: -180px;
-            left: -100px;
-            box-shadow:
-                0 0 0 40px rgba(73,185,232,.025),
-                0 0 0 80px rgba(73,185,232,.02);
-        }
-
-        .hero-layout {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 55px;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 16px;
-            background: rgba(73,185,232,.09);
-            border: 1px solid rgba(73,185,232,.25);
-            color: var(--primary);
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px,6vw,67px);
-            font-weight: 900;
-            line-height: 1.35;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            display: block;
-            color: var(--primary);
-        }
-
-        .hero-description {
-            color: #b6c3ce;
-            font-size: 17px;
-            line-height: 2.1;
-            max-width: 560px;
-            margin-bottom: 30px;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 13px 25px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 700;
-            transition: var(--transition);
-            border: 1px solid transparent;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #081722;
-        }
-
-        .btn-primary:hover {
-            background: #7bd4f5;
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border-color: var(--border);
-            color: var(--text);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .hero-visual {
-            position: relative;
-        }
-
-        .hero-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 25px;
-            border: 1px solid rgba(73,185,232,.4);
-            background: var(--surface);
-            box-shadow: var(--shadow);
-        }
-
-        .hero-card img {
-            width: 100%;
-            height: 430px;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .image-overlay {
-            position: absolute;
-            inset: 45% 0 0;
-            background: linear-gradient(
-                transparent,
-                rgba(8,17,27,.92)
-            );
-            display: flex;
-            align-items: flex-end;
-            padding: 25px;
-        }
-
-        .image-overlay h3 {
-            font-size: 20px;
-        }
-
-        .image-overlay p {
-            color: var(--accent);
-            font-size: 13px;
-        }
-
-        .hero-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 8px 14px;
-            border-radius: 10px;
-            background: rgba(16,25,35,.85);
-            border: 1px solid var(--border);
-            color: var(--primary);
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        /* =========================================
-           04. STATS
-        ========================================= */
-
-        .stats {
-            padding: 30px 0;
-            background: #152330;
-            border-block: 1px solid var(--border);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 25px;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 12px;
-        }
-
-        .stat-item strong {
-            display: block;
-            font-size: 28px;
-            color: var(--primary);
-        }
-
-        .stat-item span {
-            font-size: 13px;
-            color: var(--muted);
-        }
-
-        /* =========================================
-           05. ABOUT
-        ========================================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 20px;
-        }
-
-        .about-card {
-            padding: 28px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-
-        .about-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-        }
-
-        .about-icon {
-            width: 48px;
-            height: 48px;
-            display: grid;
-            place-items: center;
-            background: rgba(73,185,232,.12);
-            color: var(--primary);
-            border-radius: 13px;
-            font-size: 23px;
-            margin-bottom: 18px;
-        }
-
-        .about-card h3 {
-            font-size: 19px;
-            margin-bottom: 9px;
-        }
-
-        .about-card p {
-            color: var(--muted);
-            font-size: 14px;
-            line-height: 2;
-        }
-
-        /* =========================================
-           06. MECHANICAL SIMULATION
-        ========================================= */
-
-        .lab-section {
-            background: #131f2b;
-            border-block: 1px solid var(--border);
-        }
-
-        .content-card {
-            max-width: 950px;
-            margin-inline: auto;
-            padding: 35px;
-            border-radius: 24px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-        }
-
-        .simulation {
-            text-align: center;
-        }
-
-        .lab-description {
-            color: var(--muted);
-            margin-bottom: 15px;
-        }
-
-        .gears {
-            min-height: 230px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            direction: ltr;
-            overflow: hidden;
-        }
-
-        .gear-one,
-        .gear-two {
-            display: inline-block;
-            font-size: clamp(90px,17vw,150px);
-            line-height: 1;
-            transform-origin: center;
-            user-select: none;
-            filter: drop-shadow(0 5px 15px rgba(73,185,232,.2));
-        }
-
-        .gear-two {
-            margin-left: -12px;
-        }
-
-        .speed-control {
-            max-width: 500px;
-            margin: 25px auto;
-        }
-
-        .speed-control label {
-            display: block;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        #speed-value {
-            color: var(--primary);
-            font-size: 25px;
-        }
-
-        #speed {
-            width: 100%;
-            accent-color: var(--primary);
-            cursor: pointer;
-        }
-
-        .gear-note {
-            color: var(--accent);
-            font-size: 14px;
-        }
-
-        /* =========================================
-           07. QUIZ
-        ========================================= */
-
-        .quiz {
-            text-align: center;
-        }
-
-        #question {
-            font-size: 19px;
-            margin-bottom: 22px;
-            line-height: 2;
-        }
-
-        #options {
-            display: grid;
-            gap: 12px;
-        }
-
-        .option {
-            width: 100%;
-            padding: 15px;
-            background: #1e3040;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            color: var(--text);
-            text-align: right;
-            transition: var(--transition);
-        }
-
-        .option:hover:not(:disabled) {
-            border-color: var(--primary);
-            background: #263e50;
-        }
-
-        .option:disabled {
-            cursor: default;
-        }
-
-        .option.correct {
-            background: rgba(72,198,155,.15);
-            border-color: var(--success);
-        }
-
-        .option.wrong {
-            background: rgba(236,119,119,.15);
-            border-color: var(--danger);
-        }
-
-        #quiz-result {
-            min-height: 35px;
-            margin: 20px 0;
-            color: var(--accent);
-        }
-
-        #next-question {
-            display: none;
-            border: none;
-            border-radius: 12px;
-            padding: 12px 27px;
-            background: var(--primary);
-            color: #081722;
-            font-weight: 800;
-        }
-
-        /* =========================================
-           08. PROJECT INFORMATION
-        ========================================= */
-
-        .project-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 35px;
-            padding: 35px;
-            border: 1px solid var(--border);
-            background: var(--surface);
-            border-radius: 22px;
-        }
-
-        .project-box h3 {
-            font-size: 23px;
-            margin-bottom: 12px;
-        }
-
-        .project-box p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .project-details {
-            display: grid;
-            gap: 15px;
-        }
-
-        .detail {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border);
-            font-size: 14px;
-        }
-
-        .detail span:first-child {
-            color: var(--muted);
-        }
-
-        .detail strong {
-            color: var(--primary);
-            text-align: left;
-        }
-
-        /* =========================================
-           09. MODAL
-        ========================================= */
-
-        .modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 2000;
-            background: rgba(0,0,0,.8);
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            width: min(450px,100%);
-            padding: 30px;
-            background: var(--surface);
-            border: 1px solid var(--primary);
-            border-radius: 20px;
-            text-align: center;
-        }
-
-        .modal-content h2 {
-            margin-bottom: 15px;
-        }
-
-        .modal-content p {
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
-
-        .close-modal {
-            border: none;
-            border-radius: 10px;
-            background: var(--primary);
-            color: #081722;
-            padding: 10px 25px;
-            font-weight: 700;
-        }
-
-        /* =========================================
-           10. FOOTER
-        ========================================= */
-
-        footer {
-            background: #0b131c;
-            border-top: 1px solid var(--border);
-            padding: 45px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-            flex-wrap: wrap;
-            padding-bottom: 25px;
-        }
-
-        .footer-brand {
-            font-size: 20px;
-            font-weight: 800;
-        }
-
-        .footer-brand span {
-            color: var(--primary);
-        }
-
-        .footer-description {
-            max-width: 400px;
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .copyright {
-            text-align: center;
-            color: #718291;
-            border-top: 1px solid var(--border);
-            padding-top: 20px;
-            font-size: 12px;
-        }
-
-        /* =========================================
-           11. ACCESSIBILITY
-        ========================================= */
-
-        a:focus-visible,
-        button:focus-visible,
-        input:focus-visible {
-            outline: 3px solid var(--primary);
-            outline-offset: 4px;
-        }
-
-        .skip-link {
-            position: absolute;
-            top: -100px;
-            right: 15px;
-            background: var(--primary);
-            color: #081722;
-            padding: 10px;
-            z-index: 3000;
-        }
-
-        .skip-link:focus {
-            top: 10px;
-        }
-
-        /* =========================================
-           12. RESPONSIVE DESIGN
-        ========================================= */
-
-        @media (max-width: 850px) {
-
-            .hero-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .hero-content {
-                text-align: center;
-            }
-
-            .hero-description {
-                margin-inline: auto;
-            }
-
-            .hero-actions {
-                justify-content: center;
-            }
-
-            .hero-visual {
-                width: min(600px,100%);
-                margin-inline: auto;
-            }
-
-            .nav-links {
-                gap: 15px;
-            }
-        }
-
-        @media (max-width: 650px) {
-
-            .container {
-                width: 91%;
-            }
-
-            .section {
-                padding: 65px 0;
-            }
-
-            .navbar {
-                min-height: 72px;
-            }
-
-            .logo {
-                font-size: 16px;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: 0;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                padding: 12px 5%;
-                background: #172431;
-                border-bottom: 1px solid var(--primary);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 12px;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .hero {
-                padding: 65px 0;
-            }
-
-            .hero h1 {
-                font-size: 43px;
-            }
-
-            .hero-description {
-                font-size: 15px;
-            }
-
-            .hero-card img {
-                height: 300px;
-            }
-
-            .stats-grid {
-                gap: 5px;
-            }
-
-            .stat-item strong {
-                font-size: 22px;
-            }
-
-            .stat-item span {
-                font-size: 11px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .content-card {
-                padding: 22px 16px;
-            }
-
-            .project-box {
-                grid-template-columns: 1fr;
-                padding: 22px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                transition-duration: .01ms !important;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<a href="#main-content" class="skip-link">
-    الانتقال إلى المحتوى
-</a>
-
-<!-- HEADER -->
-
-<header>
-
-    <nav class="navbar container">
-
-        <a href="#home" class="logo">
-            <span class="logo-icon">⚙</span>
-            <span>Mechanical <span>World</span></span>
-        </a>
-
-        <button
-            class="menu-toggle"
-            aria-label="فتح القائمة"
-            aria-expanded="false">
-            ☰
-        </button>
-
-        <div class="nav-links">
-
-            <a href="#home">الرئيسية</a>
-            <a href="#about">عن الميكانيك</a>
-            <a href="#simulation">المختبر</a>
-            <a href="#quiz">الاختبار</a>
-            <a href="#project">المشروع</a>
-
-        </div>
-
-    </nav>
-
-</header>
-
-
-<main id="main-content">
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="container hero-layout">
-
-        <div class="hero-content">
-
-            <div class="hero-label">
-                ENGINEERING & TECHNOLOGY
-            </div>
-
-            <h1>
-                اكتشفي عالم
-                <span>الهندسة الميكانيكية</span>
-            </h1>
-
-            <p class="hero-description">
-
-                رحلة علمية لفهم الأنظمة الميكانيكية،
-                والقوى والحركة، وكيفية عمل الآلات
-                والتقنيات التي تشكل عالمنا الحديث.
-
-            </p>
-
-            <div class="hero-actions">
-
-                <a href="#about" class="btn btn-primary">
-                    اكتشفي المزيد ←
-                </a>
-
-                <a href="#simulation" class="btn btn-outline">
-                    ⚙ جربي المختبر
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-visual">
-
-            <div class="hero-card">
-
-                <div class="hero-badge">
-                    ENGINEERING PROJECT
-                </div>
-
-                <img
-                    src="./car.jpg"
-                    alt="سيارة رياضية سوداء بتصميم هندسي"
-                    loading="eager">
-
-                <div class="image-overlay">
-
-                    <div>
-                        <h3>الهندسة في الواقع</h3>
-                        <p>من المبادئ الفيزيائية إلى التطبيقات العملية</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- STATS -->
-
-<section class="stats">
-
-    <div class="container stats-grid">
-
-        <div class="stat-item">
-            <strong>01</strong>
-            <span>المعرفة العلمية</span>
-        </div>
-
-        <div class="stat-item">
-            <strong>02</strong>
-            <span>التطبيق العملي</span>
-        </div>
-
-        <div class="stat-item">
-            <strong>03</strong>
-            <span>التعلم التفاعلي</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ABOUT -->
-
-<section class="section" id="about">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">ABOUT MECHANICS</span>
-
-            <h2>
-                ما هي <span>الهندسة الميكانيكية؟</span>
-            </h2>
-
-            <p>
-                تعد الهندسة الميكانيكية من أهم فروع الهندسة،
-                وتهتم بدراسة الحركة والقوى والطاقة وتصميم الأنظمة والآلات.
-            </p>
-
-        </div>
-
-
-        <div class="about-grid">
-
-            <article class="about-card">
-
-                <div class="about-icon">⚙</div>
-
-                <h3>علم الحركة</h3>
-
-                <p>
-                    دراسة حركة الأجسام ووصف سرعتها وتسارعها
-                    دون التركيز على القوى المسببة للحركة.
-                </p>
-
-            </article>
-
-
-            <article class="about-card">
-
-                <div class="about-icon">🔩</div>
-
-                <h3>الآلات والأنظمة</h3>
-
-                <p>
-                    دراسة مكونات الآلات مثل التروس والمحاور
-                    والنوابض وآليات نقل الحركة.
-                </p>
-
-            </article>
-
-
-            <article class="about-card">
-
-                <div class="about-icon">⚡</div>
-
-                <h3>الطاقة والقوى</h3>
-
-                <p>
-                    فهم تأثير القوى وتحولات الطاقة
-                    في الأنظمة الميكانيكية المختلفة.
-                </p>
-
-            </article>
-
-
-            <article class="about-card">
-
-                <div class="about-icon">🚗</div>
-
-                <h3>التطبيقات الحديثة</h3>
-
-                <p>
-                    تدخل الميكانيك في صناعة السيارات
-                    والطائرات والروبوتات والمعدات الصناعية.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SIMULATION -->
-
-<section class="section lab-section" id="simulation">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">INTERACTIVE LABORATORY</span>
-
-            <h2>
-                المختبر <span>الميكانيكي</span>
-            </h2>
-
-            <p>
-                استكشفي العلاقة بين سرعة الدوران وحركة التروس
-                من خلال تجربة تفاعلية.
-            </p>
-
-        </div>
-
-
-        <div class="content-card simulation">
-
-            <p class="lab-description">
-                استخدمي شريط التحكم لتغيير سرعة الدوران.
-            </p>
-
-            <div class="gears">
-
-                <div class="gear-one" aria-label="الترس الأول">
-                    ⚙️
-                </div>
-
-                <div class="gear-two" aria-label="الترس الثاني">
-                    ⚙️
-                </div>
-
-            </div>
-
-            <div class="speed-control">
-
-                <label for="speed">
-
-                    سرعة الدوران:
-
-                    <span id="speed-value">10</span>
-
-                </label>
-
-                <input
-                    type="range"
-                    id="speed"
-                    min="0"
-                    max="100"
-                    value="10"
-                    aria-label="تغيير سرعة دوران التروس">
-
-            </div>
-
-            <p class="gear-note">
-                ملاحظة: يدور التروسان المتعشقان في اتجاهين متعاكسين.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- QUIZ -->
-
-<section class="section" id="quiz">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">KNOWLEDGE ASSESSMENT</span>
-
-            <h2>
-                اختبري <span>معلوماتك</span>
-            </h2>
-
-            <p>
-                اختبري فهمك للمفاهيم الأساسية في الهندسة الميكانيكية.
-            </p>
-
-        </div>
-
-
-        <div class="content-card quiz">
-
-            <h3 id="question">
-                استعدي لاختبار معلوماتك!
-            </h3>
-
-            <div id="options"></div>
-
-            <p id="quiz-result" aria-live="polite"></p>
-
-            <button id="next-question" type="button">
-                السؤال التالي
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PROJECT -->
-
-<section class="section lab-section" id="project">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="eyebrow">PROJECT INFORMATION</span>
-
-            <h2>
-                معلومات <span>المشروع</span>
-            </h2>
-
-            <p>
-                مشروع تعليمي يهدف إلى تقديم المفاهيم الميكانيكية
-                بطريقة منظمة وتفاعلية.
-            </p>
-
-        </div>
-
-
-        <div class="project-box">
-
-            <div>
-
-                <h3>Mechanical World</h3>
-
-                <p>
-                    منصة تعليمية مصغرة للتعرف على عالم الميكانيك
-                    واستكشاف المبادئ الأساسية للحركة والآلات
-                    من خلال المحتوى والتجارب التفاعلية.
-                </p>
-
-            </div>
+/* =====================================
+   MECHANICAL WORLD
+   PREMIUM PINK DESIGN
+===================================== */
+
+:root {
+    --bg: #100d13;
+    --bg-card: #1b1720;
+    --pink: #f08ab9;
+    --pink-light: #ffc1dc;
+    --pink-dark: #bd5689;
+    --text: #fff3f8;
+    --muted: #b8a9b3;
+    --border: rgba(240,138,185,.25);
+    --shadow: 0 15px 45px rgba(240,138,185,.10);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.9;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input {
+    font: inherit;
+}
+
+.container {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
+/* HEADER */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(16,13,19,.94);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--pink-light);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--pink);
+}
+
+.menu-toggle {
+    display: none;
+    background: var(--bg-card);
+    color: var(--pink);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    padding: 85px 0 65px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at top, rgba(240,138,185,.14), transparent 65%);
+}
+
+.hero-label {
+    color: var(--pink-light);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 8vw, 82px);
+    font-weight: 900;
+    line-height: 1.35;
+    margin: 20px 0;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--pink);
+}
+
+.hero-content > p {
+    max-width: 750px;
+    margin: 0 auto 30px;
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 45px;
+}
+
+/* BUTTONS */
+
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+    color: #210e19;
+    box-shadow: 0 8px 25px rgba(240,138,185,.2);
+}
+
+.secondary-btn {
+    color: var(--pink-light);
+    background: transparent;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+/* HERO IMAGE */
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 2px solid var(--pink-dark);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(240,138,185,.12);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    background: linear-gradient(transparent, rgba(0,0,0,.85));
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+/* SECTIONS */
+
+.section {
+    padding: 90px 0;
+}
+
+.mechanics-section {
+    background: rgba(255,255,255,.015);
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 45px;
+}
+
+.section-heading > span {
+    color: var(--pink);
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+.section-heading h2 {
+    font-size: clamp(27px, 5vw, 42px);
+    margin: 12px 0;
+    color: var(--pink-light);
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+/* CARDS */
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.info-card {
+    padding: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: .35s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--pink);
+    box-shadow: var(--shadow);
+}
+
+.info-card > i {
+    width: 48px;
+    height: 48px;
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+.info-card h3 {
+    color: var(--pink-light);
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.info-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.info-button {
+    margin-top: 20px;
+    padding: 8px 18px;
+    background: rgba(240,138,185,.1);
+    color: var(--pink-light);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.info-button:hover {
+    background: var(--pink);
+    color: #210e19;
+}
+
+/* SIMULATION */
+
+.simulation-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+}
+
+.gears-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 20px auto 45px;
+}
+
+.gear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--pink);
+}
+
+.gear-one {
+    font-size: 125px;
+}
+
+.gear-two {
+    font-size: 90px;
+    margin-right: -12px;
+}
+
+.gear svg {
+    width: 1em;
+    height: 1em;
+}
+
+.speed-control label {
+    display: block;
+    color: var(--pink-light);
+    margin-bottom: 15px;
+    font-size: 19px;
+}
+
+.speed-control input {
+    width: min(100%, 450px);
+    accent-color: var(--pink);
+    cursor: pointer;
+}
+
+.simulation-note {
+    color: var(--muted);
+    margin-top: 25px;
+}
+
+/* QUIZ */
+
+.quiz-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 35px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+}
+
+.question {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--pink-light);
+    margin-bottom: 25px;
+}
+
+.options {
+    display: grid;
+    gap: 13px;
+}
+
+.option {
+    width: 100%;
+    padding: 14px;
+    background: #241e29;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: right;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.option:hover:not(:disabled) {
+    border-color: var(--pink);
+    background: rgba(240,138,185,.1);
+}
+
+.option.correct {
+    background: rgba(60,180,110,.15);
+    border-color: #58c98a;
+}
+
+.option.wrong {
+    background: rgba(220,70,90,.15);
+    border-color: #e36b7d;
+}
+
+.option:disabled {
+    cursor: default;
+}
+
+#quiz-result {
+    color: var(--pink-light);
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+/* CONCLUSION */
+
+.conclusion-box {
+    max-width: 850px;
+    margin: auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #241b27, #17121a);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    text-align: center;
+}
+
+.conclusion-box p {
+    color: var(--muted);
+    font-size: 17px;
+}
+
+.conclusion-box h3 {
+    color: var(--pink);
+    margin-top: 25px;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 60px 0 25px;
+    text-align: center;
+    background: #0a080d;
+    border-top: 1px solid var(--border);
+}
+
+.footer-logo {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--pink);
+}
+
+.footer > .container > p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+.footer-line {
+    height: 1px;
+    background: var(--border);
+    margin: 30px 0;
+}
+
+.project-credits {
+    padding: 25px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    max-width: 450px;
+    margin: auto;
+    background: var(--bg-card);
+}
+
+.project-credits h3 {
+    color: var(--pink);
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.project-credits p {
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.copyright {
+    margin-top: 30px;
+    color: #837582;
+    font-size: 12px;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    padding: 20px;
+    background: rgba(0,0,0,.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+    width: min(500px, 100%);
+    padding: 40px 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--pink);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.modal-content h2 {
+    color: var(--pink);
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: var(--muted);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    border: none;
+    background: transparent;
+    color: var(--pink);
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* REVEAL ANIMATION */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--pink-light);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 85px;
+        right: 5%;
+        left: 5%;
+        padding: 20px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .hero {
+        padding-top: 55px;
+    }
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+    .hero-image img {
+        height: 260px;
+    }
+
+    .image-caption {
+        font-size: 10px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .simulation-box,
+    .quiz-box,
+    .conclusion-box {
+        padding: 22px;
+    }
+
+    .gear-one {
+        font-size: 95px;
+    }
+
+    .gear-two {
+        font-size: 70px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+}
 
-
-            <div class="project-details">
-
-                <div class="detail">
-                    <span>إعداد المشروع</span>
-                    <strong>كوثر بن صالح</strong>
-                </div>
-
-                <div class="detail">
-                    <span>الأستاذ المشرف</span>
-                    <strong>مزغراني سفيان</strong>
-                </div>
-
-                <div class="detail">
-                    <span>نوع المشروع</span>
-                    <strong>مشروع مدرسي</strong>
-                </div>
-
-                <div class="detail">
-                    <span>المجال</span>
-                    <strong>الهندسة الميكانيكية</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-</main>
-
-
-<!-- MODAL -->
-
-<div class="modal" aria-hidden="true">
-
-    <div class="modal-content">
-
-        <h2 id="modal-title">
-            معلومات إضافية
-        </h2>
-
-        <p id="modal-text"></p>
-
-        <button class="close-modal" type="button">
-            إغلاق
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- FOOTER -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-content">
-
-            <div>
-
-                <div class="footer-brand">
-                    Mechanical <span>World</span>
-                </div>
-
-                <p class="footer-description">
-                    استكشاف العلم، فهم الحركة، واكتشاف عالم الهندسة.
-                </p>
-
-            </div>
-
-            <div class="footer-description">
-
-                إعداد: كوثر بن صالح
-
-                <br>
-
-                إشراف: الأستاذ مزغراني سفيان
-
-            </div>
-
-        </div>
-
-        <div class="copyright">
-            © 2026 Mechanical World. مشروع تعليمي.
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- JAVASCRIPT -->
-
-<script src="script.js" defer></script>
-
-</body>
-</html>
 
 
 
