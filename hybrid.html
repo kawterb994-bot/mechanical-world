@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>السيارات الهجينة | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a45c;--black:#090909;--card:#151515;--white:#f5f5f5;--muted:#aaa}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;background:var(--black);color:var(--white);line-height:1.9}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:rgba(9,9,9,.97);border-bottom:1px solid #292929;padding:15px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:19px;letter-spacing:1px}
+.logo span{color:var(--gold)}
+.back{border:1px solid var(--gold);color:var(--gold);padding:7px 17px;border-radius:5px;font-size:13px}
+.hero{min-height:420px;padding:75px 8%;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.48)),url('https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=1800&q=85') center/cover}
+.tag{color:var(--gold);font-weight:800;letter-spacing:2px}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.4;margin:12px 0}
+.hero p{max-width:700px;color:#ddd}
+.container{width:min(1100px,90%);margin:auto}
+section{padding:65px 0;border-bottom:1px solid #242424}
+.section-title{font-size:27px;margin-bottom:12px}
+.section-title span{color:var(--gold)}
+.subtitle{color:var(--muted);margin-bottom:25px}
+.card{background:var(--card);border:1px solid #292929;padding:23px;border-radius:12px;margin:15px 0}
+.card h3{color:var(--gold);margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.number{font-size:27px;color:var(--gold);font-weight:900}
+ul{padding-right:23px}
+li{margin:7px 0}
+.gold{color:var(--gold);font-weight:700}
+table{width:100%;border-collapse:collapse;min-width:570px}
+th,td{padding:13px;text-align:right;border:1px solid #333}
+th{background:#242016;color:var(--gold)}
+td{background:#141414}
+.table-wrap{overflow-x:auto;border-radius:8px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin:25px 0}
+.flow span{background:#211d14;border:1px solid var(--gold);color:var(--gold);padding:12px 15px;border-radius:7px;font-weight:700}
+.flow b{color:var(--gold)}
+.warning{border-right:4px solid #c98b45;background:#211a12}
+.quiz-question{margin:20px 0;padding:20px;background:#111;border:1px solid #333;border-radius:10px}
+.quiz-question p{font-weight:700;margin-bottom:10px}
+.quiz-question label{display:block;padding:7px;cursor:pointer;color:#ddd}
+.quiz-question input{accent-color:var(--gold);margin-left:8px}
+.btn{border:0;background:var(--gold);color:#111;padding:12px 25px;border-radius:6px;font-family:inherit;font-weight:900;cursor:pointer;margin-top:15px}
+#result{margin-top:20px;padding:18px;border-radius:9px;display:none}
+footer{text-align:center;padding:35px 15px;color:var(--muted)}
+footer strong{color:var(--gold)}
+@media(max-width:600px){header{padding:12px 5%}.logo{font-size:15px}.hero{padding:55px 6%;min-height:350px}section{padding:45px 0}.section-title{font-size:23px}}
+</style>
+</head>
+<body>
+
+<header>
+<a href="index.html" class="logo">MECHANICAL <span>WORLD</span></a>
+<a href="index.html" class="back">← الرئيسية</a>
+</header>
+
+<div class="hero">
+<div class="tag">AUTOMOTIVE ENGINEERING / HYBRID TECHNOLOGY</div>
+<h1>السيارات الهجينة<br>HYBRID CARS</h1>
+<p>اكتشف تكنولوجيا الجمع بين المحرك الحراري والمحرك الكهربائي، وكيف تساهم السيارات الهجينة في تحسين كفاءة استهلاك الوقود وتقليل الانبعاثات.</p>
+</div>
+
+<main class="container">
+
+<section>
+<h2 class="section-title"><span>01.</span> مقدمة عن السيارات الهجينة</h2>
+<p>السيارة الهجينة هي مركبة تستخدم مصدرين أو أكثر للدفع، وأكثر الأنظمة انتشاراً هو الجمع بين محرك احتراق داخلي يعمل بالبنزين ومحرك كهربائي يعمل بالطاقة المخزنة في بطارية. يقوم نظام التحكم بتنسيق عمل المحركين حسب ظروف القيادة والسرعة واحتياجات الطاقة.</p>
+<div class="card">
+<h3>لماذا ظهرت السيارات الهجينة؟</h3>
+<ul>
+<li>تحسين كفاءة استهلاك الوقود.</li>
+<li>تقليل الانبعاثات في ظروف تشغيل معينة.</li>
+<li>استرجاع جزء من طاقة الحركة أثناء الكبح.</li>
+<li>توفير قيادة كهربائية في بعض الأنواع والظروف.</li>
+<li>الجمع بين مدى المحرك الحراري ومساعدة المحرك الكهربائي.</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>02.</span> المكونات الرئيسية</h2>
+<p class="subtitle">تتكون السيارة الهجينة من مجموعة أنظمة ميكانيكية وكهربائية وإلكترونية مترابطة.</p>
+<div class="grid">
+<div class="card"><div class="number">01</div><h3>محرك الاحتراق الداخلي</h3><p>يحول الطاقة الكيميائية للوقود إلى طاقة ميكانيكية لتشغيل المركبة أو شحن البطارية حسب تصميم النظام.</p></div>
+<div class="card"><div class="number">02</div><h3>المحرك الكهربائي</h3><p>يحول الطاقة الكهربائية إلى حركة، ويساعد المحرك الحراري أو يدفع السيارة وحده في بعض الظروف.</p></div>
+<div class="card"><div class="number">03</div><h3>البطارية الهجينة</h3><p>تخزن الطاقة الكهربائية اللازمة لتشغيل المحرك الكهربائي، وتختلف سعتها وكيمياؤها حسب السيارة.</p></div>
+<div class="card"><div class="number">04</div><h3>العاكس Inverter</h3><p>يحول التيار المستمر DC القادم من البطارية إلى تيار متناوب AC للمحرك الكهربائي، وقد ينظم التحويل في الاتجاه المعاكس.</p></div>
+<div class="card"><div class="number">05</div><h3>وحدة التحكم الإلكترونية</h3><p>تنسق بين المحركين والبطارية وتحدد مصدر الطاقة الأنسب حسب ظروف القيادة.</p></div>
+<div class="card"><div class="number">06</div><h3>ناقل الحركة</h3><p>ينقل القوة إلى العجلات، وقد يكون ناقلاً تقليدياً أو نظاماً مخصصاً للسيارات الهجينة.</p></div>
+<div class="card"><div class="number">07</div><h3>مولد كهربائي</h3><p>يحول الطاقة الميكانيكية إلى طاقة كهربائية، وقد يكون مدمجاً مع المحرك الكهربائي.</p></div>
+<div class="card"><div class="number">08</div><h3>نظام الكبح المتجدد</h3><p>يستعيد جزءاً من طاقة حركة السيارة أثناء التباطؤ ويحولها إلى طاقة كهربائية لتخزينها.</p></div>
+<div class="card"><div class="number">09</div><h3>نظام التبريد</h3><p>يحافظ على درجات حرارة مناسبة للبطارية والإلكترونيات والمحركات حسب تصميم المركبة.</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>03.</span> كيف تعمل السيارة الهجينة؟</h2>
+<p>يعتمد تشغيل السيارة الهجينة على إدارة ذكية للطاقة. لا يعمل المحركان دائماً في الوقت نفسه، بل يختار النظام طريقة الدفع المناسبة حسب التسارع والسرعة وشحن البطارية.</p>
+<div class="grid">
+<div class="card"><h3>الانطلاق بسرعات منخفضة</h3><p>قد تتحرك السيارة بالمحرك الكهربائي وحده إذا كانت البطارية والظروف تسمحان بذلك.</p></div>
+<div class="card"><h3>التسارع القوي</h3><p>يمكن أن يعمل المحرك الحراري والكهربائي معاً لتوفير قوة أكبر للعجلات.</p></div>
+<div class="card"><h3>السرعة الثابتة</h3><p>يدير نظام التحكم توزيع الحمل بين المحركين لتحقيق كفاءة مناسبة.</p></div>
+<div class="card"><h3>التباطؤ والكبح</h3><p>يعمل المحرك الكهربائي كمولد لاستعادة جزء من الطاقة الحركية.</p></div>
+<div class="card"><h3>التوقف</h3><p>يمكن إيقاف المحرك الحراري تلقائياً في ظروف معينة لتقليل استهلاك الوقود.</p></div>
+<div class="card"><h3>انخفاض شحن البطارية</h3><p>قد يعمل المحرك الحراري لتوفير الطاقة اللازمة ودعم شحن البطارية وفق استراتيجية التحكم.</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>04.</span> أنواع السيارات الهجينة</h2>
+<div class="card">
+<h3>1. الهجينة الخفيفة Mild Hybrid (MHEV)</h3>
+<p>تستخدم محركاً كهربائياً صغيراً أو مولداً مساعداً لدعم محرك الاحتراق وتحسين كفاءته. لا تستطيع معظم هذه الأنظمة قيادة السيارة بالكهرباء وحدها.</p>
+</div>
+<div class="card">
+<h3>2. الهجينة الكاملة Full Hybrid (HEV)</h3>
+<p>تستطيع العمل بالمحرك الحراري أو الكهربائي أو كليهما معاً، ويمكنها السير كهربائياً لمسافات قصيرة وفي ظروف محددة دون الحاجة إلى شحن خارجي.</p>
+</div>
+<div class="card">
+<h3>3. الهجينة القابلة للشحن Plug-in Hybrid (PHEV)</h3>
+<p>تحتوي على بطارية أكبر يمكن شحنها من مصدر كهربائي خارجي، وتوفر عادة مدى كهربائياً أطول من الهجينة التقليدية.</p>
+</div>
+<div class="table-wrap">
+<table>
+<tr><th>النوع</th><th>الشحن الخارجي</th><th>القيادة الكهربائية وحدها</th></tr>
+<tr><td>MHEV</td><td>عادة لا</td><td>عادة لا</td></tr>
+<tr><td>HEV</td><td>لا</td><td>نعم، لمسافة وظروف محددة</td></tr>
+<tr><td>PHEV</td><td>نعم</td><td>نعم، بمدى أكبر عادة</td></tr>
+</table>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>05.</span> نظام الكبح المتجدد</h2>
+<p>من أهم التقنيات الموجودة في السيارات الهجينة هي Regenerative Braking. عندما يرفع السائق قدمه عن دواسة التسارع أو يضغط على الفرامل، يمكن للمحرك الكهربائي أن يعمل كمولد، فيحول جزءاً من طاقة حركة السيارة إلى طاقة كهربائية تعود إلى البطارية.</p>
+<div class="flow">
+<span>حركة السيارة</span><b>←</b>
+<span>المحرك كمولد</span><b>←</b>
+<span>طاقة كهربائية</span><b>←</b>
+<span>البطارية</span>
+</div>
+<div class="card">
+<h3>فوائد الكبح المتجدد</h3>
+<ul>
+<li>استعادة جزء من الطاقة التي كانت ستتحول إلى حرارة أثناء الكبح.</li>
+<li>المساعدة في تحسين كفاءة استهلاك الوقود.</li>
+<li>تقليل الاعتماد على الفرامل الاحتكاكية في بعض ظروف القيادة.</li>
+<li>المساهمة في شحن البطارية أثناء الحركة.</li>
+</ul>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>06.</span> مزايا وعيوب السيارات الهجينة</h2>
+<div class="grid">
+<div class="card">
+<h3>المزايا</h3>
+<ul>
+<li>استهلاك أقل للوقود في كثير من ظروف القيادة.</li>
+<li>انبعاثات أقل في ظروف تشغيل مناسبة.</li>
+<li>استعادة الطاقة أثناء الكبح.</li>
+<li>هدوء أكبر عند القيادة الكهربائية.</li>
+<li>مدى جيد بفضل وجود محرك احتراق في معظم الأنواع.</li>
+</ul>
+</div>
+<div class="card">
+<h3>التحديات والعيوب</h3>
+<ul>
+<li>تعقيد أكبر في أنظمة الدفع.</li>
+<li>تكلفة إصلاح بعض المكونات قد تكون مرتفعة.</li>
+<li>وزن إضافي بسبب البطارية والمحركات.</li>
+<li>تحتاج إلى فنيين مؤهلين للصيانة المتخصصة.</li>
+<li>أداء البطارية يتأثر بالعمر ودرجة الحرارة والاستخدام.</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>07.</span> الفرق بين الهجينة والكهربائية</h2>
+<div class="table-wrap">
+<table>
+<tr><th>وجه المقارنة</th><th>السيارة الهجينة</th><th>السيارة الكهربائية</th></tr>
+<tr><td>مصدر الدفع</td><td>محرك حراري وكهربائي غالباً</td><td>محرك كهربائي</td></tr>
+<tr><td>الوقود</td><td>تستخدم الوقود في الأنواع التي تضم محرك احتراق</td><td>لا تحتاج إلى بنزين أو ديزل للدفع</td></tr>
+<tr><td>البطارية</td><td>تكون أصغر عادة في HEV من السيارات الكهربائية</td><td>بطارية كبيرة للطاقة الأساسية</td></tr>
+<tr><td>الشحن الخارجي</td><td>مطلوب في PHEV فقط عادة</td><td>ضروري لإعادة شحن البطارية</td></tr>
+<tr><td>العادم</td><td>موجود في الأنواع ذات محرك الاحتراق</td><td>لا يوجد عادم لمحرك احتراق</td></tr>
+</table>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>08.</span> الصيانة وتشخيص الأعطال</h2>
+<div class="grid">
+<div class="card"><h3>البطارية</h3><p>فحص حالة البطارية ودرجات الحرارة ونظام إدارة البطارية وفق تعليمات الشركة.</p></div>
+<div class="card"><h3>نظام التبريد</h3><p>فحص دوائر تبريد البطارية والإلكترونيات والمحرك عند وجودها.</p></div>
+<div class="card"><h3>المحرك الحراري</h3><p>الالتزام بتغيير الزيت والفلاتر وفحص نظام الإشعال والوقود حسب جدول الصيانة.</p></div>
+<div class="card"><h3>الفرامل</h3><p>فحص الأقراص والبطانات وسائل الفرامل، حتى مع وجود الكبح المتجدد.</p></div>
+<div class="card"><h3>العاكس والمحرك الكهربائي</h3><p>تشخيص رموز الأعطال وفحص التوصيلات والأنظمة الإلكترونية لدى مختص.</p></div>
+<div class="card"><h3>ناقل الحركة</h3><p>فحصه وصيانته وفق مواصفات الشركة المصنعة.</p></div>
+</div>
+<div class="card warning">
+<h3>تحذير السلامة الكهربائية</h3>
+<p>تحتوي السيارات الهجينة على دوائر جهد عالٍ قد تكون خطيرة أو مميتة. لا تلمس الكابلات البرتقالية أو مكونات الجهد العالي، ولا تحاول فتح البطارية أو إصلاحها بنفسك. يجب أن يتولى العمل فني مدرب ومؤهل مع اتباع إجراءات العزل والسلامة الخاصة بالمركبة.</p>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>09.</span> أمثلة على السيارات الهجينة</h2>
+<div class="grid">
+<div class="card"><h3>Toyota Prius</h3><p>من أشهر السيارات الهجينة، وتستخدم نظاماً يجمع محرك الاحتراق والمحرك الكهربائي.</p></div>
+<div class="card"><h3>Toyota Corolla Hybrid</h3><p>نسخة هجينة من سيارة كورولا تعتمد على نظام دفع يجمع الطاقة الحرارية والكهربائية.</p></div>
+<div class="card"><h3>Hyundai IONIQ Hybrid</h3><p>سيارة هجينة صممت لتحقيق كفاءة جيدة في استهلاك الوقود.</p></div>
+<div class="card"><h3>BMW 330e</h3><p>مثال على سيارة هجينة قابلة للشحن Plug-in Hybrid تجمع محرك البنزين مع منظومة كهربائية.</p></div>
+</div>
+</section>
+
+<section>
+<h2 class="section-title"><span>10.</span> اختبار معلوماتك</h2>
+<p class="subtitle">أجب عن الأسئلة الثمانية ثم اضغط على تصحيح الاختبار.</p>
+<form id="quiz">
+<div class="quiz-question"><p>1. ما المقصود بالسيارة الهجينة؟</p>
+<label><input type="radio" name="q1" value="a"> سيارة تعمل بالديزل فقط</label>
+<label><input type="radio" name="q1" value="b"> سيارة تجمع مصدرين للدفع مثل الحراري والكهربائي</label>
+<label><input type="radio" name="q1" value="c"> سيارة لا تحتوي على محرك</label></div>
+
+<div class="quiz-question"><p>2. ما وظيفة البطارية الهجينة؟</p>
+<label><input type="radio" name="q2" value="a"> تخزين الطاقة الكهربائية</label>
+<label><input type="radio" name="q2" value="b"> تخزين الوقود</label>
+<label><input type="radio" name="q2" value="c"> تبريد المحرك</label></div>
+
+<div class="quiz-question"><p>3. ماذا يفعل نظام الكبح المتجدد؟</p>
+<label><input type="radio" name="q3" value="a"> يزيد سرعة السيارة دائماً</label>
+<label><input type="radio" name="q3" value="b"> يستهلك الوقود</label>
+<label><input type="radio" name="q3" value="c"> يستعيد جزءاً من طاقة الحركة</label></div>
+
+<div class="quiz-question"><p>4. أي نوع يمكن شحنه من مصدر كهربائي خارجي؟</p>
+<label><input type="radio" name="q4" value="a"> MHEV</label>
+<label><input type="radio" name="q4" value="b"> PHEV</label>
+<label><input type="radio" name="q4" value="c"> جميع السيارات التقليدية</label></div>
+
+<div class="quiz-question"><p>5. ما وظيفة العاكس Inverter؟</p>
+<label><input type="radio" name="q5" value="a"> تحويل وتنظيم الطاقة الكهربائية بين البطارية والمحرك</label>
+<label><input type="radio" name="q5" value="b"> تنقية الوقود</label>
+<label><input type="radio" name="q5" value="c"> تغيير ضغط الإطارات</label></div>
+
+<div class="quiz-question"><p>6. هل تستطيع كل السيارات الهجينة السير بالكهرباء وحدها؟</p>
+<label><input type="radio" name="q6" value="a"> نعم، دائماً</label>
+<label><input type="radio" name="q6" value="b"> لا، ولا واحدة منها</label>
+<label><input type="radio" name="q6" value="c"> لا، يختلف ذلك حسب نوع النظام</label></div>
+
+<div class="quiz-question"><p>7. ما الذي يميز السيارة الهجينة الخفيفة غالباً؟</p>
+<label><input type="radio" name="q7" value="a"> لا تحتوي على بطارية</label>
+<label><input type="radio" name="q7" value="b"> تقدم مساعدة كهربائية للمحرك ولا تقود وحدها بالكهرباء عادة</label>
+<label><input type="radio" name="q7" value="c"> تعمل بالكهرباء فقط</label></div>
+
+<div class="quiz-question"><p>8. ما التصرف الصحيح عند التعامل مع كابلات الجهد العالي؟</p>
+<label><input type="radio" name="q8" value="a"> لمسها باليد</label>
+<label><input type="radio" name="q8" value="b"> قطعها دون فحص</label>
+<label><input type="radio" name="q8" value="c"> ترك العمل لفني مؤهل واتباع إجراءات السلامة</label></div>
+
+<button class="btn" type="submit">تصحيح الاختبار</button>
+<button class="btn" type="button" onclick="resetQuiz()" style="background:#333;color:white">إعادة المحاولة</button>
+</form>
+<div id="result"></div>
+</section>
+
+<section>
+<h2 class="section-title"><span>11.</span> خلاصة الدرس</h2>
+<div class="card">
+<p>تمثل السيارات الهجينة مرحلة مهمة في تطور صناعة السيارات، فهي تجمع بين المحركات الحرارية والكهربائية لتحقيق كفاءة أفضل في استخدام الطاقة. ويعتمد نجاحها على التكامل بين البطارية والمحرك الكهربائي ومحرك الاحتراق ووحدات التحكم الإلكترونية. ويساعد فهم هذه الأنظمة على تطوير مهارات التشخيص والصيانة في مجال ميكانيك السيارات الحديث.</p>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>MECHANICAL <strong>WORLD</strong></p>
+<p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+<p>تحت إشراف أستاذ مادة الميكانيك</p>
+<p>© 2026 جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+const answers={q1:"b",q2:"a",q3:"c",q4:"b",q5:"a",q6:"c",q7:"b",q8:"c"};
+const explanations={
+q1:"السيارة الهجينة تجمع مصدرين للدفع مثل المحرك الحراري والكهربائي.",
+q2:"البطارية تخزن الطاقة الكهربائية.",
+q3:"الكبح المتجدد يستعيد جزءاً من طاقة حركة السيارة.",
+q4:"PHEV هي الهجينة القابلة للشحن الخارجي.",
+q5:"العاكس ينظم تحويل الطاقة الكهربائية بين البطارية والمحرك.",
+q6:"القدرة على القيادة الكهربائية تختلف حسب نوع النظام.",
+q7:"الهجينة الخفيفة تقدم مساعدة كهربائية ولا تقود وحدها بالكهرباء عادة.",
+q8:"يجب التعامل مع الجهد العالي بواسطة فني مؤهل."
+};
+document.getElementById("quiz").addEventListener("submit",function(e){
+e.preventDefault();
+let score=0,details="";
+for(let i=1;i<=8;i++){
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected&&selected.value===answers["q"+i]){
+score++;
+details+="<p>✅ السؤال "+i+": إجابة صحيحة.</p>";
+}else{
+details+="<p>❌ السؤال "+i+": "+explanations["q"+i]+"</p>";
+}
+}
+const result=document.getElementById("result");
+result.style.display="block";
+result.style.background="#211d14";
+result.style.border="1px solid #c9a45c";
+result.innerHTML="<h3 style='color:#c9a45c;font-size:25px'>نتيجتك: "+score+" / 8</h3><p>"+(score===8?"ممتاز! أتقنت الدرس بالكامل.":score>=5?"عمل جيد! راجع بعض المعلومات وحاول مجدداً.":"راجع الدرس وحاول مرة أخرى، ستتحسن!")+"</p><hr style='border-color:#444;margin:15px 0'>"+details;
+result.scrollIntoView({behavior:"smooth",block:"center"});
+});
+function resetQuiz(){
+document.getElementById("quiz").reset();
+document.getElementById("result").style.display="none";
+document.getElementById("result").innerHTML="";
+document.getElementById("quiz").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
