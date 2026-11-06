@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>النظام الكهربائي والإلكتروني | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a45c;--bg:#090909;--panel:#151515;--white:#f5f5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--white);line-height:1.9}
+header{background:#101010;border-bottom:1px solid #34302a;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:19px;font-weight:800;letter-spacing:1px;color:var(--gold);direction:ltr}
+header a,.back{color:var(--gold);text-decoration:none}
+.hero{padding:75px 8%;background:linear-gradient(90deg,#090909ed,#09090999),url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=85') center/cover}
+.hero small{color:var(--gold);letter-spacing:3px;direction:ltr;display:block}
+h1{font-size:clamp(30px,5vw,54px);margin:12px 0}
+.hero p{max-width:750px;color:#ddd}
+.container{width:min(1100px,90%);margin:45px auto}
+.section-title{color:var(--gold);font-size:27px;margin:35px 0 18px;border-right:4px solid var(--gold);padding-right:13px}
+p{color:#ccc;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid #292929;border-radius:12px;padding:22px;transition:.25s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card img{width:100%;height:155px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+.card h3{color:var(--gold);margin-bottom:8px}
+.highlight{background:#17140e;border-right:4px solid var(--gold);padding:20px;margin:20px 0;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--panel);font-size:14px}
+th,td{padding:13px;border:1px solid #333;text-align:center}
+th{background:#282115;color:var(--gold)}
+.quiz{background:var(--panel);padding:25px;border-radius:12px;border:1px solid #39332a;margin-top:20px}
+.question{padding:17px 0;border-bottom:1px solid #333}
+.question h3{font-size:16px;margin-bottom:12px}
+.option{display:block;background:#222;padding:10px 13px;margin:7px 0;border-radius:7px;cursor:pointer;border:1px solid transparent}
+.option:hover{border-color:var(--gold)}
+.option input{margin-left:8px;accent-color:var(--gold)}
+button{background:var(--gold);color:#111;border:0;padding:12px 25px;border-radius:7px;font-family:inherit;font-weight:800;cursor:pointer;margin-top:18px}
+#result{margin-top:18px;color:var(--gold);font-weight:bold}
+footer{text-align:center;padding:30px 15px;background:#101010;border-top:1px solid #333;color:#aaa;margin-top:60px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){header{padding:15px 5%}.hero{padding:55px 6%}.container{width:92%}table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">MECHANICAL WORLD</div>
+ <a href="index.html">← العودة إلى الرئيسية</a>
+</header>
+
+<section class="hero">
+ <small>VEHICLE ENGINEERING / 05</small>
+ <h1>النظام الكهربائي والإلكتروني</h1>
+ <p>منظومة الطاقة والتحكم الذكي في السيارة: كيف تنتج الكهرباء، وكيف يتم تخزينها وتوزيعها، وكيف تتواصل الحساسات ووحدات التحكم لتشغيل المركبة بأمان وكفاءة.</p>
+</section>
+
+<main class="container">
+
+<h2 class="section-title">1. مقدمة حول النظام الكهربائي</h2>
+<p>النظام الكهربائي في السيارة هو شبكة متكاملة من مصادر الطاقة والأسلاك وأجهزة الحماية والمستهلكات الكهربائية. يزوّد المحرك وأنظمة الإضاءة والتشغيل والتجهيزات الإلكترونية بالطاقة اللازمة للعمل.</p>
+<p>أما النظام الإلكتروني فيعتمد على الحساسات ووحدات التحكم والبرمجيات لمعالجة المعلومات وإصدار الأوامر المناسبة. ويتكامل النظامان في السيارات الحديثة لتوفير الأداء والسلامة والراحة.</p>
+
+<div class="highlight">
+<strong>الفكرة الأساسية:</strong>
+البطارية تخزن الطاقة الكهربائية، والمولد يشحنها أثناء عمل المحرك في السيارات التقليدية، بينما توزع شبكة الكهرباء الطاقة على الأجهزة. وتقوم وحدات التحكم الإلكترونية بإدارة وظائف متعددة اعتماداً على بيانات الحساسات.
+</div>
+
+<h2 class="section-title">2. البطارية (Battery)</h2>
+<div class="grid">
+ <article class="card">
+  <h3>وظيفة البطارية</h3>
+  <p>تخزن الطاقة الكهربائية وتوفر تياراً قوياً لتشغيل بادئ الحركة، كما تغذي الأنظمة الكهربائية عند توقف المحرك أو عندما لا يكفي خرج المولد.</p>
+ </article>
+ <article class="card">
+  <h3>بطارية الرصاص الحمضية</h3>
+  <p>من أكثر الأنواع انتشاراً في السيارات التقليدية. تتكون من خلايا تحتوي على ألواح من الرصاص ومحلول إلكتروليتي، وتنتج الطاقة عبر تفاعلات كيميائية قابلة للعكس.</p>
+ </article>
+ <article class="card">
+  <h3>بطاريات AGM</h3>
+  <p>نوع من بطاريات الرصاص الحمضية يمتص فيه الفاصل الزجاجي الإلكتروليت. يستخدم في سيارات كثيرة ذات أنظمة كهربائية متطلبة أو تقنية التوقف والتشغيل.</p>
+ </article>
+ <article class="card">
+  <h3>بطاريات الليثيوم</h3>
+  <p>تستخدم في السيارات الكهربائية والهجينة، وتتميز بكثافة طاقة مرتفعة، وتحتاج إلى نظام إلكتروني لمراقبة الخلايا ودرجة الحرارة والشحن.</p>
+ </article>
+</div>
+
+<h2 class="section-title">3. المولد الكهربائي (Alternator)</h2>
+<p>المولد هو جهاز يحول الطاقة الميكانيكية القادمة من المحرك إلى طاقة كهربائية. في السيارات التقليدية، يستخدم عادةً التيار المتناوب داخلياً ثم يتم تقويمه إلى تيار مستمر مناسب لشحن البطارية وتشغيل الشبكة.</p>
+<div class="grid">
+ <article class="card">
+  <h3>الدوار (Rotor)</h3>
+  <p>الجزء الدوار الذي ينتج مجالاً مغناطيسياً عند تغذيته بالتيار المناسب.</p>
+ </article>
+ <article class="card">
+  <h3>العضو الثابت (Stator)</h3>
+  <p>ملفات ثابتة يتولد فيها جهد كهربائي نتيجة تغير المجال المغناطيسي.</p>
+ </article>
+ <article class="card">
+  <h3>المقوم (Rectifier)</h3>
+  <p>مجموعة من الثنائيات تحول التيار المتناوب الناتج إلى تيار مستمر.</p>
+ </article>
+ <article class="card">
+  <h3>منظم الجهد (Voltage Regulator)</h3>
+  <p>يتحكم في خرج المولد للمحافظة على جهد مناسب ضمن حدود النظام.</p>
+ </article>
+</div>
+
+<h2 class="section-title">4. بادئ الحركة (Starter Motor)</h2>
+<p>بادئ الحركة محرك كهربائي قوي يستخدم عند تشغيل السيارة. يسحب تياراً كبيراً من البطارية، ويدير عمود المرفق بسرعة كافية لبدء دورة المحرك، ثم ينفصل بعد اشتغال المحرك.</p>
+<p>يتكون عادةً من محرك كهربائي، ومرحّل أو ملف جذب (Solenoid)، وترس صغير يتعشق مؤقتاً مع ترس الحدافة.</p>
+
+<h2 class="section-title">5. الأسلاك والفيوزات والمرحلات</h2>
+<div class="grid">
+ <article class="card">
+  <h3>الأسلاك (Wiring)</h3>
+  <p>تنقل التيار والإشارات بين البطارية والمكونات المختلفة. ويحدد مقطع السلك وفق التيار المتوقع وطول المسار ودرجة الحرارة.</p>
+ </article>
+ <article class="card">
+  <h3>المصهر (Fuse)</h3>
+  <p>عنصر حماية ينصهر عند تجاوز التيار حداً معيناً، فيفتح الدائرة ويحد من خطر تلف الأسلاك أو الأجهزة.</p>
+ </article>
+ <article class="card">
+  <h3>المرحل (Relay)</h3>
+  <p>مفتاح كهربائي يتم التحكم فيه بإشارة كهربائية صغيرة لتشغيل دائرة ذات تيار أكبر.</p>
+ </article>
+ <article class="card">
+  <h3>نقاط التأريض (Ground)</h3>
+  <p>توفر مسار عودة للتيار إلى القطب السالب، وغالباً يستخدم هيكل السيارة جزءاً من مسار الدائرة.</p>
+ </article>
+</div>
+
+<h2 class="section-title">6. الحساسات (Sensors)</h2>
+<p>الحساس جهاز يقيس كمية فيزيائية مثل الحرارة أو الضغط أو السرعة أو موضع جزء ميكانيكي، ثم يحولها إلى إشارة يمكن لوحدة التحكم قراءتها.</p>
+<div class="grid">
+ <article class="card">
+  <h3>حساس درجة الحرارة</h3>
+  <p>يقيس درجة حرارة سائل التبريد أو الهواء أو أجزاء أخرى، ويساعد وحدة التحكم على ضبط عمل المحرك وأنظمته.</p>
+ </article>
+ <article class="card">
+  <h3>حساس الأكسجين (O₂)</h3>
+  <p>يقيس نسبة الأكسجين في غازات العادم، وتستخدم بياناته لضبط خليط الهواء والوقود وتقليل الانبعاثات.</p>
+ </article>
+ <article class="card">
+  <h3>حساس موضع عمود المرفق</h3>
+  <p>يحدد سرعة وموقع دوران عمود المرفق، وهي معلومات مهمة لتوقيت حقن الوقود والإشعال.</p>
+ </article>
+ <article class="card">
+  <h3>حساس تدفق الهواء (MAF)</h3>
+  <p>يقيس كتلة الهواء الداخل إلى المحرك، لتساعد البيانات على حساب كمية الوقود المناسبة.</p>
+ </article>
+ <article class="card">
+  <h3>حساس سرعة العجلة</h3>
+  <p>يقيس سرعة دوران كل عجلة، وتستخدم بياناته في أنظمة مثل ABS ونظام الثبات الإلكتروني.</p>
+ </article>
+ <article class="card">
+  <h3>حساس ضغط الإطارات (TPMS)</h3>
+  <p>يراقب ضغط الإطارات وينبه السائق عند اكتشاف ضغط منخفض وفق تصميم النظام.</p>
+ </article>
+</div>
+
+<h2 class="section-title">7. وحدات التحكم الإلكترونية (ECU)</h2>
+<p>وحدة التحكم الإلكترونية هي حاسوب مخصص لإدارة وظيفة أو مجموعة وظائف في السيارة. تستقبل الإشارات من الحساسات، وتعالجها وفق برنامج محدد، ثم تتحكم في المشغلات مثل الصمامات والمحركات الكهربائية وحقن الوقود.</p>
+<div class="grid">
+ <article class="card">
+  <h3>ECU / ECM</h3>
+  <p>تدير وظائف المحرك مثل حقن الوقود وتوقيت الإشعال والتحكم في بعض أنظمة الانبعاثات.</p>
+ </article>
+ <article class="card">
+  <h3>TCU</h3>
+  <p>وحدة التحكم في ناقل الحركة الأوتوماتيكي، وتدير توقيت تبديل النسب بحسب ظروف القيادة.</p>
+ </article>
+ <article class="card">
+  <h3>ABS Control Module</h3>
+  <p>يعالج بيانات سرعة العجلات ويتحكم في ضغط الفرامل للمساعدة على منع انغلاقها أثناء الكبح.</p>
+ </article>
+ <article class="card">
+  <h3>BCM</h3>
+  <p>وحدة التحكم بهيكل السيارة، وتدير وظائف مثل الإضاءة والأقفال والنوافذ وبعض تجهيزات المقصورة.</p>
+ </article>
+</div>
+
+<h2 class="section-title">8. شبكة الاتصال داخل السيارة</h2>
+<p>تتبادل الوحدات الإلكترونية المعلومات عبر شبكات اتصال داخلية. من أشهرها شبكة CAN التي تسمح للوحدات بإرسال واستقبال الرسائل دون الحاجة إلى سلك مستقل لكل إشارة.</p>
+<div class="highlight">
+<strong>مثال عملي:</strong>
+عندما يضغط السائق على الفرامل، قد تصل معلومات دواسة الفرامل وسرعة العجلات إلى وحدات إلكترونية مختلفة. تستخدم هذه المعلومات في تشغيل مصابيح التوقف، وفي عمل أنظمة مساعدة السائق وفق تجهيز السيارة.
+</div>
+
+<h2 class="section-title">9. نظام التشخيص OBD-II</h2>
+<p>نظام التشخيص على متن السيارة (OBD-II) يتيح الوصول إلى معلومات الأعطال والانبعاثات في المركبات المتوافقة. يمكن لجهاز الفحص قراءة رموز الأعطال وبيانات التشغيل، ما يساعد الفني على تحديد اتجاه التشخيص.</p>
+<table>
+<thead><tr><th>المصطلح</th><th>المعنى</th><th>الفائدة</th></tr></thead>
+<tbody>
+<tr><td>DTC</td><td>رمز تشخيص العطل</td><td>تحديد النظام الذي سجل مشكلة</td></tr>
+<tr><td>Live Data</td><td>بيانات حية</td><td>مراقبة قراءات الحساسات أثناء التشغيل</td></tr>
+<tr><td>Freeze Frame</td><td>بيانات لحظة تسجيل العطل</td><td>معرفة ظروف حدوث المشكلة</td></tr>
+<tr><td>MIL</td><td>مصباح فحص المحرك</td><td>تنبيه السائق إلى وجود خلل مسجل</td></tr>
+</tbody>
+</table>
+<p>من المهم معرفة أن رمز العطل لا يعني بالضرورة أن القطعة التي يحمل اسمها الرمز تالفة؛ فقد يكون السبب في الأسلاك أو التوصيلات أو قطعة أخرى تؤثر في القراءة.</p>
+
+<h2 class="section-title">10. السلامة والصيانة الكهربائية</h2>
+<div class="grid">
+ <article class="card">
+  <h3>فحص البطارية</h3>
+  <p>فحص حالة البطارية وأقطابها وتثبيتها، والبحث عن التآكل أو الارتخاء أو التلف.</p>
+ </article>
+ <article class="card">
+  <h3>فحص نظام الشحن</h3>
+  <p>التحقق من أداء المولد ومنظم الجهد وفق مواصفات الشركة المصنعة.</p>
+ </article>
+ <article class="card">
+  <h3>فحص الفيوزات</h3>
+  <p>معرفة سبب احتراق المصهر قبل استبداله، وعدم تركيب مصهر بقيمة أعلى من المحددة.</p>
+ </article>
+ <article class="card">
+  <h3>فحص التوصيلات</h3>
+  <p>مراقبة الأسلاك والموصلات بحثاً عن القطع أو الاحتراق أو الرطوبة والتآكل.</p>
+ </article>
+</div>
+<div class="highlight">
+<strong>تحذير مهم:</strong>
+لا تلمس الأسلاك المكشوفة أو الأجزاء الكهربائية دون معرفة فنية. أنظمة السيارات الهجينة والكهربائية قد تحتوي على جهود عالية خطرة؛ يجب ترك فحصها وصيانتها لمختص مؤهل، وعدم لمس كابلات الجهد العالي ذات اللون البرتقالي.
+</div>
+
+<h2 class="section-title">11. أعطال كهربائية شائعة</h2>
+<table>
+<thead><tr><th>العَرَض</th><th>أسباب محتملة</th><th>الفحص المناسب</th></tr></thead>
+<tbody>
+<tr><td>السيارة لا تعمل</td><td>بطارية ضعيفة أو مشكلة في بادئ الحركة</td><td>فحص البطارية ودائرة التشغيل</td></tr>
+<tr><td>إضاءة ضعيفة</td><td>ضعف الشحن أو خلل في التوصيلات</td><td>فحص الجهد والتوصيلات</td></tr>
+<tr><td>مصهر يحترق باستمرار</td><td>قصر كهربائي أو حمل زائد</td><td>تشخيص الدائرة قبل الاستبدال</td></tr>
+<tr><td>ظهور لمبة المحرك</td><td>خلل في المحرك أو أحد أنظمة التحكم</td><td>قراءة رموز الأعطال وتحليلها</td></tr>
+<tr><td>نفاد البطارية</td><td>خلل في الشحن أو استهلاك غير طبيعي أثناء التوقف</td><td>اختبار البطارية والشحن وسحب التيار</td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">12. اختبار معلوماتك</h2>
+<p>أجب عن الأسئلة الثمانية لمعرفة مدى فهمك للنظام الكهربائي والإلكتروني.</p>
+<div class="quiz">
+<div id="questions"></div>
+<button onclick="correctQuiz()">تصحيح الاختبار</button>
+<button onclick="resetQuiz()" style="background:#333;color:white">إعادة المحاولة</button>
+<div id="result"></div>
+</div>
+
+</main>
+
+<footer>
+<strong>MECHANICAL WORLD</strong>
+<p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+<p>إشراف أستاذ مادة الميكانيك</p>
+<p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+<a class="back" href="index.html">العودة إلى الصفحة الرئيسية ↑</a>
+</footer>
+
+<script>
+const questions=[
+{q:"ما الوظيفة الأساسية للبطارية؟",o:["تبريد المحرك","تخزين الطاقة الكهربائية","تغيير السرعات","زيادة ضغط الزيت"],a:1},
+{q:"ما وظيفة المولد الكهربائي؟",o:["تحويل الطاقة الميكانيكية إلى كهربائية","تخزين الوقود","تشغيل الفرامل","توجيه العجلات"],a:0},
+{q:"ما وظيفة المصهر الكهربائي؟",o:["زيادة سرعة السيارة","حماية الدائرة من التيار الزائد","شحن الإطارات","قياس الحرارة"],a:1},
+{q:"ما وظيفة حساس الأكسجين؟",o:["قياس ضغط الزيت","قياس الأكسجين في العادم","قياس سرعة السيارة فقط","قياس مستوى الوقود"],a:1},
+{q:"ماذا تعني ECU؟",o:["وحدة تحكم إلكترونية","نوع من البطاريات","محرك كهربائي","جهاز تبريد"],a:0},
+{q:"ما وظيفة بادئ الحركة Starter؟",o:["تشغيل المحرك عند بدء التشغيل","تبريد البطارية","قياس ضغط الإطارات","إضاءة الطريق"],a:0},
+{q:"ما وظيفة شبكة CAN؟",o:["نقل الوقود","تبادل البيانات بين الوحدات الإلكترونية","تبريد المحرك","تغيير زيت المحرك"],a:1},
+{q:"ماذا يتيح OBD-II؟",o:["زيادة قوة المحرك","تشخيص الأعطال وقراءة البيانات","تغيير شكل السيارة","شحن البطارية فقط"],a:1}
+];
+function renderQuiz(){
+document.getElementById("questions").innerHTML=questions.map((q,i)=>`
+<div class="question"><h3>${i+1}. ${q.q}</h3>
+${q.o.map((v,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}">${v}</label>`).join("")}
+</div>`).join("");
+document.getElementById("result").textContent="";
+}
+function correctQuiz(){
+let score=0,answered=0;
+questions.forEach((q,i)=>{
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected){answered++;if(Number(selected.value)===q.a)score++;}
+});
+if(answered!==questions.length){
+document.getElementById("result").textContent="أجب عن جميع الأسئلة أولاً ("+answered+"/"+questions.length+")";
+return;
+}
+document.getElementById("result").textContent="نتيجتك: "+score+" / "+questions.length+" — "+(score===8?"ممتاز! خبير في النظام الكهربائي!":score>=6?"عمل رائع!":"واصل التعلم وحاول مرة أخرى!");
+}
+function resetQuiz(){renderQuiz();}
+renderQuiz();
+</script>
+</body>
+</html>
