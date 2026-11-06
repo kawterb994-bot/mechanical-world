@@ -634,6 +634,28 @@
   <script src="car.js"></script>
   <script src="script.js"></script>
 
+<script>
+(function () {
+  function removeLoader() {
+    const loader = document.getElementById("loader");
+
+    if (loader) {
+      loader.style.setProperty("display", "none", "important");
+    }
+
+    document.body.style.overflow = "auto";
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(removeLoader, 1200);
+  });
+
+  window.addEventListener("load", removeLoader);
+})();
+</script>
+</body>
+</html>
+
 </body>
 </html>
 
