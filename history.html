@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تاريخ السيارات | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a45c;--bg:#090909;--card:#151515;--border:#292929;--text:#f4f4f4}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+header{position:sticky;top:0;z-index:10;background:#090909ed;border-bottom:1px solid var(--border);padding:15px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:900;font-size:20px}.logo span{color:var(--gold)}
+.back{color:var(--gold);border:1px solid var(--gold);padding:6px 14px;border-radius:5px;font-size:13px}
+.hero{min-height:420px;padding:85px 8%;display:flex;align-items:center;background:linear-gradient(90deg,#000e,#0008),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85') center/cover;border-bottom:2px solid var(--gold)}
+.hero div{max-width:750px}
+.tag{color:var(--gold);letter-spacing:3px;font-weight:800}
+h1{font-size:clamp(35px,6vw,60px);line-height:1.35;margin:15px 0}
+h1 span,.gold{color:var(--gold)}
+.hero p{color:#ddd}
+.container{width:88%;max-width:1150px;margin:auto}
+nav{display:flex;gap:9px;flex-wrap:wrap;padding:22px 0;border-bottom:1px solid var(--border)}
+nav a{background:var(--card);border:1px solid var(--border);padding:6px 12px;border-radius:5px;color:var(--gold);font-size:13px}
+section{padding:50px 0;border-bottom:1px solid var(--border)}
+h2{font-size:27px;margin-bottom:18px}
+.intro{color:#bbb;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:17px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--border);padding:22px;border-radius:9px;transition:.3s}
+.card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.card h3{color:var(--gold);margin-bottom:9px}
+.card p{color:#bbb;font-size:14px}
+.year{font-size:27px;color:var(--gold);font-weight:900}
+.timeline{border-right:2px solid var(--gold);padding-right:25px;margin:25px 0}
+.event{position:relative;margin-bottom:30px;background:var(--card);padding:18px;border-radius:8px;border:1px solid var(--border)}
+.event:before{content:"";position:absolute;right:-33px;top:25px;width:13px;height:13px;background:var(--gold);border-radius:50%}
+table{width:100%;border-collapse:collapse;margin-top:20px}
+th,td{padding:12px;text-align:right;border:1px solid var(--border)}
+th{background:#282116;color:var(--gold)}
+td{background:var(--card);color:#ccc;font-size:14px}
+.highlight{background:#1d1911;border-right:4px solid var(--gold);padding:18px;margin:22px 0;border-radius:5px}
+.quiz{background:var(--card);padding:25px;border:1px solid var(--gold);border-radius:9px}
+.question{padding:16px 0;border-bottom:1px solid var(--border)}
+.question h3{font-size:16px;margin-bottom:10px}
+label{display:block;background:#202020;padding:8px 12px;margin:7px 0;border-radius:5px;cursor:pointer;font-size:14px;color:#ddd}
+input{accent-color:var(--gold);margin-left:8px}
+button{background:var(--gold);color:#111;border:0;padding:12px 23px;margin-top:20px;border-radius:5px;font-family:inherit;font-weight:900;cursor:pointer}
+footer{text-align:center;padding:35px 15px;background:#050505;color:#aaa;font-size:13px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){header{padding:12px 5%}.logo{font-size:15px}.hero{padding:60px 6%;min-height:340px}.container{width:90%}h2{font-size:23px}th,td{font-size:12px;padding:8px}}
+</style>
+</head>
+<body>
+
+<header>
+<a class="logo" href="index.html">MECHANICAL <span>WORLD</span></a>
+<a class="back" href="index.html">← الرئيسية</a>
+</header>
+
+<div class="hero">
+<div>
+<div class="tag">AUTOMOTIVE ENGINEERING / 016</div>
+<h1>تاريخ <span>تطور السيارات</span></h1>
+<p>رحلة هندسية عبر الزمن: كيف تحولت السيارة من آلة بخارية بدائية إلى مركبة ذكية تعمل بالكهرباء والأنظمة الرقمية؟</p>
+</div>
+</div>
+
+<main class="container">
+
+<nav>
+<a href="#intro">المقدمة</a>
+<a href="#timeline">المراحل التاريخية</a>
+<a href="#engine">تطور المحركات</a>
+<a href="#design">التصميم</a>
+<a href="#brands">الشركات</a>
+<a href="#technology">التكنولوجيا</a>
+<a href="#future">المستقبل</a>
+<a href="#quiz">الاختبار</a>
+</nav>
+
+<section id="intro">
+<h2><span class="gold">01.</span> مقدمة تاريخية</h2>
+<p class="intro">
+تعد السيارة واحدة من أعظم الاختراعات التي غيرت حياة الإنسان.
+فقد ساهمت في تطوير النقل والتجارة والصناعة، وفتحت المجال
+لظهور تخصصات هندسية متعددة مثل هندسة المحركات، والمواد،
+والأنظمة الكهربائية والإلكترونية، والديناميكا الهوائية.
+لم يظهر شكل السيارة الحديثة دفعة واحدة، بل كان نتيجة
+تجارب واختراعات متتابعة امتدت لقرون.
+</p>
+<div class="grid">
+<div class="card"><h3>التطور الميكانيكي</h3><p>تحسين المحركات وناقل الحركة وأنظمة التوجيه والفرامل.</p></div>
+<div class="card"><h3>التطور الصناعي</h3><p>ظهور خطوط الإنتاج والتصنيع المتسلسل ومواد أكثر مقاومة وخفة.</p></div>
+<div class="card"><h3>التطور الإلكتروني</h3><p>إدخال الحواسيب والحساسات وأنظمة التحكم الذكية إلى المركبات.</p></div>
+</div>
+</section>
+
+<section id="timeline">
+<h2><span class="gold">02.</span> الخط الزمني لتاريخ السيارات</h2>
+<p class="intro">أهم المحطات التي ساهمت في تشكيل صناعة السيارات الحديثة.</p>
+<div class="timeline">
+
+<div class="event">
+<div class="year">1769</div>
+<h3 class="gold">بداية المركبات البخارية</h3>
+<p>طور المهندس الفرنسي نيكولا جوزيف كونيو مركبة بخارية ذاتية الحركة، وكانت من التجارب المبكرة المهمة في تاريخ المركبات.</p>
+</div>
+
+<div class="event">
+<div class="year">1885–1886</div>
+<h3 class="gold">ظهور السيارة الحديثة بمحرك الاحتراق</h3>
+<p>عمل كارل بنز على مركبته ذات المحرك أحادي الأسطوانة، وسجل براءة اختراع المركبة Benz Patent-Motorwagen عام 1886.</p>
+</div>
+
+<div class="event">
+<div class="year">1886</div>
+<h3 class="gold">تطوير سيارة دايملر</h3>
+<p>ارتبط غوتليب دايملر وويلهلم مايباخ بتطوير محركات بنزين سريعة وخفيفة ساهمت في تطور صناعة السيارات.</p>
+</div>
+
+<div class="event">
+<div class="year">1908</div>
+<h3 class="gold">Ford Model T</h3>
+<p>أطلقت شركة فورد سيارة Model T، التي أصبحت رمزاً للانتشار الواسع للسيارات بفضل التصنيع المتسلسل.</p>
+</div>
+
+<div class="event">
+<div class="year">1913</div>
+<h3 class="gold">خط التجميع المتحرك</h3>
+<p>اعتمدت فورد خط التجميع المتحرك على نطاق واسع، مما ساهم في تقليل وقت التصنيع وتكلفته.</p>
+</div>
+
+<div class="event">
+<div class="year">1950–1970</div>
+<h3 class="gold">تطور الأداء والتصميم</h3>
+<p>شهدت هذه الفترة تحسين المحركات وأنظمة التعليق والفرامل، وانتشار السيارات الرياضية والاهتمام براحة الركاب.</p>
+</div>
+
+<div class="event">
+<div class="year">1970–1990</div>
+<h3 class="gold">عصر الإلكترونيات والانبعاثات</h3>
+<p>توسعت أنظمة حقن الوقود والتحكم الإلكتروني، وازداد الاهتمام بتقليل استهلاك الوقود والانبعاثات وتحسين السلامة.</p>
+</div>
+
+<div class="event">
+<div class="year">2000–2010</div>
+<h3 class="gold">بداية الانتشار الحديث للسيارات الهجينة</h3>
+<p>تطورت السيارات الهجينة والإلكترونيات وأنظمة الملاحة والتحكم في المحرك.</p>
+</div>
+
+<div class="event">
+<div class="year">2010–2026</div>
+<h3 class="gold">الثورة الكهربائية والذكية</h3>
+<p>توسعت السيارات الكهربائية والقيادة المساعدة والاتصال الرقمي وأنظمة إدارة البطاريات.</p>
+</div>
+
+</div>
+</section>
+
+<section id="engine">
+<h2><span class="gold">03.</span> تطور محركات السيارات</h2>
+<p class="intro">
+تغيرت المحركات بشكل كبير خلال تاريخ السيارة. فقد انتقل
+التطور من المحركات البخارية إلى محركات الاحتراق الداخلي،
+ثم إلى المحركات الكهربائية والهجينة.
+</p>
+<div class="grid">
+<div class="card">
+<h3>المحرك البخاري</h3>
+<p>يعتمد على تحويل الطاقة الحرارية إلى حركة ميكانيكية من خلال البخار والضغط. كان من أوائل مصادر الحركة الذاتية للمركبات.</p>
+</div>
+<div class="card">
+<h3>محرك البنزين</h3>
+<p>يعتمد على احتراق خليط الهواء والوقود داخل الأسطوانات. انتشر بفضل قدرته على تقديم أداء جيد مع حجم ووزن مناسبين.</p>
+</div>
+<div class="card">
+<h3>محرك الديزل</h3>
+<p>يعتمد على ضغط الهواء وارتفاع حرارته ثم حقن الوقود، ويستخدم في سيارات ومركبات كثيرة بسبب كفاءته وعزمه.</p>
+</div>
+<div class="card">
+<h3>المحرك الكهربائي</h3>
+<p>يحول الطاقة الكهربائية إلى حركة دورانية، ويتميز بعزم متاح بسرعة كبيرة وكفاءة عالية في تحويل الطاقة.</p>
+</div>
+<div class="card">
+<h3>المحرك الهجين</h3>
+<p>يجمع بين محرك احتراق داخلي ومحرك كهربائي، مع نظام يدير مصادر الطاقة وفق ظروف القيادة.</p>
+</div>
+</div>
+</section>
+
+<section id="design">
+<h2><span class="gold">04.</span> تطور تصميم السيارات</h2>
+<p class="intro">
+لم يكن التصميم مجرد شكل جمالي، بل أصبح علماً يجمع بين
+الديناميكا الهوائية والهندسة الهيكلية والراحة والسلامة.
+</p>
+<div class="grid">
+<div class="card">
+<h3>التصميم الكلاسيكي</h3>
+<p>اعتمدت السيارات القديمة على أشكال بسيطة وهياكل ظاهرة وتجهيزات ميكانيكية محدودة.</p>
+</div>
+<div class="card">
+<h3>التصميم الانسيابي</h3>
+<p>بدأ المهندسون بتحسين شكل الهيكل لتقليل مقاومة الهواء وتحسين الاستقرار واستهلاك الطاقة.</p>
+</div>
+<div class="card">
+<h3>التصميم الرياضي</h3>
+<p>ركز على الأداء والتوازن والتحكم وتوزيع الوزن مع استخدام مواد وهياكل متطورة.</p>
+</div>
+<div class="card">
+<h3>التصميم الذكي</h3>
+<p>يجمع بين الشاشات الرقمية والحساسات والإضاءة الذكية والأنظمة المتصلة.</p>
+</div>
+</div>
+</section>
+
+<section id="brands">
+<h2><span class="gold">05.</span> شركات ساهمت في صناعة السيارات</h2>
+<p class="intro">
+ساهمت شركات عالمية كثيرة في تطوير المحركات والتصميم
+والإنتاج والسلامة والتقنيات الحديثة.
+</p>
+<div class="grid">
+<div class="card">
+<h3>Mercedes-Benz</h3>
+<p>من العلامات التاريخية المرتبطة ببدايات السيارة الحديثة، وشاركت في تطوير تقنيات المحركات والسلامة والراحة.</p>
+</div>
+<div class="card">
+<h3>BMW</h3>
+<p>تشتهر بالهندسة المرتبطة بالأداء وديناميكية القيادة، وتطورت منتجاتها لتشمل السيارات الكهربائية والهجينة.</p>
+</div>
+<div class="card">
+<h3>Ford</h3>
+<p>كان لها تأثير كبير في تاريخ التصنيع المتسلسل وخطوط التجميع، خصوصاً مع Model T.</p>
+</div>
+<div class="card">
+<h3>Toyota</h3>
+<p>ساهمت في تطوير أنظمة الإنتاج والجودة وانتشار التقنيات الهجينة في السيارات.</p>
+</div>
+<div class="card">
+<h3>Volkswagen</h3>
+<p>أثرت في صناعة السيارات الجماهيرية من خلال نماذج واسعة الانتشار وتقنيات متعددة.</p>
+</div>
+<div class="card">
+<h3>Tesla</h3>
+<p>ساهمت في تسريع الاهتمام العالمي بالسيارات الكهربائية والبرمجيات وتحديثات المركبات.</p>
+</div>
+</div>
+</section>
+
+<section id="technology">
+<h2><span class="gold">06.</span> التكنولوجيا التي غيرت صناعة السيارات</h2>
+<div class="grid">
+<div class="card"><h3>حقن الوقود الإلكتروني</h3><p>يساعد على التحكم في كمية الوقود وتوقيت الحقن لتحسين الأداء والكفاءة.</p></div>
+<div class="card"><h3>نظام ABS</h3><p>يساعد على منع انغلاق العجلات أثناء الفرملة القوية.</p></div>
+<div class="card"><h3>الحساسات والكاميرات</h3><p>تراقب محيط المركبة وتدعم أنظمة المساعدة على القيادة.</p></div>
+<div class="card"><h3>الحواسيب ECU</h3><p>تدير وظائف عديدة في المحرك وناقل الحركة وأنظمة السلامة.</p></div>
+<div class="card"><h3>البطاريات المتطورة</h3><p>تخزن الطاقة الكهربائية وتدعم تشغيل السيارات الكهربائية والهجينة.</p></div>
+<div class="card"><h3>الاتصال الرقمي</h3><p>يسمح بتبادل المعلومات والتشخيص وتحديث بعض وظائف السيارة إلكترونياً.</p></div>
+</div>
+</section>
+
+<section id="future">
+<h2><span class="gold">07.</span> إلى أين تتجه صناعة السيارات؟</h2>
+<p class="intro">
+تتجه الصناعة نحو تقنيات تقلل الأثر البيئي وترفع مستوى
+السلامة والكفاءة. لكن مستقبل السيارات لن يعتمد على تقنية
+واحدة فقط، بل على حلول متعددة تناسب احتياجات المستخدمين
+والبنية التحتية والظروف المختلفة.
+</p>
+<div class="grid">
+<div class="card"><h3>الكهرباء</h3><p>تطوير البطاريات ومحركات كهربائية أكثر كفاءة وأنظمة شحن أفضل.</p></div>
+<div class="card"><h3>القيادة المساعدة</h3><p>تحسين أنظمة مراقبة الطريق والكبح والمساعدة على البقاء في المسار.</p></div>
+<div class="card"><h3>المواد الذكية</h3><p>استخدام مواد أخف وأكثر مقاومة لتحسين الأداء والسلامة.</p></div>
+<div class="card"><h3>الهيدروجين</h3><p>دراسة خلايا الوقود الهيدروجينية كأحد الحلول الممكنة للنقل في تطبيقات معينة.</p></div>
+</div>
+<div class="highlight">
+تطور السيارة هو نتيجة تعاون بين الميكانيك والكهرباء
+والإلكترونيات وعلوم المواد والبرمجيات والتصميم الصناعي.
+</div>
+</section>
+
+<section id="comparison">
+<h2><span class="gold">08.</span> مقارنة بين أجيال السيارات</h2>
+<table>
+<thead><tr><th>الجانب</th><th>السيارات القديمة</th><th>السيارات الحديثة</th></tr></thead>
+<tbody>
+<tr><td>المحركات</td><td>ميكانيكية وبسيطة نسبياً</td><td>احتراق داخلي وكهربائية وهجينة</td></tr>
+<tr><td>التحكم</td><td>ميكانيكي في الغالب</td><td>ميكانيكي وإلكتروني متكامل</td></tr>
+<tr><td>السلامة</td><td>تجهيزات محدودة</td><td>أنظمة نشطة وسلبية ومساعدة</td></tr>
+<tr><td>التشخيص</td><td>فحص يدوي بالأساس</td><td>حواسيب وأجهزة تشخيص إلكترونية</td></tr>
+<tr><td>الراحة</td><td>تجهيزات أساسية</td><td>شاشات وأنظمة تكييف واتصال متقدمة</td></tr>
+<tr><td>الطاقة</td><td>وقود تقليدي غالباً</td><td>وقود وكهرباء وهجين</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="quiz">
+<h2><span class="gold">09.</span> اختبري معلوماتك</h2>
+<p class="intro">اختبار من 8 أسئلة حول تاريخ تطور السيارات.</p>
+<div class="quiz">
+<form id="quizForm">
+<div class="question">
+<h3>1. من طور المركبة البخارية الشهيرة سنة 1769؟</h3>
+<label><input type="radio" name="q1" value="a"> كارل بنز</label>
+<label><input type="radio" name="q1" value="b"> نيكولا جوزيف كونيو</label>
+<label><input type="radio" name="q1" value="c"> هنري فورد</label>
+</div>
+<div class="question">
+<h3>2. في أي سنة سجل كارل بنز براءة اختراع مركبته الشهيرة؟</h3>
+<label><input type="radio" name="q2" value="a"> 1886</label>
+<label><input type="radio" name="q2" value="b"> 1908</label>
+<label><input type="radio" name="q2" value="c"> 1970</label>
+</div>
+<div class="question">
+<h3>3. ما السيارة التي اشتهرت عام 1908؟</h3>
+<label><input type="radio" name="q3" value="a"> Model T</label>
+<label><input type="radio" name="q3" value="b"> سيارة كهربائية حديثة</label>
+<label><input type="radio" name="q3" value="c"> سيارة سباق فورمولا 1</label>
+</div>
+<div class="question">
+<h3>4. ما أهمية خط التجميع المتحرك؟</h3>
+<label><input type="radio" name="q4" value="a"> زيادة وزن السيارة</label>
+<label><input type="radio" name="q4" value="b"> تسريع الإنتاج وتقليل تكلفته</label>
+<label><input type="radio" name="q4" value="c"> إلغاء المحركات</label>
+</div>
+<div class="question">
+<h3>5. ما مصدر الطاقة الأساسي للمحرك الكهربائي؟</h3>
+<label><input type="radio" name="q5" value="a"> الكهرباء</label>
+<label><input type="radio" name="q5" value="b"> البخار فقط</label>
+<label><input type="radio" name="q5" value="c"> الهواء المضغوط فقط</label>
+</div>
+<div class="question">
+<h3>6. ما وظيفة الديناميكا الهوائية؟</h3>
+<label><input type="radio" name="q6" value="a"> زيادة مقاومة الهواء</label>
+<label><input type="radio" name="q6" value="b"> دراسة تأثير الهواء على حركة السيارة</label>
+<label><input type="radio" name="q6" value="c"> تبريد زيت الفرامل</label>
+</div>
+<div class="question">
+<h3>7. ماذا يجمع المحرك الهجين؟</h3>
+<label><input type="radio" name="q7" value="a"> محرك احتراق ومحرك كهربائي</label>
+<label><input type="radio" name="q7" value="b"> محركين بخاريين</label>
+<label><input type="radio" name="q7" value="c"> بطارية فقط دائماً</label>
+</div>
+<div class="question">
+<h3>8. ما الذي يميز السيارات الحديثة؟</h3>
+<label><input type="radio" name="q8" value="a"> غياب الإلكترونيات</label>
+<label><input type="radio" name="q8" value="b"> الاعتماد على التقنيات الميكانيكية فقط</label>
+<label><input type="radio" name="q8" value="c"> تكامل الميكانيك والإلكترونيات والبرمجيات</label>
+</div>
+<button type="submit">تصحيح الاختبار</button>
+<button type="button" onclick="resetQuiz()" style="background:#333;color:white;margin-right:8px">إعادة المحاولة</button>
+</form>
+<div id="result" aria-live="polite" style="color:var(--gold);margin-top:20px;font-size:18px;font-weight:bold"></div>
+<div id="corrections" style="margin-top:12px;color:#ccc"></div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>MECHANICAL <strong>WORLD</strong> © 2026</p>
+<p>إعداد التلميذتين: <strong>بن صالح كوثر 🌞</strong> و<strong>بالعربي هاجر 🌚</strong></p>
+<p>إشراف: أستاذ مادة الميكانيك</p>
+<p>من الماضي إلى المستقبل، الهندسة تصنع التطور.</p>
+</footer>
+
+<script>
+const answers={
+q1:"b",q2:"a",q3:"a",q4:"b",
+q5:"a",q6:"b",q7:"a",q8:"c"
+};
+const explanations={
+q1:"نيكولا جوزيف كونيو طور مركبة بخارية سنة 1769.",
+q2:"سجل كارل بنز براءة اختراع مركبته عام 1886.",
+q3:"Ford Model T ظهرت سنة 1908.",
+q4:"خط التجميع ساهم في تسريع الإنتاج وتقليل تكلفته.",
+q5:"المحرك الكهربائي يحول الطاقة الكهربائية إلى حركة.",
+q6:"الديناميكا الهوائية تدرس تأثير الهواء على السيارة.",
+q7:"السيارة الهجينة تجمع محرك احتراق ومحركاً كهربائياً.",
+q8:"السيارات الحديثة تجمع الميكانيك والإلكترونيات والبرمجيات."
+};
+document.getElementById("quizForm").addEventListener("submit",function(e){
+e.preventDefault();
+let score=0,html="";
+for(let i=1;i<=8;i++){
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected&&selected.value===answers["q"+i]){
+score++;
+html+="<p style='color:#8ed69a'>✓ السؤال "+i+": صحيح</p>";
+}else{
+html+="<p style='color:#ff9b87'>✗ السؤال "+i+": "+explanations["q"+i]+"</p>";
+}
+}
+document.getElementById("result").textContent=
+"نتيجتك: "+score+"/8 — "+
+(score===8?"ممتاز! 🏆":score>=6?"جيد جداً! 👏":score>=4?"أداء جيد، واصلي!":"راجعي الدرس وحاولي مجدداً 💪");
+document.getElementById("corrections").innerHTML=html;
+});
+function resetQuiz(){
+document.getElementById("quizForm").reset();
+document.getElementById("result").textContent="";
+document.getElementById("corrections").innerHTML="";
+}
+</script>
+</body>
+</html>
