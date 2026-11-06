@@ -1,36 +1,54 @@
 
-/* =================================
+/* =================================================
    MECHANICAL WORLD
-   PINK × SAGE GREEN THEME
-================================= */
+   PINK × SAGE GREEN × CREAM
+   Elegant • Cute • Sporty • Modern
+================================================= */
+
+/* 1. COLOR PALETTE */
 
 :root {
-    --pink: #E8A9BC;
-    --pink-light: #F8E5EB;
-    --pink-dark: #C9829B;
+    --pink: #E9A9BD;
+    --pink-light: #F9E5EC;
+    --pink-soft: #FCEFF3;
+    --pink-dark: #C77F99;
+    --pink-glow: rgba(233, 169, 189, .30);
 
-    --green: #A8BDA8;
-    --green-light: #DCE8DC;
-    --green-dark: #526B58;
+    --sage: #A8BBA6;
+    --sage-light: #E3EDE1;
+    --sage-dark: #526B58;
+    --sage-deep: #354B3C;
 
-    --background: #FAF5F5;
-    --surface: #FFFFFF;
-    --surface-soft: #F1E9EB;
-
-    --text: #293A31;
-    --text-light: #758078;
-
-    --shadow: 0 8px 25px rgba(168, 189, 168, 0.18);
-    --border: #E8D6DC;
+    --cream: #FCF8F5;
+    --white: #FFFFFF;
+    --gray: #858B85;
+    --text: #293A30;
 
     --gradient: linear-gradient(
         135deg,
-        #E8A9BC,
-        #A8BDA8
+        #E9A9BD,
+        #A8BBA6
     );
+
+    --pink-gradient: linear-gradient(
+        135deg,
+        #F9E5EC,
+        #E9A9BD
+    );
+
+    --green-gradient: linear-gradient(
+        135deg,
+        #E3EDE1,
+        #A8BBA6
+    );
+
+    --shadow: 0 10px 30px rgba(82, 107, 88, .10);
+    --pink-shadow: 0 8px 25px rgba(233, 169, 189, .22);
+
+    --border: 1px solid rgba(199, 127, 153, .20);
 }
 
-/* GLOBAL */
+/* 2. RESET */
 
 * {
     margin: 0;
@@ -43,178 +61,425 @@ html {
 }
 
 body {
-    background: linear-gradient(
-        135deg,
-        #FAF5F5,
-        #F8E5EB,
-        #E8F0E7
-    );
-
-    color: var(--text);
     font-family: 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--text);
     line-height: 1.7;
+    overflow-x: hidden;
 }
 
-/* HEADINGS */
+/* 3. BACKGROUND DECORATION */
+
+body {
+    background-image:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(233, 169, 189, .14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 40%,
+            rgba(168, 187, 166, .16),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #FCF8F5,
+            #F9F0F2,
+            #F0F5EF
+        );
+    background-attachment: fixed;
+}
+
+/* 4. TEXT */
 
 h1, h2, h3, h4 {
-    color: var(--green-dark);
+    color: var(--sage-dark);
     font-weight: 800;
+    line-height: 1.3;
+}
+
+h1 {
+    letter-spacing: -1px;
 }
 
 p {
-    color: var(--text-light);
+    color: #737D74;
 }
 
-/* LINKS */
+.highlight {
+    color: var(--pink-dark);
+}
+
+strong {
+    color: var(--sage-dark);
+}
+
+span {
+    transition: .3s ease;
+}
+
+/* 5. NAVIGATION */
+
+header, nav {
+    background: rgba(255, 255, 255, .82);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: var(--border);
+}
+
+nav a, header a {
+    color: var(--sage-dark);
+    font-weight: 600;
+    transition: .3s ease;
+}
+
+nav a:hover, header a:hover {
+    color: var(--pink-dark);
+}
+
+/* 6. BUTTONS */
+
+button, .btn, .button {
+    background: var(--gradient);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 24px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--pink-shadow);
+    transition: all .3s ease;
+}
+
+button:hover, .btn:hover, .button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(233, 169, 189, .32);
+    filter: saturate(1.08);
+}
+
+button:active, .btn:active {
+    transform: scale(.97);
+}
+
+/* 7. CARDS */
+
+.card, .section-card, .box {
+    background: rgba(255, 255, 255, .82);
+    border: var(--border);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+    transition: .35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before, .section-card::before {
+    content: "✧";
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: var(--pink);
+    font-size: 19px;
+    opacity: .7;
+}
+
+.card:hover, .section-card:hover, .box:hover {
+    transform: translateY(-7px);
+    border-color: var(--pink);
+    box-shadow: var(--pink-shadow);
+}
+
+/* 8. IMAGES */
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    transition: .4s ease;
+}
+
+.card img:hover {
+    transform: scale(1.025);
+}
+
+/* 9. INPUTS AND SEARCH */
+
+input, textarea, select {
+    background: rgba(255, 255, 255, .9);
+    color: var(--text);
+    border: 1px solid #E8D5DD;
+    border-radius: 13px;
+    padding: 13px 16px;
+    outline: none;
+    transition: .3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(233, 169, 189, .13);
+}
+
+input::placeholder, textarea::placeholder {
+    color: #B0A6AA;
+}
+
+/* 10. ICONS */
+
+i, .icon {
+    color: var(--pink-dark);
+    transition: .3s ease;
+}
+
+i:hover, .icon:hover {
+    color: var(--sage-dark);
+    transform: scale(1.12);
+}
+
+/* 11. BADGES */
+
+.badge, .tag {
+    display: inline-block;
+    background: var(--pink-light);
+    color: var(--pink-dark);
+    border: 1px solid rgba(233, 169, 189, .35);
+    border-radius: 30px;
+    padding: 6px 15px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* 12. SECTIONS */
+
+section {
+    padding: 55px 5%;
+    position: relative;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin-top: 10px;
+    border-radius: 10px;
+    background: var(--gradient);
+}
+
+/* 13. SPECIAL PINK EFFECTS */
+
+.pink-glow {
+    box-shadow: 0 0 25px var(--pink-glow);
+}
+
+.pink-text {
+    color: var(--pink-dark);
+}
+
+.sage-text {
+    color: var(--sage-dark);
+}
+
+.pink-border {
+    border: 1px solid var(--pink);
+    border-radius: 16px;
+}
+
+/* 14. DECORATIVE DIVIDERS */
+
+hr {
+    border: none;
+    height: 2px;
+    margin: 25px 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--pink),
+        var(--sage),
+        transparent
+    );
+}
+
+/* 15. LINKS */
 
 a {
-    color: var(--green-dark);
     text-decoration: none;
-    transition: 0.3s;
+    transition: .3s ease;
 }
 
 a:hover {
     color: var(--pink-dark);
 }
 
-/* NAVBAR */
-
-nav, header {
-    background: rgba(255, 255, 255, 0.88);
-    border-bottom: 1px solid var(--border);
-    backdrop-filter: blur(15px);
-}
-
-/* BUTTONS */
-
-button, .btn {
-    background: var(--gradient);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    padding: 12px 25px;
-    cursor: pointer;
-    font-weight: 700;
-    transition: 0.3s;
-}
-
-button:hover, .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
-}
-
-/* CARDS */
-
-.card, .box, .section-card {
-    background: rgba(255, 255, 255, 0.85);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: var(--shadow);
-    transition: 0.3s;
-}
-
-.card:hover, .section-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--pink);
-}
-
-/* INPUTS */
-
-input, textarea, select {
-    background: white;
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px;
-    outline: none;
-}
-
-input:focus, textarea:focus, select:focus {
-    border-color: var(--pink-dark);
-    box-shadow: 0 0 0 3px rgba(232, 169, 188, 0.15);
-}
-
-/* IMAGES */
-
-img {
-    max-width: 100%;
-    border-radius: 14px;
-}
-
-/* SECTIONS */
-
-section {
-    padding: 45px 5%;
-}
-
-/* HIGHLIGHTS */
-
-.highlight {
-    color: var(--pink-dark);
-}
-
-.badge {
-    background: var(--green-light);
-    color: var(--green-dark);
-    padding: 6px 14px;
-    border-radius: 20px;
-}
-
-/* FOOTER */
+/* 16. FOOTER */
 
 footer {
-    background: var(--green-dark);
+    background: linear-gradient(
+        135deg,
+        #354B3C,
+        #526B58
+    );
     color: white;
-    padding: 30px 5%;
+    padding: 35px 5%;
+    border-top: 4px solid var(--pink);
 }
 
 footer p, footer a {
+    color: #F9E5EC;
+}
+
+footer a:hover {
     color: white;
 }
 
-/* SCROLLBAR */
+/* 17. TABLES */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+th {
+    background: var(--sage-light);
+    color: var(--sage-dark);
+    padding: 14px;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #F1E1E6;
+}
+
+/* 18. QUIZ AND ANSWERS */
+
+.quiz, .question {
+    background: white;
+    border: var(--border);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+}
+
+.correct {
+    background: var(--sage-light);
+    color: var(--sage-dark);
+}
+
+.wrong {
+    background: var(--pink-light);
+    color: var(--pink-dark);
+}
+
+/* 19. SCROLLBAR */
 
 ::-webkit-scrollbar {
     width: 9px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--background);
+    background: var(--cream);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--pink);
+    background: linear-gradient(
+        var(--pink),
+        var(--sage)
+    );
     border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--green-dark);
+    background: var(--pink-dark);
 }
 
-/* SELECTION */
+/* 20. SELECTION */
 
 ::selection {
     background: var(--pink);
     color: white;
 }
 
-/* MOBILE */
+/* 21. ANIMATIONS */
+
+@keyframes softFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes softGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(233, 169, 189, .12);
+    }
+    50% {
+        box-shadow: 0 0 23px rgba(233, 169, 189, .30);
+    }
+}
+
+.floating {
+    animation: softFloat 4s ease-in-out infinite;
+}
+
+.glowing {
+    animation: softGlow 3s ease-in-out infinite;
+}
+
+/* 22. MOBILE RESPONSIVE */
 
 @media (max-width: 768px) {
-    section {
-        padding: 30px 4%;
+
+    body {
+        background-attachment: scroll;
     }
 
-    .card, .section-card {
-        padding: 15px;
+    section {
+        padding: 35px 4%;
+    }
+
+    .card, .section-card, .box {
+        padding: 17px;
+        border-radius: 17px;
+    }
+
+    h1 {
+        font-size: clamp(28px, 8vw, 42px);
+    }
+
+    h2 {
+        font-size: 24px;
     }
 
     button, .btn {
-        padding: 10px 18px;
+        padding: 11px 19px;
+    }
+
+    img {
+        border-radius: 12px;
     }
 }
+
+/* 23. REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
 
 
 
