@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دليل شامل لأنظمة السلامة في السيارات: ABS وESP وTCS والوسائد الهوائية وأنظمة مساعدة السائق.">
+<title>أنظمة السلامة | MECHANICAL WORLD</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold:#c9a45c;
+  --black:#090909;
+  --card:#151515;
+  --text:#f4f4f4;
+  --muted:#aaa;
+  --border:#292929;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  font-family:'Cairo',sans-serif;
+  background:var(--black);
+  color:var(--text);
+  line-height:1.9;
+}
+a {text-decoration:none;color:inherit}
+header {
+  position:sticky;top:0;z-index:100;
+  background:rgba(9,9,9,.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  padding:14px 7%;
+  display:flex;justify-content:space-between;
+  align-items:center;gap:15px;
+}
+.logo {font-size:20px;font-weight:900;letter-spacing:1px}
+.logo span {color:var(--gold)}
+.back {
+  color:var(--gold);border:1px solid var(--gold);
+  padding:7px 16px;border-radius:5px;font-size:13px;
+}
+.hero {
+  min-height:410px;padding:90px 8%;
+  display:flex;align-items:center;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.55)),
+  url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1800&q=85') center/cover;
+  border-bottom:2px solid var(--gold);
+}
+.hero-content {max-width:800px}
+.tag {color:var(--gold);font-weight:800;letter-spacing:3px}
+.hero h1 {font-size:clamp(32px,6vw,58px);line-height:1.3;margin:15px 0}
+.hero h1 span {color:var(--gold)}
+.hero p {color:#ddd;max-width:680px}
+.container {width:88%;max-width:1150px;margin:auto}
+nav {
+  display:flex;flex-wrap:wrap;gap:10px;
+  padding:22px 0;border-bottom:1px solid var(--border);
+}
+nav a {
+  padding:7px 13px;background:var(--card);
+  border:1px solid var(--border);border-radius:5px;
+  font-size:13px;color:var(--gold);
+}
+section {padding:55px 0;border-bottom:1px solid var(--border)}
+.section-title {font-size:27px;margin-bottom:20px}
+.section-title span {color:var(--gold)}
+.intro {color:#ccc;margin-bottom:25px}
+.grid {
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:17px;margin-top:22px;
+}
+.card {
+  background:var(--card);border:1px solid var(--border);
+  padding:22px;border-radius:9px;transition:.3s;
+}
+.card:hover {border-color:var(--gold);transform:translateY(-4px)}
+.card h3 {color:var(--gold);margin-bottom:10px;font-size:19px}
+.card p,.card li {color:#bbb;font-size:14px}
+.card ul {padding-right:20px}
+.number {font-size:30px;color:var(--gold);font-weight:900}
+.highlight {
+  background:#1b1811;border-right:4px solid var(--gold);
+  padding:18px 22px;margin:22px 0;border-radius:5px;
+}
+table {width:100%;border-collapse:collapse;margin-top:20px}
+th,td {padding:13px;text-align:right;border:1px solid var(--border)}
+th {background:#272015;color:var(--gold)}
+td {background:var(--card);color:#ccc;font-size:14px}
+.warning {
+  background:#281b14;border:1px solid #75451d;
+  padding:18px;border-radius:8px;margin:20px 0;color:#ffd7a0;
+}
+.quiz {
+  background:var(--card);border:1px solid var(--gold);
+  padding:25px;border-radius:10px;margin-top:25px;
+}
+.question {
+  padding:18px 0;border-bottom:1px solid var(--border);
+}
+.question h3 {font-size:16px;margin-bottom:12px}
+.question label {
+  display:block;padding:8px 12px;margin:7px 0;
+  background:#202020;border-radius:5px;cursor:pointer;
+  color:#ddd;font-size:14px;
+}
+.question label:hover {background:#302817}
+.question input {accent-color:var(--gold);margin-left:8px}
+button {
+  background:var(--gold);color:#111;border:0;
+  padding:12px 25px;border-radius:5px;
+  font-family:inherit;font-weight:900;
+  cursor:pointer;margin-top:20px;
+}
+button:hover {background:#e0bd79}
+#result {margin-top:20px;font-size:18px;font-weight:800;color:var(--gold)}
+footer {
+  text-align:center;padding:35px 15px;
+  background:#050505;color:var(--muted);
+  font-size:13px;
+}
+footer strong {color:var(--gold)}
+@media(max-width:600px) {
+  header {padding:12px 5%}
+  .logo {font-size:15px}
+  .hero {padding:65px 6%;min-height:350px}
+  .container {width:90%}
+  .section-title {font-size:23px}
+  th,td {padding:8px;font-size:12px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">MECHANICAL <span>WORLD</span></a>
+  <a class="back" href="index.html">← العودة للرئيسية</a>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="tag">AUTOMOTIVE ENGINEERING / 015</div>
+    <h1>أنظمة <span>السلامة</span> في السيارات</h1>
+    <p>
+      اكتشفي التقنيات الهندسية التي تحمي السائق والركاب،
+      وتساعد على تجنب الحوادث وتقليل آثار الاصطدام،
+      من أنظمة ABS وESP إلى الوسائد الهوائية والذكاء الاصطناعي.
+    </p>
+  </div>
+</div>
+
+<main class="container">
+
+<nav>
+  <a href="#intro">مقدمة</a>
+  <a href="#abs">ABS</a>
+  <a href="#esp">ESP</a>
+  <a href="#tcs">TCS</a>
+  <a href="#airbag">الوسائد الهوائية</a>
+  <a href="#belts">أحزمة الأمان</a>
+  <a href="#structure">هيكل السيارة</a>
+  <a href="#adas">ADAS</a>
+  <a href="#maintenance">الصيانة</a>
+  <a href="#quiz">الاختبار</a>
+</nav>
+
+<section id="intro">
+  <h2 class="section-title"><span>01.</span> مقدمة عن هندسة السلامة</h2>
+  <p class="intro">
+    تعتبر السلامة من أهم المجالات في هندسة السيارات الحديثة.
+    فهي مجموعة من الأنظمة والتقنيات المصممة لحماية الأشخاص
+    داخل المركبة وخارجها. لم تعد السيارة مجرد وسيلة نقل،
+    بل أصبحت نظاماً هندسياً متكاملاً يعتمد على الحساسات
+    ووحدات التحكم الإلكترونية والأنظمة الميكانيكية.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <div class="number">01</div>
+      <h3>السلامة النشطة Active Safety</h3>
+      <p>
+        أنظمة تساعد السائق على تجنب وقوع الحوادث قبل حدوثها،
+        مثل ABS وESP والتحكم في الجر وأنظمة التحذير من الاصطدام.
+      </p>
+    </article>
+    <article class="card">
+      <div class="number">02</div>
+      <h3>السلامة السلبية Passive Safety</h3>
+      <p>
+        تقنيات تقلل الإصابات عند وقوع الحادث،
+        مثل الوسائد الهوائية وأحزمة الأمان ومناطق امتصاص الصدمات.
+      </p>
+    </article>
+    <article class="card">
+      <div class="number">03</div>
+      <h3>السلامة الذكية Smart Safety</h3>
+      <p>
+        تعتمد على الكاميرات والرادارات والحساسات والبرمجيات
+        لمراقبة الطريق ومساعدة السائق على اتخاذ قرارات أفضل.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="abs">
+  <h2 class="section-title"><span>02.</span> نظام منع انغلاق المكابح ABS</h2>
+  <p class="intro">
+    ABS اختصار لـ Anti-lock Braking System، وهو نظام إلكتروني
+    يمنع انغلاق العجلات عند الفرملة القوية. يساعد السائق على
+    المحافظة على القدرة على توجيه السيارة أثناء الكبح.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>حساسات سرعة العجلات</h3>
+      <p>تقيس سرعة دوران كل عجلة وترسل المعلومات إلى وحدة التحكم الإلكترونية.</p>
+    </article>
+    <article class="card">
+      <h3>وحدة التحكم ECU</h3>
+      <p>تحلل بيانات الحساسات وتحدد ما إذا كانت إحدى العجلات على وشك الانغلاق.</p>
+    </article>
+    <article class="card">
+      <h3>الصمامات الهيدروليكية</h3>
+      <p>تنظم ضغط سائل الفرامل في الدوائر المرتبطة بالعجلات.</p>
+    </article>
+    <article class="card">
+      <h3>المضخة الهيدروليكية</h3>
+      <p>تساعد على إعادة بناء ضغط الفرملة خلال دورات عمل النظام.</p>
+    </article>
+  </div>
+
+  <h3 style="color:var(--gold);margin-top:28px">كيف يعمل ABS؟</h3>
+  <p class="intro">
+    عندما يكتشف النظام أن إحدى العجلات تتباطأ بسرعة غير طبيعية
+    وتوشك على الانغلاق، تقوم وحدة التحكم بتعديل ضغط الفرامل
+    بسرعة كبيرة. تتكرر عملية خفض الضغط والمحافظة عليه وزيادته
+    حسب حالة العجلة، مما يسمح باستمرار دورانها بدرجة تساعد
+    على التحكم في اتجاه السيارة.
+  </p>
+
+  <div class="highlight">
+    <strong>معلومة هندسية:</strong>
+    قد يشعر السائق باهتزاز في دواسة الفرامل أو يسمع صوتاً
+    أثناء تدخل ABS. هذا قد يكون طبيعياً أثناء عمل النظام.
+  </div>
+
+  <h3 style="color:var(--gold)">فوائد النظام وحدوده</h3>
+  <ul style="padding-right:22px;color:#bbb">
+    <li>يساعد على الحفاظ على القدرة على التوجيه أثناء الكبح الشديد.</li>
+    <li>يقلل احتمال انغلاق العجلات وانزلاقها.</li>
+    <li>لا يضمن دائماً مسافة توقف أقصر، خصوصاً على بعض الأسطح غير المستوية أو الحصوية.</li>
+    <li>لا يعوض الإطارات التالفة أو السرعة غير المناسبة.</li>
+  </ul>
+</section>
+
+<section id="esp">
+  <h2 class="section-title"><span>03.</span> نظام الثبات الإلكتروني ESP / ESC</h2>
+  <p class="intro">
+    نظام الثبات الإلكتروني Electronic Stability Control
+    يساعد على إبقاء السيارة في المسار الذي يقصده السائق،
+    خصوصاً عند المنعطفات أو المناورات المفاجئة.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>حساس زاوية المقود</h3>
+      <p>يحدد الاتجاه الذي يريد السائق توجيه السيارة إليه.</p>
+    </article>
+    <article class="card">
+      <h3>حساس معدل الانعراج Yaw</h3>
+      <p>يقيس سرعة دوران السيارة حول محورها العمودي.</p>
+    </article>
+    <article class="card">
+      <h3>حساس التسارع الجانبي</h3>
+      <p>يراقب التسارع الناتج عن حركة السيارة جانبياً.</p>
+    </article>
+    <article class="card">
+      <h3>حساسات العجلات</h3>
+      <p>تراقب سرعة دوران العجلات لتحديد حالة الحركة والانزلاق.</p>
+    </article>
+  </div>
+
+  <h3 style="color:var(--gold);margin-top:25px">مبدأ العمل</h3>
+  <p class="intro">
+    يقارن النظام بين اتجاه المقود الذي اختاره السائق
+    وحركة السيارة الفعلية. إذا اكتشف اختلافاً يدل على فقدان
+    الثبات، يمكنه التدخل عن طريق فرملة عجلة أو أكثر بشكل
+    منفصل، وقد يقلل عزم المحرك للمساعدة في استعادة السيطرة.
+  </p>
+
+  <div class="highlight">
+    ESP لا يستطيع إلغاء قوانين الفيزياء؛ السرعة العالية
+    والإطارات الضعيفة والطريق الزلق قد تتجاوز قدرة النظام.
+  </div>
+</section>
+
+<section id="tcs">
+  <h2 class="section-title"><span>04.</span> نظام التحكم في الجر TCS</h2>
+  <p class="intro">
+    Traction Control System هو نظام يساعد على منع دوران
+    عجلات القيادة بشكل مفرط عند التسارع، خصوصاً على الطرق
+    المبللة أو الرملية أو المغطاة بالثلوج.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>اكتشاف الانزلاق</h3>
+      <p>يستخدم حساسات سرعة العجلات لاكتشاف الفرق غير الطبيعي في دورانها.</p>
+    </article>
+    <article class="card">
+      <h3>التحكم بالفرامل</h3>
+      <p>يمكنه تطبيق قوة فرملة على عجلة تدور بسرعة أكبر من اللازم.</p>
+    </article>
+    <article class="card">
+      <h3>التحكم بالمحرك</h3>
+      <p>قد يقلل عزم المحرك لتقليل انزلاق العجلات وتحسين التماسك.</p>
+    </article>
+  </div>
+
+  <p class="intro" style="margin-top:20px">
+    يعمل TCS غالباً بالتكامل مع ABS وESP، لكنه يركز أساساً
+    على تحسين الجر أثناء التسارع، بينما يركز ABS على منع
+    انغلاق العجلات أثناء الفرملة.
+  </p>
+</section>
+
+<section id="airbag">
+  <h2 class="section-title"><span>05.</span> الوسائد الهوائية Airbags</h2>
+  <p class="intro">
+    الوسائد الهوائية جزء من نظام الحماية التكميلي SRS.
+    صممت لتعمل مع حزام الأمان وتخفف من شدة اصطدام جسم
+    الراكب بالأجزاء الداخلية للسيارة عند بعض أنواع الحوادث.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>الوسائد الأمامية</h3>
+      <p>توجد عادة في المقود ولوحة القيادة لحماية السائق والراكب الأمامي.</p>
+    </article>
+    <article class="card">
+      <h3>الوسائد الجانبية</h3>
+      <p>تساعد على حماية منطقة الصدر والحوض في الاصطدامات الجانبية.</p>
+    </article>
+    <article class="card">
+      <h3>الوسائد الستائرية</h3>
+      <p>تنتشر قرب النوافذ الجانبية للمساعدة في حماية رؤوس الركاب.</p>
+    </article>
+    <article class="card">
+      <h3>وسائد الركبة</h3>
+      <p>تساعد على تقليل إصابات الركبتين والساقين في بعض الاصطدامات.</p>
+    </article>
+  </div>
+
+  <h3 style="color:var(--gold);margin-top:25px">المكونات وطريقة العمل</h3>
+  <p class="intro">
+    يتكون النظام من حساسات تصادم ووحدة تحكم SRS ومولد غاز
+    وكيس قابل للانتفاخ. عند اكتشاف اصطدام تتوافق شدته
+    واتجاهه مع شروط التشغيل، تقرر وحدة التحكم تفعيل
+    الوسائد المناسبة. تنتفخ الوسادة بسرعة كبيرة ثم يبدأ
+    الغاز بالخروج منها عبر فتحات مصممة لذلك.
+  </p>
+
+  <div class="warning">
+    <strong>تحذير مهم جداً:</strong>
+    لا تحاولي تفكيك الوسائد الهوائية أو لمس الموصلات
+    الصفراء أو اختبار مولدات الغاز بنفسك. لا يعاد استعمال
+    الوسادة بعد انفجارها. يجب أن يتولى فني مؤهل فحص
+    نظام SRS واستبدال أجزائه وفق تعليمات الشركة المصنعة.
+  </div>
+</section>
+
+<section id="belts">
+  <h2 class="section-title"><span>06.</span> أحزمة الأمان</h2>
+  <p class="intro">
+    حزام الأمان من أهم وسائل الحماية في السيارة.
+    يثبت جسم الراكب في المقعد ويقلل احتمال اصطدامه
+    بالمقود أو الزجاج أو أجزاء المقصورة أثناء الحادث.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>حزام ثلاثي النقاط</h3>
+      <p>يثبت الكتف والحوض، ويعد من أكثر أنواع الأحزمة استخداماً في سيارات الركاب.</p>
+    </article>
+    <article class="card">
+      <h3>شداد الحزام Pretensioner</h3>
+      <p>يشد الحزام بسرعة عند بعض حالات الاصطدام لتقليل ارتخائه.</p>
+    </article>
+    <article class="card">
+      <h3>محدد القوة Load Limiter</h3>
+      <p>يسمح بخروج محدود ومدروس للحزام لتقليل القوة المؤثرة على جسم الراكب.</p>
+    </article>
+  </div>
+
+  <div class="highlight">
+    يجب ارتداء الحزام بشكل صحيح، بحيث يمر الجزء السفلي
+    فوق الحوض وليس البطن، والجزء العلوي عبر منتصف الصدر
+    والكتف، دون وضعه تحت الذراع.
+  </div>
+</section>
+
+<section id="structure">
+  <h2 class="section-title"><span>07.</span> هيكل السيارة وامتصاص الصدمات</h2>
+  <p class="intro">
+    لا تعتمد سلامة السيارة على الأجهزة الإلكترونية فقط؛
+    بل يلعب تصميم الهيكل والمواد المستخدمة دوراً أساسياً
+    في حماية الركاب أثناء الاصطدام.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>مناطق امتصاص الصدمات</h3>
+      <p>أجزاء مصممة للتشوه بطريقة مدروسة لامتصاص جزء من طاقة الاصطدام.</p>
+    </article>
+    <article class="card">
+      <h3>خلية الركاب</h3>
+      <p>منطقة هيكلية قوية تهدف إلى المحافظة على مساحة البقاء حول الركاب.</p>
+    </article>
+    <article class="card">
+      <h3>قضبان الحماية الجانبية</h3>
+      <p>تساعد على تعزيز الأبواب ومقاومة بعض أنواع الاصطدام الجانبي.</p>
+    </article>
+    <article class="card">
+      <h3>مساند الرأس</h3>
+      <p>تساعد على تقليل حركة الرأس النسبية للخلف في بعض الاصطدامات الخلفية.</p>
+    </article>
+  </div>
+
+  <p class="intro" style="margin-top:20px">
+    يعتمد المهندسون على المحاكاة الحاسوبية واختبارات التصادم
+    لدراسة تشوه الهيكل وتوزيع القوى، ثم تحسين التصميم
+    بما يتوافق مع معايير السلامة المعتمدة.
+  </p>
+</section>
+
+<section id="adas">
+  <h2 class="section-title"><span>08.</span> أنظمة مساعدة السائق ADAS</h2>
+  <p class="intro">
+    Advanced Driver Assistance Systems هي مجموعة من
+    التقنيات التي تستخدم الكاميرات والرادارات والحساسات
+    لمراقبة محيط السيارة ومساعدة السائق.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>AEB — الكبح التلقائي</h3>
+      <p>يمكنه تفعيل الفرامل تلقائياً عند اكتشاف خطر اصطدام وفق شروط النظام.</p>
+    </article>
+    <article class="card">
+      <h3>FCW — التحذير من الاصطدام</h3>
+      <p>ينبه السائق عند اكتشاف احتمال اقتراب خطير من مركبة أمامه.</p>
+    </article>
+    <article class="card">
+      <h3>LDW / LKA</h3>
+      <p>نظام التحذير من مغادرة المسار أو المساعدة على البقاء داخله.</p>
+    </article>
+    <article class="card">
+      <h3>ACC — مثبت السرعة التكيفي</h3>
+      <p>يساعد على ضبط السرعة والمسافة عن المركبة الأمامية.</p>
+    </article>
+    <article class="card">
+      <h3>BSM — مراقبة النقطة العمياء</h3>
+      <p>ينبه السائق عند وجود مركبة في منطقة يصعب رؤيتها بالمرايا.</p>
+    </article>
+    <article class="card">
+      <h3>الكاميرا الخلفية</h3>
+      <p>تعرض المنطقة خلف السيارة للمساعدة أثناء الرجوع إلى الخلف.</p>
+    </article>
+  </div>
+
+  <div class="warning">
+    أنظمة ADAS هي أنظمة مساعدة وليست قيادة مستقلة في جميع
+    الظروف. يجب على السائق مراقبة الطريق وإبقاء يديه
+    وانتباهه في وضع يسمح بالتحكم في المركبة.
+  </div>
+</section>
+
+<section id="classification">
+  <h2 class="section-title"><span>09.</span> مقارنة أنظمة السلامة</h2>
+  <p class="intro">يمكن تقسيم الأنظمة حسب الهدف الأساسي منها:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>النظام</th>
+        <th>التصنيف</th>
+        <th>الوظيفة الأساسية</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>ABS</td><td>نشطة</td><td>منع انغلاق العجلات عند الكبح</td></tr>
+      <tr><td>ESP / ESC</td><td>نشطة</td><td>المساعدة على استقرار السيارة</td></tr>
+      <tr><td>TCS</td><td>نشطة</td><td>تقليل انزلاق عجلات القيادة</td></tr>
+      <tr><td>AEB</td><td>نشطة / مساعدة</td><td>المساعدة على تجنب الاصطدام</td></tr>
+      <tr><td>Airbags</td><td>سلبية</td><td>تخفيف آثار بعض الاصطدامات</td></tr>
+      <tr><td>Seat Belts</td><td>سلبية</td><td>تثبيت الركاب داخل المقصورة</td></tr>
+      <tr><td>هيكل امتصاص الصدمات</td><td>سلبية</td><td>إدارة طاقة الاصطدام</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="maintenance">
+  <h2 class="section-title"><span>10.</span> صيانة وفحص أنظمة السلامة</h2>
+  <p class="intro">
+    تحتاج أنظمة السلامة إلى فحص دوري للتأكد من أنها تعمل
+    بالشكل الصحيح. تجاهل أضواء التحذير قد يؤدي إلى عدم
+    توفر بعض وظائف الحماية عند الحاجة إليها.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>فحص ABS وESP</h3>
+      <p>فحص رموز الأعطال والحساسات والأسلاك ووحدة التحكم باستخدام أجهزة تشخيص مناسبة.</p>
+    </article>
+    <article class="card">
+      <h3>فحص الوسائد الهوائية</h3>
+      <p>مراقبة ضوء SRS وتشخيص الأعطال لدى مختص دون تفكيك المكونات الحساسة.</p>
+    </article>
+    <article class="card">
+      <h3>الإطارات والفرامل</h3>
+      <p>فحص ضغط الإطارات ونقشة المداس وأقراص الفرامل والبطانات وسائل الفرامل.</p>
+    </article>
+    <article class="card">
+      <h3>أنظمة ADAS</h3>
+      <p>الحفاظ على نظافة الكاميرات والحساسات وإجراء المعايرة بعد الإصلاحات المطلوبة.</p>
+    </article>
+  </div>
+
+  <h3 style="color:var(--gold);margin-top:25px">قواعد السلامة أثناء الإصلاح</h3>
+  <ul style="padding-right:22px;color:#bbb">
+    <li>اتباع دليل الصيانة الخاص بالشركة المصنعة.</li>
+    <li>عدم تجاهل أضواء التحذير الموجودة في لوحة العدادات.</li>
+    <li>إصلاح المركبة بعد الحوادث وفق إجراءات المصنع المعتمدة.</li>
+    <li>عدم إجراء اختبارات انزلاق أو كبح خطيرة في الطرق العامة.</li>
+    <li>ترك أنظمة الوسائد الهوائية والشدادات لفنيين مؤهلين.</li>
+  </ul>
+</section>
+
+<section id="children">
+  <h2 class="section-title"><span>11.</span> سلامة الأطفال داخل السيارة</h2>
+  <p class="intro">
+    يحتاج الأطفال إلى مقاعد مخصصة تتناسب مع حجمهم ووزنهم
+    وطولهم، لأن حزام الأمان المخصص للبالغين قد لا يوفر
+    الحماية المناسبة لهم إذا لم يكن ملائماً لأجسامهم.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>مقاعد الأطفال</h3>
+      <p>اختيار مقعد معتمد يناسب عمر الطفل ووزنه وطوله، مع الالتزام بتعليمات التركيب.</p>
+    </article>
+    <article class="card">
+      <h3>التثبيت الصحيح</h3>
+      <p>استخدام نظام ISOFIX أو حزام السيارة حسب تصميم المقعد والمركبة.</p>
+    </article>
+    <article class="card">
+      <h3>الوسادة الهوائية الأمامية</h3>
+      <p>لا يوضع مقعد طفل مواجه للخلف أمام وسادة هوائية أمامية فعالة. اتبعي تعليمات المركبة والمقعد.</p>
+    </article>
+  </div>
+</section>
+
+<section id="quiz">
+  <h2 class="section-title"><span>12.</span> اختبري معلوماتك</h2>
+  <p class="intro">أجيبي عن الأسئلة الثمانية واكتشفي مستواك في أنظمة السلامة.</p>
+
+  <div class="quiz">
+    <form id="quizForm">
+
+      <div class="question">
+        <h3>1. ما الوظيفة الأساسية لنظام ABS؟</h3>
+        <label><input type="radio" name="q1" value="a"> زيادة سرعة المحرك</label>
+        <label><input type="radio" name="q1" value="b"> منع انغلاق العجلات أثناء الفرملة</label>
+        <label><input type="radio" name="q1" value="c"> تبريد المحرك</label>
+      </div>
+
+      <div class="question">
+        <h3>2. ما وظيفة نظام ESP؟</h3>
+        <label><input type="radio" name="q2" value="a"> تحسين ثبات السيارة</label>
+        <label><input type="radio" name="q2" value="b"> تشغيل المكيف</label>
+        <label><input type="radio" name="q2" value="c"> شحن البطارية</label>
+      </div>
+
+      <div class="question">
+        <h3>3. ماذا يعني TCS؟</h3>
+        <label><input type="radio" name="q3" value="a"> نظام التبريد</label>
+        <label><input type="radio" name="q3" value="b"> نظام التحكم في الجر</label>
+        <label><input type="radio" name="q3" value="c"> نظام العادم</label>
+      </div>
+
+      <div class="question">
+        <h3>4. ما الغرض من الوسائد الهوائية؟</h3>
+        <label><input type="radio" name="q4" value="a"> زيادة قوة المحرك</label>
+        <label><input type="radio" name="q4" value="b"> تخفيف آثار بعض الاصطدامات</label>
+        <label><input type="radio" name="q4" value="c"> تقليل استهلاك الوقود</label>
+      </div>
+
+      <div class="question">
+        <h3>5. ما وظيفة شداد حزام الأمان؟</h3>
+        <label><input type="radio" name="q5" value="a"> شد الحزام عند بعض حالات الاصطدام</label>
+        <label><input type="radio" name="q5" value="b"> تشغيل المصابيح</label>
+        <label><input type="radio" name="q5" value="c"> زيادة ضغط الإطارات</label>
+      </div>
+
+      <div class="question">
+        <h3>6. ماذا تعني ADAS؟</h3>
+        <label><input type="radio" name="q6" value="a"> أنظمة مساعدة السائق المتقدمة</label>
+        <label><input type="radio" name="q6" value="b"> نظام الوقود</label>
+        <label><input type="radio" name="q6" value="c"> نظام التزييت</label>
+      </div>
+
+      <div class="question">
+        <h3>7. ما وظيفة مناطق امتصاص الصدمات؟</h3>
+        <label><input type="radio" name="q7" value="a"> زيادة سرعة السيارة</label>
+        <label><input type="radio" name="q7" value="b"> امتصاص جزء من طاقة الاصطدام</label>
+        <label><input type="radio" name="q7" value="c"> تقليل حرارة المحرك</label>
+      </div>
+
+      <div class="question">
+        <h3>8. هل يمكن للوسادة الهوائية أن تعوض حزام الأمان؟</h3>
+        <label><input type="radio" name="q8" value="a"> نعم دائماً</label>
+        <label><input type="radio" name="q8" value="b"> لا، تعمل معه كنظام حماية تكميلي</label>
+        <label><input type="radio" name="q8" value="c"> نعم في السرعات العالية فقط</label>
+      </div>
+
+      <button type="submit">تصحيح الاختبار</button>
+      <button type="button" onclick="resetQuiz()" style="background:#333;color:white;margin-right:8px">إعادة المحاولة</button>
+    </form>
+
+    <div id="result" aria-live="polite"></div>
+    <div id="corrections" style="color:#ccc;margin-top:12px"></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>MECHANICAL <strong>WORLD</strong> © 2026</p>
+  <p>إعداد التلميذتين: <strong>بن صالح كوثر 🌞</strong> و<strong>بالعربي هاجر 🌚</strong></p>
+  <p>إشراف: أستاذ مادة الميكانيك</p>
+  <p>عالم الميكانيك والهندسة والسيارات</p>
+</footer>
+
+<script>
+const answers = {
+  q1:"b",
+  q2:"a",
+  q3:"b",
+  q4:"b",
+  q5:"a",
+  q6:"a",
+  q7:"b",
+  q8:"b"
+};
+
+const explanations = {
+  q1:"ABS يمنع انغلاق العجلات أثناء الفرملة.",
+  q2:"ESP يساعد على المحافظة على ثبات السيارة.",
+  q3:"TCS هو نظام التحكم في الجر.",
+  q4:"الوسائد الهوائية تخفف آثار بعض الاصطدامات.",
+  q5:"شداد الحزام يشد الحزام بسرعة عند بعض الحوادث.",
+  q6:"ADAS تعني أنظمة مساعدة السائق المتقدمة.",
+  q7:"مناطق الامتصاص تمتص جزءاً من طاقة الاصطدام.",
+  q8:"الوسادة الهوائية نظام تكميلي ولا تعوض حزام الأمان."
+};
+
+document.getElementById("quizForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  let score=0;
+  let corrections="";
+
+  for(let i=1;i<=8;i++){
+    const selected=document.querySelector('input[name="q'+i+'"]:checked');
+    if(selected && selected.value===answers["q"+i]){
+      score++;
+      corrections += "<p style='color:#8ed69a'>✓ السؤال "+i+": إجابة صحيحة</p>";
+    } else {
+      corrections += "<p style='color:#ff9b87'>✗ السؤال "+i+": "+explanations["q"+i]+"</p>";
+    }
+  }
+
+  document.getElementById("result").textContent=
+    "نتيجتك: "+score+" / 8 — "+
+    (score===8?"ممتاز! أداء احترافي 🏆":
+    score>=6?"جيد جداً! 👏":
+    score>=4?"نتيجة جيدة، واصلي التعلم!":
+    "راجعي الدرس وحاولي مرة أخرى 💪");
+
+  document.getElementById("corrections").innerHTML=corrections;
+});
+
+function resetQuiz(){
+  document.getElementById("quizForm").reset();
+  document.getElementById("result").textContent="";
+  document.getElementById("corrections").innerHTML="";
+}
+</script>
+
+</body>
+</html>
