@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام التعليق والتوجيه | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a45c;--bg:#090909;--panel:#151515;--muted:#aaa;--white:#f5f5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--white);line-height:1.9}
+header{background:#101010;border-bottom:1px solid #34302a;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:19px;font-weight:800;letter-spacing:1px;color:var(--gold);direction:ltr}
+header a,.back{color:var(--gold);text-decoration:none}
+.hero{padding:75px 8%;background:linear-gradient(90deg,#090909eF,#090909aa),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=85') center/cover}
+.hero small{color:var(--gold);letter-spacing:3px;direction:ltr;display:block}
+h1{font-size:clamp(30px,5vw,54px);margin:12px 0}
+.hero p{max-width:750px;color:#ddd}
+.container{width:min(1100px,90%);margin:45px auto}
+.section-title{color:var(--gold);font-size:27px;margin:35px 0 18px;border-right:4px solid var(--gold);padding-right:13px}
+p{color:#ccc;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid #292929;border-radius:12px;padding:22px;transition:.25s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card h3{color:var(--gold);margin-bottom:8px}
+.card img{width:100%;height:155px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+.highlight{background:#17140e;border-right:4px solid var(--gold);padding:20px;margin:20px 0;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--panel);font-size:14px}
+th,td{padding:13px;border:1px solid #333;text-align:center}
+th{background:#282115;color:var(--gold)}
+.quiz{background:var(--panel);padding:25px;border-radius:12px;border:1px solid #39332a;margin-top:20px}
+.question{padding:17px 0;border-bottom:1px solid #333}
+.question h3{font-size:16px;margin-bottom:12px}
+.option{display:block;background:#222;padding:10px 13px;margin:7px 0;border-radius:7px;cursor:pointer;border:1px solid transparent}
+.option:hover{border-color:var(--gold)}
+.option input{margin-left:8px;accent-color:var(--gold)}
+button{background:var(--gold);color:#111;border:0;padding:12px 25px;border-radius:7px;font-family:inherit;font-weight:800;cursor:pointer;margin-top:18px}
+#result{margin-top:18px;color:var(--gold);font-weight:bold}
+footer{text-align:center;padding:30px 15px;background:#101010;border-top:1px solid #333;color:#aaa;margin-top:60px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){header{padding:15px 5%}.hero{padding:55px 6%}.container{width:92%}table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">MECHANICAL WORLD</div>
+ <a href="index.html">← العودة إلى الرئيسية</a>
+</header>
+
+<section class="hero">
+ <small>VEHICLE ENGINEERING / 04</small>
+ <h1>نظام التعليق والتوجيه</h1>
+ <p>دراسة هندسية لأحد أهم أنظمة السيارة، المسؤول عن الثبات والراحة والتحكم في اتجاه المركبة، وكيف تتعاون مكوناته للحفاظ على سلامة القيادة.</p>
+</section>
+
+<main class="container">
+
+<h2 class="section-title">1. ما هو نظام التعليق؟</h2>
+<p>نظام التعليق (Suspension System) هو مجموعة من الأجزاء الميكانيكية التي تربط عجلات السيارة بهيكلها. تتمثل مهمته الأساسية في امتصاص الصدمات والاهتزازات الناتجة عن عدم استواء الطريق، والمحافظة على تلامس الإطارات مع سطح الطريق.</p>
+<p>لا يقتصر دور هذا النظام على الراحة فقط، بل يؤثر مباشرة في الثبات أثناء المنعطفات، ومسافة التوقف، وقدرة السائق على التحكم في السيارة.</p>
+
+<div class="highlight">
+<strong>المبدأ الهندسي:</strong>
+يعمل نظام التعليق على التحكم في حركة العجلات بالنسبة إلى هيكل السيارة، وتقليل انتقال الاهتزازات إلى الركاب، مع الحفاظ على تماسك الإطارات بالطريق.
+</div>
+
+<h2 class="section-title">2. المكونات الأساسية لنظام التعليق</h2>
+<div class="grid">
+ <article class="card">
+  <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=700&q=80" alt="ممتص صدمات السيارة">
+  <h3>ممتص الصدمات (Shock Absorber)</h3>
+  <p>يقلل اهتزاز النوابض بعد تعرض العجلة لمطب أو حفرة. يعمل غالباً بواسطة مقاومة حركة الزيت داخل أسطوانة، مما يحول جزءاً من طاقة الحركة إلى حرارة.</p>
+ </article>
+ <article class="card">
+  <h3>النابض (Spring)</h3>
+  <p>يستقبل الصدمات عن طريق الانضغاط والتمدد، ويحمل جزءاً من وزن السيارة. توجد نوابض لولبية وأخرى ورقية وقضبان التواء.</p>
+ </article>
+ <article class="card">
+  <h3>أذرع التعليق (Control Arms)</h3>
+  <p>تربط مجموعة العجلة بهيكل السيارة، وتسمح بحركة العجلة ضمن مسار هندسي محدد مع المحافظة على موضعها.</p>
+ </article>
+ <article class="card">
+  <h3>المفاصل الكروية (Ball Joints)</h3>
+  <p>تسمح بالحركة الزاوية بين أجزاء التعليق والتوجيه، وتساعد على حركة العجلة دون فقدان الاتصال الميكانيكي.</p>
+ </article>
+ <article class="card">
+  <h3>قضيب منع الانقلاب (Anti-roll Bar)</h3>
+  <p>يربط جانبي التعليق ويساعد على تقليل ميلان هيكل السيارة عند الانعطاف، خصوصاً عند اختلاف حركة العجلتين.</p>
+ </article>
+ <article class="card">
+  <h3>الجلب المطاطية (Bushings)</h3>
+  <p>تقلل الاحتكاك والضوضاء والاهتزاز بين الأجزاء المعدنية، وتسمح بحركة محدودة ومدروسة للمكونات.</p>
+ </article>
+</div>
+
+<h2 class="section-title">3. كيف يعمل نظام التعليق؟</h2>
+<p>عندما تمر العجلة فوق مطب، تتحرك إلى الأعلى بالنسبة إلى هيكل السيارة. ينضغط النابض لامتصاص جزء من الصدمة، ثم يحاول التمدد من جديد. هنا يتدخل ممتص الصدمات للتحكم في سرعة هذه الحركة ومنع استمرار الاهتزاز.</p>
+<p>تعمل الأذرع والمفاصل على توجيه حركة العجلة، بينما يساعد قضيب منع الانقلاب على التحكم في ميلان الهيكل أثناء المنعطفات.</p>
+
+<div class="grid">
+ <article class="card">
+  <h3>المرحلة الأولى: استقبال الصدمة</h3>
+  <p>تنتقل القوة من الطريق إلى الإطار ثم إلى مجموعة التعليق.</p>
+ </article>
+ <article class="card">
+  <h3>المرحلة الثانية: امتصاص الطاقة</h3>
+  <p>ينضغط النابض ويخزن جزءاً من الطاقة المرنة.</p>
+ </article>
+ <article class="card">
+  <h3>المرحلة الثالثة: تخميد الاهتزاز</h3>
+  <p>يقاوم ممتص الصدمات الحركة الزائدة ويقلل تذبذب السيارة.</p>
+ </article>
+</div>
+
+<h2 class="section-title">4. أنواع أنظمة التعليق</h2>
+<div class="grid">
+ <article class="card">
+  <h3>التعليق المستقل (Independent)</h3>
+  <p>تتحرك كل عجلة بشكل مستقل نسبياً عن العجلة المقابلة، مما يساعد على تحسين الراحة والتماسك على الطرق غير المستوية.</p>
+ </article>
+ <article class="card">
+  <h3>المحور الصلب (Solid Axle)</h3>
+  <p>تتصل العجلتان بمحور واحد، فتؤثر حركة إحداهما في الأخرى. يتميز بالمتانة ويستخدم في بعض الشاحنات ومركبات الطرق الوعرة.</p>
+ </article>
+ <article class="card">
+  <h3>ماكفرسون (MacPherson Strut)</h3>
+  <p>تصميم شائع يجمع النابض وممتص الصدمات في وحدة واحدة تقريباً، ويوفر مساحة وتكلفة مناسبة في كثير من السيارات.</p>
+ </article>
+ <article class="card">
+  <h3>متعدد الوصلات (Multi-link)</h3>
+  <p>يستخدم عدة أذرع للتحكم الدقيق في حركة العجلة وزواياها، ويظهر في العديد من السيارات التي تستهدف الراحة والأداء.</p>
+ </article>
+</div>
+
+<h2 class="section-title">5. نظام التوجيه (Steering System)</h2>
+<p>نظام التوجيه هو النظام الذي يسمح للسائق بتغيير اتجاه السيارة عن طريق تدوير عجلة القيادة. ينقل الحركة من المقود إلى العجلات الموجهة، مع توفير دقة وتحكم مناسبين.</p>
+
+<div class="grid">
+ <article class="card">
+  <h3>عجلة القيادة (Steering Wheel)</h3>
+  <p>واجهة التحكم التي يستخدمها السائق لإعطاء أمر تغيير الاتجاه.</p>
+ </article>
+ <article class="card">
+  <h3>عمود التوجيه (Steering Column)</h3>
+  <p>ينقل حركة الدوران من عجلة القيادة إلى آلية التوجيه.</p>
+ </article>
+ <article class="card">
+  <h3>علبة التوجيه (Steering Rack)</h3>
+  <p>تحول الحركة الدورانية إلى حركة خطية تدفع قضبان التوجيه يميناً أو يساراً.</p>
+ </article>
+ <article class="card">
+  <h3>قضبان التوجيه (Tie Rods)</h3>
+  <p>تنقل الحركة إلى مفاصل العجلات لتغيير زاوية توجيهها.</p>
+ </article>
+</div>
+
+<h2 class="section-title">6. أنواع المساعدة في التوجيه</h2>
+<table>
+<thead><tr><th>النوع</th><th>طريقة العمل</th><th>الميزة</th></tr></thead>
+<tbody>
+<tr><td>توجيه ميكانيكي</td><td>نقل القوة مباشرة عبر أجزاء ميكانيكية</td><td>بساطة التصميم</td></tr>
+<tr><td>توجيه هيدروليكي</td><td>ضغط سائل بواسطة مضخة</td><td>تقليل جهد المقود</td></tr>
+<tr><td>توجيه كهربائي (EPS)</td><td>محرك كهربائي ووحدة تحكم</td><td>كفاءة وتحكم إلكتروني</td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">7. زوايا ضبط العجلات</h2>
+<p>ضبط زوايا العجلات (Wheel Alignment) هو ضبط مواضع واتجاهات العجلات وفق القيم المحددة من الشركة المصنعة. يساعد ذلك على استقرار السيارة وتقليل تآكل الإطارات.</p>
+<div class="grid">
+ <article class="card">
+  <h3>Camber – زاوية الميل</h3>
+  <p>زاوية ميل العجلة إلى الداخل أو الخارج عند النظر إليها من مقدمة السيارة.</p>
+ </article>
+ <article class="card">
+  <h3>Caster – زاوية المحور</h3>
+  <p>زاوية ميل محور التوجيه عند النظر إليه من جانب السيارة، وتؤثر في ثبات المقود وعودته.</p>
+ </article>
+ <article class="card">
+  <h3>Toe – زاوية التقارب</h3>
+  <p>توضح اتجاه العجلتين بالنسبة إلى بعضهما عند النظر من الأعلى، سواء كانتا متقاربتين أو متباعدتين.</p>
+ </article>
+</div>
+
+<h2 class="section-title">8. الصيانة والأعطال الشائعة</h2>
+<table>
+<thead><tr><th>العلامة</th><th>سبب محتمل</th><th>الإجراء</th></tr></thead>
+<tbody>
+<tr><td>ارتداد السيارة باستمرار</td><td>ضعف ممتص الصدمات</td><td>فحص الممتصات</td></tr>
+<tr><td>تآكل غير متساوٍ للإطارات</td><td>خلل زوايا العجلات أو التعليق</td><td>فحص وضبط الزوايا</td></tr>
+<tr><td>صوت طقطقة</td><td>تلف مفصل أو جلبة</td><td>فحص الوصلات</td></tr>
+<tr><td>ثقل المقود</td><td>مشكلة في المساعدة أو التوجيه</td><td>فحص النظام</td></tr>
+<tr><td>اهتزاز المقود</td><td>اختلال توازن العجلات أو أجزاء أخرى</td><td>تشخيص السبب</td></tr>
+</tbody>
+</table>
+<div class="highlight">
+<strong>تنبيه سلامة:</strong>
+أي خلل في التوجيه أو التعليق قد يؤثر في التحكم بالسيارة. يجب فحص النظام لدى فني مختص، وعدم محاولة إصلاح الأجزاء الحاملة للوزن دون معدات وخبرة مناسبة.
+</div>
+
+<h2 class="section-title">9. اختبار معلوماتك</h2>
+<p>اختبر فهمك لنظام التعليق والتوجيه. اختر إجابة واحدة لكل سؤال ثم اضغط على التصحيح.</p>
+<div class="quiz" id="quiz">
+ <div id="questions"></div>
+ <button onclick="correctQuiz()">تصحيح الاختبار</button>
+ <button onclick="resetQuiz()" style="background:#333;color:white">إعادة المحاولة</button>
+ <div id="result"></div>
+</div>
+
+</main>
+
+<footer>
+ <strong>MECHANICAL WORLD</strong>
+ <p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+ <p>إشراف أستاذ مادة الميكانيك</p>
+ <p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+ <a class="back" href="index.html">العودة إلى الصفحة الرئيسية ↑</a>
+</footer>
+
+<script>
+const questions=[
+{q:"ما الوظيفة الأساسية لنظام التعليق؟",o:["زيادة سرعة المحرك","امتصاص الصدمات وتحسين الثبات","تبريد المحرك","تغيير السرعات"],a:1},
+{q:"ما وظيفة ممتص الصدمات؟",o:["تخزين الوقود","توجيه المحرك","تقليل اهتزاز النابض","زيادة ضغط الإطارات"],a:2},
+{q:"أي جزء يخزن الطاقة المرنة عند انضغاطه؟",o:["النابض","المقود","عمود التوجيه","قضيب التوجيه"],a:0},
+{q:"ما وظيفة قضيب منع الانقلاب؟",o:["زيادة استهلاك الوقود","تقليل ميلان الهيكل في المنعطفات","تبريد الفرامل","تغيير اتجاه المحرك"],a:1},
+{q:"ماذا يفعل نظام التوجيه؟",o:["يغير اتجاه السيارة","يشحن البطارية","يضخ الوقود","يمتص حرارة المحرك"],a:0},
+{q:"ما معنى EPS؟",o:["نظام تبريد","توجيه بمساعدة كهربائية","نظام فرامل","نوع من المحركات"],a:1},
+{q:"أي زاوية تتعلق بميل العجلة للداخل أو الخارج؟",o:["Toe","Caster","Camber","Gear"],a:2},
+{q:"ماذا قد يدل عليه تآكل الإطارات بشكل غير متساوٍ؟",o:["امتلاء خزان الوقود","خلل في ضبط الزوايا أو التعليق","قوة البطارية","نقص ماء التبريد"],a:1}
+];
+function renderQuiz(){
+document.getElementById("questions").innerHTML=questions.map((q,i)=>`
+<div class="question"><h3>${i+1}. ${q.q}</h3>
+${q.o.map((v,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}">${v}</label>`).join("")}
+</div>`).join("");
+document.getElementById("result").textContent="";
+}
+function correctQuiz(){
+let score=0,answered=0;
+questions.forEach((q,i)=>{
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected){answered++;if(Number(selected.value)===q.a)score++;}
+});
+if(answered!==questions.length){
+document.getElementById("result").textContent="أجب عن جميع الأسئلة أولاً. ("+answered+"/"+questions.length+")";
+return;
+}
+document.getElementById("result").textContent="نتيجتك: "+score+" / "+questions.length+" — "+(score>=7?"ممتاز!":"واصل التعلم، يمكنك التحسن!");
+}
+function resetQuiz(){renderQuiz();}
+renderQuiz();
+</script>
+</body>
+</html>
