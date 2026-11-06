@@ -1,23 +1,13 @@
 
-/* ==========================================
+/* =========================================
    MECHANICAL WORLD — DETAILS ENGINE
-   نظام الصفحات التفصيلية
-========================================== */
+   Dynamic pages, sections and interactive quiz
+========================================= */
 
 (() => {
   "use strict";
 
   const PAGES = window.PAGES || {};
-  const pageIds = Object.keys(PAGES);
-
-  if (!pageIds.length) {
-    console.warn("MECHANICAL WORLD: pages-data.js is not loaded.");
-    return;
-  }
-
-  let currentPageId = null;
-  let mainContent = null;
-  let detailView = null;
 
   const escapeHTML = (value = "") =>
     String(value).replace(/[&<>"']/g, char => ({
@@ -28,377 +18,391 @@
       "'": "&#039;"
     })[char]);
 
-  function createDetailView() {
-    if (detailView) return detailView;
+  let activePage = null;
 
-    detailView = document.createElement("main");
-    detailView.id = "mechanical-detail-view";
-    detailView.hidden = true;
+  // إنشاء نافذة التفاصيل
+  function createDetailsWindow() {
+    if (document.getElementById("mechanical-details")) return;
 
-    detailView.innerHTML = `
-      <div class="detail-shell">
-        <div class="detail-toolbar">
-          <button type="button" class="detail-back">
-            ← العودة إلى الرئيسية
-          </button>
-          <span class="detail-brand">MECHANICAL WORLD</span>
-        </div>
+    const style = document.createElement("style");
 
-        <article class="detail-article">
-          <div class="detail-cover">
-            <img class="detail-image" alt="صورة توضيحية">
-            <div class="detail-cover-overlay"></div>
-            <div class="detail-cover-content">
-              <span class="detail-category"></span>
-              <h1 class="detail-title"></h1>
-              <p class="detail-intro"></p>
-            </div>
-          </div>
+    style.textContent = `
+      #mechanical-details {
+        position:fixed;
+        inset:0;
+        z-index:99999;
+        background:#090909;
+        color:#eee;
+        overflow-y:auto;
+        display:none;
+        font-family:inherit;
+      }
 
-          <div class="detail-sections"></div>
+      #mechanical-details.active { display:block; }
 
-          <div class="detail-navigation">
-            <button type="button" class="detail-prev">← السابق</button>
-            <button type="button" class="detail-next">التالي →</button>
-          </div>
-        </article>
-      </div>
+      .md-header {
+        position:sticky;
+        top:0;
+        z-index:5;
+        background:#101010;
+        border-bottom:1px solid #8b713e;
+        padding:15px 5%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:15px;
+      }
+
+      .md-logo {
+        color:#c9a45c;
+        font-weight:900;
+        letter-spacing:1px;
+      }
+
+      .md-close {
+        background:#c9a45c;
+        color:#090909;
+        border:0;
+        padding:9px 17px;
+        border-radius:7px;
+        cursor:pointer;
+        font-weight:900;
+      }
+
+      .md-hero {
+        padding:65px 7%;
+        text-align:center;
+        background:linear-gradient(130deg,#211a0d,#090909);
+        border-bottom:1px solid #49391f;
+      }
+
+      .md-icon { font-size:55px; }
+      .md-hero h1 { color:#c9a45c;font-size:clamp(28px,5vw,48px);margin:12px 0; }
+      .md-hero p { max-width:850px;margin:auto;color:#bbb;line-height:2; }
+
+      .md-content {
+        max-width:1150px;
+        margin:auto;
+        padding:35px 20px 65px;
+      }
+
+      .md-section { margin:35px 0; }
+
+      .md-section h2 {
+        color:#c9a45c;
+        border-right:4px solid #c9a45c;
+        padding-right:13px;
+        margin-bottom:18px;
+      }
+
+      .md-card {
+        background:#151515;
+        border:1px solid #302719;
+        border-radius:13px;
+        padding:22px;
+        margin:14px 0;
+        line-height:2;
+      }
+
+      .md-card h3 { color:#c9a45c;margin-bottom:8px; }
+      .md-card p { color:#ccc; }
+
+      .md-list { padding-right:23px;color:#ccc; }
+      .md-list li { margin:8px 0; }
+
+      .md-grid {
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:16px;
+      }
+
+      .md-quiz {
+        background:#121212;
+        border:1px solid #49391f;
+        border-radius:14px;
+        padding:23px;
+      }
+
+      .md-question {
+        padding:17px 0;
+        border-bottom:1px solid #333;
+      }
+
+      .md-question strong { display:block;margin-bottom:10px; }
+
+      .md-question label {
+        display:block;
+        padding:6px;
+        color:#ccc;
+        cursor:pointer;
+      }
+
+      .md-question input { accent-color:#c9a45c; }
+
+      .md-btn {
+        background:#c9a45c;
+        color:#090909;
+        border:0;
+        border-radius:7px;
+        padding:11px 20px;
+        margin:15px 5px 0 0;
+        cursor:pointer;
+        font-weight:900;
+      }
+
+      .md-result {
+        color:#c9a45c;
+        font-size:19px;
+        margin-top:15px;
+        font-weight:bold;
+      }
+
+      .md-footer {
+        text-align:center;
+        padding:25px;
+        background:#101010;
+        border-top:1px solid #49391f;
+        color:#aaa;
+      }
+
+      .md-footer strong { color:#c9a45c; }
+
+      @media(max-width:600px) {
+        .md-hero { padding:45px 18px; }
+        .md-content { padding:25px 14px; }
+        .md-header { padding:12px 15px; }
+      }
     `;
 
-    document.body.appendChild(detailView);
+    document.head.appendChild(style);
 
-    detailView.querySelector(".detail-back")
-      .addEventListener("click", closePage);
+    const wrapper = document.createElement("div");
+    wrapper.id = "mechanical-details";
 
-    detailView.querySelector(".detail-prev")
-      .addEventListener("click", () => movePage(-1));
+    wrapper.innerHTML = `
+      <header class="md-header">
+        <div class="md-logo">MECHANICAL WORLD</div>
+        <button class="md-close" onclick="closeMechanicalPage()">
+          ✕ إغلاق
+        </button>
+      </header>
+      <div id="md-page-content"></div>
+    `;
 
-    detailView.querySelector(".detail-next")
-      .addEventListener("click", () => movePage(1));
-
-    return detailView;
+    document.body.appendChild(wrapper);
   }
 
-  function renderSections(sections = []) {
-    return sections.map((section, index) => {
-      const paragraphs = (section.paragraphs || [])
-        .map(p => `<p>${escapeHTML(p)}</p>`)
-        .join("");
+  // تجهيز النصوص والقوائم
+  function renderContent(data) {
+    if (typeof data === "string") {
+      return `<p>${escapeHTML(data)}</p>`;
+    }
 
-      const bullets = (section.bullets || []).length
-        ? `<ul>${section.bullets.map(item =>
-            `<li>${escapeHTML(item)}</li>`
-          ).join("")}</ul>`
-        : "";
+    if (Array.isArray(data)) {
+      return `<ul class="md-list">${
+        data.map(item => `<li>${escapeHTML(item)}</li>`).join("")
+      }</ul>`;
+    }
+
+    return "";
+  }
+
+  // عرض أقسام الصفحة
+  function renderSections(sections = []) {
+    if (!Array.isArray(sections)) return "";
+
+    return sections.map((section, index) => {
+      if (typeof section === "string") {
+        return `
+          <section class="md-section">
+            <div class="md-card">${escapeHTML(section)}</div>
+          </section>
+        `;
+      }
+
+      const title = section.title || section.heading || `القسم ${index + 1}`;
+      const content = section.content || section.text || section.description || "";
+      const list = section.list || section.items || section.points || [];
 
       return `
-        <section class="detail-section">
-          <span class="detail-section-number">
-            ${(index + 1).toString().padStart(2, "0")}
-          </span>
-          <h2>${escapeHTML(section.heading || "معلومات إضافية")}</h2>
-          ${paragraphs}
-          ${bullets}
+        <section class="md-section">
+          <h2>${escapeHTML(title)}</h2>
+          <div class="md-card">
+            ${renderContent(content)}
+            ${renderContent(list)}
+          </div>
         </section>
       `;
     }).join("");
   }
 
-  function openPage(id) {
-    const page = PAGES[id];
+  // إنشاء الاختبار
+  function renderQuiz(questions = []) {
+    if (!Array.isArray(questions) || !questions.length) return "";
+
+    return `
+      <section class="md-section">
+        <h2>اختبر معلوماتك</h2>
+        <div class="md-quiz" id="md-quiz">
+          <p>أجب عن الأسئلة التالية واكتشف مستواك العلمي.</p>
+
+          ${questions.map((q, i) => `
+            <div class="md-question">
+              <strong>${i + 1}. ${escapeHTML(q.question || q.q || "")}</strong>
+              ${(q.options || []).map((option, j) => `
+                <label>
+                  <input type="radio" name="md-q-${i}" value="${j}">
+                  ${escapeHTML(option)}
+                </label>
+              `).join("")}
+            </div>
+          `).join("")}
+
+          <button class="md-btn" onclick="checkMechanicalQuiz()">
+            تصحيح الاختبار
+          </button>
+
+          <button class="md-btn" onclick="resetMechanicalQuiz()">
+            إعادة المحاولة
+          </button>
+
+          <div class="md-result" id="md-result"></div>
+        </div>
+      </section>
+    `;
+  }
+
+  // فتح صفحة التفاصيل
+  function openMechanicalPage(pageKey) {
+    const page = PAGES[pageKey];
 
     if (!page) {
-      console.warn("الصفحة غير موجودة:", id);
+      console.error("Mechanical World: Page not found:", pageKey);
       return;
     }
 
-    createDetailView();
+    activePage = page;
 
-    if (!mainContent) {
-      mainContent = document.querySelector(
-        "#app, #main-content, main, .main-content"
+    createDetailsWindow();
+
+    const wrapper = document.getElementById("mechanical-details");
+    const content = document.getElementById("md-page-content");
+
+    const title = page.title || page.name || "Mechanical World";
+    const icon = page.icon || "⚙️";
+    const intro = page.intro || page.description || "اكتشف المزيد من المعلومات في عالم الميكانيك.";
+
+    content.innerHTML = `
+      <section class="md-hero">
+        <div class="md-icon">${escapeHTML(icon)}</div>
+        <h1>${escapeHTML(title)}</h1>
+        <p>${escapeHTML(intro)}</p>
+      </section>
+
+      <main class="md-content">
+        ${renderSections(page.sections || page.content || [])}
+
+        ${renderQuiz(page.quiz || page.questions || [])}
+
+        <section class="md-section">
+          <div class="md-card">
+            <h3>معلومة هندسية</h3>
+            <p>
+              فهم الأنظمة الميكانيكية يساعد على تشخيص الأعطال
+              وتحسين أداء المركبات وزيادة كفاءة التشغيل.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="md-footer">
+        <p>إعداد التلميذتين</p>
+        <strong>بن صالح كوثر 🌞</strong>
+        <br>
+        <strong>بالعربي هاجر 🌚</strong>
+        <p>إشراف: أستاذ مادة الميكانيك</p>
+        <p>© MECHANICAL WORLD</p>
+      </footer>
+    `;
+
+    wrapper.classList.add("active");
+    document.body.style.overflow = "hidden";
+    wrapper.scrollTop = 0;
+  }
+
+  // إغلاق صفحة التفاصيل
+  function closeMechanicalPage() {
+    const wrapper = document.getElementById("mechanical-details");
+
+    if (wrapper) wrapper.classList.remove("active");
+
+    document.body.style.overflow = "";
+    activePage = null;
+  }
+
+  // تصحيح الاختبار
+  function checkMechanicalQuiz() {
+    if (!activePage) return;
+
+    const questions = activePage.quiz || activePage.questions || [];
+    let score = 0;
+
+    questions.forEach((q, i) => {
+      const selected = document.querySelector(
+        `input[name="md-q-${i}"]:checked`
       );
+
+      if (selected && Number(selected.value) === Number(q.answer)) {
+        score++;
+      }
+    });
+
+    const result = document.getElementById("md-result");
+
+    if (result) {
+      result.textContent =
+        `نتيجتك: ${score} / ${questions.length} — ${
+          score === questions.length
+            ? "ممتاز! إجابات صحيحة كلها 🏆"
+            : "واصل التعلم وحاول مرة أخرى 💪"
+        }`;
     }
-
-    if (mainContent && mainContent !== detailView) {
-      mainContent.hidden = true;
-    }
-
-    currentPageId = id;
-
-    const image = detailView.querySelector(".detail-image");
-    const category = detailView.querySelector(".detail-category");
-    const title = detailView.querySelector(".detail-title");
-    const intro = detailView.querySelector(".detail-intro");
-    const sections = detailView.querySelector(".detail-sections");
-
-    image.src = page.image || "";
-    image.alt = page.title || "Mechanical World";
-
-    image.onerror = () => {
-      image.style.display = "none";
-    };
-
-    image.style.display = page.image ? "block" : "none";
-
-    category.textContent = page.category || "MECHANICAL KNOWLEDGE";
-    title.textContent = page.title || "";
-    intro.textContent = page.intro || "";
-
-    sections.innerHTML = renderSections(page.sections);
-
-    detailView.hidden = false;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    updateNavigation();
   }
 
-  function closePage() {
-    if (!detailView) return;
+  // إعادة الاختبار
+  function resetMechanicalQuiz() {
+    document.querySelectorAll(
+      '#md-quiz input[type="radio"]'
+    ).forEach(input => input.checked = false);
 
-    detailView.hidden = true;
-
-    if (mainContent) {
-      mainContent.hidden = false;
-    }
-
-    currentPageId = null;
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const result = document.getElementById("md-result");
+    if (result) result.textContent = "";
   }
 
-  function movePage(direction) {
-    const index = pageIds.indexOf(currentPageId);
-    if (index === -1) return;
+  // ربط الوظائف بالصفحات
+  window.openMechanicalPage = openMechanicalPage;
+  window.closeMechanicalPage = closeMechanicalPage;
+  window.checkMechanicalQuiz = checkMechanicalQuiz;
+  window.resetMechanicalQuiz = resetMechanicalQuiz;
 
-    const nextIndex = index + direction;
-
-    if (nextIndex < 0 || nextIndex >= pageIds.length) return;
-
-    openPage(pageIds[nextIndex]);
-  }
-
-  function updateNavigation() {
-    const index = pageIds.indexOf(currentPageId);
-
-    const previous = detailView.querySelector(".detail-prev");
-    const next = detailView.querySelector(".detail-next");
-
-    previous.disabled = index <= 0;
-    next.disabled = index >= pageIds.length - 1;
-  }
-
-  // فتح الصفحات من أي عنصر يحمل data-page
+  // فتح التفاصيل عند الضغط على بطاقة القسم
   document.addEventListener("click", event => {
-    const trigger = event.target.closest("[data-page], [data-page-id]");
+    const card = event.target.closest("[data-page]");
 
-    if (!trigger) return;
+    if (!card) return;
 
-    const id = trigger.dataset.page || trigger.dataset.pageId;
+    const pageKey = card.dataset.page;
 
-    if (PAGES[id]) {
+    if (PAGES[pageKey]) {
       event.preventDefault();
-      openPage(id);
+      openMechanicalPage(pageKey);
     }
   });
 
-  // استقبال طلب فتح صفحة من ملفات أخرى
-  document.addEventListener("mechanical:open-page", event => {
-    if (event.detail && event.detail.id) {
-      openPage(event.detail.id);
-    }
-  });
-
-  // اختصار Escape للعودة
+  // زر Escape للإغلاق
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && currentPageId) {
-      closePage();
-    }
+    if (event.key === "Escape") closeMechanicalPage();
   });
 
-  // إتاحة فتح الصفحات من script.js
-  window.openMechanicalPage = openPage;
-  window.closeMechanicalPage = closePage;
-
-  // تنسيق صفحة التفاصيل
-  const style = document.createElement("style");
-
-  style.textContent = `
-    #mechanical-detail-view {
-      min-height: 100vh;
-      background: #0b0b0b;
-      color: #f5f5f5;
-      direction: rtl;
-      font-family: inherit;
-    }
-
-    #mechanical-detail-view[hidden] {
-      display: none !important;
-    }
-
-    .detail-shell {
-      width: min(1150px, 92%);
-      margin: auto;
-      padding-bottom: 70px;
-    }
-
-    .detail-toolbar {
-      min-height: 75px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      border-bottom: 1px solid #292929;
-    }
-
-    .detail-toolbar button,
-    .detail-navigation button {
-      background: transparent;
-      color: #d5b36a;
-      border: 1px solid #b8954d;
-      border-radius: 6px;
-      padding: 11px 18px;
-      cursor: pointer;
-      transition: .25s;
-    }
-
-    .detail-toolbar button:hover,
-    .detail-navigation button:hover:not(:disabled) {
-      background: #b8954d;
-      color: #111;
-    }
-
-    .detail-brand {
-      color: #d5b36a;
-      font-weight: 800;
-      letter-spacing: 2px;
-      direction: ltr;
-    }
-
-    .detail-cover {
-      position: relative;
-      min-height: 390px;
-      margin: 30px 0 45px;
-      overflow: hidden;
-      border-radius: 15px;
-      background: #171717;
-      display: flex;
-      align-items: end;
-    }
-
-    .detail-image {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .48;
-    }
-
-    .detail-cover-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        0deg,
-        #080808 0%,
-        rgba(8,8,8,.72) 45%,
-        rgba(8,8,8,.08) 100%
-      );
-    }
-
-    .detail-cover-content {
-      position: relative;
-      z-index: 1;
-      padding: 35px;
-      max-width: 850px;
-    }
-
-    .detail-category {
-      color: #d5b36a;
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .detail-title {
-      font-size: clamp(30px, 5vw, 55px);
-      margin: 15px 0;
-      color: #fff;
-    }
-
-    .detail-intro {
-      color: #c7c7c7;
-      line-height: 2;
-      font-size: 16px;
-    }
-
-    .detail-section {
-      padding: 28px;
-      margin: 22px 0;
-      background: #141414;
-      border: 1px solid #282828;
-      border-right: 3px solid #b8954d;
-      border-radius: 10px;
-      line-height: 2;
-    }
-
-    .detail-section-number {
-      color: #d5b36a;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .detail-section h2 {
-      color: #e0c27e;
-      margin: 8px 0 18px;
-      font-size: 23px;
-    }
-
-    .detail-section p {
-      color: #ccc;
-      margin: 12px 0;
-    }
-
-    .detail-section li {
-      color: #d5d5d5;
-      margin: 8px 0;
-    }
-
-    .detail-navigation {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      margin-top: 35px;
-    }
-
-    .detail-navigation button:disabled {
-      opacity: .3;
-      cursor: not-allowed;
-    }
-
-    @media(max-width:600px) {
-      .detail-cover {
-        min-height: 340px;
-      }
-
-      .detail-cover-content {
-        padding: 22px;
-      }
-
-      .detail-section {
-        padding: 19px;
-      }
-
-      .detail-brand {
-        font-size: 11px;
-      }
-
-      .detail-toolbar button {
-        padding: 9px 11px;
-        font-size: 12px;
-      }
-    }
-  `;
-
-  document.head.appendChild(style);
-
-  console.log("MECHANICAL WORLD: Details Engine loaded.");
 })();
+
