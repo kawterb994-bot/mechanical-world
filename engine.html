@@ -1,0 +1,1081 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0b">
+  <title>عالم المحركات | MECHANICAL WORLD</title>
+  <meta name="description" content="موسوعة تعليمية متخصصة في هندسة محركات السيارات ومكوناتها وطريقة عملها.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #c9a45c;
+      --gold-light: #e8cd91;
+      --black: #090909;
+      --panel: #151515;
+      --muted: #aaa;
+      --white: #f5f3ee;
+      --border: #303030;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Cairo', sans-serif;
+      line-height: 1.9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9,9,9,.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(15px);
+    }
+
+    .navbar {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      direction: ltr;
+      color: var(--gold);
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .home-link {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.35),#090909 100%),
+        url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85") center/cover;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 80px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 800;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px,7vw,76px);
+      line-height: 1.3;
+      margin: 20px 0;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: #c5c5c5;
+      font-size: 16px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 11px 22px;
+      border-radius: 5px;
+      transition: .3s;
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: #111;
+      font-weight: 800;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 35px;
+    }
+
+    .section-heading small {
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(27px,4vw,40px);
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 750px;
+      margin-top: 8px;
+    }
+
+    .gold {
+      color: var(--gold);
+    }
+
+    .text-block {
+      background: var(--panel);
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-right: 3px solid var(--gold);
+      border-radius: 9px;
+      margin-bottom: 20px;
+    }
+
+    .text-block h3 {
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .text-block p {
+      color: #c5c5c5;
+      margin-bottom: 12px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 22px 10px;
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 25px;
+    }
+
+    .stat span {
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    .parts-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 17px;
+    }
+
+    .part {
+      background: var(--panel);
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      transition: .3s;
+    }
+
+    .part:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .part-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .part h3 {
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .part p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .engine-image {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin: 20px 0;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 17px;
+    }
+
+    .step {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .step img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .step-content {
+      padding: 22px;
+    }
+
+    .step-number {
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .step h3 {
+      font-size: 21px;
+      margin: 6px 0;
+    }
+
+    .step p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--panel);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .comparison th,
+    .comparison td {
+      border: 1px solid var(--border);
+      padding: 15px;
+      text-align: right;
+    }
+
+    .comparison th {
+      color: var(--gold);
+      background: #202020;
+    }
+
+    .comparison td {
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .comparison-wrap {
+      overflow-x: auto;
+    }
+
+    .info-box {
+      background: #1b1914;
+      border: 1px solid #705b34;
+      border-radius: 8px;
+      padding: 22px;
+      color: #d6c49f;
+      margin-top: 25px;
+    }
+
+    .quiz {
+      background: #141414;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+    }
+
+    .quiz-question {
+      font-size: 19px;
+      margin-bottom: 20px;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 12px;
+    }
+
+    .quiz-options button {
+      background: #202020;
+      border: 1px solid #383838;
+      color: white;
+      padding: 13px;
+      border-radius: 6px;
+      text-align: right;
+      cursor: pointer;
+    }
+
+    .quiz-options button:hover:not(:disabled) {
+      border-color: var(--gold);
+    }
+
+    .quiz-options button.correct {
+      background: #153d28;
+      border-color: #48ae71;
+    }
+
+    .quiz-options button.wrong {
+      background: #491c1c;
+      border-color: #dc5555;
+    }
+
+    .quiz-feedback {
+      margin-top: 18px;
+      color: var(--gold-light);
+    }
+
+    .quiz-next {
+      margin-top: 20px;
+      border: none;
+    }
+
+    .quiz-next:disabled {
+      opacity: .4;
+      cursor: not-allowed;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 35px 0;
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media(max-width:800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .parts-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .stats {
+        grid-template-columns: repeat(2,1fr);
+      }
+    }
+
+    @media(max-width:550px) {
+      .parts-grid,
+      .steps,
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 520px;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .text-block {
+        padding: 20px;
+      }
+
+      .quiz {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container navbar">
+    <a href="index.html" class="logo">MECHANICAL<span> WORLD</span></a>
+
+    <ul class="nav-links">
+      <li><a href="#introduction">المقدمة</a></li>
+      <li><a href="#parts">المكونات</a></li>
+      <li><a href="#working">طريقة العمل</a></li>
+      <li><a href="#types">أنواع المحركات</a></li>
+      <li><a href="#quiz">الاختبار</a></li>
+    </ul>
+
+    <a href="index.html" class="home-link">الرئيسية ←</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <span class="eyebrow">ENGINEERING KNOWLEDGE / 01</span>
+    <h1>داخل عالم <span>المحركات</span></h1>
+    <p>
+      اكتشفي التكنولوجيا التي تقف وراء حركة السيارات،
+      من أول شرارة احتراق إلى دوران العجلات.
+      رحلة علمية لفهم قلب الآلة وأسرار أدائه.
+    </p>
+    <div class="hero-buttons">
+      <a href="#introduction" class="btn btn-gold">ابدئي الاستكشاف</a>
+      <a href="#parts" class="btn btn-outline">اكتشفي المكونات</a>
+    </div>
+  </div>
+</section>
+
+<main>
+
+<section class="section" id="introduction">
+  <div class="container">
+    <div class="section-heading">
+      <small>01 — INTRODUCTION</small>
+      <h2>ما هو <span class="gold">محرك السيارة؟</span></h2>
+      <p>فهم الأساس العلمي الذي يجعل السيارة تتحرك.</p>
+    </div>
+
+    <div class="text-block">
+      <h3>تعريف المحرك</h3>
+      <p>
+        محرك السيارة هو آلة هندسية مصممة لتحويل شكل من أشكال الطاقة
+        إلى طاقة ميكانيكية تُستخدم في تحريك المركبة. وفي محركات
+        الاحتراق الداخلي التقليدية، تتحول الطاقة الكيميائية الموجودة
+        في الوقود إلى حرارة وضغط، ثم إلى حركة ميكانيكية.
+      </p>
+      <p>
+        لا يعمل المحرك منفرداً، بل يتعاون مع مجموعة من الأنظمة
+        مثل نظام الوقود والإشعال والتبريد والتزييت والعادم،
+        إضافة إلى ناقل الحركة الذي ينقل العزم نحو العجلات.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>أهمية المحرك في المركبة</h3>
+      <p>
+        يمثل المحرك المصدر الأساسي للطاقة في السيارات التقليدية.
+        وتُقاس كفاءته بقدرته على إنتاج القدرة والعزم مع استهلاك
+        مناسب للوقود وتقليل الانبعاثات والضوضاء.
+      </p>
+      <p>
+        لذلك يعمل المهندسون على تحسين تصميم غرف الاحتراق،
+        وتدفق الهواء، ونظام الحقن، والتحكم الإلكتروني
+        بهدف رفع الأداء وتحسين الاقتصاد في الطاقة.
+      </p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><strong>4</strong><span>أشواط في الدورة التقليدية</span></div>
+      <div class="stat"><strong>V8</strong><span>مثال لترتيب الأسطوانات</span></div>
+      <div class="stat"><strong>RPM</strong><span>سرعة دوران المحرك</span></div>
+      <div class="stat"><strong>ECU</strong><span>وحدة التحكم الإلكترونية</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="parts" style="background:#101010">
+  <div class="container">
+    <div class="section-heading">
+      <small>02 — ENGINE COMPONENTS</small>
+      <h2>الأجزاء الرئيسية <span class="gold">للمحرك</span></h2>
+      <p>يتكون المحرك من أجزاء دقيقة تعمل معاً في تناغم هندسي.</p>
+    </div>
+
+    <img class="engine-image"
+      src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=85"
+      alt="محرك سيارة داخل ورشة هندسية">
+
+    <div class="parts-grid">
+      <article class="part">
+        <div class="part-icon">⚙️</div>
+        <h3>كتلة الأسطوانات</h3>
+        <p>
+          الهيكل الأساسي للمحرك، ويحتوي على الأسطوانات
+          التي تتحرك داخلها المكابس، كما يضم ممرات الزيت
+          وسائل التبريد في كثير من التصاميم.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🔩</div>
+        <h3>المكبس Piston</h3>
+        <p>
+          يتحرك صعوداً وهبوطاً داخل الأسطوانة نتيجة
+          ضغط الغازات واحتراق خليط الوقود والهواء،
+          وينقل القوة إلى ذراع التوصيل.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🔗</div>
+        <h3>ذراع التوصيل</h3>
+        <p>
+          يربط المكبس بعمود المرفق، وينقل القوة والحركة
+          بينهما، ويتعرض لأحمال ميكانيكية متغيرة أثناء التشغيل.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🔄</div>
+        <h3>عمود المرفق</h3>
+        <p>
+          يحول الحركة الخطية الترددية للمكابس إلى حركة
+          دورانية يمكن استخدامها لتشغيل ناقل الحركة.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🛠️</div>
+        <h3>الصمامات</h3>
+        <p>
+          تتحكم في دخول الهواء أو الخليط إلى الأسطوانة
+          وخروج غازات العادم، وتعمل بتوقيت دقيق.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">⚡</div>
+        <h3>شمعات الإشعال</h3>
+        <p>
+          تنتج شرارة كهربائية تشعل خليط الهواء والوقود
+          في محركات البنزين، ولا تستخدم بالطريقة نفسها
+          في محركات الديزل.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🛢️</div>
+        <h3>حوض الزيت</h3>
+        <p>
+          يخزن زيت المحرك في كثير من التصاميم،
+          ليسمح لمضخة الزيت بسحبه وتوزيعه على الأجزاء المتحركة.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🌡️</div>
+        <h3>نظام التبريد</h3>
+        <p>
+          يساعد على المحافظة على درجة حرارة تشغيل مناسبة،
+          ويمنع ارتفاع الحرارة الذي قد يؤدي إلى تلف المكونات.
+        </p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🧠</div>
+        <h3>وحدة التحكم ECU</h3>
+        <p>
+          تستقبل بيانات الحساسات وتتحكم في وظائف مثل
+          حقن الوقود وتوقيت الإشعال وبعض أنظمة المحرك الأخرى.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="working">
+  <div class="container">
+    <div class="section-heading">
+      <small>03 — HOW IT WORKS</small>
+      <h2>كيف يعمل المحرك؟</h2>
+      <p>
+        لفهم محرك البنزين رباعي الأشواط، يجب دراسة المراحل
+        الأربع التي يمر بها المكبس داخل الأسطوانة.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>مبدأ العمل</h3>
+      <p>
+        تحدث دورة التشغيل التقليدية خلال أربع حركات للمكبس:
+        السحب والضغط والقدرة والعادم. وفي المحرك رباعي الأشواط،
+        يحتاج عمود المرفق إلى دورتين كاملتين لإتمام دورة تشغيل واحدة
+        في كل أسطوانة.
+      </p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=700&q=80" alt="مرحلة سحب الهواء">
+        <div class="step-content">
+          <span class="step-number">STAGE 01</span>
+          <h3>شوط السحب</h3>
+          <p>
+            ينزل المكبس من النقطة الميتة العليا إلى النقطة
+            الميتة السفلى، ويفتح صمام السحب ليدخل الهواء
+            أو خليط الهواء والوقود حسب نظام المحرك.
+          </p>
+        </div>
+      </article>
+
+      <article class="step">
+        <img src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=700&q=80" alt="ضغط داخل المحرك">
+        <div class="step-content">
+          <span class="step-number">STAGE 02</span>
+          <h3>شوط الضغط</h3>
+          <p>
+            يصعد المكبس ويغلق صماما السحب والعادم،
+            فينضغط الهواء أو الخليط داخل حجرة الاحتراق.
+            يؤدي الضغط إلى رفع درجة حرارة الخليط.
+          </p>
+        </div>
+      </article>
+
+      <article class="step">
+        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=700&q=80" alt="قوة محرك السيارة">
+        <div class="step-content">
+          <span class="step-number">STAGE 03</span>
+          <h3>شوط القدرة</h3>
+          <p>
+            في محرك البنزين تشعل شمعة الإشعال الخليط قرب نهاية
+            الضغط، فتتمدد الغازات وتدفع المكبس إلى الأسفل،
+            وينتج عن ذلك عزم دوران على عمود المرفق.
+          </p>
+        </div>
+      </article>
+
+      <article class="step">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=700&q=80" alt="نظام عادم السيارة">
+        <div class="step-content">
+          <span class="step-number">STAGE 04</span>
+          <h3>شوط العادم</h3>
+          <p>
+            يصعد المكبس من جديد، ويفتح صمام العادم،
+            فتخرج الغازات الناتجة عن الاحتراق من الأسطوانة
+            استعداداً لبدء دورة جديدة.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="info-box">
+      <strong>معلومة هندسية:</strong>
+      في محرك رباعي الأشواط، تكتمل دورة التشغيل خلال
+      720 درجة من دوران عمود المرفق، أي دورتين كاملتين.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="types" style="background:#101010">
+  <div class="container">
+    <div class="section-heading">
+      <small>04 — ENGINE TYPES</small>
+      <h2>أنواع <span class="gold">المحركات</span></h2>
+      <p>
+        تختلف المحركات حسب الوقود وطريقة الاحتراق
+        وترتيب الأسطوانات ومصدر الطاقة.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>محرك البنزين</h3>
+      <p>
+        يعتمد غالباً على إشعال خليط الهواء والوقود بواسطة
+        شرارة شمعة الإشعال. يستخدم في كثير من السيارات
+        بسبب استجابته الجيدة وإمكانية تشغيله بسرعات دوران مرتفعة.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>محرك الديزل</h3>
+      <p>
+        يعتمد على ضغط الهواء داخل الأسطوانة إلى درجة حرارة
+        مرتفعة، ثم يحقن الوقود فيشتعل نتيجة الحرارة الناتجة
+        عن الضغط. لا يحتاج إلى شمعة إشعال لإحداث الاحتراق
+        بالطريقة المعتادة في محرك البنزين.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>محرك V6 وV8 وV12</h3>
+      <p>
+        تشير هذه التسميات إلى عدد الأسطوانات وترتيبها
+        على شكل حرف V. يتكون V6 من ست أسطوانات،
+        وV8 من ثماني أسطوانات، وV12 من اثنتي عشرة أسطوانة.
+        تختلف هذه المحركات في الحجم والكتلة والقدرة
+        ونعومة التشغيل بحسب التصميم.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>المحرك الهجين والكهربائي</h3>
+      <p>
+        يجمع النظام الهجين بين محرك احتراق داخلي ومحرك كهربائي
+        أو أكثر، بينما يعتمد المحرك الكهربائي على الطاقة
+        الكهربائية المخزنة في البطارية لتحويلها إلى حركة دورانية.
+        ويختلف مبدأ عملهما عن محرك الاحتراق التقليدي.
+      </p>
+    </div>
+
+    <div class="comparison-wrap">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>نوع المحرك</th>
+            <th>مصدر الطاقة</th>
+            <th>طريقة التشغيل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>بنزين</td>
+            <td>الوقود</td>
+            <td>شرارة كهربائية</td>
+          </tr>
+          <tr>
+            <td>ديزل</td>
+            <td>وقود الديزل</td>
+            <td>الاشتعال بالضغط</td>
+          </tr>
+          <tr>
+            <td>هجين</td>
+            <td>وقود وكهرباء</td>
+            <td>نظام مزدوج</td>
+          </tr>
+          <tr>
+            <td>كهربائي</td>
+            <td>البطارية</td>
+            <td>مجال كهرومغناطيسي</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="turbo">
+  <div class="container">
+    <div class="section-heading">
+      <small>05 — TURBOCHARGER</small>
+      <h2>ما هو <span class="gold">التيربو؟</span></h2>
+    </div>
+
+    <div class="text-block">
+      <h3>الشاحن التوربيني</h3>
+      <p>
+        التيربو جهاز يستخدم طاقة غازات العادم لتدوير توربين،
+        ويكون متصلاً بضاغط يرفع ضغط الهواء الداخل إلى المحرك.
+        يسمح ذلك بإدخال كمية أكبر من الهواء، مما يساعد على
+        حرق كمية مناسبة من الوقود وإنتاج قدرة أكبر.
+      </p>
+      <p>
+        تتكون الوحدة الأساسية من توربين وضاغط وعمود يربط بينهما.
+        ويحتاج النظام إلى تصميم مناسب للتزييت والتبريد والتحكم
+        في ضغط الشحن حتى يعمل بكفاءة وأمان.
+      </p>
+    </div>
+
+    <div class="text-block">
+      <h3>مميزات التيربو</h3>
+      <p>
+        - زيادة كمية الهواء الداخل إلى الأسطوانات.<br>
+        - إمكانية استخراج قدرة مرتفعة من محرك أصغر حجماً.<br>
+        - تحسين استغلال طاقة غازات العادم.<br>
+        - توفير أداء جيد عند تصميم النظام وضبطه بصورة صحيحة.
+      </p>
+    </div>
+
+    <div class="info-box">
+      التيربو لا ينتج الطاقة من لا شيء؛ بل يستغل جزءاً
+      من طاقة غازات العادم لزيادة ضغط الهواء الداخل.
+    </div>
+  </div>
+</section>
+
+<section class="section" id="maintenance" style="background:#101010">
+  <div class="container">
+    <div class="section-heading">
+      <small>06 — MAINTENANCE</small>
+      <h2>صيانة المحرك <span class="gold">وأهميتها</span></h2>
+      <p>الصيانة المنتظمة تساعد على إطالة عمر المحرك والمحافظة على أدائه.</p>
+    </div>
+
+    <div class="parts-grid">
+      <article class="part">
+        <div class="part-icon">🛢️</div>
+        <h3>تغيير الزيت</h3>
+        <p>يساعد زيت المحرك على تقليل الاحتكاك والتآكل، ويجب تغييره وفق مواصفات الشركة المصنعة.</p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🌡️</div>
+        <h3>مراقبة الحرارة</h3>
+        <p>يجب مراقبة مؤشر الحرارة وفحص نظام التبريد عند ظهور علامات ارتفاع غير طبيعي.</p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">💨</div>
+        <h3>فلتر الهواء</h3>
+        <p>يساعد على منع دخول الغبار والجسيمات إلى المحرك، ويحتاج إلى الفحص والاستبدال حسب حالته.</p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">⚡</div>
+        <h3>نظام الإشعال</h3>
+        <p>في محركات البنزين يجب فحص شمعات الإشعال عند ظهور تقطيع أو صعوبة في التشغيل.</p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">💧</div>
+        <h3>سائل التبريد</h3>
+        <p>يجب استخدام سائل تبريد مناسب ومراقبة مستواه وفق تعليمات الشركة المصنعة.</p>
+      </article>
+
+      <article class="part">
+        <div class="part-icon">🔧</div>
+        <h3>الفحص الدوري</h3>
+        <p>يساعد الفحص المنتظم على اكتشاف التسربات والأصوات غير المعتادة والمشكلات مبكراً.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quiz">
+  <div class="container">
+    <div class="section-heading">
+      <small>07 — KNOWLEDGE TEST</small>
+      <h2>اختبري <span class="gold">معرفتك</span></h2>
+      <p>اختبار قصير لمعرفة مدى فهمك لمحركات السيارات.</p>
+    </div>
+
+    <div class="quiz">
+      <div id="questionNumber" class="gold"></div>
+      <h3 id="question" class="quiz-question"></h3>
+      <div id="options" class="quiz-options"></div>
+      <p id="feedback" class="quiz-feedback" aria-live="polite"></p>
+      <button id="next" class="btn btn-gold quiz-next" disabled>السؤال التالي ←</button>
+      <div id="result" hidden></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <strong>MECHANICAL WORLD</strong>
+    <p>مشروع تعليمي في عالم الهندسة الميكانيكية</p>
+    <p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+    <p>إشراف أستاذ مادة الميكانيك</p>
+    <p>© 2026 MECHANICAL WORLD — جميع الحقوق محفوظة للمشروع</p>
+  </div>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "ما الوظيفة الأساسية لمحرك السيارة؟",
+    o: ["تخزين الوقود", "تحويل الطاقة إلى حركة ميكانيكية", "تبريد العجلات", "توجيه السيارة"],
+    a: 1,
+    e: "المحرك يحول الطاقة إلى طاقة ميكانيكية."
+  },
+  {
+    q: "كم شوطاً في دورة المحرك رباعي الأشواط؟",
+    o: ["شوطان", "ثلاثة أشواط", "أربعة أشواط", "ستة أشواط"],
+    a: 2,
+    e: "الأشواط هي السحب والضغط والقدرة والعادم."
+  },
+  {
+    q: "ما وظيفة المكبس؟",
+    o: ["تصفية الزيت", "الحركة داخل الأسطوانة", "تبريد العادم", "شحن البطارية"],
+    a: 1,
+    e: "يتحرك المكبس داخل الأسطوانة وينقل القوة إلى ذراع التوصيل."
+  },
+  {
+    q: "ما وظيفة عمود المرفق؟",
+    o: ["تحويل الحركة الترددية إلى دورانية", "تخزين الوقود", "تنقية الهواء", "إيقاف السيارة"],
+    a: 0,
+    e: "عمود المرفق يحول حركة المكبس إلى حركة دورانية."
+  },
+  {
+    q: "كيف يشتعل الوقود في محرك الديزل؟",
+    o: ["بشمعة الإشعال", "بالضغط وارتفاع الحرارة", "بالبطارية مباشرة", "بالماء"],
+    a: 1,
+    e: "يشتعل وقود الديزل نتيجة ارتفاع حرارة الهواء المضغوط."
+  },
+  {
+    q: "ما وظيفة التيربو؟",
+    o: ["تقليل عدد الأسطوانات", "رفع ضغط الهواء الداخل", "تخزين الزيت", "تبريد المكابس فقط"],
+    a: 1,
+    e: "التيربو يستخدم غازات العادم لتشغيل ضاغط الهواء."
+  },
+  {
+    q: "ما وظيفة زيت المحرك؟",
+    o: ["زيادة الاحتكاك", "تقليل الاحتكاك والتآكل", "إشعال الوقود", "زيادة وزن السيارة"],
+    a: 1,
+    e: "الزيت يشكل طبقة تقلل الاحتكاك بين الأجزاء المتحركة."
+  },
+  {
+    q: "ماذا تعني تسمية V8؟",
+    o: ["ثماني سرعات", "ثماني أسطوانات بترتيب V", "ثماني عجلات", "ثمانية صمامات فقط"],
+    a: 1,
+    e: "V8 يعني محركاً يحتوي على ثماني أسطوانات بترتيب V."
+  }
+];
+
+let index = 0;
+let score = 0;
+let answered = false;
+
+const qNumber = document.getElementById("questionNumber");
+const question = document.getElementById("question");
+const options = document.getElementById("options");
+const feedback = document.getElementById("feedback");
+const next = document.getElementById("next");
+const result = document.getElementById("result");
+
+function showQuestion() {
+  const item = questions[index];
+  answered = false;
+
+  qNumber.textContent = `QUESTION ${index + 1} / ${questions.length}`;
+  question.textContent = item.q;
+  options.innerHTML = "";
+  feedback.textContent = "";
+  next.disabled = true;
+  next.textContent = index === questions.length - 1
+    ? "عرض النتيجة"
+    : "السؤال التالي ←";
+
+  item.o.forEach((answer, i) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = answer;
+
+    button.addEventListener("click", () => {
+      if (answered) return;
+      answered = true;
+
+      if (i === item.a) {
+        score++;
+        button.classList.add("correct");
+        feedback.textContent = "✓ إجابة صحيحة! " + item.e;
+      } else {
+        button.classList.add("wrong");
+        options.children[item.a].classList.add("correct");
+        feedback.textContent = "✗ إجابة غير صحيحة. " + item.e;
+      }
+
+      [...options.children].forEach(b => b.disabled = true);
+      next.disabled = false;
+    });
+
+    options.appendChild(button);
+  });
+}
+
+next.addEventListener("click", () => {
+  if (!answered) return;
+
+  if (index < questions.length - 1) {
+    index++;
+    showQuestion();
+  } else {
+    document.getElementById("questionNumber").hidden = true;
+    question.hidden = true;
+    options.hidden = true;
+    feedback.hidden = true;
+    next.hidden = true;
+
+    result.hidden = false;
+    result.innerHTML = `
+      <h3>انتهى الاختبار!</h3>
+      <p style="font-size:35px;color:#c9a45c;margin:15px 0">
+        ${score} / ${questions.length}
+      </p>
+      <p>${Math.round(score / questions.length * 100)}% إجابات صحيحة</p>
+      <p>${score >= 7 ? "ممتاز! أنتِ مهندسة المستقبل." : "أحسنتِ المحاولة، واصلي التعلم!"}</p>
+      <button class="btn btn-gold" onclick="location.reload()">إعادة الاختبار ↻</button>
+    `;
+  }
+});
+
+showQuestion();
+</script>
+
+</body>
+</html>
