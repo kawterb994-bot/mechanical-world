@@ -4,565 +4,383 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MECHANICAL WORLD - اكتشف عالم ميكانيك السيارات والهندسة والتكنولوجيا.">
+<meta name="description" content="MECHANICAL WORLD - موسوعة متكاملة في عالم ميكانيك السيارات والهندسة automotive">
 <title>MECHANICAL WORLD | عالم الميكانيك</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --pink: #E9A9BD;
-  --pink-light: #F9E5EC;
-  --pink-dark: #C77F99;
-  --sage: #A8BBA6;
-  --sage-light: #E3EDE1;
-  --sage-dark: #526B58;
-  --cream: #FCF8F5;
-  --white: #FFFFFF;
-  --dark: #354B3C;
-  --muted: #7B857D;
-  --border: #E9E5DF;
-  --shadow: 0 12px 35px rgba(70,85,70,.09);
+  --gold:#c9a45c;
+  --gold-light:#e4c783;
+  --bg:#080808;
+  --card:#131313;
+  --text:#f4f4f4;
+  --muted:#999;
+  --border:#292929;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  font-family: 'Cairo', sans-serif;
-  background: var(--cream);
-  color: var(--dark);
-  line-height: 1.8;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Cairo',sans-serif;
+  line-height:1.8;
 }
+a { color:inherit; text-decoration:none; }
+button,input { font-family:inherit; }
 
-a { text-decoration: none; color: inherit; }
-button, input { font-family: inherit; }
-
-.container {
-  width: min(1150px, 92%);
-  margin: auto;
-}
-
-/* NAVBAR */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(252,248,245,.94);
-  backdrop-filter: blur(15px);
-  border-bottom: 1px solid var(--border);
+  height:75px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(8,8,8,.96);
+  border-bottom:1px solid #332a1d;
+  backdrop-filter:blur(12px);
 }
-
-.navbar {
-  min-height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
 .logo {
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  color: var(--sage-dark);
+  font-size:20px;
+  font-weight:900;
+  color:var(--gold);
+  letter-spacing:1px;
+  white-space:nowrap;
 }
-
-.logo span { color: var(--pink-dark); }
-
+.logo span { color:white; }
 nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+  display:flex;
+  align-items:center;
+  gap:24px;
 }
-
 nav a {
-  font-size: 13px;
-  font-weight: 700;
-  transition: .3s;
+  font-size:13px;
+  color:#ccc;
+  transition:.3s;
 }
-
-nav a:hover { color: var(--pink-dark); }
-
+nav a:hover { color:var(--gold); }
 .menu-btn {
-  display: none;
-  border: 0;
-  background: var(--pink-light);
-  color: var(--sage-dark);
-  padding: 8px 13px;
-  border-radius: 10px;
-  font-size: 22px;
-  cursor: pointer;
+  display:none;
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--gold);
+  padding:5px 12px;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-/* HERO */
 .hero {
-  padding: 85px 0;
+  min-height:590px;
+  padding:100px 8%;
+  display:flex;
+  align-items:center;
   background:
-    linear-gradient(90deg, rgba(40,57,45,.83), rgba(40,57,45,.42)),
-    url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85') center/cover;
-  color: white;
+    linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85")
+    center/cover;
+  border-bottom:2px solid var(--gold);
 }
-
-.hero-content { max-width: 700px; }
-
-.hero-tag {
-  display: inline-block;
-  background: rgba(233,169,189,.22);
-  border: 1px solid rgba(255,255,255,.4);
-  color: #FFE7EF;
-  padding: 6px 17px;
-  border-radius: 30px;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 20px;
+.hero-content { max-width:780px; }
+.tag {
+  display:inline-block;
+  color:var(--gold);
+  border:1px solid #806b43;
+  padding:5px 15px;
+  border-radius:3px;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:20px;
 }
-
 .hero h1 {
-  font-size: clamp(35px, 6vw, 65px);
-  line-height: 1.3;
-  font-weight: 900;
-  margin-bottom: 18px;
+  font-size:clamp(38px,7vw,76px);
+  line-height:1.25;
+  font-weight:900;
 }
-
-.hero h1 span { color: var(--pink); }
-
+.hero h1 span { color:var(--gold); }
 .hero p {
-  max-width: 600px;
-  color: #F4F0EC;
-  font-size: 15px;
-  margin-bottom: 28px;
+  color:#ccc;
+  max-width:650px;
+  font-size:16px;
+  margin:20px 0 28px;
 }
-
-.main-btn {
-  display: inline-block;
-  background: var(--pink);
-  color: #3D4140;
-  padding: 12px 28px;
-  border-radius: 9px;
-  font-weight: 800;
-  transition: .3s;
+.hero-buttons {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
 }
-
-.main-btn:hover {
-  background: white;
-  transform: translateY(-3px);
+.btn {
+  display:inline-block;
+  padding:11px 23px;
+  border-radius:4px;
+  font-size:14px;
+  font-weight:700;
+  transition:.3s;
 }
+.btn-gold { background:var(--gold); color:#080808; }
+.btn-gold:hover { background:var(--gold-light); transform:translateY(-3px); }
+.btn-outline { border:1px solid var(--gold); color:var(--gold); }
+.btn-outline:hover { background:var(--gold); color:#080808; }
 
-/* STATS */
+.container { width:min(1150px,90%); margin:auto; }
 .stats {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
-  margin-top: -32px;
-  position: relative;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:#101010;
+  border:1px solid var(--border);
+  border-radius:9px;
+  margin-top:-35px;
+  position:relative;
+  z-index:2;
+  overflow:hidden;
 }
-
 .stat {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 22px;
-  text-align: center;
-  box-shadow: var(--shadow);
+  text-align:center;
+  padding:22px 10px;
+  border-left:1px solid var(--border);
 }
-
+.stat:last-child { border-left:0; }
 .stat strong {
-  display: block;
-  font-size: 27px;
-  color: var(--pink-dark);
-  font-weight: 900;
+  display:block;
+  color:var(--gold);
+  font-size:27px;
 }
+.stat span { color:var(--muted); font-size:12px; }
 
-.stat span {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-/* GENERAL SECTIONS */
-section { padding: 75px 0; }
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 38px;
-}
-
+.section { padding:75px 0; }
+.section-heading { margin-bottom:30px; }
 .section-heading small {
-  color: var(--pink-dark);
-  font-weight: 900;
-  letter-spacing: 1px;
+  color:var(--gold);
+  letter-spacing:2px;
+  font-size:12px;
 }
-
 .section-heading h2 {
-  font-size: clamp(25px,4vw,36px);
-  font-weight: 900;
-  margin: 7px 0;
+  font-size:30px;
+  margin:5px 0;
 }
+.section-heading p { color:var(--muted); font-size:14px; }
 
-.section-heading p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-/* ABOUT */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 45px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:35px;
+  align-items:center;
 }
-
-.about-image img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: var(--shadow);
+.about-text p { color:#bbb; margin:12px 0; }
+.about-image {
+  min-height:300px;
+  border-radius:9px;
+  background:
+    linear-gradient(0deg,rgba(0,0,0,.2),transparent),
+    url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1000&q=85")
+    center/cover;
+  border:1px solid #4b3b22;
 }
-
-.about-text h3 {
-  font-size: 25px;
-  margin-bottom: 15px;
+.gold-line {
+  width:65px;
+  height:3px;
+  background:var(--gold);
+  margin:14px 0;
 }
-
-.about-text p {
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.about-points {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 22px;
-}
-
-.point {
-  background: var(--sage-light);
-  padding: 12px;
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 800;
-}
-
-/* SEARCH */
-.pages-section { background: #F5F4EF; }
 
 .search-box {
-  max-width: 600px;
-  margin: 0 auto 25px;
-  display: flex;
-  gap: 10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:#121212;
+  border:1px solid #3a3020;
+  padding:12px 17px;
+  border-radius:7px;
+  margin-bottom:22px;
 }
-
+.search-box span { color:var(--gold); font-size:20px; }
 .search-box input {
-  width: 100%;
-  padding: 14px 18px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  outline: none;
-  background: white;
-  font-size: 13px;
+  width:100%;
+  border:0;
+  outline:0;
+  color:white;
+  background:transparent;
+  font-size:14px;
 }
-
-.search-box input:focus {
-  border-color: var(--pink-dark);
-}
+.search-box input::placeholder { color:#777; }
 
 .filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-bottom: 35px;
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-bottom:25px;
+}
+.filter {
+  border:1px solid #383838;
+  background:#111;
+  color:#bbb;
+  padding:7px 15px;
+  border-radius:4px;
+  cursor:pointer;
+  font-size:12px;
+  transition:.3s;
+}
+.filter:hover,.filter.active {
+  color:#080808;
+  background:var(--gold);
+  border-color:var(--gold);
 }
 
-.filter-btn {
-  padding: 8px 17px;
-  border: 1px solid var(--border);
-  border-radius: 30px;
-  background: white;
-  color: var(--dark);
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 800;
-  transition: .3s;
-}
-
-.filter-btn:hover,
-.filter-btn.active {
-  background: var(--sage-dark);
-  color: white;
-  border-color: var(--sage-dark);
-}
-
-/* CARDS */
 .pages-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
 }
-
 .page-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  padding: 24px;
-  transition: .3s;
-  position: relative;
-  overflow: hidden;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:22px;
+  min-height:190px;
+  display:flex;
+  flex-direction:column;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
 }
-
 .page-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--pink);
+  content:"";
+  position:absolute;
+  top:0;
+  right:0;
+  width:3px;
+  height:0;
+  background:var(--gold);
+  transition:.3s;
 }
-
 .page-card:hover {
-  transform: translateY(-7px);
-  box-shadow: var(--shadow);
-  border-color: var(--pink);
+  transform:translateY(-5px);
+  border-color:#806b43;
+  background:#181818;
 }
-
-.card-icon {
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
-  background: var(--sage-light);
-  border-radius: 12px;
-  font-size: 24px;
-  margin-bottom: 17px;
+.page-card:hover::before { height:100%; }
+.page-icon { font-size:28px; margin-bottom:10px; }
+.page-card h3 { color:var(--gold); font-size:17px; margin-bottom:5px; }
+.page-card p { color:#999; font-size:12px; flex:1; }
+.page-link {
+  color:var(--gold-light);
+  font-size:12px;
+  margin-top:12px;
+  display:inline-block;
 }
-
-.page-card h3 {
-  font-size: 17px;
-  margin-bottom: 8px;
-}
-
-.page-card p {
-  font-size: 12px;
-  color: var(--muted);
-  min-height: 55px;
-  margin-bottom: 15px;
-}
-
-.card-link {
-  display: inline-block;
-  color: var(--pink-dark);
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.card-link:hover { color: var(--sage-dark); }
-
+.page-link span { display:inline-block; transition:.3s; }
+.page-card:hover .page-link span { transform:translateX(-5px); }
 .no-results {
-  display: none;
-  text-align: center;
-  color: var(--muted);
-  padding: 30px;
-  grid-column: 1/-1;
+  display:none;
+  color:#aaa;
+  padding:30px;
+  text-align:center;
+  border:1px dashed #444;
+  border-radius:7px;
 }
 
-/* FEATURED */
 .featured {
-  background: var(--sage-light);
-  border-radius: 22px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.93),rgba(0,0,0,.72)),
+    url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  border-top:1px solid #44351e;
+  border-bottom:1px solid #44351e;
+  padding:65px 8%;
 }
+.featured-content { max-width:700px; }
+.featured h2 { font-size:32px; margin:10px 0; }
+.featured h2 span { color:var(--gold); }
+.featured p { color:#ccc; margin-bottom:20px; }
 
-.featured img {
-  width: 100%;
-  height: 100%;
-  min-height: 300px;
-  object-fit: cover;
-}
-
-.featured-text {
-  padding: 40px;
-  align-self: center;
-}
-
-.featured-text small {
-  color: var(--pink-dark);
-  font-weight: 900;
-}
-
-.featured-text h2 {
-  font-size: 27px;
-  margin: 10px 0;
-}
-
-.featured-text p {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 20px;
-}
-
-/* LEARNING */
 .learning-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
 }
-
 .learning-card {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 25px;
-  border-radius: 14px;
+  background:var(--card);
+  border:1px solid var(--border);
+  padding:23px;
+  border-radius:8px;
 }
+.learning-card h3 { color:var(--gold); font-size:17px; margin-bottom:8px; }
+.learning-card p { color:#aaa; font-size:13px; }
 
-.learning-card span { font-size: 27px; }
-
-.learning-card h3 {
-  margin: 10px 0;
-  font-size: 16px;
-}
-
-.learning-card p {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-/* QUOTE */
 .quote {
-  background: var(--dark);
-  color: white;
-  text-align: center;
-  padding: 55px 20px;
+  text-align:center;
+  padding:55px 20px;
+  background:#111;
+  border-top:1px solid #302718;
 }
+.quote h2 { font-size:25px; }
+.quote h2 span { color:var(--gold); }
+.quote p { color:#999; font-size:13px; margin-top:10px; }
 
-.quote h2 {
-  font-size: 25px;
-  margin-bottom: 10px;
-}
-
-.quote p {
-  color: #D6DFD5;
-  font-size: 14px;
-}
-
-/* TEAM */
-.team-box {
-  background: var(--pink-light);
-  border-radius: 20px;
-  padding: 35px;
-  text-align: center;
-}
-
-.team-names {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.team-name {
-  background: white;
-  padding: 13px 25px;
-  border-radius: 12px;
-  font-weight: 900;
-  color: var(--sage-dark);
-}
-
-/* FOOTER */
 footer {
-  background: #283A30;
-  color: white;
-  padding: 45px 0 20px;
+  background:#050505;
+  border-top:1px solid #493a22;
+  padding:40px 7% 20px;
 }
-
-.footer-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 35px;
-  margin-bottom: 30px;
+.footer-top {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:25px;
 }
-
-footer h3 {
-  color: var(--pink);
-  margin-bottom: 12px;
-}
-
-footer p, footer a {
-  color: #D1D9D1;
-  font-size: 12px;
-}
-
-footer a {
-  display: block;
-  margin-bottom: 7px;
-}
-
-footer a:hover { color: var(--pink); }
-
+.footer-brand { max-width:400px; }
+.footer-brand h2 { color:var(--gold); font-size:21px; }
+.footer-brand p { color:#888; font-size:13px; margin-top:10px; }
+.footer-info h3 { color:var(--gold); font-size:15px; margin-bottom:8px; }
+.footer-info p { color:#bbb; font-size:13px; }
+.students { margin-top:10px; line-height:2; }
 .copyright {
-  border-top: 1px solid #506052;
-  padding-top: 18px;
-  text-align: center;
-  color: #B9C3B9;
-  font-size: 11px;
+  text-align:center;
+  border-top:1px solid #222;
+  margin-top:30px;
+  padding-top:18px;
+  color:#666;
+  font-size:11px;
 }
 
-/* RESPONSIVE */
-@media(max-width:800px) {
-  .menu-btn { display: block; }
-
+@media(max-width:850px) {
   nav {
-    display: none;
-    position: absolute;
-    top: 78px;
-    right: 0;
-    width: 100%;
-    background: var(--cream);
-    padding: 20px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 15px;
-    border-bottom: 1px solid var(--border);
+    display:none;
+    position:absolute;
+    top:75px;
+    right:0;
+    left:0;
+    background:#0c0c0c;
+    padding:20px 7%;
+    border-bottom:1px solid #493a22;
+    flex-direction:column;
+    align-items:flex-start;
   }
-
-  nav.open { display: flex; }
-
-  .about-grid,
-  .featured { grid-template-columns: 1fr; }
-
-  .pages-grid,
-  .learning-grid { grid-template-columns: repeat(2,1fr); }
-
-  .footer-content { grid-template-columns: 1fr 1fr; }
+  nav.open { display:flex; }
+  .menu-btn { display:block; }
+  .about-grid { grid-template-columns:1fr; }
+  .pages-grid { grid-template-columns:repeat(2,1fr); }
+  .learning-grid { grid-template-columns:1fr 1fr; }
 }
-
-@media(max-width:520px) {
-  .hero { padding: 65px 0; }
-  .stats { gap: 8px; }
-  .stat { padding: 14px 5px; }
-  .stat strong { font-size: 21px; }
-  .stat span { font-size: 10px; }
-
-  .pages-grid,
-  .learning-grid { grid-template-columns: 1fr; }
-
-  .about-points { grid-template-columns: 1fr; }
-  .footer-content { grid-template-columns: 1fr; }
-  .featured-text { padding: 25px; }
+@media(max-width:560px) {
+  header { padding:0 5%; height:68px; }
+  nav { top:68px; }
+  .logo { font-size:16px; }
+  .hero { min-height:520px; padding:75px 6%; }
+  .hero p { font-size:14px; }
+  .stats { grid-template-columns:repeat(2,1fr); margin-top:-25px; }
+  .stat:nth-child(2) { border-left:0; }
+  .stat:nth-child(-n+2) { border-bottom:1px solid var(--border); }
+  .pages-grid { grid-template-columns:1fr; }
+  .learning-grid { grid-template-columns:1fr; }
+  .section { padding:55px 0; }
+  .section-heading h2 { font-size:25px; }
+  .featured { padding:55px 7%; }
+  .featured h2 { font-size:25px; }
 }
 </style>
 </head>
@@ -570,34 +388,33 @@ footer a:hover { color: var(--pink); }
 <body>
 
 <header>
-  <div class="container navbar">
-    <a href="#home" class="logo">MECHANICAL <span>WORLD.</span></a>
+  <a href="index.html" class="logo">⚙ MECHANICAL <span>WORLD</span></a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
+  <nav id="mainNav">
+    <a href="#home">الرئيسية</a>
+    <a href="#about">عن المشروع</a>
+    <a href="#pages">الأقسام</a>
+    <a href="#learning">ماذا ستتعلم؟</a>
+    <a href="#team">فريق العمل</a>
+  </nav>
 
-    <nav id="mainNav">
-      <a href="#home">الرئيسية</a>
-      <a href="#about">عن المشروع</a>
-      <a href="#pages">الموسوعة</a>
-      <a href="#learning">ماذا ستتعلم؟</a>
-      <a href="#team">فريق العمل</a>
-    </nav>
-  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="فتح القائمة">☰</button>
 </header>
 
 <main>
 
 <section class="hero" id="home">
-  <div class="container">
-    <div class="hero-content">
-      <span class="hero-tag">AUTOMOTIVE ENGINEERING • 2026</span>
-      <h1>اكتشف عالم<br><span>الميكانيك</span></h1>
-      <p>
-        رحلة متكاملة داخل عالم السيارات والهندسة الميكانيكية.
-        تعرّف على المحركات والأنظمة والتقنيات الحديثة
-        واكتشف كيف تتحول الأفكار الهندسية إلى آلات مذهلة.
-      </p>
-      <a href="#pages" class="main-btn">استكشف الموسوعة ←</a>
+  <div class="hero-content">
+    <span class="tag">AUTOMOTIVE ENGINEERING • 2026</span>
+    <h1>اكتشف عالم<br><span>الميكانيك</span></h1>
+    <p>
+      رحلة تعليمية داخل عالم السيارات والهندسة الميكانيكية.
+      تعرّف على المحركات، أنظمة الحركة، الكهرباء، التشخيص،
+      والتقنيات الحديثة التي تصنع مستقبل السيارات.
+    </p>
+    <div class="hero-buttons">
+      <a href="#pages" class="btn btn-gold">اكتشف الأقسام ←</a>
+      <a href="#about" class="btn btn-outline">عن المشروع</a>
     </div>
   </div>
 </section>
@@ -605,12 +422,16 @@ footer a:hover { color: var(--pink); }
 <div class="container">
   <div class="stats">
     <div class="stat">
-      <strong>20+</strong>
-      <span>موضوعاً تعليمياً</span>
+      <strong>19</strong>
+      <span>صفحة تعليمية</span>
     </div>
     <div class="stat">
-      <strong>100%</strong>
-      <span>شغف بالهندسة</span>
+      <strong>08</strong>
+      <span>أسئلة في كل اختبار</span>
+    </div>
+    <div class="stat">
+      <strong>01</strong>
+      <span>موسوعة ميكانيكية</span>
     </div>
     <div class="stat">
       <strong>∞</strong>
@@ -619,370 +440,331 @@ footer a:hover { color: var(--pink); }
   </div>
 </div>
 
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1000&q=85" alt="محرك سيارة">
-    </div>
-
+<section class="section container" id="about">
+  <div class="about-grid">
     <div class="about-text">
-      <span class="hero-tag" style="background:#F9E5EC;color:#C77F99;border:0;">ABOUT OUR PROJECT</span>
-      <h3>ما هو MECHANICAL WORLD؟</h3>
+      <div class="section-heading">
+        <small>ABOUT THE PROJECT</small>
+        <h2>ما هو MECHANICAL WORLD؟</h2>
+        <div class="gold-line"></div>
+      </div>
       <p>
-        MECHANICAL WORLD هو مشروع تعليمي يهدف إلى تقديم
-        معلومات شاملة حول ميكانيك السيارات والهندسة الميكانيكية
-        بأسلوب منظم ومبسط.
+        MECHANICAL WORLD هو مشروع تعليمي رقمي يهدف إلى تقديم
+        معلومات مبسطة ومنظمة حول عالم الميكانيك وهندسة السيارات.
       </p>
       <p>
-        يأخذك الموقع في جولة للتعرف على أجزاء السيارة،
-        وطريقة عمل أنظمتها، وأهم الابتكارات التي ساهمت
-        في تطوير صناعة السيارات عبر الزمن.
+        يجمع الموقع بين المعرفة النظرية والتطبيقات العملية،
+        ويشرح طريقة عمل الأنظمة المختلفة داخل السيارة، من المحرك
+        وناقل الحركة إلى الأنظمة الكهربائية والإلكترونية الحديثة.
       </p>
+      <p>
+        كما يقدم اختبارات تفاعلية تساعد المتعلم على مراجعة
+        المعلومات وقياس مدى فهمه لكل موضوع.
+      </p>
+      <a href="#pages" class="btn btn-outline">ابدأ الاستكشاف</a>
+    </div>
+    <div class="about-image" role="img" aria-label="صورة محرك سيارة داخل ورشة ميكانيكية"></div>
+  </div>
+</section>
 
-      <div class="about-points">
-        <div class="point">⚙️ المعرفة الهندسية</div>
-        <div class="point">🚗 عالم السيارات</div>
-        <div class="point">🔬 الشرح العلمي</div>
-        <div class="point">⚡ تكنولوجيا المستقبل</div>
-      </div>
+<section class="section container" id="pages">
+  <div class="section-heading">
+    <small>EXPLORE THE KNOWLEDGE</small>
+    <h2>المكتبة التعليمية</h2>
+    <p>اختر المجال الذي تريد اكتشافه، واضغط على البطاقة لفتح صفحته الكاملة.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="search-box">
+    <span>⌕</span>
+    <input type="search" id="searchInput" placeholder="ابحث عن محرك، فرامل، كهرباء، سيارات..." aria-label="ابحث في الأقسام">
+  </div>
+
+  <div class="filters">
+    <button class="filter active" data-filter="all">كل الأقسام</button>
+    <button class="filter" data-filter="mechanical">الأنظمة الميكانيكية</button>
+    <button class="filter" data-filter="electrical">الكهرباء والتكنولوجيا</button>
+    <button class="filter" data-filter="modern">السيارات الحديثة</button>
+    <button class="filter" data-filter="knowledge">المعرفة والتطوير</button>
+  </div>
+
+  <div class="pages-grid" id="pagesGrid">
+
+    <a href="engine.html" class="page-card" data-category="mechanical" data-name="المحرك engine">
+      <div class="page-icon">⚙️</div>
+      <h3>محرك السيارة</h3>
+      <p>اكتشف مبدأ عمل المحرك وأجزائه ودورة الاحتراق والقوة وعزم الدوران.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="brakes.html" class="page-card" data-category="mechanical" data-name="المكابح الفرامل brakes">
+      <div class="page-icon">🛑</div>
+      <h3>نظام المكابح</h3>
+      <p>تعرف على الأقراص والوسادات والهيدروليك وأنظمة ABS.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="suspension.html" class="page-card" data-category="mechanical" data-name="التعليق التوجيه suspension">
+      <div class="page-icon">🔩</div>
+      <h3>التعليق والتوجيه</h3>
+      <p>كيف تحافظ السيارة على الثبات وتتعامل مع المنعطفات والطرق المختلفة؟</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="transmission.html" class="page-card" data-category="mechanical" data-name="ناقل الحركة transmission">
+      <div class="page-icon">⚙</div>
+      <h3>ناقل الحركة</h3>
+      <p>دراسة علبة التروس والقابض والدفرنس ونقل القوة إلى العجلات.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="fuel.html" class="page-card" data-category="mechanical" data-name="الوقود الحقن fuel">
+      <div class="page-icon">⛽</div>
+      <h3>نظام الوقود والحقن</h3>
+      <p>تعرف على مضخة الوقود والحاقنات والاحتراق وتغذية المحرك.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="cooling.html" class="page-card" data-category="mechanical" data-name="التبريد التزييت cooling">
+      <div class="page-icon">🌡️</div>
+      <h3>التبريد والتزييت</h3>
+      <p>كيف تحافظ أنظمة التبريد والزيت على سلامة المحرك؟</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="turbo.html" class="page-card" data-category="mechanical" data-name="التيربو turbo">
+      <div class="page-icon">🌀</div>
+      <h3>الشاحن التوربيني Turbo</h3>
+      <p>مبدأ عمل التيربو والضاغط والتوربين وضغط الهواء.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="exhaust.html" class="page-card" data-category="mechanical" data-name="العادم exhaust">
+      <div class="page-icon">💨</div>
+      <h3>نظام العادم</h3>
+      <p>مسار الغازات وكاتم الصوت والمحول الحفاز وتقليل الانبعاثات.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="electrical.html" class="page-card" data-category="electrical" data-name="الكهرباء electrical">
+      <div class="page-icon">⚡</div>
+      <h3>النظام الكهربائي</h3>
+      <p>البطارية والمولد والحساسات والأسلاك والأنظمة الإلكترونية.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="diagnostics.html" class="page-card" data-category="electrical" data-name="التشخيص diagnostics obd">
+      <div class="page-icon">🖥️</div>
+      <h3>تشخيص الأعطال</h3>
+      <p>اكتشف أجهزة الفحص وقراءة رموز الأعطال وتقنية OBD-II.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="maintenance.html" class="page-card" data-category="mechanical" data-name="الصيانة maintenance">
+      <div class="page-icon">🧰</div>
+      <h3>الصيانة الميكانيكية</h3>
+      <p>تعلم أساسيات الفحص الدوري وتغيير الزيوت والعناية بالسيارة.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="air-conditioning.html" class="page-card" data-category="mechanical" data-name="التكييف air conditioning">
+      <div class="page-icon">❄️</div>
+      <h3>نظام التكييف</h3>
+      <p>الضاغط والمكثف والمبخر ودورة التبريد داخل السيارة.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="safety.html" class="page-card" data-category="modern" data-name="السلامة safety airbags abs">
+      <div class="page-icon">🛡️</div>
+      <h3>أنظمة السلامة</h3>
+      <p>الوسائد الهوائية وABS وESP وتقنيات حماية الركاب.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="electric-cars.html" class="page-card" data-category="modern" data-name="السيارات الكهربائية electric cars">
+      <div class="page-icon">🔋</div>
+      <h3>السيارات الكهربائية</h3>
+      <p>المحركات الكهربائية والبطاريات والشحن واسترجاع الطاقة.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="hybrid.html" class="page-card" data-category="modern" data-name="السيارات الهجينة hybrid">
+      <div class="page-icon">🔌</div>
+      <h3>السيارات الهجينة</h3>
+      <p>كيف يعمل محرك الوقود والمحرك الكهربائي معاً؟</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="history.html" class="page-card" data-category="knowledge" data-name="تاريخ السيارات history">
+      <div class="page-icon">📜</div>
+      <h3>تاريخ السيارات</h3>
+      <p>رحلة تطور السيارات من البدايات إلى عصر التكنولوجيا الحديثة.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="materials.html" class="page-card" data-category="knowledge" data-name="مواد صناعة السيارات materials">
+      <div class="page-icon">🧱</div>
+      <h3>مواد صناعة السيارات</h3>
+      <p>الفولاذ والألمنيوم وألياف الكربون والمواد المركبة وإعادة التدوير.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="future.html" class="page-card" data-category="modern" data-name="مستقبل السيارات future">
+      <div class="page-icon">🚀</div>
+      <h3>مستقبل السيارات</h3>
+      <p>الذكاء الاصطناعي والقيادة الذاتية والهيدروجين والتقنيات القادمة.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+    <a href="motorsport.html" class="page-card" data-category="knowledge" data-name="سباقات سيارات motorsport racing">
+      <div class="page-icon">🏎️</div>
+      <h3>ميكانيك سيارات السباق</h3>
+      <p>هندسة الأداء والديناميكا الهوائية والإطارات وأنظمة السباقات.</p>
+      <span class="page-link">استكشف الصفحة <span>←</span></span>
+    </a>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+    لم نعثر على قسم بهذا الاسم. جربي كلمة بحث أخرى.
+  </div>
+</section>
+
+<section class="featured">
+  <div class="featured-content">
+    <span class="tag">SPECIAL FEATURE</span>
+    <h2>الهندسة تصنع <span>المستقبل</span></h2>
+    <p>
+      من المحركات التقليدية إلى السيارات الكهربائية والذكية،
+      تتطور هندسة السيارات باستمرار لتقديم أداء أفضل وكفاءة أعلى
+      ومستويات سلامة متقدمة.
+    </p>
+    <a href="future.html" class="btn btn-gold">اكتشف مستقبل السيارات ←</a>
+  </div>
+</section>
+
+<section class="section container" id="learning">
+  <div class="section-heading">
+    <small>LEARNING EXPERIENCE</small>
+    <h2>ماذا ستتعلم في هذا الموقع؟</h2>
+    <p>مجموعة من المحاور التي تساعدك على فهم عالم السيارات بصورة منظمة.</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="learning-grid">
+    <div class="learning-card">
+      <h3>01 — الفهم الميكانيكي</h3>
+      <p>فهم مكونات السيارة ووظيفة كل نظام وطريقة تفاعل الأجزاء مع بعضها.</p>
+    </div>
+    <div class="learning-card">
+      <h3>02 — المعرفة التقنية</h3>
+      <p>التعرف على الحساسات والأنظمة الإلكترونية وتقنيات السيارات الحديثة.</p>
+    </div>
+    <div class="learning-card">
+      <h3>03 — التشخيص والصيانة</h3>
+      <p>اكتساب معرفة بأساسيات الصيانة والفحص وفهم الأعطال الميكانيكية.</p>
+    </div>
+    <div class="learning-card">
+      <h3>04 — الهندسة والتصميم</h3>
+      <p>اكتشاف دور المواد والتصميم والديناميكا الهوائية في أداء السيارة.</p>
+    </div>
+    <div class="learning-card">
+      <h3>05 — الاختبارات التفاعلية</h3>
+      <p>مراجعة المعلومات من خلال اختبارات قصيرة وتصحيح آلي للنتائج.</p>
+    </div>
+    <div class="learning-card">
+      <h3>06 — التفكير العلمي</h3>
+      <p>ربط المبادئ الفيزيائية والتطبيقات الهندسية بالحياة اليومية.</p>
     </div>
   </div>
 </section>
 
-<section class="pages-section" id="pages">
-  <div class="container">
-    <div class="section-heading">
-      <small>OUR KNOWLEDGE LIBRARY</small>
-      <h2>الموسوعة الميكانيكية</h2>
-      <p>اكتشف الأنظمة والمكونات والتقنيات التي تصنع عالم السيارات.</p>
-    </div>
-
-    <div class="search-box">
-      <input type="search" id="searchInput" placeholder="ابحث عن محرك، فرامل، كهرباء...">
-    </div>
-
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all">الكل</button>
-      <button class="filter-btn" data-filter="systems">أنظمة السيارة</button>
-      <button class="filter-btn" data-filter="technology">التكنولوجيا</button>
-      <button class="filter-btn" data-filter="knowledge">المعرفة والهندسة</button>
-    </div>
-
-    <div class="pages-grid" id="pagesGrid">
-
-      <article class="page-card" data-category="systems" data-name="المحرك engine">
-        <div class="card-icon">⚙️</div>
-        <h3>محرك السيارة</h3>
-        <p>تعرف على أنواع المحركات ومكوناتها ومبدأ تحويل الطاقة إلى حركة.</p>
-        <a href="engine.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="الفرامل brakes">
-        <div class="card-icon">🛑</div>
-        <h3>نظام الفرامل</h3>
-        <p>كيف تتوقف السيارة؟ اكتشف المكابح الهيدروليكية وأهم مكوناتها.</p>
-        <a href="brakes.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="التعليق suspension">
-        <div class="card-icon">🔩</div>
-        <h3>نظام التعليق</h3>
-        <p>دراسة النوابض وممتصات الصدمات ودورها في راحة وثبات السيارة.</p>
-        <a href="suspension.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="ناقل الحركة transmission">
-        <div class="card-icon">⚙️</div>
-        <h3>ناقل الحركة</h3>
-        <p>اكتشف كيفية انتقال القوة من المحرك إلى العجلات.</p>
-        <a href="transmission.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="الوقود fuel">
-        <div class="card-icon">⛽</div>
-        <h3>نظام الوقود</h3>
-        <p>تعرف على خزان الوقود والمضخة والحاقنات وآلية التغذية.</p>
-        <a href="fuel.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="التبريد cooling">
-        <div class="card-icon">🌡️</div>
-        <h3>نظام التبريد</h3>
-        <p>كيف يحافظ نظام التبريد على درجة حرارة المحرك المناسبة؟</p>
-        <a href="cooling.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="العادم exhaust">
-        <div class="card-icon">💨</div>
-        <h3>نظام العادم</h3>
-        <p>رحلة الغازات من المحرك إلى الخارج ودور مكونات العادم.</p>
-        <a href="exhaust.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="الكهرباء electrical">
-        <div class="card-icon">🔋</div>
-        <h3>النظام الكهربائي</h3>
-        <p>البطارية والمولد وأسلاك السيارة والدوائر الكهربائية.</p>
-        <a href="electrical.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="التيربو turbo">
-        <div class="card-icon">🌀</div>
-        <h3>الشاحن التوربيني</h3>
-        <p>تعرف على تقنية التيربو وكيف تساهم في زيادة قدرة المحرك.</p>
-        <a href="turbo.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="technology" data-name="السيارات الكهربائية electric cars">
-        <div class="card-icon">⚡</div>
-        <h3>السيارات الكهربائية</h3>
-        <p>اكتشف المحركات الكهربائية والبطاريات وتقنيات الشحن.</p>
-        <a href="electric-cars.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="technology" data-name="السيارات الهجينة hybrid">
-        <div class="card-icon">🔌</div>
-        <h3>السيارات الهجينة</h3>
-        <p>كيف يجتمع المحرك التقليدي والكهربائي في سيارة واحدة؟</p>
-        <a href="hybrid.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="technology" data-name="التشخيص diagnostics">
-        <div class="card-icon">🖥️</div>
-        <h3>تشخيص الأعطال</h3>
-        <p>استخدام أجهزة الفحص الإلكتروني لتحديد أعطال السيارات.</p>
-        <a href="diagnostics.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="knowledge" data-name="الصيانة maintenance">
-        <div class="card-icon">🧰</div>
-        <h3>صيانة السيارات</h3>
-        <p>أساسيات الصيانة الدورية وفحص المكونات والحفاظ على السيارة.</p>
-        <a href="maintenance.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="systems" data-name="التكييف air conditioning">
-        <div class="card-icon">❄️</div>
-        <h3>نظام التكييف</h3>
-        <p>تعرف على دورة التبريد ومكونات نظام تكييف السيارة.</p>
-        <a href="air-conditioning.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="knowledge" data-name="السلامة safety">
-        <div class="card-icon">🛡️</div>
-        <h3>أنظمة السلامة</h3>
-        <p>تقنيات حماية السائق والركاب وأنظمة المساعدة الحديثة.</p>
-        <a href="safety.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="knowledge" data-name="تاريخ السيارات history">
-        <div class="card-icon">📜</div>
-        <h3>تاريخ السيارات</h3>
-        <p>رحلة تطور السيارة من بداياتها إلى السيارات الحديثة.</p>
-        <a href="history.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="knowledge" data-name="المواد materials">
-        <div class="card-icon">🔬</div>
-        <h3>المواد الهندسية</h3>
-        <p>المعادن والسبائك والمواد المستخدمة في صناعة السيارات.</p>
-        <a href="materials.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="technology" data-name="مستقبل السيارات future">
-        <div class="card-icon">🚀</div>
-        <h3>مستقبل السيارات</h3>
-        <p>القيادة الذاتية والذكاء الاصطناعي والابتكارات القادمة.</p>
-        <a href="future.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="knowledge" data-name="رياضة المحركات motorsport">
-        <div class="card-icon">🏁</div>
-        <h3>رياضة المحركات</h3>
-        <p>عالم السباقات وتقنيات الأداء العالي والهندسة الرياضية.</p>
-        <a href="motorsport.html" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <article class="page-card" data-category="technology" data-name="الأنظمة الذكية">
-        <div class="card-icon">🤖</div>
-        <h3>الأنظمة الذكية</h3>
-        <p>التقنيات الإلكترونية الحديثة التي تطور أداء السيارات.</p>
-        <a href="details.js" class="card-link">اكتشف الموضوع ←</a>
-      </article>
-
-      <div class="no-results" id="noResults">
-        لم يتم العثور على موضوع مطابق لبحثك.
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <div class="featured">
-      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=85" alt="سيارة رياضية">
-      <div class="featured-text">
-        <small>THE FUTURE IS MECHANICAL</small>
-        <h2>الهندسة تصنع المستقبل</h2>
-        <p>
-          عالم السيارات لا يتوقف عن التطور.
-          من المحركات التقليدية إلى الطاقة الكهربائية
-          والأنظمة الذكية، تبقى الهندسة الميكانيكية
-          أساس الابتكار والتقدم.
-        </p>
-        <a href="future.html" class="main-btn">اكتشف المستقبل ←</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="learning">
-  <div class="container">
-    <div class="section-heading">
-      <small>WHAT YOU WILL DISCOVER</small>
-      <h2>ماذا ستتعلم معنا؟</h2>
-      <p>مجموعة من المحاور التي تساعدك على فهم عالم الميكانيك.</p>
-    </div>
-
-    <div class="learning-grid">
-      <div class="learning-card">
-        <span>⚙️</span>
-        <h3>فهم المكونات</h3>
-        <p>التعرف على أجزاء السيارة ووظيفة كل مكون داخل النظام.</p>
-      </div>
-      <div class="learning-card">
-        <span>🔧</span>
-        <h3>مبادئ الصيانة</h3>
-        <p>اكتساب معلومات حول الصيانة الوقائية والفحص الدوري.</p>
-      </div>
-      <div class="learning-card">
-        <span>⚡</span>
-        <h3>التكنولوجيا الحديثة</h3>
-        <p>استكشاف التطورات التقنية في عالم السيارات والهندسة.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="quote">
-  <div class="container">
-    <h2>“الهندسة ليست مجرد علم، بل فن تحويل الأفكار إلى واقع.”</h2>
-    <p>MECHANICAL WORLD — THINK. DESIGN. ENGINEER.</p>
-  </div>
-</div>
-
-<section id="team">
-  <div class="container">
-    <div class="team-box">
-      <div class="section-heading" style="margin-bottom:10px;">
-        <small>THE PROJECT TEAM</small>
-        <h2>فريق إعداد المشروع</h2>
-        <p>إعداد وتقديم هذا العمل في إطار مشروع مادة الميكانيك.</p>
-      </div>
-
-      <div class="team-names">
-        <div class="team-name">بن صالح كوثر 🌞</div>
-        <div class="team-name">يالعربي هاجر 🌚</div>
-      </div>
-    </div>
-  </div>
+<section class="quote">
+  <h2>“الهندسة ليست مجرد آلات، بل هي <span>علم الإبداع والدقة.</span>”</h2>
+  <p>MECHANICAL WORLD — Explore. Understand. Innovate.</p>
 </section>
 
 </main>
 
-<footer>
-  <div class="container">
-    <div class="footer-content">
-      <div>
-        <h3>MECHANICAL WORLD.</h3>
-        <p>
-          موسوعة تعليمية لاستكشاف عالم ميكانيك السيارات
-          والهندسة والتكنولوجيا، تجمع بين المعرفة
-          والشغف والاكتشاف.
-        </p>
-      </div>
+<footer id="team">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h2>⚙ MECHANICAL WORLD</h2>
+      <p>
+        مشروع تعليمي يهدف إلى نشر المعرفة حول الميكانيك
+        وهندسة السيارات والتقنيات الحديثة بأسلوب منظم وتفاعلي.
+      </p>
+    </div>
 
-      <div>
-        <h3>روابط سريعة</h3>
-        <a href="#home">الرئيسية</a>
-        <a href="#about">عن المشروع</a>
-        <a href="#pages">الموسوعة</a>
-        <a href="#team">فريق العمل</a>
-      </div>
-
-      <div>
-        <h3>استكشف</h3>
-        <a href="engine.html">المحركات</a>
-        <a href="brakes.html">الفرامل</a>
-        <a href="electric-cars.html">السيارات الكهربائية</a>
-        <a href="future.html">المستقبل</a>
+    <div class="footer-info">
+      <h3>إعداد المشروع</h3>
+      <div class="students">
+        <p>بن صالح كوثر 🌞</p>
+        <p>بالعربي هاجر 🌚</p>
       </div>
     </div>
 
-    <div class="copyright">
-      © 2026 MECHANICAL WORLD — جميع الحقوق محفوظة
+    <div class="footer-info">
+      <h3>الإشراف</h3>
+      <p>إشراف: أستاذ مادة الميكانيك</p>
+      <p>المجال: الميكانيك وهندسة السيارات</p>
     </div>
+  </div>
+
+  <div class="copyright">
+    © 2026 MECHANICAL WORLD — جميع الحقوق محفوظة
   </div>
 </footer>
 
 <script>
-const menuBtn = document.getElementById('menuBtn');
-const mainNav = document.getElementById('mainNav');
+const menuBtn = document.getElementById("menuBtn");
+const mainNav = document.getElementById("mainNav");
 
-menuBtn.addEventListener('click', () => {
-  mainNav.classList.toggle('open');
+menuBtn.addEventListener("click", () => {
+  mainNav.classList.toggle("open");
+  menuBtn.textContent = mainNav.classList.contains("open") ? "✕" : "☰";
 });
 
-mainNav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
+mainNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mainNav.classList.remove("open");
+    menuBtn.textContent = "☰";
   });
 });
 
-const searchInput = document.getElementById('searchInput');
-const cards = document.querySelectorAll('.page-card');
-const filterButtons = document.querySelectorAll('.filter-btn');
-const noResults = document.getElementById('noResults');
+const searchInput = document.getElementById("searchInput");
+const cards = [...document.querySelectorAll(".page-card")];
+const filters = document.querySelectorAll(".filter");
+const noResults = document.getElementById("noResults");
 
-let currentFilter = 'all';
+let activeFilter = "all";
 
 function filterPages() {
-  const searchValue = searchInput.value.trim().toLowerCase();
+  const query = searchInput.value.trim().toLowerCase();
   let visibleCount = 0;
 
   cards.forEach(card => {
-    const name = card.dataset.name.toLowerCase();
-    const title = card.querySelector('h3').textContent.toLowerCase();
-    const description = card.querySelector('p').textContent.toLowerCase();
-    const category = card.dataset.category;
-
-    const matchesSearch =
-      name.includes(searchValue) ||
-      title.includes(searchValue) ||
-      description.includes(searchValue);
-
+    const name = (card.dataset.name + " " + card.textContent).toLowerCase();
+    const matchesSearch = name.includes(query);
     const matchesCategory =
-      currentFilter === 'all' || category === currentFilter;
+      activeFilter === "all" || card.dataset.category === activeFilter;
 
     const visible = matchesSearch && matchesCategory;
-
-    card.style.display = visible ? 'block' : 'none';
+    card.style.display = visible ? "flex" : "none";
 
     if (visible) visibleCount++;
   });
 
-  noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  noResults.style.display = visibleCount === 0 ? "block" : "none";
 }
 
-searchInput.addEventListener('input', filterPages);
+searchInput.addEventListener("input", filterPages);
 
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    filterButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    currentFilter = button.dataset.filter;
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    filters.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    activeFilter = button.dataset.filter;
     filterPages();
   });
 });
@@ -990,7 +772,6 @@ filterButtons.forEach(button => {
 
 </body>
 </html>
-
 
 
 
