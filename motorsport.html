@@ -1,0 +1,874 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="MECHANICAL WORLD - موسوعة ميكانيك سيارات السباق والهندسة الرياضية">
+<title>Motorsport | MECHANICAL WORLD</title>
+
+<style>
+:root {
+  --gold: #c9a45c;
+  --bg: #090909;
+  --card: #151515;
+  --text: #f1f1f1;
+  --muted: #aaa;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.9;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(9,9,9,.96);
+  border-bottom: 1px solid #393023;
+  padding: 15px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.logo {
+  color: var(--gold);
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.back {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 7px 16px;
+  border-radius: 5px;
+  font-size: 13px;
+  transition: .3s;
+}
+.back:hover { background: var(--gold); color: #000; }
+
+.hero {
+  min-height: 440px;
+  padding: 90px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.88), rgba(0,0,0,.58)),
+    url("https://images.unsplash.com/photo-1532906619279-a4b7267faa66?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+  border-bottom: 2px solid var(--gold);
+}
+.eyebrow { color: var(--gold); letter-spacing: 3px; font-size: 13px; }
+.hero h1 {
+  font-size: clamp(35px, 7vw, 65px);
+  line-height: 1.25;
+  margin: 12px 0;
+}
+.hero h1 span { color: var(--gold); }
+.hero p { max-width: 700px; color: #ddd; font-size: 17px; }
+
+.container { width: min(1100px, 90%); margin: auto; }
+nav.contents {
+  margin: 35px auto;
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid #30291e;
+  border-radius: 10px;
+}
+.contents h3 { color: var(--gold); margin-bottom: 10px; }
+.contents div { display: flex; flex-wrap: wrap; gap: 10px; }
+.contents a {
+  color: #ddd;
+  border: 1px solid #393939;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.contents a:hover { color: var(--gold); border-color: var(--gold); }
+
+section { padding: 35px 0; scroll-margin-top: 90px; }
+.section-title {
+  color: var(--gold);
+  font-size: 27px;
+  margin-bottom: 17px;
+  border-right: 4px solid var(--gold);
+  padding-right: 13px;
+}
+p { color: #ccc; margin: 10px 0; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 17px;
+  margin-top: 20px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid #292929;
+  border-radius: 9px;
+  padding: 20px;
+  transition: .3s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--gold); }
+.card h3 { color: var(--gold); margin-bottom: 8px; font-size: 18px; }
+.card p { font-size: 14px; margin: 0; }
+.number {
+  color: var(--gold);
+  font-size: 28px;
+  font-weight: bold;
+}
+.note {
+  background: #211b10;
+  border-right: 4px solid var(--gold);
+  padding: 15px 18px;
+  margin: 20px 0;
+  color: #e6d8bb;
+  border-radius: 5px;
+}
+ul { padding-right: 25px; color: #ccc; }
+li { margin: 7px 0; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: var(--card);
+  font-size: 14px;
+}
+th, td {
+  padding: 12px;
+  border: 1px solid #383838;
+  text-align: right;
+}
+th { color: var(--gold); background: #201b12; }
+tr:hover td { background: #1d1d1d; }
+
+.quiz {
+  background: #111;
+  border: 1px solid #554426;
+  border-radius: 12px;
+  padding: 25px;
+  margin: 25px 0 55px;
+}
+.question {
+  padding: 17px 0;
+  border-bottom: 1px solid #333;
+}
+.question h3 { font-size: 16px; margin-bottom: 10px; }
+.option {
+  display: block;
+  padding: 8px 12px;
+  margin: 7px 0;
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #ddd;
+}
+.option:hover { border-color: var(--gold); }
+.option input { accent-color: var(--gold); margin-left: 8px; }
+.correct { border-color: #36a269 !important; background: #10271c !important; }
+.wrong { border-color: #c94b4b !important; background: #2b1515 !important; }
+.feedback { font-size: 13px; margin-top: 7px; color: var(--gold); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+button {
+  background: var(--gold);
+  color: #080808;
+  border: 0;
+  padding: 11px 23px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+button:hover { background: #e0bd79; }
+button.secondary { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+#result {
+  margin-top: 20px;
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: bold;
+}
+footer {
+  border-top: 1px solid #493a22;
+  background: #050505;
+  text-align: center;
+  padding: 30px 15px;
+  color: #aaa;
+}
+footer strong { color: var(--gold); }
+.students { margin-top: 10px; color: #ddd; }
+@media(max-width:600px) {
+  header { padding: 12px 5%; }
+  .logo { font-size: 16px; }
+  .hero { min-height: 360px; padding: 65px 6%; }
+  .hero p { font-size: 15px; }
+  .section-title { font-size: 23px; }
+  table { font-size: 12px; }
+  th, td { padding: 8px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">⚙ MECHANICAL WORLD</a>
+  <a class="back" href="index.html">العودة إلى الرئيسية ←</a>
+</header>
+
+<div class="hero">
+  <span class="eyebrow">RACING ENGINEERING • MOTORSPORT</span>
+  <h1>ميكانيك <span>سيارات السباق</span></h1>
+  <p>
+    خلف كل سيارة سباق سريعة يوجد عالم متكامل من الهندسة،
+    والدقة الميكانيكية، والديناميكا الهوائية، والتكنولوجيا.
+    اكتشف كيف تتحول القوانين الفيزيائية إلى أداء استثنائي على الحلبة.
+  </p>
+</div>
+
+<main class="container">
+
+<nav class="contents">
+  <h3>محتويات الصفحة</h3>
+  <div>
+    <a href="#intro">مقدمة</a>
+    <a href="#engine">المحرك</a>
+    <a href="#aero">الديناميكا الهوائية</a>
+    <a href="#chassis">الهيكل والتعليق</a>
+    <a href="#brakes">المكابح</a>
+    <a href="#tires">الإطارات</a>
+    <a href="#transmission">ناقل الحركة</a>
+    <a href="#safety">السلامة</a>
+    <a href="#telemetry">تحليل البيانات</a>
+    <a href="#comparison">المقارنة</a>
+    <a href="#quiz">الاختبار</a>
+  </div>
+</nav>
+
+<section id="intro">
+  <h2 class="section-title">01 — مقدمة عن ميكانيك السباقات</h2>
+  <p>
+    ميكانيك سيارات السباق هو فرع متخصص من الهندسة الميكانيكية يهتم
+    بتصميم وتطوير وصيانة المركبات المخصصة للمنافسات الرياضية.
+    لا تعتمد سرعة سيارة السباق على قوة المحرك فقط، بل تنتج عن
+    التوازن بين المحرك والوزن والاحتكاك والهواء ونظام التعليق والإطارات.
+  </p>
+  <p>
+    يعمل المهندسون والميكانيكيون ضمن فريق واحد لتحسين أداء السيارة،
+    وتقليل زمن اللفة، والمحافظة على استقرارها وسلامة السائق.
+    ويجب أن تكون كل قطعة ميكانيكية مصممة لتحمل ظروف تشغيل قاسية
+    مثل درجات الحرارة المرتفعة والاهتزازات والقوى الكبيرة.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <div class="number">01</div>
+      <h3>الأداء</h3>
+      <p>تحسين التسارع والسرعة القصوى والاستجابة والتحكم.</p>
+    </div>
+    <div class="card">
+      <div class="number">02</div>
+      <h3>الدقة</h3>
+      <p>ضبط الأنظمة الميكانيكية وفق ظروف الحلبة ونوع السباق.</p>
+    </div>
+    <div class="card">
+      <div class="number">03</div>
+      <h3>السلامة</h3>
+      <p>حماية السائق وتقليل مخاطر الأعطال والحوادث.</p>
+    </div>
+  </div>
+</section>
+
+<section id="engine">
+  <h2 class="section-title">02 — محرك سيارات السباق</h2>
+  <p>
+    المحرك هو مصدر الطاقة الأساسي في السيارة. يحول الطاقة الناتجة عن
+    احتراق الوقود في محركات الاحتراق الداخلي إلى حركة دورانية تنتقل
+    إلى العجلات عبر نظام نقل الحركة. وتختلف بنية المحركات حسب فئة السباق
+    والقوانين التقنية المعتمدة.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>القوة الحصانية Horsepower</h3>
+      <p>
+        تعبر عن معدل إنجاز المحرك للشغل. تؤثر في قدرة السيارة على
+        زيادة سرعتها والمحافظة على سرعة عالية.
+      </p>
+    </div>
+    <div class="card">
+      <h3>عزم الدوران Torque</h3>
+      <p>
+        هو القوة الدورانية التي ينتجها المحرك. يساعد العزم على تحريك
+        السيارة والتسارع، خصوصاً عند السرعات المنخفضة والمتوسطة.
+      </p>
+    </div>
+    <div class="card">
+      <h3>نظام التبريد</h3>
+      <p>
+        يحافظ على درجة حرارة المحرك ضمن المجال التشغيلي المناسب
+        باستخدام سائل التبريد والمشعات وممرات الهواء.
+      </p>
+    </div>
+    <div class="card">
+      <h3>نظام التزييت</h3>
+      <p>
+        يوزع الزيت بين الأجزاء المتحركة لتقليل الاحتكاك والتآكل
+        ويساعد على نقل الحرارة بعيداً عن المكونات.
+      </p>
+    </div>
+  </div>
+  <div class="note">
+    معلومة هندسية: نسبة القوة إلى الوزن من المؤشرات المهمة في تقييم
+    أداء سيارة السباق؛ فكلما زادت القوة المتاحة مقارنة بكتلة السيارة
+    تحسنت إمكانية التسارع، مع بقاء عوامل الجر والتماسك مؤثرة.
+  </div>
+  <p>
+    في بعض فئات السباق تستخدم محركات هجينة تجمع بين محرك الاحتراق
+    الداخلي والمحركات الكهربائية، مما يسمح باسترجاع جزء من الطاقة
+    واستخدامها لتحسين الأداء وفق القواعد التقنية للفئة.
+  </p>
+</section>
+
+<section id="aero">
+  <h2 class="section-title">03 — الديناميكا الهوائية Aerodynamics</h2>
+  <p>
+    تدرس الديناميكا الهوائية حركة الهواء حول السيارة وتأثيرها في الأداء.
+    عند السرعات العالية يصبح الهواء عاملاً أساسياً في تحديد الثبات
+    والمقاومة واستهلاك الطاقة.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>القوة الضاغطة Downforce</h3>
+      <p>
+        قوة هوائية تضغط السيارة نحو سطح الحلبة، مما يزيد الحمل على
+        الإطارات ويساعد على تحسين التماسك أثناء المنعطفات.
+      </p>
+    </div>
+    <div class="card">
+      <h3>مقاومة الهواء Drag</h3>
+      <p>
+        قوة تعاكس حركة السيارة خلال الهواء. زيادتها قد تقلل السرعة
+        القصوى وتتطلب طاقة أكبر للتغلب عليها.
+      </p>
+    </div>
+    <div class="card">
+      <h3>الجناح الخلفي Rear Wing</h3>
+      <p>
+        يساعد على توليد القوة الضاغطة وتعديل توازن السيارة الهوائي،
+        ويمكن ضبط زاويته حسب طبيعة الحلبة.
+      </p>
+    </div>
+    <div class="card">
+      <h3>الناشر Diffuser</h3>
+      <p>
+        يقع أسفل الجزء الخلفي من السيارة، ويساهم في تنظيم تدفق الهواء
+        أسفل الهيكل وتوليد قوة ضاغطة.
+      </p>
+    </div>
+  </div>
+  <p>
+    يعتمد المهندسون على أنفاق الرياح والمحاكاة الحاسوبية لدراسة تدفق
+    الهواء. كما يهتمون بالتأثير المتبادل بين الأجنحة وأرضية السيارة
+    والعجلات، لأن أي تغيير في جزء واحد قد يؤثر في التوازن العام.
+  </p>
+</section>
+
+<section id="chassis">
+  <h2 class="section-title">04 — الهيكل ونظام التعليق</h2>
+  <p>
+    هيكل السيارة أو Chassis هو البنية التي تحمل المحرك وأنظمة التعليق
+    وبقية المكونات. يجب أن يجمع بين الصلابة والوزن المناسب والقدرة
+    على حماية السائق.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>نظام التعليق Suspension</h3>
+      <p>
+        يربط العجلات بالهيكل ويساعد على امتصاص الصدمات والمحافظة
+        على تلامس الإطارات مع سطح الحلبة.
+      </p>
+    </div>
+    <div class="card">
+      <h3>ممتص الصدمات Shock Absorber</h3>
+      <p>
+        يتحكم في حركة النوابض ويقلل الاهتزازات والارتداد غير المرغوب فيه.
+      </p>
+    </div>
+    <div class="card">
+      <h3>توزيع الوزن</h3>
+      <p>
+        يؤثر توزيع الكتلة بين المحور الأمامي والخلفي في التوازن
+        وسلوك السيارة عند التسارع والكبح والمنعطفات.
+      </p>
+    </div>
+    <div class="card">
+      <h3>ضبط الزوايا Wheel Alignment</h3>
+      <p>
+        يشمل زوايا مثل Camber وToe وCaster، وتؤثر في استجابة
+        التوجيه وتآكل الإطارات والتماسك.
+      </p>
+    </div>
+  </div>
+  <div class="note">
+    ضبط نظام التعليق ليس إعداداً واحداً يناسب جميع الحلبات؛
+    فالسطح المستوي والمنعطفات السريعة والمطبات تتطلب إعدادات مختلفة.
+  </div>
+</section>
+
+<section id="brakes">
+  <h2 class="section-title">05 — نظام المكابح في سيارات السباق</h2>
+  <p>
+    يتحمل نظام المكابح في سيارات السباق أحمالاً حرارية وميكانيكية كبيرة.
+    وتتمثل وظيفته في تحويل الطاقة الحركية للسيارة إلى حرارة عن طريق
+    الاحتكاك، ثم التخلص من هذه الحرارة بطريقة آمنة وفعالة.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>أقراص المكابح</h3>
+      <p>
+        تدور مع العجلات وتتعرض لضغط وسادات المكابح. تستخدم بعض سيارات
+        السباق أقراصاً مصنوعة من الكربون والسيراميك حسب الفئة.
+      </p>
+    </div>
+    <div class="card">
+      <h3>وسادات المكابح</h3>
+      <p>
+        تضغط على الأقراص لتوليد الاحتكاك اللازم لإبطاء السيارة.
+        وتختلف موادها حسب درجة الحرارة وطبيعة الاستخدام.
+      </p>
+    </div>
+    <div class="card">
+      <h3>توازن المكابح</h3>
+      <p>
+        توزيع قوة الكبح بين المحورين الأمامي والخلفي، ويؤثر في
+        استقرار السيارة أثناء التباطؤ.
+      </p>
+    </div>
+  </div>
+  <p>
+    يعد التبريد عاملاً مهماً، إذ تستخدم قنوات هوائية لتوجيه الهواء
+    نحو الأقراص والمكونات. وقد يؤدي ارتفاع الحرارة بصورة غير مناسبة
+    إلى تراجع فعالية الكبح أو تلف بعض الأجزاء.
+  </p>
+</section>
+
+<section id="tires">
+  <h2 class="section-title">06 — الإطارات والتماسك</h2>
+  <p>
+    الإطارات هي نقطة الاتصال الوحيدة بين السيارة والحلبة، ولذلك
+    تؤثر بشكل مباشر في التسارع والكبح والانعطاف. اختيار الإطار
+    المناسب يعتمد على درجة حرارة المسار وحالة الطقس ونوع السباق.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>مركبات الإطارات Compounds</h3>
+      <p>
+        تختلف في درجة الصلابة ومعدل التآكل ومستوى التماسك.
+        الإطار الأكثر ليونة قد يوفر تماسكاً جيداً لكنه قد يتآكل أسرع.
+      </p>
+    </div>
+    <div class="card">
+      <h3>ضغط الهواء</h3>
+      <p>
+        يؤثر ضغط الإطار في شكل منطقة التلامس ودرجة الحرارة
+        واستجابة السيارة، ويجب ضبطه وفق توصيات الشركة والفريق.
+      </p>
+    </div>
+    <div class="card">
+      <h3>درجة الحرارة</h3>
+      <p>
+        تعمل الإطارات ضمن نطاق حراري مناسب يختلف حسب تصميمها.
+        الحرارة غير المناسبة قد تقلل التماسك وتزيد التآكل.
+      </p>
+    </div>
+  </div>
+  <p>
+    يتابع الفريق حالة الإطارات باستمرار ويحلل تآكلها ودرجات حرارتها
+    لتحديد وقت التوقف وتغيير الإطارات خلال السباق.
+  </p>
+</section>
+
+<section id="transmission">
+  <h2 class="section-title">07 — ناقل الحركة والدفرنس</h2>
+  <p>
+    ينقل نظام Transmission القوة الدورانية من المحرك إلى العجلات.
+    ويتيح تغيير نسب التروس للاستفادة من نطاق تشغيل المحرك وتحقيق
+    تسارع مناسب في مختلف مراحل السباق.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>علبة التروس Gearbox</h3>
+      <p>
+        تحتوي على نسب تروس متعددة تسمح بتغيير العلاقة بين سرعة
+        دوران المحرك وسرعة دوران العجلات.
+      </p>
+    </div>
+    <div class="card">
+      <h3>القابض Clutch</h3>
+      <p>
+        يسمح بفصل وتوصيل القدرة بين المحرك وناقل الحركة عند الحاجة،
+        وفق تصميم نظام النقل المستخدم.
+      </p>
+    </div>
+    <div class="card">
+      <h3>الدفرنس Differential</h3>
+      <p>
+        يسمح للعجلتين على المحور نفسه بالدوران بسرعتين مختلفتين
+        أثناء المنعطفات، مع توزيع عزم الدوران بينهما.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="cooling">
+  <h2 class="section-title">08 — التبريد والتزييت</h2>
+  <p>
+    تعمل سيارات السباق تحت ضغط كبير ولفترات طويلة، لذلك يجب التحكم
+    في حرارة المحرك وناقل الحركة والمكابح والأنظمة الكهربائية.
+    ويساعد نظام التبريد على منع تجاوز درجات الحرارة الحدود المسموح بها.
+  </p>
+  <ul>
+    <li><strong>المشع Radiator:</strong> يبدد حرارة سائل التبريد إلى الهواء.</li>
+    <li><strong>مضخة الماء:</strong> تحرك سائل التبريد داخل الدائرة.</li>
+    <li><strong>مبرد الزيت:</strong> يساعد على الحفاظ على لزوجة الزيت المناسبة.</li>
+    <li><strong>قنوات الهواء:</strong> توجه تدفق الهواء إلى المكونات الساخنة.</li>
+    <li><strong>حساسات الحرارة:</strong> تراقب درجات الحرارة وترسل البيانات إلى أنظمة التحكم.</li>
+  </ul>
+</section>
+
+<section id="safety">
+  <h2 class="section-title">09 — السلامة في سيارات السباق</h2>
+  <p>
+    السلامة عنصر أساسي في هندسة السباقات. تصمم سيارات المنافسات
+    بحيث تساعد على حماية السائق عند وقوع اصطدام أو انقلاب،
+    مع الالتزام بمعايير وقوانين كل فئة.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>القفص الواقي Roll Cage</h3>
+      <p>
+        هيكل معدني داعم يهدف إلى المحافظة على مساحة الحماية
+        حول السائق في بعض أنواع سيارات السباق.
+      </p>
+    </div>
+    <div class="card">
+      <h3>الهيكل الأحادي Monocoque</h3>
+      <p>
+        بنية تحمل الأحمال وتوفر حماية للسائق، وتستخدم في سيارات
+        سباق متقدمة بمواد وتصاميم هندسية خاصة.
+      </p>
+    </div>
+    <div class="card">
+      <h3>حزام الأمان</h3>
+      <p>
+        يثبت السائق في المقعد ويحد من حركة الجسم أثناء التسارع
+        والكبح والاصطدام.
+      </p>
+    </div>
+    <div class="card">
+      <h3>نظام HANS</h3>
+      <p>
+        جهاز دعم للرأس والرقبة مصمم للمساعدة في تقليل الأحمال
+        على الرقبة أثناء بعض أنواع الاصطدام.
+      </p>
+    </div>
+    <div class="card">
+      <h3>نظام إطفاء الحريق</h3>
+      <p>
+        يساعد على مكافحة الحرائق داخل السيارة أو في حجرة المحرك
+        وفق نظام الإطفاء المعتمد.
+      </p>
+    </div>
+    <div class="card">
+      <h3>مناطق امتصاص الصدمات</h3>
+      <p>
+        أجزاء مصممة للتشوه بطريقة مدروسة وامتصاص جزء من طاقة
+        الاصطدام لحماية مقصورة السائق.
+      </p>
+    </div>
+  </div>
+  <div class="note">
+    لا يجوز تعديل أنظمة السلامة أو تعطيلها من أجل زيادة الأداء.
+    يجب أن تتم أعمال الصيانة والفحص وفق اللوائح الفنية وتعليمات المختصين.
+  </div>
+</section>
+
+<section id="telemetry">
+  <h2 class="section-title">10 — القياس عن بعد وتحليل البيانات</h2>
+  <p>
+    تعتمد فرق السباق الحديثة على أجهزة الاستشعار وأنظمة تسجيل البيانات
+    لفهم سلوك السيارة. تجمع هذه الأنظمة معلومات عن المحرك والإطارات
+    والفرامل والتسارع والسرعة ودرجة الحرارة.
+  </p>
+  <div class="grid">
+    <div class="card">
+      <h3>حساس السرعة</h3>
+      <p>يقيس سرعة دوران العجلات أو سرعة المركبة حسب موقعه ووظيفته.</p>
+    </div>
+    <div class="card">
+      <h3>حساس التسارع</h3>
+      <p>يساعد على قياس التسارع الطولي والجانبي أثناء القيادة.</p>
+    </div>
+    <div class="card">
+      <h3>تسجيل البيانات Data Logging</h3>
+      <p>يحفظ معلومات السيارة لتحليل الأداء ومقارنة اللفات.</p>
+    </div>
+    <div class="card">
+      <h3>تحليل اللفات Lap Analysis</h3>
+      <p>يقارن أزمنة القطاعات وسرعة المنعطفات ونقاط الكبح.</p>
+    </div>
+  </div>
+  <p>
+    من خلال تحليل البيانات يستطيع المهندسون معرفة سبب فقدان الوقت
+    في جزء معين من الحلبة، وتحديد ما إذا كانت المشكلة مرتبطة
+    بالإطارات أو المكابح أو إعدادات التعليق أو أسلوب القيادة.
+  </p>
+</section>
+
+<section id="strategy">
+  <h2 class="section-title">11 — استراتيجية السباق ودور الميكانيكي</h2>
+  <p>
+    لا يقتصر نجاح الفريق على تجهيز السيارة قبل الانطلاق، بل يتطلب
+    متابعة مستمرة طوال المنافسة. يراقب الفريق استهلاك الوقود والطاقة
+    وحالة الإطارات ودرجات الحرارة، ويحدد توقيت التوقفات حسب ظروف السباق.
+  </p>
+  <ul>
+    <li>فحص السيارة قبل السباق والتأكد من سلامة الأنظمة.</li>
+    <li>مراقبة البيانات أثناء القيادة وتحليل أي تغير غير طبيعي.</li>
+    <li>تجهيز الإطارات وقطع الغيار والأدوات اللازمة.</li>
+    <li>تنفيذ التوقفات الفنية بسرعة ودقة.</li>
+    <li>فحص السيارة بعد السباق وتوثيق الملاحظات والأعطال.</li>
+  </ul>
+</section>
+
+<section id="comparison">
+  <h2 class="section-title">12 — الفرق بين سيارة السباق والسيارة العادية</h2>
+  <p>
+    تشترك السيارتان في مبادئ ميكانيكية أساسية، لكن سيارة السباق
+    مصممة غالباً لتحقيق أداء متخصص ضمن بيئة وقوانين محددة،
+    بينما تركز السيارة العادية على الاستخدام اليومي والراحة والعملية.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>العنصر</th>
+        <th>سيارة السباق</th>
+        <th>السيارة العادية</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>المحرك</td>
+        <td>مهيأ للأداء العالي</td>
+        <td>مناسب للاستخدام اليومي</td>
+      </tr>
+      <tr>
+        <td>الهيكل</td>
+        <td>خفيف وصلب وفق فئة السباق</td>
+        <td>يراعي الراحة والتكلفة والسلامة</td>
+      </tr>
+      <tr>
+        <td>التعليق</td>
+        <td>قابل للضبط حسب الحلبة</td>
+        <td>يركز على الراحة والثبات اليومي</td>
+      </tr>
+      <tr>
+        <td>الإطارات</td>
+        <td>مخصصة لظروف المنافسة</td>
+        <td>مناسبة لظروف الطرق المتنوعة</td>
+      </tr>
+      <tr>
+        <td>المقصورة</td>
+        <td>تركز على السائق والسلامة</td>
+        <td>تحتوي على تجهيزات الراحة</td>
+      </tr>
+      <tr>
+        <td>الصيانة</td>
+        <td>متكررة ومتخصصة</td>
+        <td>حسب جدول الصيانة المعتاد</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="conclusion">
+  <h2 class="section-title">13 — خلاصة وأهمية هندسة السباقات</h2>
+  <p>
+    تمثل سيارات السباق مجالاً مهماً لتطبيق العلوم الميكانيكية
+    والفيزيائية والهندسية. فهي تجمع بين تصميم المحركات والديناميكا
+    الهوائية وعلوم المواد والإلكترونيات وتحليل البيانات.
+  </p>
+  <p>
+    وتساهم التقنيات التي يتم تطويرها واختبارها في عالم السباقات
+    في تحسين المعرفة الهندسية، وقد تنتقل بعض الابتكارات لاحقاً
+    إلى السيارات المخصصة للطرق العادية، خاصة في مجالات السلامة
+    وكفاءة الطاقة والمواد وأنظمة التحكم.
+  </p>
+</section>
+
+<section id="quiz">
+  <h2 class="section-title">14 — اختبر معلوماتك</h2>
+  <p>أجب عن الأسئلة الثمانية لمعرفة مدى فهمك لميكانيك سيارات السباق.</p>
+
+  <div class="quiz">
+    <form id="quizForm">
+
+      <div class="question" data-answer="1">
+        <h3>1. ما الوظيفة الأساسية للمحرك في السيارة؟</h3>
+        <label class="option"><input type="radio" name="q1" value="0"> تبريد الإطارات</label>
+        <label class="option"><input type="radio" name="q1" value="1"> إنتاج الطاقة اللازمة للحركة</label>
+        <label class="option"><input type="radio" name="q1" value="2"> توجيه الهواء فقط</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="0">
+        <h3>2. ماذا تعني Downforce؟</h3>
+        <label class="option"><input type="radio" name="q2" value="0"> القوة الضاغطة نحو سطح الحلبة</label>
+        <label class="option"><input type="radio" name="q2" value="1"> مقاومة دوران المحرك</label>
+        <label class="option"><input type="radio" name="q2" value="2"> قوة التبريد</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="2">
+        <h3>3. ما وظيفة نظام التعليق؟</h3>
+        <label class="option"><input type="radio" name="q3" value="0"> زيادة استهلاك الوقود</label>
+        <label class="option"><input type="radio" name="q3" value="1"> إنتاج الشرارة الكهربائية</label>
+        <label class="option"><input type="radio" name="q3" value="2"> امتصاص الصدمات والمساعدة على ثبات العجلات</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="1">
+        <h3>4. ما وظيفة المكابح؟</h3>
+        <label class="option"><input type="radio" name="q4" value="0"> زيادة سرعة السيارة</label>
+        <label class="option"><input type="radio" name="q4" value="1"> إبطاء السيارة أو إيقافها</label>
+        <label class="option"><input type="radio" name="q4" value="2"> زيادة ضغط الإطارات</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="0">
+        <h3>5. لماذا تعتبر الإطارات مهمة في السباقات؟</h3>
+        <label class="option"><input type="radio" name="q5" value="0"> لأنها توفر التماسك مع سطح الحلبة</label>
+        <label class="option"><input type="radio" name="q5" value="1"> لأنها تنتج الوقود</label>
+        <label class="option"><input type="radio" name="q5" value="2"> لأنها تبرد المحرك مباشرة</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="2">
+        <h3>6. ما وظيفة Differential؟</h3>
+        <label class="option"><input type="radio" name="q6" value="0"> تشغيل المصابيح</label>
+        <label class="option"><input type="radio" name="q6" value="1"> قياس درجة حرارة الزيت</label>
+        <label class="option"><input type="radio" name="q6" value="2"> السماح للعجلتين بالدوران بسرعتين مختلفتين في المنعطف</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="1">
+        <h3>7. ما الهدف من أنظمة Telemetry؟</h3>
+        <label class="option"><input type="radio" name="q7" value="0"> تغيير لون السيارة</label>
+        <label class="option"><input type="radio" name="q7" value="1"> جمع وتحليل بيانات أداء السيارة</label>
+        <label class="option"><input type="radio" name="q7" value="2"> تنظيف المحرك</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="question" data-answer="0">
+        <h3>8. ما الهدف من القفص الواقي Roll Cage؟</h3>
+        <label class="option"><input type="radio" name="q8" value="0"> المساعدة على حماية السائق</label>
+        <label class="option"><input type="radio" name="q8" value="1"> زيادة سرعة الإطارات</label>
+        <label class="option"><input type="radio" name="q8" value="2"> تقليل قوة المحرك</label>
+        <div class="feedback"></div>
+      </div>
+
+      <div class="actions">
+        <button type="button" onclick="correctQuiz()">تصحيح الإجابات</button>
+        <button type="button" class="secondary" onclick="resetQuiz()">إعادة الاختبار</button>
+      </div>
+      <div id="result" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>MECHANICAL WORLD</strong>
+  <p>موسوعة تعليمية في عالم الميكانيك والهندسة automotive</p>
+  <div class="students">
+    إعداد التلميذتين:<br>
+    بن صالح كوثر 🌞<br>
+    بالعربي هاجر 🌚
+  </div>
+  <p>إشراف: أستاذ مادة الميكانيك</p>
+  <p>© 2026 MECHANICAL WORLD — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+function correctQuiz() {
+  const questions = document.querySelectorAll(".question");
+  let score = 0;
+  let unanswered = 0;
+
+  questions.forEach((question, index) => {
+    const correctAnswer = question.dataset.answer;
+    const selected = question.querySelector("input:checked");
+    const feedback = question.querySelector(".feedback");
+    const labels = question.querySelectorAll(".option");
+
+    labels.forEach(label => {
+      label.classList.remove("correct", "wrong");
+    });
+
+    const correctInput = question.querySelector(
+      'input[value="' + correctAnswer + '"]'
+    );
+    correctInput.closest(".option").classList.add("correct");
+
+    if (!selected) {
+      unanswered++;
+      feedback.textContent = "لم تتم الإجابة عن هذا السؤال.";
+      return;
+    }
+
+    if (selected.value === correctAnswer) {
+      score++;
+      feedback.textContent = "إجابة صحيحة ✓";
+    } else {
+      selected.closest(".option").classList.add("wrong");
+      feedback.textContent = "إجابة غير صحيحة — راجع الاختيار الصحيح باللون الأخضر.";
+    }
+  });
+
+  const result = document.getElementById("result");
+  let message = "";
+
+  if (score === 8) message = "ممتاز! أداء رائع، أنت محترف في أساسيات ميكانيك السباقات 🏆";
+  else if (score >= 6) message = "جيد جداً! لديك فهم جيد للموضوع 👏";
+  else if (score >= 4) message = "نتيجة متوسطة، راجع الدروس وحاول مرة أخرى.";
+  else message = "حاول مجدداً، فالتعلم يبدأ بالمحاولة والاستمرار.";
+
+  result.textContent = "نتيجتك: " + score + " / 8 — " + message;
+
+  if (unanswered > 0) {
+    result.textContent += " (الأسئلة التي لم تجب عنها: " + unanswered + ")";
+  }
+}
+
+function resetQuiz() {
+  document.getElementById("quizForm").reset();
+
+  document.querySelectorAll(".option").forEach(label => {
+    label.classList.remove("correct", "wrong");
+  });
+
+  document.querySelectorAll(".feedback").forEach(feedback => {
+    feedback.textContent = "";
+  });
+
+  document.getElementById("result").textContent = "";
+}
+</script>
+
+</body>
+</html>
