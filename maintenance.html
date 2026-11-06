@@ -1,0 +1,834 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>الصيانة الدورية | MECHANICAL WORLD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #c9a45c;
+      --bg: #090909;
+      --card: #151515;
+      --text: #f5f5f5;
+      --muted: #aaa;
+      --line: #292929;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9,9,9,.95);
+      border-bottom: 1px solid #292929;
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .back {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 7px 17px;
+      border-radius: 5px;
+      font-size: 13px;
+      transition: .3s;
+    }
+
+    .back:hover { background: var(--gold); color: #000; }
+
+    .hero {
+      min-height: 390px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.65)),
+        url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85') center/cover;
+      padding: 75px 8%;
+    }
+
+    .hero-content { max-width: 780px; }
+
+    .tag {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 3px;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(32px,6vw,58px);
+      line-height: 1.35;
+      margin: 12px 0;
+      font-weight: 900;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .hero p { color: #ddd; max-width: 650px; }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+      padding: 55px 5%;
+    }
+
+    .section { margin-bottom: 65px; }
+
+    .section-title {
+      font-size: 27px;
+      color: var(--gold);
+      margin-bottom: 12px;
+      border-right: 4px solid var(--gold);
+      padding-right: 13px;
+    }
+
+    .section-intro { color: var(--muted); margin-bottom: 25px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 23px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .card .icon { font-size: 30px; margin-bottom: 8px; }
+
+    .card h3 { color: var(--gold); margin-bottom: 8px; font-size: 18px; }
+
+    .card p, .card li { color: #bbb; font-size: 14px; }
+
+    .card ul { padding-right: 18px; }
+
+    .highlight {
+      background: linear-gradient(135deg,#211b10,#151515);
+      border: 1px solid #705a32;
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 22px;
+    }
+
+    .highlight strong { color: var(--gold); }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 550px;
+      background: var(--card);
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: right;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    th { background: #242016; color: var(--gold); }
+
+    td { color: #ccc; }
+
+    tr:last-child td { border-bottom: none; }
+
+    .checklist {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap: 12px;
+    }
+
+    .check-item {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 15px;
+      border-radius: 8px;
+      color: #ddd;
+    }
+
+    .check-item span { color: var(--gold); margin-left: 8px; }
+
+    .warning {
+      border-right: 4px solid #d49a35;
+      background: #211a10;
+      padding: 20px;
+      border-radius: 8px;
+      color: #e5d5b7;
+      margin-top: 20px;
+    }
+
+    .quiz {
+      background: #111;
+      border: 1px solid #705a32;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .quiz-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+
+    .question {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 17px;
+    }
+
+    .question h3 { font-size: 16px; margin-bottom: 13px; }
+
+    .option {
+      display: block;
+      padding: 11px 13px;
+      margin: 8px 0;
+      background: #202020;
+      border: 1px solid #333;
+      border-radius: 7px;
+      cursor: pointer;
+      color: #ddd;
+      transition: .2s;
+    }
+
+    .option:hover { border-color: var(--gold); }
+
+    .option input { margin-left: 9px; accent-color: var(--gold); }
+
+    .option.correct { border-color: #39b879; background: #10251b; }
+    .option.wrong { border-color: #df5757; background: #2b1515; }
+
+    button {
+      font-family: inherit;
+      border: 0;
+      background: var(--gold);
+      color: #111;
+      padding: 12px 25px;
+      border-radius: 7px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: .3s;
+      margin-top: 12px;
+    }
+
+    button:hover { background: #e2c17f; transform: translateY(-2px); }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #201b10;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #result strong { color: var(--gold); font-size: 25px; }
+
+    footer {
+      text-align: center;
+      padding: 35px 15px;
+      border-top: 1px solid var(--line);
+      background: #050505;
+      color: #999;
+      font-size: 13px;
+    }
+
+    footer strong { color: var(--gold); }
+
+    @media(max-width:600px) {
+      .hero { min-height: 350px; padding: 55px 6%; }
+      .container { padding: 40px 5%; }
+      .section-title { font-size: 22px; }
+      .logo { font-size: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="index.html">⚙ MECHANICAL WORLD</a>
+    <a class="back" href="index.html">← الرئيسية</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="tag">AUTOMOTIVE ENGINEERING</div>
+    <h1>الصيانة <span>الدورية</span><br>والاحترافية للسيارات</h1>
+    <p>
+      الصيانة ليست مجرد إصلاح للأعطال، بل هي علم يهدف إلى المحافظة
+      على أداء المركبة، ورفع مستوى السلامة، وإطالة عمر أجزائها
+      الميكانيكية والكهربائية.
+    </p>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="section">
+    <h2 class="section-title">01 — مفهوم الصيانة</h2>
+    <p class="section-intro">
+      الصيانة هي مجموعة من عمليات الفحص والتنظيف والتبديل والإصلاح
+      التي تُجرى على المركبة لضمان عملها بكفاءة وأمان.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🛠️</div>
+        <h3>الصيانة الوقائية</h3>
+        <p>إجراءات تُنفذ قبل حدوث العطل، مثل تغيير الزيت وفحص الفرامل، بهدف تقليل احتمال وقوع الأعطال.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📅</div>
+        <h3>الصيانة الدورية</h3>
+        <p>فحوصات وعمليات صيانة تُجرى وفق فترات زمنية أو مسافات محددة، مع الرجوع إلى دليل الشركة المصنعة.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔧</div>
+        <h3>الصيانة التصحيحية</h3>
+        <p>إصلاح أو استبدال الجزء بعد ظهور خلل أو عطل، لإعادة المركبة إلى حالتها التشغيلية المناسبة.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">02 — أهمية الصيانة</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🛡️</div>
+        <h3>السلامة</h3>
+        <p>تساعد على اكتشاف المشكلات في الفرامل والإطارات والتوجيه قبل أن تتحول إلى خطر أثناء القيادة.</p>
+      </article>
+      <article class="card">
+        <div class="icon">⚙️</div>
+        <h3>الأداء</h3>
+        <p>تحافظ على كفاءة المحرك وناقل الحركة والأنظمة المختلفة وتقلل من تراجع الأداء.</p>
+      </article>
+      <article class="card">
+        <div class="icon">💰</div>
+        <h3>تقليل التكاليف</h3>
+        <p>يساعد اكتشاف العطل مبكراً على تجنب إصلاحات كبيرة ومكلفة مستقبلاً.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🚗</div>
+        <h3>العمر التشغيلي</h3>
+        <p>تساهم العناية المنتظمة في إطالة عمر مكونات السيارة والمحافظة على قيمتها.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">03 — جدول الصيانة العامة</h2>
+    <p class="section-intro">
+      هذا جدول توضيحي عام، وليس موعداً ثابتاً لجميع السيارات.
+      تختلف الفترات حسب الطراز والمحرك وظروف القيادة.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>العنصر</th>
+            <th>ما يجب فحصه</th>
+            <th>موعد المتابعة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>زيت المحرك</td>
+            <td>المستوى والحالة والتسربات</td>
+            <td>حسب دليل المركبة</td>
+          </tr>
+          <tr>
+            <td>الإطارات</td>
+            <td>الضغط والتآكل والتشققات</td>
+            <td>بشكل منتظم</td>
+          </tr>
+          <tr>
+            <td>الفرامل</td>
+            <td>البطانات والأقراص والسائل</td>
+            <td>حسب الفحص والحاجة</td>
+          </tr>
+          <tr>
+            <td>فلتر الهواء</td>
+            <td>النظافة وحالة الفلتر</td>
+            <td>حسب بيئة الاستخدام</td>
+          </tr>
+          <tr>
+            <td>سائل التبريد</td>
+            <td>المستوى والتسربات</td>
+            <td>بشكل منتظم</td>
+          </tr>
+          <tr>
+            <td>البطارية</td>
+            <td>الشحن والأقطاب والتثبيت</td>
+            <td>ضمن الفحوص الدورية</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight">
+      <strong>معلومة هندسية:</strong>
+      لا توجد فترة واحدة تناسب كل المركبات. يجب دائماً اعتماد جدول الصيانة
+      الموجود في دليل الشركة المصنعة، خاصة عند اختلاف ظروف القيادة أو المناخ.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">04 — زيت المحرك وفلتر الزيت</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🛢️</div>
+        <h3>وظيفة زيت المحرك</h3>
+        <p>
+          يقلل الاحتكاك بين الأجزاء المتحركة، ويساعد على تبديد الحرارة،
+          ويحمل بعض الشوائب إلى الفلتر، ويحمي الأسطح المعدنية من التآكل.
+        </p>
+      </article>
+      <article class="card">
+        <div class="icon">🔩</div>
+        <h3>فلتر الزيت</h3>
+        <p>
+          يعمل على حجز الشوائب والجزيئات الناتجة عن التشغيل،
+          ويساعد على إبقاء الزيت نظيفاً داخل دورة التزييت.
+        </p>
+      </article>
+      <article class="card">
+        <div class="icon">📊</div>
+        <h3>لزوجة الزيت</h3>
+        <p>
+          تحدد مقاومة الزيت للجريان عند درجات حرارة مختلفة.
+          يجب اختيار اللزوجة والمواصفات المعتمدة للمحرك.
+        </p>
+      </article>
+    </div>
+    <div class="warning">
+      ⚠ لا تختَر الزيت اعتماداً على اللزوجة فقط؛ راجع المواصفات الفنية
+      المعتمدة من الشركة المصنعة، ولا تتجاوز موعد التغيير المحدد.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">05 — فلاتر السيارة</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>فلتر الهواء</h3>
+        <p>ينقي الهواء الداخل إلى المحرك من الغبار والجزيئات، مما يساعد على توفير هواء مناسب لعملية الاحتراق.</p>
+      </article>
+      <article class="card">
+        <h3>فلتر الوقود</h3>
+        <p>يحجز الشوائب الموجودة في الوقود ويحمي أجزاء نظام التغذية والحقن من التلوث.</p>
+      </article>
+      <article class="card">
+        <h3>فلتر المقصورة</h3>
+        <p>ينقي الهواء الداخل إلى مقصورة الركاب من الغبار وبعض الملوثات، حسب نوع الفلتر.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">06 — صيانة الإطارات</h2>
+    <p class="section-intro">
+      الإطارات هي نقطة الاتصال الأساسية بين السيارة والطريق؛ لذلك تؤثر
+      حالتها مباشرة على الثبات والفرملة واستهلاك الطاقة.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>ضغط الهواء</h3>
+        <p>يُقاس عندما تكون الإطارات باردة، ويُضبط وفق الملصق الموجود على السيارة أو دليلها، وليس وفق الرقم المكتوب على جانب الإطار كضغط تشغيل موصى به.</p>
+      </article>
+      <article class="card">
+        <h3>عمق النقشة</h3>
+        <p>يجب مراقبة عمق أخاديد الإطار ومؤشرات التآكل، واستبدال الإطار عندما يصل إلى الحد القانوني أو يصبح غير آمن.</p>
+      </article>
+      <article class="card">
+        <h3>تدوير الإطارات</h3>
+        <p>يساعد التدوير وفق تعليمات الشركة على توزيع التآكل بشكل أفضل، مع مراعاة اختلاف أنواع الإطارات وأنظمة الدفع.</p>
+      </article>
+      <article class="card">
+        <h3>الفحص البصري</h3>
+        <p>ابحث عن التشققات والانتفاخات والثقوب والتآكل غير المنتظم، ولا تهمل أي تغير غير طبيعي.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">07 — صيانة نظام الفرامل</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>بطانات الفرامل</h3>
+        <p>تضغط على الأقراص لتوليد الاحتكاك اللازم لإبطاء المركبة، ويجب فحص سماكتها واستبدالها عند الحاجة.</p>
+      </article>
+      <article class="card">
+        <h3>أقراص الفرامل</h3>
+        <p>يتم فحص سطح الأقراص وسماكتها بحثاً عن التآكل أو التشققات أو التشوهات.</p>
+      </article>
+      <article class="card">
+        <h3>سائل الفرامل</h3>
+        <p>ينقل الضغط الهيدروليكي داخل النظام. يجب استعمال النوع المعتمد وتغييره وفق تعليمات الشركة.</p>
+      </article>
+    </div>
+    <div class="warning">
+      ⚠ إذا لاحظت ضعف الفرملة أو صوتاً غير طبيعي أو تسرباً في سائل الفرامل،
+      أوقف القيادة بأمان واطلب فحصاً متخصصاً.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">08 — البطارية والنظام الكهربائي</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">🔋</div>
+        <h3>البطارية</h3>
+        <p>توفر الطاقة اللازمة لتشغيل المحرك والأنظمة الكهربائية. تتم مراقبة حالة الشحن والتثبيت والأقطاب.</p>
+      </article>
+      <article class="card">
+        <div class="icon">⚡</div>
+        <h3>المولد الكهربائي</h3>
+        <p>يشحن البطارية أثناء عمل المحرك ويغذي الأنظمة الكهربائية بالطاقة اللازمة.</p>
+      </article>
+      <article class="card">
+        <div class="icon">💡</div>
+        <h3>الإنارة والتوصيلات</h3>
+        <p>يجب اختبار المصابيح والإشارات وفحص الأسلاك والوصلات بحثاً عن التلف أو التآكل.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">09 — نظام التبريد</h2>
+    <p class="section-intro">
+      يحافظ نظام التبريد على درجة حرارة تشغيل مناسبة للمحرك،
+      ويمنع ارتفاع الحرارة الذي قد يؤدي إلى أضرار ميكانيكية خطيرة.
+    </p>
+    <div class="grid">
+      <article class="card">
+        <h3>سائل التبريد</h3>
+        <p>يساعد على نقل الحرارة وحماية الدارة من التجمد والتآكل وفق نوع السائل المعتمد.</p>
+      </article>
+      <article class="card">
+        <h3>الخراطيم</h3>
+        <p>تنقل السائل بين أجزاء النظام، ويجب فحصها بحثاً عن التشققات أو الانتفاخ أو التسرب.</p>
+      </article>
+      <article class="card">
+        <h3>المبرد والمروحة</h3>
+        <p>يساهم المبرد في تبديد الحرارة، بينما تساعد المروحة على تمرير الهواء خلاله عند الحاجة.</p>
+      </article>
+    </div>
+    <div class="warning">
+      ⚠ ممنوع فتح غطاء خزان أو مبرد التبريد والمحرك ساخن؛
+      فقد يندفع سائل شديد السخونة تحت الضغط ويسبب حروقاً خطيرة.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">10 — السيور وشمعات الإشعال</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>سيور المحرك</h3>
+        <p>تنقل الحركة إلى بعض الملحقات، ويجب فحصها بحثاً عن التشققات والتآكل والارتخاء، وفق نوع السير وتعليمات المصنع.</p>
+      </article>
+      <article class="card">
+        <h3>شمعات الإشعال</h3>
+        <p>تولد الشرارة اللازمة لإشعال خليط الهواء والوقود في محركات البنزين، وتُفحص وتُستبدل حسب مواصفات المحرك.</p>
+      </article>
+      <article class="card">
+        <h3>الخراطيم</h3>
+        <p>تنقل الهواء أو السوائل بين الأنظمة المختلفة. يجب التأكد من سلامتها وعدم وجود تسرب أو تلف.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">11 — الصيانة الموسمية والاستعداد للسفر</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="icon">☀️</div>
+        <h3>في فصل الصيف</h3>
+        <p>فحص نظام التبريد، وحالة الإطارات، والتأكد من عمل المكيف وعدم وجود تسربات.</p>
+      </article>
+      <article class="card">
+        <div class="icon">❄️</div>
+        <h3>في فصل الشتاء</h3>
+        <p>فحص البطارية، والإطارات، ومسّاحات الزجاج، وسائل التبريد المناسب لدرجات الحرارة.</p>
+      </article>
+      <article class="card">
+        <div class="icon">🧳</div>
+        <h3>قبل السفر</h3>
+        <p>فحص الزيت والفرامل والإطارات والإنارة والسوائل، والتأكد من وجود معدات الطوارئ.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">12 — قائمة الفحص العملية</h2>
+    <p class="section-intro">قائمة مبسطة تساعد على تنظيم متابعة حالة المركبة.</p>
+
+    <div class="checklist">
+      <div class="check-item"><span>✓</span> فحص الإطارات قبل الرحلات الطويلة</div>
+      <div class="check-item"><span>✓</span> مراقبة مؤشرات لوحة القيادة</div>
+      <div class="check-item"><span>✓</span> التأكد من عمل المصابيح والإشارات</div>
+      <div class="check-item"><span>✓</span> متابعة مستوى زيت المحرك</div>
+      <div class="check-item"><span>✓</span> مراقبة مستوى سائل التبريد والمحرك بارد</div>
+      <div class="check-item"><span>✓</span> الانتباه للأصوات والاهتزازات غير المعتادة</div>
+      <div class="check-item"><span>✓</span> مراجعة سجل الصيانة</div>
+      <div class="check-item"><span>✓</span> فحص الفرامل لدى مختص عند الحاجة</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">13 — أخطاء شائعة في الصيانة</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>تأجيل تغيير الزيت</h3>
+        <p>قد يؤدي إلى ضعف التزييت وزيادة الاحتكاك والتآكل داخل المحرك.</p>
+      </article>
+      <article class="card">
+        <h3>إهمال ضغط الإطارات</h3>
+        <p>قد يسبب تآكلاً غير منتظم ويؤثر على الثبات واستهلاك الوقود.</p>
+      </article>
+      <article class="card">
+        <h3>استعمال سوائل غير مناسبة</h3>
+        <p>قد يؤدي خلط سوائل غير متوافقة إلى تلف أجزاء من الأنظمة المختلفة.</p>
+      </article>
+      <article class="card">
+        <h3>تجاهل إشارات التحذير</h3>
+        <p>قد يؤدي تجاهل ضوء تحذير مهم إلى تفاقم العطل وزيادة تكاليف الإصلاح.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">14 — قواعد السلامة أثناء الصيانة</h2>
+    <div class="warning">
+      <p>⚠ أوقف المحرك واتركه يبرد قبل العمل في المناطق الساخنة.</p>
+      <p>⚠ لا تعمل أسفل سيارة مرفوعة برافعة وحدها؛ استخدم حوامل تثبيت معتمدة وعلى أرض صلبة ومستوية.</p>
+      <p>⚠ لا تفتح غطاء نظام التبريد والمحرك ساخن.</p>
+      <p>⚠ ارتدِ القفازات ونظارات الحماية عند الحاجة.</p>
+      <p>⚠ لا تخلط الزيوت أو السوائل دون التأكد من توافقها ومواصفاتها.</p>
+      <p>⚠ افصل مصدر الطاقة وفق إجراءات المصنع قبل العمل على الدارات الكهربائية.</p>
+      <p>⚠ اترك أعمال الفرامل والأنظمة عالية الخطورة للفني المختص عند عدم امتلاك الخبرة.</p>
+    </div>
+  </section>
+
+  <section class="section" id="quiz">
+    <h2 class="section-title">15 — اختبر معلوماتك</h2>
+    <p class="section-intro">أجب عن الأسئلة الثمانية لمعرفة مدى فهمك لمبادئ صيانة السيارات.</p>
+
+    <div class="quiz">
+      <div class="quiz-top">
+        <span>⚙ اختبار الصيانة</span>
+        <span>08 أسئلة | 8 نقاط</span>
+      </div>
+
+      <form id="quizForm">
+
+        <div class="question" data-answer="1">
+          <h3>1. ما الوظيفة الأساسية لزيت المحرك؟</h3>
+          <label class="option"><input type="radio" name="q1" value="0"> زيادة صوت المحرك</label>
+          <label class="option"><input type="radio" name="q1" value="1"> تقليل الاحتكاك وتزييت الأجزاء</label>
+          <label class="option"><input type="radio" name="q1" value="2"> تبريد الإطارات</label>
+        </div>
+
+        <div class="question" data-answer="2">
+          <h3>2. ما وظيفة فلتر الهواء؟</h3>
+          <label class="option"><input type="radio" name="q2" value="0"> تنظيف زيت الفرامل</label>
+          <label class="option"><input type="radio" name="q2" value="1"> شحن البطارية</label>
+          <label class="option"><input type="radio" name="q2" value="2"> تنقية الهواء الداخل إلى المحرك</label>
+        </div>
+
+        <div class="question" data-answer="0">
+          <h3>3. متى يجب فتح غطاء نظام التبريد؟</h3>
+          <label class="option"><input type="radio" name="q3" value="0"> بعد أن يبرد المحرك تماماً ووفق تعليمات السلامة</label>
+          <label class="option"><input type="radio" name="q3" value="1"> عندما يكون المحرك ساخناً</label>
+          <label class="option"><input type="radio" name="q3" value="2"> أثناء القيادة</label>
+        </div>
+
+        <div class="question" data-answer="1">
+          <h3>4. ما أهمية فحص ضغط الإطارات؟</h3>
+          <label class="option"><input type="radio" name="q4" value="0"> زيادة وزن السيارة</label>
+          <label class="option"><input type="radio" name="q4" value="1"> تحسين السلامة والأداء وتقليل التآكل غير المنتظم</label>
+          <label class="option"><input type="radio" name="q4" value="2"> رفع حرارة المحرك</label>
+        </div>
+
+        <div class="question" data-answer="2">
+          <h3>5. ما وظيفة فلتر الوقود؟</h3>
+          <label class="option"><input type="radio" name="q5" value="0"> تبريد المحرك</label>
+          <label class="option"><input type="radio" name="q5" value="1"> تشغيل المصابيح</label>
+          <label class="option"><input type="radio" name="q5" value="2"> حجز الشوائب الموجودة في الوقود</label>
+        </div>
+
+        <div class="question" data-answer="0">
+          <h3>6. ما الهدف من الصيانة الوقائية؟</h3>
+          <label class="option"><input type="radio" name="q6" value="0"> تقليل احتمال حدوث الأعطال قبل وقوعها</label>
+          <label class="option"><input type="radio" name="q6" value="1"> إصلاح السيارة بعد تلفها فقط</label>
+          <label class="option"><input type="radio" name="q6" value="2"> زيادة استهلاك الوقود</label>
+        </div>
+
+        <div class="question" data-answer="1">
+          <h3>7. أين نجد جدول الصيانة المناسب للسيارة؟</h3>
+          <label class="option"><input type="radio" name="q7" value="0"> في أي إعلان تجاري</label>
+          <label class="option"><input type="radio" name="q7" value="1"> في دليل الشركة المصنعة</label>
+          <label class="option"><input type="radio" name="q7" value="2"> في دليل سيارة مختلفة دائماً</label>
+        </div>
+
+        <div class="question" data-answer="2">
+          <h3>8. هل تكفي الرافعة وحدها للعمل أسفل السيارة؟</h3>
+          <label class="option"><input type="radio" name="q8" value="0"> نعم، دائماً</label>
+          <label class="option"><input type="radio" name="q8" value="1"> نعم، إذا كانت السيارة صغيرة</label>
+          <label class="option"><input type="radio" name="q8" value="2"> لا، يجب استعمال حوامل تثبيت مناسبة</label>
+        </div>
+
+        <button type="button" onclick="correctQuiz()">تصحيح الاختبار</button>
+        <button type="reset" onclick="resetQuiz()">إعادة المحاولة</button>
+      </form>
+
+      <div id="result">
+        <p>نتيجتك النهائية</p>
+        <strong id="score"></strong>
+        <p id="message"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">الخلاصة</h2>
+    <p class="section-intro">
+      الصيانة الدورية عنصر أساسي في هندسة السيارات؛ فهي تجمع بين المعرفة
+      الميكانيكية والكهربائية والتشخيص الدقيق. وكلما كانت العناية بالمركبة
+      منظمة ومبنية على تعليمات المصنع، زادت فرص الحفاظ على سلامتها وكفاءتها
+      وموثوقيتها على الطريق.
+    </p>
+    <div class="highlight">
+      <strong>MECHANICAL WORLD:</strong>
+      المعرفة الميكانيكية تبدأ بالفهم، والاحتراف يبدأ بالاهتمام بالتفاصيل.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>MECHANICAL WORLD © 2026</p>
+  <p>إعداد التلميذتين: <strong>بن صالح كوثر 🌞</strong> و <strong>بالعربي هاجر 🌚</strong></p>
+  <p>إشراف: أستاذ مادة الميكانيك</p>
+</footer>
+
+<script>
+  function correctQuiz() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+    let answered = 0;
+
+    questions.forEach(question => {
+      const correct = question.dataset.answer;
+      const selected = question.querySelector('input:checked');
+      const options = question.querySelectorAll('.option');
+
+      options.forEach(option => {
+        option.classList.remove('correct', 'wrong');
+        const input = option.querySelector('input');
+
+        if (input.value === correct) {
+          option.classList.add('correct');
+        }
+      });
+
+      if (selected) {
+        answered++;
+
+        if (selected.value === correct) {
+          score++;
+        } else {
+          selected.closest('.option').classList.add('wrong');
+        }
+      }
+    });
+
+    const result = document.getElementById('result');
+    const scoreText = document.getElementById('score');
+    const message = document.getElementById('message');
+
+    result.style.display = 'block';
+    scoreText.textContent = score + ' / 8';
+
+    if (answered < 8) {
+      message.textContent = 'أجبت عن ' + answered + ' من 8 أسئلة. راجع الإجابات غير المكتملة ثم أعد التصحيح.';
+    } else if (score === 8) {
+      message.textContent = 'ممتاز! لديك معرفة رائعة بأساسيات الصيانة.';
+    } else if (score >= 5) {
+      message.textContent = 'عمل جيد! راجع الإجابات الخاطئة لتحسين مستواك.';
+    } else {
+      message.textContent = 'لا تستسلم! اقرأ الدرس مجدداً وحاول مرة أخرى.';
+    }
+
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetQuiz() {
+    document.querySelectorAll('.option').forEach(option => {
+      option.classList.remove('correct', 'wrong');
+    });
+
+    document.getElementById('result').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
