@@ -1,872 +1,587 @@
 
-/* =========================================
-   MECHANICAL WORLD — PREMIUM EDITION
-   Professional Engineering Website
-========================================= */
+/* =================================================
+   MECHANICAL WORLD
+   MULTI-PAGE NAVIGATION SYSTEM
+   Version 3.0
+================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
+  "use strict";
 
-  const pageKey = document.body.dataset.page;
-  const page = window.PAGES?.[pageKey];
+  const DATA = window.MW_DATA;
 
-  if (!page) {
-    document.body.innerHTML = `
-      <div style="text-align:center;padding:100px 20px;font-family:Arial">
-        <h1>404 — Page Not Found</h1>
-        <p>عذراً، الصفحة المطلوبة غير موجودة.</p>
-        <a href="index.html">العودة للرئيسية</a>
-      </div>`;
+  if (!DATA || !DATA.categories || !DATA.topics) {
+    console.error("MW: تأكدي من تحميل pages-data.js أولاً");
     return;
   }
 
-  document.title = `${page.title} | Mechanical World`;
-
-  /* ---------- PREMIUM DESIGN ---------- */
-
-  const style = document.createElement("style");
-
-  style.textContent = `
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
-
-    :root {
-      --bg: #080d18;
-      --surface: #111c2e;
-      --surface2: #17253b;
-      --text: #edf4ff;
-      --muted: #9aacc4;
-      --accent: #38bdf8;
-      --gold: #d6b36a;
-      --border: rgba(148,163,184,.16);
-      --shadow: 0 20px 60px rgba(0,0,0,.25);
-    }
-
-    body.light-mode {
-      --bg: #f1f5f9;
-      --surface: #ffffff;
-      --surface2: #e8eef6;
-      --text: #142033;
-      --muted: #607087;
-      --border: rgba(15,23,42,.12);
-      --shadow: 0 15px 45px rgba(15,23,42,.08);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Cairo', Arial, sans-serif;
-      line-height: 1.9;
-      transition: background .3s, color .3s;
-    }
-
-    button, a {
-      font-family: inherit;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .top-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 0%;
-      background: linear-gradient(90deg,var(--accent),var(--gold));
-      z-index: 9999;
-    }
-
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 13px 7%;
-      background: rgba(8,13,24,.88);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      gap: 15px;
-    }
-
-    body.light-mode .navbar {
-      background: rgba(255,255,255,.9);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      color: var(--text);
-      font-weight: 900;
-      font-size: 18px;
-    }
-
-    .brand-icon {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 13px;
-      background: linear-gradient(135deg,#0284c7,#164e85);
-      color: white;
-      font-size: 23px;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-button {
-      border: 1px solid var(--border);
-      color: var(--text);
-      background: var(--surface);
-      padding: 9px 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 13px;
-      transition: .25s;
-    }
-
-    .nav-button:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .container {
-      width: min(1120px,90%);
-      margin: auto;
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      margin: 45px auto;
-      padding: 75px 45px;
-      border-radius: 27px;
-      background:
-        radial-gradient(circle at 85% 20%,rgba(56,189,248,.22),transparent 35%),
-        linear-gradient(125deg,#101d32,#122d49 55%,#0b1729);
-      border: 1px solid rgba(56,189,248,.22);
-      box-shadow: var(--shadow);
-    }
-
-    .hero::after {
-      content: "⚙";
-      position: absolute;
-      right: -20px;
-      bottom: -110px;
-      font-size: 340px;
-      color: rgba(255,255,255,.035);
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 750px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 3px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .hero-icon {
-      font-size: 60px;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .hero h1 {
-      font-size: clamp(30px,5vw,53px);
-      line-height: 1.35;
-      font-weight: 900;
-      color: #fff;
-      margin-bottom: 15px;
-    }
-
-    .hero p {
-      color: #c1d3e8;
-      font-size: 16px;
-      max-width: 680px;
-    }
-
-    .hero-line {
-      height: 3px;
-      width: 85px;
-      margin-top: 25px;
-      border-radius: 20px;
-      background: linear-gradient(90deg,var(--accent),var(--gold));
-    }
-
-    .section-heading {
-      margin: 55px 0 22px;
-    }
-
-    .section-heading span {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 2px;
-      font-weight: 800;
-    }
+  const app = document.getElementById("app");
+  const home = document.getElementById("home");
 
-    .section-heading h2 {
-      font-size: 27px;
-      font-weight: 900;
-      margin-top: 5px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-      gap: 20px;
-    }
-
-    .info-card {
-      position: relative;
-      padding: 25px;
-      border-radius: 18px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      transition: transform .3s,border-color .3s;
-      overflow: hidden;
-    }
-
-    .info-card::before {
-      content: "";
-      position: absolute;
-      width: 3px;
-      height: 45px;
-      right: 0;
-      top: 25px;
-      background: var(--accent);
-      border-radius: 5px;
-    }
-
-    .info-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(56,189,248,.5);
-    }
-
-    .info-card h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: var(--text);
-    }
-
-    .info-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .tile-card {
-      padding: 23px;
-      border-radius: 18px;
-      background: linear-gradient(145deg,var(--surface),var(--surface2));
-      border: 1px solid var(--border);
-      transition: .3s;
-    }
-
-    .tile-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--gold);
-    }
-
-    .tile-icon {
-      font-size: 37px;
-      margin-bottom: 12px;
-    }
-
-    .tile-card h3 {
-      font-size: 17px;
-      margin-bottom: 5px;
-    }
-
-    .tile-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .interactive {
-      margin: 50px 0;
-      padding: 32px;
-      background:
-        radial-gradient(circle at top right,rgba(56,189,248,.10),transparent 40%),
-        var(--surface);
-      border: 1px solid rgba(56,189,248,.28);
-      border-radius: 23px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .interactive h2 {
-      margin-bottom: 15px;
-      font-size: 24px;
-    }
+  let historyStack = [];
+  let currentRoute = null;
 
-    .premium-button {
-      background: linear-gradient(135deg,#0284c7,#075985);
-      border: none;
-      color: white;
-      padding: 12px 23px;
-      border-radius: 11px;
-      cursor: pointer;
-      font-weight: 800;
-      margin: 7px;
-      transition: .25s;
-    }
-
-    .premium-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(14,165,233,.25);
-    }
+  /* ================================================
+     CREATE APP CONTAINER
+  ================================================ */
 
-    .secondary-button {
-      background: var(--surface2);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
+  function createApp() {
+    if (document.getElementById("mwPages")) return;
 
-    .engine-display {
-      font-size: 85px;
-      margin: 20px;
-      display: inline-block;
-    }
+    const page = document.createElement("main");
+    page.id = "mwPages";
+    page.style.display = "none";
 
-    .engine-running {
-      animation: engineSpin 1.4s linear infinite;
-    }
+    const reference = home || app;
 
-    @keyframes engineSpin {
-      to { transform: rotate(360deg); }
+    if (reference) {
+      reference.insertAdjacentElement("afterend", page);
+    } else {
+      document.body.appendChild(page);
     }
+  }
 
-    .dashboard-number {
-      font-size: clamp(35px,7vw,65px);
-      color: var(--accent);
-      font-weight: 900;
-      font-variant-numeric: tabular-nums;
-    }
+  /* ================================================
+     HELPERS
+  ================================================ */
 
-    .dashboard-label {
-      color: var(--muted);
-      font-size: 13px;
-    }
+  function escapeHTML(value = "") {
+    return String(value).replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    })[char]);
+  }
 
-    .range-control {
-      width: min(500px,100%);
-      accent-color: var(--accent);
-      margin: 20px 0;
-      cursor: pointer;
-    }
+  function getPageContainer() {
+    return document.getElementById("mwPages");
+  }
 
-    .quiz-answer {
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      margin: 10px auto;
-      padding: 13px;
-      border-radius: 12px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text);
-      cursor: pointer;
-      transition: .2s;
-    }
+  function getCategory(id) {
+    return DATA.categories.find(category => category.id === id);
+  }
 
-    .quiz-answer:hover:not(:disabled) {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
+  function getTopic(id) {
+    return DATA.topics[id];
+  }
 
-    .quiz-answer:disabled {
-      cursor: default;
-      opacity: .9;
-    }
+  function getTopicIds(category) {
+    return Array.isArray(category.topics) ? category.topics : [];
+  }
 
-    .quiz-answer.correct {
-      background: #14532d;
-      color: white;
-      border-color: #22c55e;
-    }
+  /* ================================================
+     ROUTING
+  ================================================ */
 
-    .quiz-answer.wrong {
-      background: #7f1d1d;
-      color: white;
-      border-color: #ef4444;
+  function navigate(path, saveHistory = true) {
+    if (saveHistory && currentRoute) {
+      historyStack.push(currentRoute);
     }
 
-    .quiz-progress {
-      height: 7px;
-      background: var(--surface2);
-      border-radius: 20px;
-      overflow: hidden;
-      max-width: 500px;
-      margin: 18px auto;
-    }
+    currentRoute = path;
+    location.hash = path;
+  }
 
-    .quiz-progress div {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg,var(--accent),var(--gold));
-      transition: width .3s;
-    }
+  function goHome() {
+    currentRoute = null;
+    historyStack = [];
 
-    .result-number {
-      font-size: 52px;
-      font-weight: 900;
-      color: var(--gold);
-    }
+    const page = getPageContainer();
 
-    .back-link {
-      display: inline-block;
-      color: var(--accent);
-      margin: 30px 0;
-      font-weight: 700;
+    if (page) {
+      page.style.display = "none";
+      page.innerHTML = "";
     }
 
-    .footer {
-      margin-top: 60px;
-      padding: 35px 15px;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      background: var(--surface);
-    }
+    if (home) home.style.display = "";
 
-    .footer strong {
-      color: var(--accent);
-      font-size: 18px;
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-    .footer p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-top: 8px;
-    }
+  function goBack() {
+    if (historyStack.length) {
+      const previous = historyStack.pop();
+      currentRoute = previous;
 
-    .fade-in {
-      animation: fadeIn .65s ease both;
+      location.hash = previous;
+    } else {
+      goHome();
     }
+  }
 
-    @keyframes fadeIn {
-      from {opacity:0;transform:translateY(18px)}
-      to {opacity:1;transform:translateY(0)}
-    }
+  function openCategory(id) {
+    const category = getCategory(id);
 
-    @media(max-width:650px) {
-      .navbar { padding: 11px 4%; }
-      .brand { font-size: 14px; }
-      .brand-icon { width: 36px;height:36px; }
-      .nav-button { padding: 8px 10px;font-size: 12px; }
-      .hero { padding: 45px 23px;margin: 25px auto; }
-      .hero::after { font-size: 180px; }
-      .interactive { padding: 23px 14px; }
-      .section-heading h2 { font-size: 23px; }
-    }
+    if (!category) return;
 
-    @media print {
-      .navbar,.top-progress,.interactive button,.back-link {
-        display:none !important;
-      }
-      body { background:white;color:black; }
-      .info-card,.tile-card {
-        break-inside: avoid;
-        background:white;
-        color:black;
-        box-shadow:none;
-      }
-      .hero { background:#eee;color:black; }
-      .hero h1 { color:black; }
-    }
+    navigate(`#/category/${encodeURIComponent(id)}`);
+  }
 
-    @media (prefers-reduced-motion: reduce) {
-      *,*::before,*::after {
-        animation-duration:.01ms !important;
-        scroll-behavior:auto !important;
-        transition-duration:.01ms !important;
-      }
-    }
-  `;
+  function openTopic(id) {
+    const topic = getTopic(id);
 
-  document.head.appendChild(style);
+    if (!topic) return;
 
-  /* ---------- PAGE STRUCTURE ---------- */
+    navigate(`#/topic/${encodeURIComponent(id)}`);
+  }
 
-  document.body.innerHTML = `
-    <div class="top-progress" id="topProgress"></div>
+  /* ================================================
+     PAGE HEADER
+  ================================================ */
 
-    <nav class="navbar">
-      <a class="brand" href="index.html">
-        <span class="brand-icon">⚙</span>
-        <span>MECHANICAL WORLD</span>
-      </a>
+  function pageHeader() {
+    return `
+      <div class="mw-topbar">
+        <a href="#home" class="mw-brand" data-home>
+          <span>MW</span>
+          MECHANICAL WORLD
+        </a>
 
-      <div class="nav-actions">
-        <button class="nav-button" id="themeButton">☀️ / 🌙</button>
-        <button class="nav-button" onclick="window.print()">طباعة الصفحة</button>
-        <a class="nav-button" href="index.html">⌂ الرئيسية</a>
+        <button class="mw-back" data-back>
+          ← رجوع
+        </button>
       </div>
-    </nav>
+    `;
+  }
 
-    <main class="container">
+  /* ================================================
+     BREADCRUMB
+  ================================================ */
 
-      <section class="hero fade-in">
-        <div class="hero-content">
-          <span class="eyebrow">ENGINEERING • TECHNOLOGY • INNOVATION</span>
-          <span class="hero-icon">${page.icon || "⚙️"}</span>
-          <h1>${page.title}</h1>
-          <p>${page.intro || ""}</p>
-          <div class="hero-line"></div>
+  function breadcrumb(items = []) {
+    return `
+      <div class="mw-breadcrumb">
+        <a href="#home" data-home>الرئيسية</a>
+
+        ${items.map((item, index) => `
+          <span> / </span>
+          ${
+            item.action
+              ? `<a href="${escapeHTML(item.action)}">${escapeHTML(item.name)}</a>`
+              : `<span>${escapeHTML(item.name)}</span>`
+          }
+        `).join("")}
+      </div>
+    `;
+  }
+
+  /* ================================================
+     CATEGORY PAGE
+  ================================================ */
+
+  function renderCategory(id) {
+    const category = getCategory(id);
+
+    if (!category) {
+      renderNotFound();
+      return;
+    }
+
+    const topicIds = getTopicIds(category);
+
+    const cards = topicIds.map((topicId, index) => {
+      const topic = getTopic(topicId);
+
+      if (!topic) return "";
+
+      return `
+        <article class="mw-topic-card">
+          <div class="mw-topic-number">
+            ${String(index + 1).padStart(2, "0")}
+          </div>
+
+          <div class="mw-topic-icon">
+            ${escapeHTML(topic.icon || "⚙️")}
+          </div>
+
+          <h3>${escapeHTML(topic.title)}</h3>
+
+          <p>${escapeHTML(topic.intro || "اكتشف المزيد حول هذا الموضوع.")}</p>
+
+          <button
+            class="mw-open-topic"
+            data-topic="${escapeHTML(topicId)}"
+          >
+            استكشف الموضوع
+            <span>←</span>
+          </button>
+        </article>
+      `;
+    }).join("");
+
+    renderPage(`
+      ${pageHeader()}
+
+      <section class="mw-hero">
+        ${breadcrumb([
+          { name: category.title }
+        ])}
+
+        <div class="mw-category-icon">
+          ${escapeHTML(category.icon || "⚙️")}
+        </div>
+
+        <span class="mw-eyebrow">MECHANICAL WORLD / CATEGORY</span>
+
+        <h1>${escapeHTML(category.title)}</h1>
+
+        <p>${escapeHTML(category.intro || category.description || "")}</p>
+
+        <div class="mw-meta">
+          <span>📚 ${topicIds.length} مواضيع تعليمية</span>
+          <span>⚙️ محتوى ميكانيكي</span>
         </div>
       </section>
 
-      <section id="sectionsArea"></section>
-      <section id="tilesArea"></section>
-      <section id="interactiveArea"></section>
+      <section class="mw-content">
+        <div class="mw-section-title">
+          <span>اكتشف وتعلم</span>
+          <h2>مواضيع هذا القسم</h2>
+          <p>اختر موضوعًا لعرض الشرح والمعلومات بالتفصيل.</p>
+        </div>
 
-      <a href="index.html" class="back-link">← العودة إلى الصفحة الرئيسية</a>
+        <div class="mw-topics-grid">
+          ${cards || `<p>لا توجد مواضيع في هذا القسم حاليًا.</p>`}
+        </div>
+      </section>
 
-    </main>
+      <section class="mw-bottom">
+        <h2>المعرفة تبدأ بخطوة</h2>
+        <p>واصل اكتشاف عالم الميكانيك وتعلم المزيد.</p>
+        <button data-home class="mw-primary-button">
+          العودة للرئيسية
+        </button>
+      </section>
 
-    <footer class="footer">
-      <strong>MECHANICAL WORLD</strong>
-      <p>Explore the science. Understand the machine. Build the future.</p>
-      <p>إعداد التلميذتين: بن صالح كوثر 🌞 | يالعربي هاجر 🌚</p>
-      <p>© ${new Date().getFullYear()} Mechanical World. All rights reserved.</p>
-    </footer>
-  `;
-
-  /* ---------- THEME ---------- */
-
-  const themeButton = document.getElementById("themeButton");
-
-  if (localStorage.getItem("mw-theme") === "light") {
-    document.body.classList.add("light-mode");
+      ${pageFooter()}
+    `);
   }
 
-  themeButton.onclick = () => {
-    document.body.classList.toggle("light-mode");
-    localStorage.setItem(
-      "mw-theme",
-      document.body.classList.contains("light-mode") ? "light" : "dark"
-    );
-  };
+  /* ================================================
+     TOPIC PAGE
+  ================================================ */
 
-  /* ---------- SCROLL PROGRESS ---------- */
+  function renderTopic(id) {
+    const topic = getTopic(id);
 
-  window.addEventListener("scroll", () => {
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+    if (!topic) {
+      renderNotFound();
+      return;
+    }
 
-    document.getElementById("topProgress").style.width = progress + "%";
+    const category = getCategory(topic.category);
+
+    const sections = Array.isArray(topic.sections)
+      ? topic.sections
+      : [];
+
+    const sectionHTML = sections.map((section, index) => `
+      <article class="mw-info-card">
+        <div class="mw-info-number">
+          ${String(index + 1).padStart(2, "0")}
+        </div>
+
+        <div>
+          <h3>${escapeHTML(section.heading || "معلومات")}</h3>
+          <p>${escapeHTML(section.text || "")}</p>
+        </div>
+      </article>
+    `).join("");
+
+    const formula = topic.formula
+      ? `
+        <div class="mw-formula">
+          <span>القانون أو العلاقة</span>
+          <h3>${escapeHTML(topic.formula)}</h3>
+        </div>
+      `
+      : "";
+
+    const fact = topic.fact
+      ? `
+        <div class="mw-fact">
+          <span>💡 معلومة مهمة</span>
+          <p>${escapeHTML(topic.fact)}</p>
+        </div>
+      `
+      : "";
+
+    const ids = category ? getTopicIds(category) : [];
+    const index = ids.indexOf(id);
+
+    const previousId = index > 0 ? ids[index - 1] : null;
+    const nextId = index >= 0 && index < ids.length - 1
+      ? ids[index + 1]
+      : null;
+
+    renderPage(`
+      ${pageHeader()}
+
+      <section class="mw-hero mw-topic-hero">
+        ${breadcrumb([
+          ...(category
+            ? [{
+                name: category.title,
+                action: `#/category/${category.id}`
+              }]
+            : []),
+          { name: topic.title }
+        ])}
+
+        <div class="mw-category-icon">
+          ${escapeHTML(topic.icon || "⚙️")}
+        </div>
+
+        <span class="mw-eyebrow">MECHANICAL WORLD / TOPIC</span>
+
+        <h1>${escapeHTML(topic.title)}</h1>
+
+        <p>${escapeHTML(topic.intro || "")}</p>
+
+        ${category ? `
+          <button class="mw-category-link"
+            data-category="${escapeHTML(category.id)}">
+            ${escapeHTML(category.title)} ←
+          </button>
+        ` : ""}
+      </section>
+
+      <section class="mw-content">
+        <div class="mw-section-title">
+          <span>DEEP KNOWLEDGE</span>
+          <h2>شرح الموضوع</h2>
+          <p>تعرف على أهم المعلومات والمفاهيم المتعلقة بهذا الموضوع.</p>
+        </div>
+
+        <div class="mw-info-list">
+          ${sectionHTML}
+        </div>
+
+        ${formula}
+        ${fact}
+
+        <div class="mw-navigation">
+          ${
+            previousId
+              ? `<button data-topic="${escapeHTML(previousId)}">
+                   ← الموضوع السابق
+                 </button>`
+              : `<span></span>`
+          }
+
+          ${
+            nextId
+              ? `<button data-topic="${escapeHTML(nextId)}">
+                   الموضوع التالي →
+                 </button>`
+              : `<button data-category="${escapeHTML(topic.category)}">
+                   العودة إلى القسم
+                 </button>`
+          }
+        </div>
+      </section>
+
+      ${pageFooter()}
+    `);
+  }
+
+  /* ================================================
+     NOT FOUND
+  ================================================ */
+
+  function renderNotFound() {
+    renderPage(`
+      ${pageHeader()}
+
+      <section class="mw-not-found">
+        <div>404</div>
+        <h1>الصفحة غير موجودة</h1>
+        <p>عذرًا، لم نتمكن من العثور على المحتوى المطلوب.</p>
+        <button data-home class="mw-primary-button">
+          العودة إلى الرئيسية
+        </button>
+      </section>
+
+      ${pageFooter()}
+    `);
+  }
+
+  /* ================================================
+     FOOTER
+  ================================================ */
+
+  function pageFooter() {
+    return `
+      <footer class="mw-footer">
+        <div class="mw-footer-logo">MW</div>
+        <h3>MECHANICAL WORLD</h3>
+        <p>رحلتك نحو فهم عالم الميكانيك تبدأ من هنا.</p>
+        <small>© ${new Date().getFullYear()} Mechanical World — جميع الحقوق محفوظة</small>
+      </footer>
+    `;
+  }
+
+  /* ================================================
+     RENDER PAGE
+  ================================================ */
+
+  function renderPage(html) {
+    const page = getPageContainer();
+
+    if (!page) return;
+
+    if (home) home.style.display = "none";
+
+    page.style.display = "block";
+    page.innerHTML = html;
+
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  /* ================================================
+     HASH ROUTER
+  ================================================ */
+
+  function handleRoute() {
+    const hash = location.hash;
+
+    if (!hash || hash === "#home" || hash === "#") {
+      currentRoute = null;
+
+      const page = getPageContainer();
+
+      if (page) {
+        page.style.display = "none";
+        page.innerHTML = "";
+      }
+
+      if (home) home.style.display = "";
+
+      return;
+    }
+
+    const categoryMatch = hash.match(/^#\/category\/([^/]+)$/);
+    const topicMatch = hash.match(/^#\/topic\/([^/]+)$/);
+
+    if (categoryMatch) {
+      const id = decodeURIComponent(categoryMatch[1]);
+      currentRoute = hash;
+      renderCategory(id);
+      return;
+    }
+
+    if (topicMatch) {
+      const id = decodeURIComponent(topicMatch[1]);
+      currentRoute = hash;
+      renderTopic(id);
+      return;
+    }
+
+    renderNotFound();
+  }
+
+  /* ================================================
+     CLICK EVENTS
+  ================================================ */
+
+  document.addEventListener("click", event => {
+    const categoryButton = event.target.closest("[data-category]");
+    const topicButton = event.target.closest("[data-topic]");
+    const backButton = event.target.closest("[data-back]");
+    const homeButton = event.target.closest("[data-home]");
+
+    if (categoryButton) {
+      event.preventDefault();
+      openCategory(categoryButton.dataset.category);
+      return;
+    }
+
+    if (topicButton) {
+      event.preventDefault();
+      openTopic(topicButton.dataset.topic);
+      return;
+    }
+
+    if (backButton) {
+      event.preventDefault();
+      goBack();
+      return;
+    }
+
+    if (homeButton) {
+      event.preventDefault();
+      historyStack = [];
+      location.hash = "#home";
+    }
   });
 
-  /* ---------- INFORMATION SECTIONS ---------- */
+  /* ================================================
+     CATEGORY CARDS
+  ================================================ */
 
-  const sectionsArea = document.getElementById("sectionsArea");
+  function connectCategoryCards() {
+    document.querySelectorAll(
+      "#categoryGrid .category-card, #categoryGrid [data-category]"
+    ).forEach((card, index) => {
 
-  if (page.sections?.length) {
-    sectionsArea.innerHTML = `
-      <div class="section-heading">
-        <span>01 / KNOWLEDGE</span>
-        <h2>المحتوى العلمي</h2>
-        <p>اكتشفي المفاهيم والمعلومات الأساسية.</p>
-      </div>
+      if (card.dataset.mwConnected) return;
 
-      <div class="content-grid">
-        ${page.sections.map((item, index) => `
-          <article class="info-card fade-in">
-            <h3>${String(index + 1).padStart(2,"0")} — ${item[0]}</h3>
-            <p>${item[1]}</p>
-          </article>
-        `).join("")}
-      </div>
-    `;
+      const categoryId =
+        card.dataset.category ||
+        card.dataset.id ||
+        (DATA.categories[index] && DATA.categories[index].id);
+
+      if (!categoryId || !getCategory(categoryId)) return;
+
+      card.dataset.mwConnected = "true";
+      card.dataset.category = categoryId;
+
+      card.addEventListener("click", event => {
+        if (event.target.closest("a, button")) return;
+        openCategory(categoryId);
+      });
+    });
   }
 
-  /* ---------- TILES ---------- */
+  /* ================================================
+     INITIALIZE
+  ================================================ */
 
-  const tilesArea = document.getElementById("tilesArea");
+  function init() {
+    createApp();
+    connectCategoryCards();
+    handleRoute();
 
-  if (page.tiles?.length) {
-    tilesArea.innerHTML = `
-      <div class="section-heading">
-        <span>02 / KEY ELEMENTS</span>
-        <h2>العناصر الأساسية</h2>
-        <p>أهم العناصر التي يجب معرفتها.</p>
-      </div>
+    const observer = new MutationObserver(() => {
+      connectCategoryCards();
+    });
 
-      <div class="content-grid">
-        ${page.tiles.map(tile => `
-          <article class="tile-card fade-in">
-            <div class="tile-icon">${tile[0]}</div>
-            <h3>${tile[1]}</h3>
-            <p>${tile[2]}</p>
-          </article>
-        `).join("")}
-      </div>
-    `;
-  }
+    const grid = document.getElementById("categoryGrid");
 
-  /* ---------- INTERACTIVE AREA ---------- */
-
-  const interactive = document.getElementById("interactiveArea");
-
-  function createInteractive(title, content) {
-    interactive.innerHTML = `
-      <div class="interactive fade-in">
-        <span class="eyebrow">INTERACTIVE EXPERIENCE</span>
-        <h2>${title}</h2>
-        ${content}
-      </div>
-    `;
-  }
-
-  /* ---------- ENGINE SIMULATOR ---------- */
-
-  if (page.interactive === "engine") {
-
-    createInteractive("محاكاة المحرك", `
-      <div class="engine-display" id="engineIcon">⚙️</div>
-      <p id="engineStatus">المحرك متوقف.</p>
-      <button class="premium-button" id="engineButton">تشغيل المحرك</button>
-    `);
-
-    let running = false;
-
-    document.getElementById("engineButton").onclick = function() {
-      running = !running;
-
-      document.getElementById("engineIcon").classList.toggle(
-        "engine-running", running
-      );
-
-      document.getElementById("engineStatus").textContent =
-        running ? "المحرك يعمل الآن — Ready to drive!" : "المحرك متوقف.";
-
-      this.textContent = running ? "إيقاف المحرك" : "تشغيل المحرك";
-    };
-  }
-
-  /* ---------- DASHBOARD ---------- */
-
-  if (page.interactive === "dashboard") {
-
-    createInteractive("محاكي لوحة القيادة", `
-      <div class="dashboard-number" id="speedValue">0</div>
-      <div class="dashboard-label">KILOMETERS PER HOUR</div>
-
-      <p style="margin-top:20px">دورات المحرك RPM</p>
-      <div class="dashboard-number" id="rpmValue" style="font-size:35px">800</div>
-
-      <input class="range-control" id="speedRange"
-        type="range" min="0" max="220" value="0">
-
-      <p id="dashboardStatus">السيارة متوقفة.</p>
-      <button class="premium-button secondary-button" id="resetDashboard">
-        إعادة ضبط
-      </button>
-    `);
-
-    const range = document.getElementById("speedRange");
-
-    function updateDashboard() {
-      const speed = Number(range.value);
-
-      document.getElementById("speedValue").textContent = speed;
-      document.getElementById("rpmValue").textContent =
-        Math.round(800 + speed * 35);
-
-      document.getElementById("dashboardStatus").textContent =
-        speed === 0 ? "السيارة متوقفة." :
-        speed < 80 ? "قيادة هادئة 🚗" :
-        speed < 150 ? "سرعة متوسطة ⚡" :
-        "سرعة مرتفعة جداً — التزمي بالسرعة القانونية.";
-    }
-
-    range.addEventListener("input", updateDashboard);
-
-    document.getElementById("resetDashboard").onclick = () => {
-      range.value = 0;
-      updateDashboard();
-    };
-  }
-
-  /* ---------- QUIZ SYSTEM ---------- */
-
-  if (page.interactive === "quiz") {
-
-    const questions = [
-      {
-        q: "ما الوظيفة الأساسية للمحرك؟",
-        a: ["إنتاج الحركة", "إضاءة الطريق", "تخزين الوقود"],
-        c: 0
-      },
-      {
-        q: "ما وظيفة الفرامل؟",
-        a: ["زيادة السرعة", "إبطاء السيارة وإيقافها", "تبريد المحرك"],
-        c: 1
-      },
-      {
-        q: "ما معنى RPM؟",
-        a: ["سرعة الطريق", "درجة الحرارة", "دورات المحرك في الدقيقة"],
-        c: 2
-      },
-      {
-        q: "ما مصدر الطاقة في السيارة الكهربائية؟",
-        a: ["البطارية", "البنزين", "المبرد"],
-        c: 0
-      },
-      {
-        q: "ما وظيفة ناقل الحركة؟",
-        a: ["تنظيف المحرك", "نقل القوة إلى العجلات", "إضاءة الطريق"],
-        c: 1
-      },
-      {
-        q: "ما الآلة البسيطة التي تغير اتجاه القوة؟",
-        a: ["البكرة", "المصباح", "البطارية"],
-        c: 0
-      },
-      {
-        q: "ما وحدة قياس السرعة الشائعة للسيارات؟",
-        a: ["كيلومتر في الساعة", "كيلوغرام", "درجة مئوية"],
-        c: 0
-      }
-    ];
-
-    let current = 0;
-    let score = 0;
-    let answered = false;
-
-    createInteractive("اختبار المعرفة الهندسية", `
-      <p id="quizCounter"></p>
-      <div class="quiz-progress"><div id="quizProgress"></div></div>
-      <h3 id="quizQuestion" style="margin:20px 0"></h3>
-      <div id="quizAnswers"></div>
-      <p id="quizFeedback" style="margin:15px"></p>
-      <p>النتيجة: <strong id="quizScore">0</strong> / ${questions.length}</p>
-      <button class="premium-button" id="nextQuestion" disabled>
-        السؤال التالي ←
-      </button>
-      <button class="premium-button secondary-button" id="restartQuiz">
-        إعادة الاختبار
-      </button>
-    `);
-
-    function showQuestion() {
-      answered = false;
-
-      const question = questions[current];
-
-      document.getElementById("quizCounter").textContent =
-        `السؤال ${current + 1} من ${questions.length}`;
-
-      document.getElementById("quizQuestion").textContent = question.q;
-      document.getElementById("quizFeedback").textContent = "";
-      document.getElementById("quizScore").textContent = score;
-
-      document.getElementById("quizProgress").style.width =
-        (current / questions.length * 100) + "%";
-
-      document.getElementById("nextQuestion").disabled = true;
-
-      document.getElementById("quizAnswers").innerHTML =
-        question.a.map((answer,index) => `
-          <button class="quiz-answer" data-index="${index}">
-            ${answer}
-          </button>
-        `).join("");
-
-      document.querySelectorAll(".quiz-answer").forEach(button => {
-        button.onclick = () => {
-          if (answered) return;
-
-          answered = true;
-
-          const selected = Number(button.dataset.index);
-          const correct = selected === question.c;
-
-          if (correct) score++;
-
-          document.querySelectorAll(".quiz-answer").forEach((item,index) => {
-            item.disabled = true;
-
-            if (index === question.c) {
-              item.classList.add("correct");
-            } else if (index === selected) {
-              item.classList.add("wrong");
-            }
-          });
-
-          document.getElementById("quizScore").textContent = score;
-
-          document.getElementById("quizFeedback").textContent =
-            correct ? "إجابة صحيحة! أحسنتِ 🌟" :
-            "ليست الإجابة الصحيحة، راجعي الحل الأخضر.";
-
-          document.getElementById("nextQuestion").disabled = false;
-        };
+    if (grid) {
+      observer.observe(grid, {
+        childList: true,
+        subtree: true
       });
     }
-
-    document.getElementById("nextQuestion").onclick = () => {
-      if (!answered) return;
-
-      current++;
-
-      if (current >= questions.length) {
-        document.getElementById("quizCounter").textContent = "FINAL RESULT";
-        document.getElementById("quizQuestion").textContent =
-          "انتهى الاختبار! 🏆";
-
-        document.getElementById("quizProgress").style.width = "100%";
-        document.getElementById("quizAnswers").innerHTML = "";
-
-        document.getElementById("quizFeedback").innerHTML = `
-          <div class="result-number">${score}/${questions.length}</div>
-          <p>${score === questions.length ? "ممتاز! أنتِ خبيرة ميكانيك! 🥇" :
-          score >= 5 ? "أداء رائع! واصلي التعلم. ⭐" :
-          "بداية جيدة! أعيدي المحاولة لتحسين نتيجتك. 💪"}</p>
-        `;
-
-        document.getElementById("nextQuestion").disabled = true;
-        return;
-      }
-
-      showQuestion();
-    };
-
-    document.getElementById("restartQuiz").onclick = () => {
-      current = 0;
-      score = 0;
-      showQuestion();
-    };
-
-    showQuestion();
   }
 
-});
+  window.addEventListener("hashchange", handleRoute);
+
+  window.MW_NAV = {
+    home: goHome,
+    back: goBack,
+    category: openCategory,
+    topic: openTopic
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+})();
+
