@@ -4,337 +4,225 @@
 ===================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  initNavigation();
-  initQuiz();
-  initScrollEffects();
-});
+  "use strict";
 
-/* =====================================
-   MOBILE NAVIGATION
-===================================== */
+  // 1. MOBILE MENU
+  const menuBtn = document.getElementById("menuToggle");
+  const nav = document.getElementById("mainNav");
 
-function initNavigation() {
-  const menuButton = document.querySelector(".menu-toggle");
-  const nav = document.querySelector("nav");
-
-  if (!menuButton || !nav) return;
-
-  menuButton.addEventListener("click", () => {
-    nav.classList.toggle("open");
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      nav.classList.contains("open")
-    );
-  });
-
-  nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      menuButton.setAttribute("aria-expanded", "false");
-    });
-  });
-}
-
-/* =====================================
-   QUIZ DATA
-===================================== */
-
-const quizQuestions = [
-  {
-    question: "ما هو علم الميكانيك؟",
-    options: [
-      "علم دراسة الحركة والقوى",
-      "علم دراسة النباتات",
-      "علم دراسة الطقس",
-      "علم دراسة اللغات"
-    ],
-    answer: 0,
-    explanation: "الميكانيك يدرس الحركة والقوى وتأثيرها على الأجسام."
-  },
-  {
-    question: "ما وظيفة المحرك في السيارة؟",
-    options: [
-      "تزيين السيارة",
-      "تحويل الطاقة إلى حركة",
-      "تبريد العجلات",
-      "تخزين الوقود فقط"
-    ],
-    answer: 1,
-    explanation: "المحرك يحول الطاقة إلى طاقة ميكانيكية تساعد السيارة على الحركة."
-  },
-  {
-    question: "أي عنصر يساعد على إيقاف السيارة؟",
-    options: [
-      "المصابيح",
-      "المقود",
-      "نظام الفرامل",
-      "خزان الوقود"
-    ],
-    answer: 2,
-    explanation: "نظام الفرامل يبطئ السيارة ويوقفها."
-  },
-  {
-    question: "ما نوع الآلة البسيطة التي نستخدمها لرفع الأجسام؟",
-    options: [
-      "الرافعة",
-      "المصباح",
-      "البطارية",
-      "المحرك الكهربائي"
-    ],
-    answer: 0,
-    explanation: "الرافعة آلة بسيطة تساعد على رفع وتحريك الأجسام."
-  },
-  {
-    question: "ما وظيفة ناقل الحركة؟",
-    options: [
-      "تشغيل المصابيح",
-      "تغيير السرعة والعزم",
-      "تنظيف المحرك",
-      "تبريد الوقود"
-    ],
-    answer: 1,
-    explanation: "ناقل الحركة يغير نسب السرعة والعزم حسب حاجة السيارة."
-  }
-];
-
-/* =====================================
-   QUIZ VARIABLES
-===================================== */
-
-let currentQuestion = 0;
-let score = 0;
-let answered = false;
-
-/* =====================================
-   INITIALIZE QUIZ
-===================================== */
-
-function initQuiz() {
-  const questionElement = document.getElementById("quizQuestion");
-  const optionsElement = document.getElementById("quizOptions");
-  const nextButton = document.getElementById("quizNext");
-
-  if (!questionElement || !optionsElement || !nextButton) return;
-
-  currentQuestion = 0;
-  score = 0;
-  answered = false;
-
-  nextButton.onclick = nextQuestion;
-
-  showQuestion();
-}
-
-/* =====================================
-   SHOW QUESTION
-===================================== */
-
-function showQuestion() {
-  const questionElement = document.getElementById("quizQuestion");
-  const optionsElement = document.getElementById("quizOptions");
-  const feedbackElement = document.getElementById("quizFeedback");
-  const nextButton = document.getElementById("quizNext");
-  const progress = document.getElementById("quizProgress");
-  const progressBar = document.getElementById("quizProgressBar");
-  const resultElement = document.getElementById("quizResult");
-
-  if (!questionElement || !optionsElement) return;
-
-  const question = quizQuestions[currentQuestion];
-
-  answered = false;
-
-  questionElement.textContent = question.question;
-  optionsElement.innerHTML = "";
-
-  if (feedbackElement) feedbackElement.textContent = "";
-  if (resultElement) resultElement.innerHTML = "";
-
-  if (progress) {
-    progress.textContent =
-      `السؤال ${currentQuestion + 1} من ${quizQuestions.length}`;
-  }
-
-  if (progressBar) {
-    progressBar.style.width =
-      `${(currentQuestion / quizQuestions.length) * 100}%`;
-  }
-
-  question.options.forEach((option, index) => {
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "quiz-option";
-    button.textContent = option;
-
-    button.addEventListener("click", () => {
-      checkAnswer(index);
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", () => {
+      const opened = nav.classList.toggle("active");
+      menuBtn.setAttribute("aria-expanded", String(opened));
     });
 
-    optionsElement.appendChild(button);
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
+  // 2. HOME AND SCROLL NAVIGATION
+  document.querySelectorAll("[data-home]").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      window.closeMechanicalPage?.();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   });
 
-  if (nextButton) {
-    nextButton.disabled = true;
-    nextButton.textContent =
-      currentQuestion === quizQuestions.length - 1
-        ? "عرض النتيجة"
-        : "السؤال التالي";
+  document.querySelectorAll("[data-scroll]").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+
+      const target = document.getElementById(link.dataset.scroll);
+
+      if (target) {
+        window.closeMechanicalPage?.();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  // 3. EXPLORE CATEGORIES
+  const categoryGrid = document.getElementById("categoryGrid");
+  const pages = window.PAGES || {};
+
+  if (categoryGrid) {
+    const entries = Object.entries(pages);
+
+    categoryGrid.innerHTML = entries.map(([id, page]) => `
+      <article class="category-card">
+        <div class="category-icon">${page.icon || "⚙️"}</div>
+        <small>${page.category || "MECHANICAL ENGINEERING"}</small>
+        <h3>${page.title || "قسم ميكانيكي"}</h3>
+        <p>${page.intro || ""}</p>
+        <button type="button" data-page="${id}">
+          اكتشف التفاصيل ←
+        </button>
+      </article>
+    `).join("");
   }
-}
 
-/* =====================================
-   CHECK ANSWER
-===================================== */
-
-function checkAnswer(selectedIndex) {
-  if (answered) return;
-
-  answered = true;
-
-  const question = quizQuestions[currentQuestion];
-  const options = document.querySelectorAll(".quiz-option");
+  // 4. QUIZ SYSTEM
+  const questions = window.QUIZ_DATA || [];
+  const questionTitle = document.getElementById("quizQuestion");
+  const optionsBox = document.getElementById("quizOptions");
   const feedback = document.getElementById("quizFeedback");
-  const nextButton = document.getElementById("quizNext");
-
-  const isCorrect = selectedIndex === question.answer;
-
-  if (isCorrect) {
-    score++;
-
-    if (feedback) {
-      feedback.textContent = "إجابة صحيحة! أحسنتِ ✓";
-      feedback.style.color = "#348b50";
-    }
-  } else {
-    if (feedback) {
-      feedback.textContent =
-        `إجابة خاطئة. الإجابة الصحيحة: ${question.options[question.answer]}`;
-      feedback.style.color = "#b34c40";
-    }
-  }
-
-  options.forEach((button, index) => {
-    button.disabled = true;
-
-    if (index === question.answer) {
-      button.classList.add("correct");
-    } else if (index === selectedIndex && !isCorrect) {
-      button.classList.add("wrong");
-    }
-  });
-
-  if (feedback) {
-    const explanation = document.createElement("p");
-    explanation.textContent = question.explanation;
-    explanation.style.marginTop = "10px";
-    explanation.style.fontWeight = "400";
-    feedback.appendChild(explanation);
-  }
-
-  if (nextButton) {
-    nextButton.disabled = false;
-  }
-}
-
-/* =====================================
-   NEXT QUESTION
-===================================== */
-
-function nextQuestion() {
-  if (!answered) return;
-
-  currentQuestion++;
-
-  if (currentQuestion < quizQuestions.length) {
-    showQuestion();
-  } else {
-    showResult();
-  }
-}
-
-/* =====================================
-   FINAL RESULT
-===================================== */
-
-function showResult() {
-  const questionElement = document.getElementById("quizQuestion");
-  const optionsElement = document.getElementById("quizOptions");
-  const feedbackElement = document.getElementById("quizFeedback");
-  const nextButton = document.getElementById("quizNext");
+  const nextBtn = document.getElementById("quizNext");
   const progress = document.getElementById("quizProgress");
   const progressBar = document.getElementById("quizProgressBar");
-  const resultElement = document.getElementById("quizResult");
+  const resultBox = document.getElementById("quizResult");
+  const questionArea = document.getElementById("quizQuestionArea");
 
-  if (questionElement) {
-    questionElement.textContent = "اكتمل الاختبار!";
+  let questionIndex = 0;
+  let score = 0;
+  let answered = false;
+
+  function showQuestion() {
+    if (!questions.length || !questionTitle || !optionsBox) return;
+
+    const q = questions[questionIndex];
+    answered = false;
+
+    questionTitle.textContent = q.question;
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((option, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "quiz-option";
+      button.textContent = option;
+
+      button.addEventListener("click", () => {
+        if (answered) return;
+        answered = true;
+
+        const correct = index === q.answer;
+
+        if (correct) {
+          score++;
+          button.classList.add("correct");
+          feedback.textContent = "✓ إجابة صحيحة! أحسنتِ.";
+        } else {
+          button.classList.add("wrong");
+          optionsBox.children[q.answer]?.classList.add("correct");
+          feedback.textContent =
+            "✗ إجابة غير صحيحة. " + (q.explanation || "");
+        }
+
+        [...optionsBox.children].forEach(item => {
+          item.disabled = true;
+        });
+
+        nextBtn.disabled = false;
+      });
+
+      optionsBox.appendChild(button);
+    });
+
+    progress.textContent =
+      `السؤال ${questionIndex + 1} من ${questions.length}`;
+
+    progressBar.style.width =
+      `${((questionIndex + 1) / questions.length) * 100}%`;
+
+    feedback.textContent = "اختاري إجابة واحدة.";
+    nextBtn.disabled = true;
+    nextBtn.innerHTML = questionIndex === questions.length - 1
+      ? "عرض النتيجة ←"
+      : "السؤال التالي ←";
   }
 
-  if (optionsElement) optionsElement.innerHTML = "";
-  if (feedbackElement) feedbackElement.textContent = "";
-  if (nextButton) nextButton.style.display = "none";
+  function showResult() {
+    questionArea.hidden = true;
+    resultBox.hidden = false;
 
-  if (progress) progress.textContent = "النتيجة النهائية";
+    const percentage = Math.round(
+      (score / questions.length) * 100
+    );
 
-  if (progressBar) progressBar.style.width = "100%";
+    let message = "يمكنكِ تحسين معلوماتك بالمراجعة والمحاولة مجدداً.";
 
-  let message = "";
+    if (percentage >= 90) {
+      message = "ممتاز! لديكِ معرفة رائعة بعالم الميكانيك.";
+    } else if (percentage >= 70) {
+      message = "أداء رائع! واصلي التعلم.";
+    } else if (percentage >= 50) {
+      message = "جيد! تحتاجين فقط إلى المزيد من التدريب.";
+    }
 
-  if (score === 5) {
-    message = "ممتاز! لديك معرفة رائعة بالميكانيك 🏆";
-  } else if (score >= 3) {
-    message = "أحسنت! يمكنك تطوير معلوماتك أكثر ⭐";
-  } else {
-    message = "لا بأس! حاول مرة أخرى وستتحسن 💪";
-  }
-
-  if (resultElement) {
-    resultElement.innerHTML = `
-      <h2>نتيجتك: ${score} / 5</h2>
+    resultBox.innerHTML = `
+      <h3>نتيجتك النهائية</h3>
+      <div class="quiz-score">${score} / ${questions.length}</div>
+      <p>${percentage}% من الإجابات الصحيحة</p>
       <p>${message}</p>
-      <button id="restartQuiz" class="btn btn-primary">
-        إعادة الاختبار
+      <button type="button" class="button button-primary" id="restartQuiz">
+        إعادة الاختبار ↻
       </button>
     `;
 
     document.getElementById("restartQuiz").addEventListener("click", () => {
-      if (nextButton) nextButton.style.display = "";
-      initQuiz();
+      questionIndex = 0;
+      score = 0;
+      resultBox.hidden = true;
+      questionArea.hidden = false;
+      showQuestion();
     });
   }
-}
 
-/* =====================================
-   SCROLL EFFECTS
-===================================== */
+  if (nextBtn && questions.length) {
+    showQuestion();
 
-function initScrollEffects() {
-  const sections = document.querySelectorAll("section[id]");
-  const links = document.querySelectorAll("nav a[href^='#']");
+    nextBtn.addEventListener("click", () => {
+      if (!answered) return;
 
-  if (!sections.length || !links.length) return;
-
-  window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 130;
-
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute("id");
+      if (questionIndex < questions.length - 1) {
+        questionIndex++;
+        showQuestion();
+      } else {
+        showResult();
       }
     });
+  }
 
-    links.forEach(link => {
-      link.classList.remove("active");
+  // 5. BACK TO TOP
+  const backTop = document.querySelector(".back-top");
 
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
+  if (backTop) {
+    window.addEventListener("scroll", () => {
+      backTop.classList.toggle("visible", window.scrollY > 400);
     });
-  });
-}
+  }
+
+  // 6. REVEAL ANIMATIONS
+  const revealElements = document.querySelectorAll(
+    ".section, .category-card, .feature-band, .about-cards article"
+  );
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    revealElements.forEach(element => {
+      element.classList.add("reveal");
+      observer.observe(element);
+    });
+  } else {
+    revealElements.forEach(element => element.classList.add("show"));
+  }
+
+  console.log("MECHANICAL WORLD: Website initialized successfully.");
+});
+
 
 
 
