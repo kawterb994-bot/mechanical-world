@@ -1,0 +1,487 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دليل شامل حول الشاحن التوربيني Turbocharger وطريقة عمله ومكوناته وأنواعه وصيانته.">
+<title>TURBO SYSTEM | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#c9a45c;
+  --bg:#090909;
+  --card:#151515;
+  --muted:#aaa;
+  --white:#f5f5f5;
+  --border:#292929;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:'Cairo',sans-serif;line-height:1.9;
+}
+a{text-decoration:none;color:inherit}
+header{
+  position:sticky;top:0;z-index:100;
+  background:#090909ed;border-bottom:1px solid var(--border);
+  padding:15px 7%;display:flex;justify-content:space-between;
+  align-items:center;gap:15px;flex-wrap:wrap;
+  backdrop-filter:blur(12px);
+}
+.logo{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--gold)}
+.back{
+  border:1px solid var(--gold);padding:7px 18px;
+  border-radius:5px;color:var(--gold);font-size:13px;
+}
+.back:hover{background:var(--gold);color:#000}
+.hero{
+  min-height:390px;padding:85px 8%;
+  display:flex;align-items:center;
+  background:linear-gradient(90deg,#090909f5,#090909a8),
+  url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85') center/cover;
+  border-bottom:1px solid var(--border);
+}
+.hero-content{max-width:800px}
+.number{color:var(--gold);font-weight:800;letter-spacing:4px}
+h1{font-size:clamp(35px,6vw,65px);line-height:1.3;margin:15px 0}
+h1 span{color:var(--gold)}
+.hero p{color:#ccc;max-width:700px;font-size:16px}
+.hero-btn{
+ display:inline-block;margin-top:25px;padding:10px 25px;
+ background:var(--gold);color:#090909;font-weight:800;border-radius:4px
+}
+.container{width:min(1120px,90%);margin:auto}
+section{padding:65px 0;border-bottom:1px solid var(--border)}
+.section-title{margin-bottom:30px}
+.section-title small{color:var(--gold);font-weight:800;letter-spacing:2px}
+.section-title h2{font-size:30px;margin-top:5px}
+.section-title p{color:var(--muted);margin-top:8px}
+.card{
+ background:var(--card);border:1px solid var(--border);
+ padding:23px;border-radius:9px;margin-bottom:16px;
+}
+.card h3{color:var(--gold);margin-bottom:10px;font-size:19px}
+.card p{color:#ccc}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.tag{
+ display:inline-block;color:var(--gold);border:1px solid #6e5930;
+ padding:2px 10px;border-radius:20px;font-size:12px;margin-bottom:10px
+}
+ul{padding-right:22px;color:#ccc}
+li{margin:7px 0}
+strong{color:#eee}
+.gold{color:var(--gold)}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{padding:13px;border:1px solid var(--border);text-align:right}
+th{background:#282116;color:var(--gold)}
+td{color:#ccc}
+.table-wrap{overflow-x:auto;border-radius:8px}
+.steps{display:grid;gap:13px}
+.step{
+ display:flex;gap:15px;align-items:flex-start;
+ background:var(--card);padding:16px;border-radius:8px;
+ border:1px solid var(--border)
+}
+.step b{
+ min-width:35px;height:35px;display:grid;place-items:center;
+ background:var(--gold);color:#000;border-radius:50%
+}
+.warning{border-right:4px solid #c68b39;background:#211b12}
+.quiz-question{margin:20px 0;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.quiz-question h3{font-size:16px;margin-bottom:12px}
+.option{
+ display:block;width:100%;text-align:right;padding:10px 13px;
+ margin:8px 0;background:#202020;color:white;
+ border:1px solid #383838;border-radius:5px;
+ font-family:inherit;cursor:pointer
+}
+.option:hover{border-color:var(--gold)}
+.option.selected{border-color:var(--gold);background:#302819}
+.option.correct{background:#153421;border-color:#35a766}
+.option.wrong{background:#3b1b1b;border-color:#d35c5c}
+#result{display:none;padding:20px;background:#191919;border:1px solid var(--gold);border-radius:8px;margin-top:20px}
+.action{
+ background:var(--gold);color:#080808;border:0;padding:12px 25px;
+ font-family:inherit;font-weight:900;border-radius:5px;cursor:pointer;margin-top:15px
+}
+footer{text-align:center;padding:35px 15px;color:#888;font-size:13px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){
+ header{padding:12px 5%}
+ .logo{font-size:17px}
+ .hero{padding:65px 6%;min-height:350px}
+ .section-title h2{font-size:25px}
+ section{padding:45px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">MECHANICAL <span>WORLD</span></a>
+  <a class="back" href="index.html">← العودة للرئيسية</a>
+</header>
+
+<div class="hero">
+ <div class="hero-content">
+  <div class="number">08 / ENGINEERING SYSTEMS</div>
+  <h1>TURBO <span>SYSTEM</span></h1>
+  <p>
+   اكتشف عالم الشواحن التوربينية، التقنية التي تستغل طاقة غازات العادم
+   لزيادة كمية الهواء الداخلة إلى المحرك وتحسين قدرته على إنتاج الطاقة.
+  </p>
+  <a href="#definition" class="hero-btn">اكتشف التقنية ↓</a>
+ </div>
+</div>
+
+<main class="container">
+
+<section id="definition">
+ <div class="section-title">
+  <small>01 — INTRODUCTION</small>
+  <h2>ما هو الشاحن التوربيني؟</h2>
+  <p>Turbocharger: تقنية متطورة لرفع كفاءة أداء محركات الاحتراق الداخلي.</p>
+ </div>
+ <div class="card">
+  <span class="tag">التعريف العلمي</span>
+  <p>
+   الشاحن التوربيني أو <strong>Turbocharger</strong> هو جهاز ميكانيكي
+   يُستخدم لزيادة كمية الهواء المضغوط التي تدخل إلى أسطوانات المحرك.
+   يعتمد على استغلال طاقة غازات العادم الخارجة من المحرك لتدوير توربين،
+   وهذا التوربين متصل بعمود يدير ضاغطاً يقوم بضغط الهواء وإرساله إلى المحرك.
+  </p>
+  <p>
+   عندما تدخل كمية أكبر من الهواء إلى الأسطوانة، يمكن لنظام إدارة المحرك
+   إضافة كمية مناسبة من الوقود، مما يسمح بإنتاج قدرة أكبر مقارنة بمحرك
+   مماثل يعمل دون شاحن، مع مراعاة حدود التصميم والحرارة والضغط.
+  </p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>⚙️ الوظيفة</h3><p>زيادة كتلة الهواء الداخلة إلى المحرك عن طريق ضغطه.</p></div>
+  <div class="card"><h3>🔥 مصدر الطاقة</h3><p>طاقة غازات العادم الساخنة الخارجة من المحرك.</p></div>
+  <div class="card"><h3>🚘 النتيجة</h3><p>إمكانية الحصول على قدرة وعزم أكبر من حجم محرك أصغر.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>02 — COMPONENTS</small>
+  <h2>المكونات الرئيسية للتيربو</h2>
+  <p>يتكون الشاحن التوربيني من مجموعة أجزاء تعمل بتناغم ودقة عالية.</p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>01. Turbine Wheel</h3><p>عجلة التوربين: تستقبل طاقة غازات العادم وتحولها إلى حركة دورانية.</p></div>
+  <div class="card"><h3>02. Compressor Wheel</h3><p>عجلة الضاغط: تسحب الهواء الخارجي وتضغطه قبل إرساله إلى المحرك.</p></div>
+  <div class="card"><h3>03. Shaft</h3><p>العمود: يربط عجلة التوربين بعجلة الضاغط وينقل الحركة بينهما.</p></div>
+  <div class="card"><h3>04. Center Housing</h3><p>الهيكل المركزي: يحتوي على العمود والمحامل وممرات التزييت، وقد يتضمن التبريد السائل.</p></div>
+  <div class="card"><h3>05. Wastegate</h3><p>صمام التحكم في ضغط الشحن: يسمح بمرور جزء من العادم بعيداً عن التوربين للحد من زيادة الضغط.</p></div>
+  <div class="card"><h3>06. Actuator</h3><p>المشغل: يتحكم في حركة صمام Wastegate وفق نظام التحكم بالمحرك.</p></div>
+  <div class="card"><h3>07. Intercooler</h3><p>مبرد الهواء: يخفض حرارة الهواء المضغوط لزيادة كثافته وتحسين ظروف الاحتراق.</p></div>
+  <div class="card"><h3>08. Sensors</h3><p>الحساسات: مثل MAP وMAF، تساعد وحدة التحكم على معرفة ظروف الهواء والضغط.</p></div>
+  <div class="card"><h3>09. Oil Lines</h3><p>أنابيب الزيت: توفر التزييت للمحامل وتساعد على التخلص من الحرارة.</p></div>
+  <div class="card"><h3>10. Boost Solenoid</h3><p>صمام التحكم الإلكتروني: ينظم ضغط الشحن في الأنظمة التي تستخدم هذا النوع من التحكم.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>03 — WORKING PRINCIPLE</small>
+  <h2>كيف يعمل التيربو؟</h2>
+  <p>تعتمد آلية العمل على مسارين أساسيين: مسار العادم ومسار الهواء.</p>
+ </div>
+ <div class="steps">
+  <div class="step"><b>1</b><div><h3 class="gold">خروج غازات العادم</h3><p>بعد الاحتراق داخل الأسطوانات، تخرج الغازات الساخنة عبر مجمع العادم متجهة نحو التوربين.</p></div></div>
+  <div class="step"><b>2</b><div><h3 class="gold">دوران التوربين</h3><p>تصطدم الغازات بعجلة التوربين، فتجعلها تدور بسرعة عالية.</p></div></div>
+  <div class="step"><b>3</b><div><h3 class="gold">نقل الحركة</h3><p>ينقل العمود المشترك الحركة الدورانية من عجلة التوربين إلى عجلة الضاغط.</p></div></div>
+  <div class="step"><b>4</b><div><h3 class="gold">ضغط الهواء</h3><p>تسحب عجلة الضاغط الهواء الخارجي وتزيد ضغطه قبل إرساله نحو مبرد الهواء.</p></div></div>
+  <div class="step"><b>5</b><div><h3 class="gold">تبريد الهواء</h3><p>يمر الهواء المضغوط عبر Intercooler لتقليل حرارته وزيادة كثافته.</p></div></div>
+  <div class="step"><b>6</b><div><h3 class="gold">دخول الأسطوانات</h3><p>يدخل الهواء إلى المحرك، وتتحكم وحدة ECU في الوقود والإشعال بما يتناسب مع ظروف التشغيل.</p></div></div>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>مسار عمل النظام باختصار</h3>
+  <p style="text-align:center;font-size:17px;line-height:2.5">
+   <span class="gold">غازات العادم</span> ← التوربين ← العمود ← الضاغط
+   <br>
+   الهواء الخارجي ← الضاغط ← Intercooler ← المحرك
+  </p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>04 — TURBO TYPES</small>
+  <h2>أنواع الشواحن التوربينية</h2>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>Single Turbo</h3><p>شاحن توربيني واحد، وهو تصميم شائع في كثير من محركات السيارات.</p></div>
+  <div class="card"><h3>Twin Turbo</h3><p>استخدام شاحنين توربينيين، وقد يعملان بالتوازي أو بالتتابع حسب التصميم.</p></div>
+  <div class="card"><h3>Twin-Scroll</h3><p>يستخدم قنوات منفصلة داخل غلاف التوربين لتنظيم نبضات العادم وتحسين الاستجابة.</p></div>
+  <div class="card"><h3>VGT / VNT</h3><p>توربين ذو هندسة متغيرة يغير اتجاه أو مساحة مرور غازات العادم لتحسين الأداء عبر نطاقات مختلفة من سرعة المحرك.</p></div>
+  <div class="card"><h3>Sequential Turbo</h3><p>نظام يستخدم شاحنين على مراحل، بحيث يعمل أحدهما أو كلاهما وفق ظروف التشغيل.</p></div>
+  <div class="card"><h3>Electric Turbo</h3><p>تقنية تستخدم محركاً كهربائياً لمساعدة دوران الضاغط أو تحسين الاستجابة، وفق تصميم النظام.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>05 — COMPARISON</small>
+  <h2>الفرق بين Turbo وSupercharger</h2>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>وجه المقارنة</th><th>Turbocharger</th><th>Supercharger</th></tr></thead>
+  <tbody>
+   <tr><td>مصدر الطاقة</td><td>طاقة غازات العادم</td><td>طاقة ميكانيكية من المحرك غالباً</td></tr>
+   <tr><td>طريقة التشغيل</td><td>توربين وضاغط متصلان بعمود</td><td>ضاغط يديره المحرك عادة بواسطة سير أو تروس</td></tr>
+   <tr><td>الاستجابة</td><td>قد يظهر تأخر في الاستجابة</td><td>غالباً استجابة مباشرة مع دوران المحرك</td></tr>
+   <tr><td>استهلاك الطاقة</td><td>يستغل طاقة العادم، لكنه يسبب مقاومة في مسار العادم</td><td>يستهلك جزءاً من قدرة المحرك لتشغيله</td></tr>
+   <tr><td>التعقيد</td><td>يتطلب إدارة للحرارة والضغط والتزييت</td><td>يعتمد على نوع الضاغط وطريقة تشغيله</td></tr>
+  </tbody>
+ </table>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>06 — TECHNICAL CONCEPTS</small>
+  <h2>مصطلحات تقنية مهمة</h2>
+ </div>
+ <div class="card">
+  <h3>Boost Pressure — ضغط الشحن</h3>
+  <p>هو مقدار ارتفاع ضغط الهواء داخل مجرى السحب مقارنة بالضغط المرجعي الجوي. تختلف قيمته حسب تصميم المحرك والتيربو وظروف التشغيل.</p>
+ </div>
+ <div class="card">
+  <h3>Turbo Lag — تأخر استجابة التيربو</h3>
+  <p>هو الوقت الذي يحتاجه التيربو لرفع ضغط الشحن بعد طلب التسارع. يرتبط بكتلة الأجزاء الدوارة، وتدفق العادم، وحجم التيربو، وطريقة التحكم.</p>
+  <p><strong>طرق تقليله:</strong> اختيار حجم مناسب، استخدام Twin-Scroll أو VGT عند ملاءمتهما، وتحسين إدارة المحرك وتدفق الهواء.</p>
+ </div>
+ <div class="card">
+  <h3>Intercooler — مبرد الهواء</h3>
+  <p>عند ضغط الهواء ترتفع حرارته غالباً. يساعد المبرد على خفض درجة حرارته، فيصبح أكثر كثافة، ما يسمح بدخول كتلة أكبر من الهواء إلى الأسطوانات.</p>
+ </div>
+ <div class="card">
+  <h3>Knock — الطرق في محركات البنزين</h3>
+  <p>احتراق غير طبيعي قد ينتج عن ضغط وحرارة مرتفعين أو ظروف تشغيل غير مناسبة. لذلك يجب ضبط ضغط الشحن وتوقيت الإشعال ونوعية الوقود وفق مواصفات المحرك.</p>
+ </div>
+ <div class="card">
+  <h3>EGT — حرارة غازات العادم</h3>
+  <p>مراقبة حرارة العادم مهمة لحماية التوربين والصمامات ومكونات المحرك من الإجهاد الحراري.</p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>07 — ADVANTAGES & LIMITATIONS</small>
+  <h2>المميزات والعيوب</h2>
+ </div>
+ <div class="grid">
+  <div class="card">
+   <h3>✓ المميزات</h3>
+   <ul>
+    <li>زيادة القدرة والعزم عند التصميم والضبط المناسبين.</li>
+    <li>إمكانية استخراج أداء مرتفع من محرك أصغر.</li>
+    <li>تحسين الاستفادة من طاقة غازات العادم.</li>
+    <li>إمكانية تحسين الأداء في الارتفاعات التي ينخفض فيها ضغط الهواء الجوي، ضمن حدود النظام.</li>
+    <li>مرونة كبيرة في تصميم المحركات الحديثة.</li>
+   </ul>
+  </div>
+  <div class="card">
+   <h3>✕ العيوب والتحديات</h3>
+   <ul>
+    <li>ارتفاع درجات الحرارة والضغوط.</li>
+    <li>الحاجة إلى تزييت جيد وصيانة دقيقة.</li>
+    <li>احتمال تأخر الاستجابة في بعض التصاميم.</li>
+    <li>زيادة تعقيد نظام المحرك.</li>
+    <li>التعديل العشوائي قد يسبب تلف المحرك أو التيربو.</li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>08 — MAINTENANCE</small>
+  <h2>الأعطال والصيانة</h2>
+  <p>التيربو يعمل في ظروف قاسية، لذلك يحتاج إلى عناية مستمرة.</p>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>العَرَض</th><th>احتمال السبب</th><th>الإجراء</th></tr></thead>
+  <tbody>
+   <tr><td>دخان أزرق</td><td>احتمال تسرب الزيت إلى مسار السحب أو العادم</td><td>فحص التيربو ونظام التهوية والزيت</td></tr>
+   <tr><td>ضعف التسارع</td><td>تسرب هواء أو خلل في التحكم بالضغط</td><td>فحص الخراطيم والحساسات والتيربو</td></tr>
+   <tr><td>صفير غير طبيعي</td><td>تسرب هواء أو تلف محتمل في الأجزاء الدوارة</td><td>فحص متخصص للنظام</td></tr>
+   <tr><td>استهلاك زيت مرتفع</td><td>تسرب أو مشكلة في المحرك أو التيربو</td><td>فحص مستوى الزيت ومصدر التسرب</td></tr>
+   <tr><td>لمبة المحرك</td><td>خلل في ضغط الشحن أو حساس أو نظام آخر</td><td>قراءة رموز الأعطال بجهاز OBD</td></tr>
+  </tbody>
+ </table>
+ </div>
+ <div class="grid" style="margin-top:20px">
+  <div class="card"><h3>🛢️ زيت المحرك</h3><p>استخدم الزيت المحدد من الشركة المصنعة، واحترم فترات تغييره؛ لأن المحامل تحتاج إلى تزييت مناسب.</p></div>
+  <div class="card"><h3>🌬️ فلتر الهواء</h3><p>حافظ على نظافة فلتر الهواء، لأن الأتربة قد تتسبب في تلف عجلة الضاغط.</p></div>
+  <div class="card"><h3>🔍 الخراطيم</h3><p>افحص خراطيم الهواء والوصلات بحثاً عن التشققات والتسربات.</p></div>
+  <div class="card"><h3>🔧 الفحص الدوري</h3><p>عند ظهور أصوات أو دخان أو ضعف مفاجئ، اطلب تشخيصاً فنياً قبل الاستمرار في القيادة.</p></div>
+ </div>
+ <div class="card warning">
+  <h3>⚠️ تنبيه للسلامة</h3>
+  <p>لا تلمس التيربو بعد تشغيل المحرك مباشرة، فقد تكون حرارته مرتفعة جداً. لا تفك أنابيب الزيت أو الهواء أثناء التشغيل، ولا تحاول إصلاح الأجزاء الدوارة دون خبرة وأدوات مناسبة.</p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>09 — KNOWLEDGE TEST</small>
+  <h2>اختبر معلوماتك</h2>
+  <p>أجب عن الأسئلة الثمانية واكتشف مستواك في فهم الشاحن التوربيني.</p>
+ </div>
+ <div id="quiz"></div>
+ <button class="action" onclick="checkQuiz()">تصحيح الاختبار</button>
+ <div id="result"></div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>10 — SUMMARY</small>
+  <h2>خلاصة الدرس</h2>
+ </div>
+ <div class="card">
+  <p>
+   يمثل الشاحن التوربيني إحدى أهم التقنيات في هندسة المحركات الحديثة.
+   فهو يستغل طاقة غازات العادم لتشغيل ضاغط الهواء، مما يرفع كمية الهواء
+   الداخلة إلى الأسطوانات ويساعد على إنتاج قدرة أكبر. لكن نجاح هذه التقنية
+   يعتمد على التوازن بين ضغط الشحن والحرارة والوقود والتزييت والتحكم الإلكتروني.
+  </p>
+  <p class="gold" style="margin-top:12px;font-weight:800">
+   المعرفة الهندسية لا تعني زيادة القوة فقط، بل فهم كيفية تحقيق الأداء مع الحفاظ على السلامة والكفاءة.
+  </p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <p>MECHANICAL <strong>WORLD</strong> — ENGINEERING KNOWLEDGE</p>
+ <p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+ <p>بإشراف أستاذ مادة الميكانيك</p>
+ <p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+</footer>
+
+<script>
+const questions = [
+ {
+  q:"ما الوظيفة الأساسية للشاحن التوربيني؟",
+  a:["تبريد المحرك","زيادة كمية الهواء المضغوط الداخلة للمحرك","تخزين الوقود","تشغيل المصابيح"],
+  c:1
+ },
+ {
+  q:"ما مصدر الطاقة الذي يدير توربين التيربو؟",
+  a:["البطارية","سائل التبريد","غازات العادم","الوقود داخل الخزان"],
+  c:2
+ },
+ {
+  q:"ما وظيفة Compressor Wheel؟",
+  a:["ضغط الهواء","تبريد الزيت","تنظيم الفرامل","تنقية الوقود"],
+  c:0
+ },
+ {
+  q:"ما وظيفة Intercooler؟",
+  a:["زيادة حرارة الهواء","خفض حرارة الهواء المضغوط","زيادة ضغط الزيت","تخزين العادم"],
+  c:1
+ },
+ {
+  q:"ما المقصود بـ Turbo Lag؟",
+  a:["تأخر استجابة التيربو","تسرب الوقود","ارتفاع مستوى الزيت","توقف البطارية"],
+  c:0
+ },
+ {
+  q:"ما وظيفة Wastegate؟",
+  a:["زيادة الوقود","التحكم في تدفق العادم نحو التوربين والحد من ضغط الشحن","تبريد المقصورة","تنظيف الهواء"],
+  c:1
+ },
+ {
+  q:"لماذا يحتاج التيربو إلى زيت المحرك؟",
+  a:["لطلاء هيكله","لتزييت وتبريد المحامل","لزيادة حجم الخزان","لتشغيل المصابيح"],
+  c:1
+ },
+ {
+  q:"ما التصرف الصحيح عند سماع صوت غير طبيعي من التيربو؟",
+  a:["زيادة السرعة","تجاهل الصوت","فحص النظام لدى مختص","فك التيربو والمحرك يعمل"],
+  c:2
+ }
+];
+
+const quiz = document.getElementById("quiz");
+
+questions.forEach((question,index)=>{
+ const box=document.createElement("div");
+ box.className="quiz-question";
+ box.innerHTML=`<h3>${index+1}. ${question.q}</h3>`;
+ question.a.forEach((answer,i)=>{
+  const button=document.createElement("button");
+  button.className="option";
+  button.textContent=answer;
+  button.type="button";
+  button.onclick=()=>{
+   box.querySelectorAll(".option").forEach(item=>item.classList.remove("selected"));
+   button.classList.add("selected");
+   box.dataset.answer=i;
+  };
+  box.appendChild(button);
+ });
+ quiz.appendChild(box);
+});
+
+function checkQuiz(){
+ let score=0;
+ const boxes=document.querySelectorAll(".quiz-question");
+
+ boxes.forEach((box,index)=>{
+  const selected=box.querySelector(".selected");
+  const options=box.querySelectorAll(".option");
+  options.forEach((option,i)=>{
+   option.disabled=true;
+   if(i===questions[index].c) option.classList.add("correct");
+  });
+  if(selected && Number(box.dataset.answer)===questions[index].c){
+   score++;
+  }else if(selected){
+   selected.classList.add("wrong");
+  }
+ });
+
+ const result=document.getElementById("result");
+ const percentage=Math.round(score/questions.length*100);
+ let message="واصل التعلم، يمكنك تحسين نتيجتك بالمراجعة.";
+ if(score>=7) message="ممتاز! لديك فهم قوي لنظام التيربو.";
+ else if(score>=5) message="جيد جداً! بقيت بعض التفاصيل لتتقنها.";
+ else if(score>=3) message="نتيجة مقبولة، راجع الدرس وحاول مجدداً.";
+
+ result.style.display="block";
+ result.innerHTML=`
+  <h2 class="gold">نتيجتك: ${score} / ${questions.length}</h2>
+  <h3>${percentage}%</h3>
+  <p>${message}</p>
+  <button class="action" onclick="resetQuiz()">إعادة الاختبار</button>
+ `;
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function resetQuiz(){
+ document.querySelectorAll(".quiz-question").forEach(box=>{
+  delete box.dataset.answer;
+  box.querySelectorAll(".option").forEach(option=>{
+   option.disabled=false;
+   option.classList.remove("selected","correct","wrong");
+  });
+ });
+ const result=document.getElementById("result");
+ result.style.display="none";
+ window.scrollTo({top:document.getElementById("quiz").offsetTop+400,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
