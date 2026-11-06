@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>نظام الفرامل | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--gold:#c9a45c;
+--light:#ead19a;
+--bg:#090909;
+--panel:#151515;
+--muted:#aaa;
+--border:#303030;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:#f5f5f5;font-family:Cairo,sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,90%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#090909ed;border-bottom:1px solid var(--border);backdrop-filter:blur(12px)}
+.nav{min-height:75px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.logo{direction:ltr;font-weight:900;color:var(--gold);letter-spacing:2px;font-size:19px}
+.logo span{color:white}
+.home{border:1px solid var(--gold);color:var(--gold);padding:7px 15px;border-radius:5px;font-size:13px}
+.hero{min-height:530px;display:flex;align-items:center;background:linear-gradient(90deg,#090909 5%,#090909b8 100%),url("https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85") center/cover}
+.hero-content{padding:80px 0;max-width:750px}
+.eyebrow,.section small{color:var(--gold);letter-spacing:2px;font-size:12px;font-weight:800}
+h1{font-size:clamp(38px,7vw,72px);line-height:1.35;margin:15px 0}
+h1 span,.gold{color:var(--gold)}
+.hero p{color:#ccc;max-width:650px}
+.btn{display:inline-block;padding:11px 22px;border-radius:5px;background:var(--gold);color:#111;font-weight:800;margin:22px 8px 0 0}
+.section{padding:75px 0}
+.section-title{margin-bottom:30px}
+.section-title h2{font-size:clamp(27px,4vw,40px);margin-top:8px}
+.section-title p{color:var(--muted);margin-top:8px}
+.block{padding:27px;background:var(--panel);border:1px solid var(--border);border-right:3px solid var(--gold);border-radius:8px;margin-bottom:18px}
+.block h3{color:var(--light);font-size:21px;margin-bottom:10px}
+.block p{color:#c5c5c5;margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.card{padding:23px;background:var(--panel);border:1px solid var(--border);border-radius:9px;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.card .icon{font-size:30px}
+.card h3{color:var(--light);margin:10px 0}
+.card p{font-size:14px;color:#aaa}
+.hero-img{width:100%;max-height:420px;object-fit:cover;border-radius:9px;margin:20px 0}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.step{background:var(--panel);border:1px solid var(--border);border-radius:9px;padding:25px}
+.step b{color:var(--gold)}
+.step h3{margin:8px 0;color:var(--light)}
+.step p{color:#bbb;font-size:14px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:480px;background:var(--panel)}
+th,td{padding:14px;text-align:right;border:1px solid var(--border)}
+th{color:var(--gold);background:#202020}
+td{color:#ccc;font-size:14px}
+.note{padding:20px;background:#211d14;border:1px solid #6b5834;border-radius:8px;color:#e1d0a9;margin-top:20px}
+.quiz{background:var(--panel);padding:27px;border:1px solid var(--border);border-radius:10px}
+#options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0}
+#options button{background:#222;color:white;border:1px solid #444;padding:13px;border-radius:6px;text-align:right;cursor:pointer}
+#options button:hover:not(:disabled){border-color:var(--gold)}
+#options button.correct{background:#153c28;border-color:#4caa70}
+#options button.wrong{background:#481d1d;border-color:#d55}
+#feedback{color:var(--light);margin:15px 0}
+#next{border:0;cursor:pointer}
+#next:disabled{opacity:.4;cursor:not-allowed}
+footer{border-top:1px solid var(--border);padding:35px 0;text-align:center;color:#999;font-size:13px}
+footer strong{color:var(--gold)}
+@media(max-width:750px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.grid,.steps,#options{grid-template-columns:1fr}.section{padding:55px 0}.hero{min-height:470px}.block{padding:20px}}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a href="index.html" class="logo">MECHANICAL <span>WORLD</span></a>
+<a href="index.html" class="home">← الرئيسية</a>
+</div>
+</header>
+
+<section class="hero">
+<div class="container hero-content">
+<span class="eyebrow">AUTOMOTIVE ENGINEERING / 02</span>
+<h1>نظام <span>الفرامل</span></h1>
+<p>
+كيف تستطيع سيارة تزن أكثر من طن أن تتوقف بأمان؟
+اكتشفي الهندسة والفيزياء والتكنولوجيا التي تتحكم في عملية الكبح.
+</p>
+<a href="#intro" class="btn">ابدئي الاستكشاف ↓</a>
+<a href="#parts" class="btn" style="background:transparent;color:#e5c77e;border:1px solid #c9a45c">أجزاء النظام</a>
+</div>
+</section>
+
+<main>
+
+<section class="section" id="intro">
+<div class="container">
+<div class="section-title">
+<small>01 — INTRODUCTION</small>
+<h2>ما هو <span class="gold">نظام الفرامل؟</span></h2>
+<p>التكنولوجيا المسؤولة عن التحكم في سرعة السيارة وإيقافها.</p>
+</div>
+
+<div class="block">
+<h3>تعريف نظام الكبح</h3>
+<p>
+نظام الفرامل هو مجموعة من المكونات الميكانيكية والهيدروليكية
+والإلكترونية التي تسمح للسائق بتقليل سرعة المركبة أو إيقافها
+أو تثبيتها أثناء الوقوف. ويعتمد عمله في السيارات التقليدية
+على تحويل الطاقة الحركية إلى طاقة حرارية بواسطة الاحتكاك.
+</p>
+<p>
+عندما يضغط السائق على دواسة الفرامل، تنتقل القوة عبر
+آلية الكبح إلى العجلات، فتضغط وسادات الفرامل على القرص
+أو الأحذية على الأسطوانة، وينشأ احتكاك يعاكس دوران العجلة.
+</p>
+</div>
+
+<div class="block">
+<h3>الأهمية الهندسية للفرامل</h3>
+<p>
+لا تقتصر وظيفة الفرامل على إيقاف السيارة فقط؛ بل تشمل
+التحكم في سرعتها أثناء المنحدرات والمنعطفات، والمحافظة
+على استقرارها، وتقليل خطر الاصطدام. لذلك يجب أن يكون
+النظام قادراً على تحمل الحرارة والأحمال المتكررة.
+</p>
+</div>
+
+<div class="grid">
+<div class="card"><div class="icon">🛑</div><h3>السلامة</h3><p>تقليل سرعة المركبة وإيقافها عند الحاجة.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>التحكم</h3><p>ضبط السرعة أثناء القيادة وفي المنحدرات.</p></div>
+<div class="card"><div class="icon">🌡️</div><h3>إدارة الحرارة</h3><p>تحويل الطاقة الحركية إلى حرارة وتبديدها.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="parts" style="background:#101010">
+<div class="container">
+<div class="section-title">
+<small>02 — MAIN COMPONENTS</small>
+<h2>المكونات الأساسية <span class="gold">للفرامل</span></h2>
+<p>كل قطعة تؤدي وظيفة محددة ضمن سلسلة نقل القوة.</p>
+</div>
+
+<img class="hero-img" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1400&q=85" alt="مكونات ميكانيكية للسيارة">
+
+<div class="grid">
+<div class="card"><div class="icon">🦶</div><h3>دواسة الفرامل</h3><p>الجزء الذي يضغط عليه السائق، وتبدأ منه عملية الكبح.</p></div>
+<div class="card"><div class="icon">🛢️</div><h3>السائل الهيدروليكي</h3><p>ينقل الضغط داخل الأنابيب، ويجب أن يكون مناسباً لمواصفات المركبة.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>الأسطوانة الرئيسية</h3><p>تحول قوة الدواسة إلى ضغط هيدروليكي داخل دائرة الفرامل.</p></div>
+<div class="card"><div class="icon">🔩</div><h3>قرص الفرامل</h3><p>قرص معدني يدور مع العجلة وتضغط عليه الوسادات لإنتاج الاحتكاك.</p></div>
+<div class="card"><div class="icon">🧱</div><h3>وسادات الفرامل</h3><p>مواد احتكاكية تضغط على القرص لتقليل سرعة دوران العجلة.</p></div>
+<div class="card"><div class="icon">🔧</div><h3>الكاليبر Caliper</h3><p>يحمل المكابس والوسادات ويضغطها على جانبي قرص الفرامل.</p></div>
+<div class="card"><div class="icon">🔄</div><h3>أسطوانة العجلة</h3><p>تستخدم في بعض أنظمة الفرامل الأسطوانية لدفع الأحذية نحو الأسطوانة.</p></div>
+<div class="card"><div class="icon">🧠</div><h3>وحدة ABS</h3><p>تراقب دوران العجلات وتعدل ضغط الفرامل لتقليل احتمال انغلاقها.</p></div>
+<div class="card"><div class="icon">📡</div><h3>حساسات السرعة</h3><p>ترسل معلومات سرعة العجلات إلى وحدة التحكم الإلكترونية.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="working">
+<div class="container">
+<div class="section-title">
+<small>03 — WORKING PRINCIPLE</small>
+<h2>كيف تعمل <span class="gold">الفرامل؟</span></h2>
+<p>تبدأ العملية من قدم السائق وتنتهي عند العجلات.</p>
+</div>
+
+<div class="steps">
+<div class="step"><b>STEP 01</b><h3>الضغط على الدواسة</h3><p>يضغط السائق على دواسة الفرامل، فتنتقل القوة عبر آلية الدواسة إلى الأسطوانة الرئيسية.</p></div>
+<div class="step"><b>STEP 02</b><h3>توليد الضغط الهيدروليكي</h3><p>تدفع الأسطوانة الرئيسية السائل داخل الدوائر الهيدروليكية، وينتقل الضغط إلى وحدات الكبح عند العجلات.</p></div>
+<div class="step"><b>STEP 03</b><h3>توليد قوة الاحتكاك</h3><p>تضغط الوسادات على القرص، فينشأ احتكاك يعاكس حركة دوران العجلة.</p></div>
+<div class="step"><b>STEP 04</b><h3>تقليل سرعة المركبة</h3><p>تقل الطاقة الحركية للسيارة وتتحول كمية كبيرة منها إلى حرارة في أجزاء نظام الكبح.</p></div>
+</div>
+
+<div class="note">
+<strong>معلومة علمية:</strong>
+تعتمد الفرامل على مبدأ تحويل الطاقة. فالسيارة المتحركة
+تمتلك طاقة حركية، وعند الكبح تتحول هذه الطاقة أساساً
+إلى طاقة حرارية نتيجة الاحتكاك.
+</div>
+</div>
+</section>
+
+<section class="section" id="types" style="background:#101010">
+<div class="container">
+<div class="section-title">
+<small>04 — BRAKE TYPES</small>
+<h2>أنواع <span class="gold">أنظمة الفرامل</span></h2>
+</div>
+
+<div class="block">
+<h3>1. فرامل الأقراص Disc Brakes</h3>
+<p>
+تستخدم قرصاً معدنياً يدور مع العجلة، وكاليبر يحتوي
+على وسادات احتكاكية. عند الضغط على الفرامل تضغط
+الوسادات على القرص، وتتميز هذه الأنظمة بقدرتها الجيدة
+على تبديد الحرارة، ولذلك تنتشر في السيارات الحديثة.
+</p>
+</div>
+
+<div class="block">
+<h3>2. فرامل الأسطوانة Drum Brakes</h3>
+<p>
+تتكون من أسطوانة تدور مع العجلة وأحذية فرامل داخلية.
+عند الكبح تدفع الأحذية نحو السطح الداخلي للأسطوانة،
+فينشأ الاحتكاك الذي يقلل دوران العجلة. ما زالت تستخدم
+في بعض السيارات، خصوصاً في المحور الخلفي لبعض الطرازات.
+</p>
+</div>
+
+<div class="block">
+<h3>3. فرامل الوقوف Parking Brake</h3>
+<p>
+تُستخدم لتثبيت السيارة عند الوقوف. قد تكون ميكانيكية
+باستخدام كابل وذراع، أو إلكترونية باستخدام محرك كهربائي
+يتحكم في آلية تثبيت الفرامل.
+</p>
+</div>
+
+<div class="comparison">
+<div class="table-wrap">
+<table>
+<thead><tr><th>المقارنة</th><th>فرامل الأقراص</th><th>فرامل الأسطوانة</th></tr></thead>
+<tbody>
+<tr><td>طريقة العمل</td><td>وسادات تضغط على قرص</td><td>أحذية تضغط على أسطوانة</td></tr>
+<tr><td>تبديد الحرارة</td><td>جيد عموماً</td><td>أقل في كثير من التصاميم</td></tr>
+<tr><td>الصيانة</td><td>فحص الأقراص والوسادات</td><td>فحص الأحذية والأسطوانة</td></tr>
+<tr><td>الاستخدام</td><td>شائع في المحاور الأمامية والخلفية</td><td>يستخدم في بعض المحاور الخلفية</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="abs">
+<div class="container">
+<div class="section-title">
+<small>05 — ADVANCED TECHNOLOGY</small>
+<h2>تقنية <span class="gold">ABS وESP</span></h2>
+</div>
+
+<div class="block">
+<h3>نظام منع انغلاق العجلات ABS</h3>
+<p>
+ABS هو اختصار Anti-lock Braking System.
+يستخدم حساسات لمراقبة سرعة دوران العجلات،
+ووحدة تحكم وصمامات هيدروليكية لتعديل ضغط الفرامل
+عند اكتشاف احتمال انغلاق إحدى العجلات أثناء الكبح.
+</p>
+<p>
+يساعد هذا النظام السائق على الاحتفاظ بقدر أكبر من
+القدرة على توجيه السيارة أثناء الكبح الشديد على كثير
+من الأسطح، لكنه لا يلغي حدود التماسك ولا يضمن
+مسافة توقف أقصر في جميع الظروف.
+</p>
+</div>
+
+<div class="block">
+<h3>نظام الثبات الإلكتروني ESP</h3>
+<p>
+يساعد نظام الثبات الإلكتروني على تقليل فقدان استقرار
+المركبة. يستخدم بيانات مثل سرعة العجلات وزاوية التوجيه
+وحركة دوران السيارة حول محورها، ثم يتدخل عند الحاجة
+باستخدام الفرامل على عجلات محددة، وقد يقلل عزم المحرك.
+</p>
+</div>
+
+<div class="block">
+<h3>الفرق بين ABS وESP</h3>
+<p>
+يركز ABS على تقليل احتمال انغلاق العجلات أثناء الكبح،
+أما ESP فيهدف إلى مساعدة السيارة على المحافظة
+على مسارها واستقرارها عند اكتشاف الانحراف عن الاتجاه
+الذي يريده السائق.
+</p>
+</div>
+</div>
+</section>
+
+<section class="section" id="physics" style="background:#101010">
+<div class="container">
+<div class="section-title">
+<small>06 — PHYSICS OF BRAKING</small>
+<h2>الفيزياء وراء <span class="gold">الكبح</span></h2>
+</div>
+
+<div class="block">
+<h3>الطاقة الحركية</h3>
+<p>
+تزداد الطاقة الحركية بزيادة كتلة السيارة ومربع سرعتها.
+وتحسب بالعلاقة:
+</p>
+<p class="gold" style="font-size:22px;text-align:center;direction:ltr">
+E = ½ × m × v²
+</p>
+<p>
+حيث E الطاقة الحركية بالجول، وm الكتلة بالكيلوغرام،
+وv السرعة بالمتر في الثانية.
+</p>
+</div>
+
+<div class="block">
+<h3>مسافة التوقف</h3>
+<p>
+تتكون مسافة التوقف من مسافة رد الفعل، وهي المسافة
+التي تقطعها السيارة قبل أن يبدأ الكبح فعلياً، ومسافة
+الكبح الناتجة عن عمل الفرامل.
+</p>
+<p>
+تتأثر مسافة التوقف بالسرعة وحالة الإطارات والطريق
+والطقس وكفاءة نظام الفرامل وزمن استجابة السائق.
+</p>
+</div>
+
+<div class="note">
+كلما زادت سرعة السيارة، زادت طاقتها الحركية بشكل
+يتناسب مع مربع السرعة. لذلك فإن مضاعفة السرعة
+تؤدي إلى زيادة الطاقة الحركية إلى أربعة أضعاف،
+مع ثبات الكتلة.
+</div>
+</div>
+</section>
+
+<section class="section" id="maintenance">
+<div class="container">
+<div class="section-title">
+<small>07 — MAINTENANCE</small>
+<h2>صيانة <span class="gold">نظام الفرامل</span></h2>
+<p>الصيانة الصحيحة ضرورية للمحافظة على سلامة المركبة.</p>
+</div>
+
+<div class="grid">
+<div class="card"><div class="icon">🔍</div><h3>فحص الوسادات</h3><p>فحص سماكة مواد الاحتكاك واستبدالها وفق الحدود المحددة.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>فحص الأقراص</h3><p>التأكد من عدم وجود تشققات أو تآكل أو تشوه غير مقبول.</p></div>
+<div class="card"><div class="icon">💧</div><h3>السائل الهيدروليكي</h3><p>فحص مستواه وحالته واستخدام النوع المحدد من الشركة المصنعة.</p></div>
+<div class="card"><div class="icon">📡</div><h3>حساسات ABS</h3><p>تشخيص الأعطال الإلكترونية عند ظهور تحذير نظام ABS.</p></div>
+<div class="card"><div class="icon">🔊</div><h3>الأصوات غير الطبيعية</h3><p>الانتباه إلى الصرير أو الاهتزاز أو تغير إحساس الدواسة.</p></div>
+<div class="card"><div class="icon">🛠️</div><h3>الفحص المهني</h3><p>إجراء الفحص والإصلاح لدى فني مؤهل، وعدم تجاهل أي خلل.</p></div>
+</div>
+
+<div class="note">
+<strong>تحذير سلامة:</strong>
+نظام الفرامل من أهم أنظمة السلامة. عند ملاحظة ضعف
+الكبح أو تسرب السائل أو إضاءة تحذير خطير، يجب التوقف
+في مكان آمن وطلب فحص مختص. لا تفتحي دائرة الفرامل
+أو تجربي إصلاحها دون خبرة وأدوات مناسبة.
+</div>
+</div>
+</section>
+
+<section class="section" id="quiz" style="background:#101010">
+<div class="container">
+<div class="section-title">
+<small>08 — KNOWLEDGE TEST</small>
+<h2>اختبري <span class="gold">معلوماتك</span></h2>
+<p>خمسة أسئلة لاختبار فهمك لنظام الفرامل.</p>
+</div>
+
+<div class="quiz">
+<div id="number" class="gold"></div>
+<h3 id="question"></h3>
+<div id="options"></div>
+<p id="feedback" aria-live="polite"></p>
+<button id="next" class="btn" disabled>السؤال التالي ←</button>
+<div id="result" hidden></div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+<strong>MECHANICAL WORLD</strong>
+<p>موسوعة الهندسة الميكانيكية والسيارات</p>
+<p>إعداد: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+<p>إشراف أستاذ مادة الميكانيك</p>
+<p>© 2026 MECHANICAL WORLD</p>
+</div>
+</footer>
+
+<script>
+const questions=[
+{q:"ما الوظيفة الأساسية لنظام الفرامل؟",o:["زيادة سرعة السيارة","تقليل السرعة وإيقاف المركبة","تبريد المحرك","توجيه العجلات"],a:1,e:"الفرامل تتحكم في سرعة المركبة وتساعد على إيقافها."},
+{q:"ما وظيفة وسادات الفرامل؟",o:["تخزين الزيت","تنظيف العجلات","الضغط على القرص لإنتاج الاحتكاك","تبريد الوقود"],a:2,e:"تضغط الوسادات على قرص الفرامل لتوليد قوة الاحتكاك."},
+{q:"ما معنى ABS؟",o:["نظام منع انغلاق العجلات","نظام التبريد","نظام الوقود","نظام الإشعال"],a:0,e:"ABS يقلل احتمال انغلاق العجلات أثناء الكبح."},
+{q:"ما وظيفة السائل الهيدروليكي؟",o:["زيادة حرارة المحرك","نقل الضغط داخل الدائرة","تزييت الإطارات","تشغيل المصابيح"],a:1,e:"ينقل السائل الضغط من الأسطوانة الرئيسية إلى وحدات الفرامل."},
+{q:"إلى ماذا تتحول معظم الطاقة الحركية أثناء الكبح؟",o:["طاقة ضوئية","طاقة صوتية فقط","طاقة حرارية","طاقة كهربائية فقط"],a:2,e:"يحوّل الاحتكاك معظم الطاقة الحركية إلى حرارة."}
+];
+
+let index=0,score=0,answered=false;
+const number=document.getElementById("number");
+const question=document.getElementById("question");
+const options=document.getElementById("options");
+const feedback=document.getElementById("feedback");
+const next=document.getElementById("next");
+const result=document.getElementById("result");
+
+function showQuestion(){
+let q=questions[index];
+answered=false;
+number.textContent=`QUESTION ${index+1} / ${questions.length}`;
+question.textContent=q.q;
+feedback.textContent="";
+options.innerHTML="";
+next.disabled=true;
+next.textContent=index===questions.length-1?"عرض النتيجة":"السؤال التالي ←";
+
+q.o.forEach((answer,i)=>{
+let button=document.createElement("button");
+button.textContent=answer;
+button.addEventListener("click",()=>{
+if(answered)return;
+answered=true;
+if(i===q.a){
+score++;
+button.classList.add("correct");
+feedback.textContent="✓ إجابة صحيحة! "+q.e;
+}else{
+button.classList.add("wrong");
+options.children[q.a].classList.add("correct");
+feedback.textContent="✗ إجابة غير صحيحة. "+q.e;
+}
+[...options.children].forEach(b=>b.disabled=true);
+next.disabled=false;
+});
+options.appendChild(button);
+});
+}
+
+next.addEventListener("click",()=>{
+if(!answered)return;
+if(index<questions.length-1){
+index++;
+showQuestion();
+}else{
+number.hidden=true;
+question.hidden=true;
+options.hidden=true;
+feedback.hidden=true;
+next.hidden=true;
+result.hidden=false;
+result.innerHTML=`
+<h3>انتهى الاختبار!</h3>
+<p style="font-size:36px;color:#c9a45c">${score} / ${questions.length}</p>
+<p>نسبتك: ${Math.round(score/questions.length*100)}%</p>
+<p>${score>=4?"ممتاز! فهمك لنظام الفرامل رائع.":"أحسنت المحاولة! راجعي المعلومات وحاولي مجدداً."}</p>
+<button class="btn" onclick="location.reload()">إعادة الاختبار ↻</button>`;
+}
+});
+showQuestion();
+</script>
+
+</body>
+</html>
