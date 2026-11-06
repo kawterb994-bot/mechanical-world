@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مواد صناعة السيارات | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+--gold:#c9a45c;
+--bg:#090909;
+--card:#151515;
+--text:#f2f2f2;
+--muted:#aaa;
+--line:#303030;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Cairo',sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+header{padding:17px 7%;background:#070707;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:21px;font-weight:900;color:var(--gold)}
+.back{border:1px solid var(--gold);color:var(--gold);padding:7px 17px;border-radius:7px}
+.back:hover{background:var(--gold);color:#111}
+.hero{min-height:440px;display:flex;align-items:center;padding:65px 8%;background:linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{max-width:750px}
+.tag{color:var(--gold);border:1px solid #806b42;border-radius:30px;padding:5px 15px;font-size:13px;display:inline-block;margin-bottom:18px}
+h1{font-size:clamp(32px,5vw,55px);line-height:1.4;margin-bottom:15px}
+h1 span{color:var(--gold)}
+.hero p{color:#ccc;font-size:16px}
+.container{width:min(1120px,90%);margin:auto}
+.intro{text-align:center;padding:55px 0 25px}
+.intro h2{color:var(--gold);font-size:29px;margin-bottom:12px}
+.intro p{color:#bbb;max-width:850px;margin:auto}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:25px auto 40px}
+nav a{background:var(--card);border:1px solid var(--line);padding:7px 14px;border-radius:6px;font-size:13px}
+nav a:hover{border-color:var(--gold);color:var(--gold)}
+section{padding:30px 0;scroll-margin-top:20px}
+.heading{color:var(--gold);font-size:25px;border-right:4px solid var(--gold);padding-right:14px;margin-bottom:16px}
+.desc{color:#bbb;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:17px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px;transition:.3s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.card h3{color:var(--gold);font-size:18px;margin-bottom:8px}
+.card p{color:#bbb;font-size:14px}
+.icon{font-size:28px;margin-bottom:9px}
+.info{background:#19150e;border-right:4px solid var(--gold);padding:18px 22px;border-radius:8px;margin:20px 0;color:#ddd}
+.info strong{color:var(--gold)}
+img.banner{width:100%;height:260px;object-fit:cover;border-radius:12px;border:1px solid #333;margin:20px 0}
+table{width:100%;border-collapse:collapse;background:#131313;margin:20px 0;font-size:14px}
+th,td{border:1px solid #333;padding:12px;text-align:right}
+th{background:#252015;color:var(--gold)}
+td{color:#ccc}
+.quiz{background:#121212;border:1px solid #5a492d;padding:25px;border-radius:13px;margin:25px 0 60px}
+.quiz h2{color:var(--gold);margin-bottom:8px}
+.question{padding:17px 0;border-bottom:1px solid #333}
+.question p{font-weight:700;margin-bottom:9px}
+.question label{display:block;color:#ccc;padding:6px;cursor:pointer}
+.question label:hover{background:#222}
+input[type=radio]{accent-color:var(--gold);margin-left:8px}
+button{background:var(--gold);color:#111;border:0;padding:11px 22px;border-radius:7px;font-family:inherit;font-weight:800;cursor:pointer;margin-top:18px}
+#result{margin-top:15px;font-size:18px;font-weight:800}
+footer{text-align:center;padding:30px 15px;background:#050505;border-top:1px solid #333;color:#999}
+footer strong{color:var(--gold)}
+.names{color:#ddd;margin-top:12px}
+@media(max-width:600px){
+header{padding:14px 5%}
+.hero{padding:50px 6%;min-height:380px}
+img.banner{height:190px}
+table{font-size:12px}
+th,td{padding:8px}
+.heading{font-size:21px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<a class="logo" href="index.html">⚙ MECHANICAL WORLD</a>
+<a class="back" href="index.html">← الرئيسية</a>
+</header>
+
+<div class="hero">
+<div class="hero-content">
+<span class="tag">AUTOMOTIVE MATERIALS • ENGINEERING</span>
+<h1>المواد المستخدمة في <span>صناعة السيارات</span></h1>
+<p>من الفولاذ والألومنيوم إلى ألياف الكربون والمواد المركبة، اكتشف كيف تختار الهندسة المواد التي تجعل السيارات أقوى وأخف وأكثر أماناً.</p>
+</div>
+</div>
+
+<main class="container">
+
+<div class="intro">
+<h2>علم المواد: أساس صناعة السيارات</h2>
+<p>
+اختيار المادة المناسبة خطوة أساسية في تصميم أي سيارة. فالمهندس لا يبحث عن مادة قوية فقط، بل يوازن بين الوزن والمتانة والمرونة ومقاومة الحرارة والتآكل والتكلفة وسهولة التصنيع. وتختلف المواد المستخدمة حسب الجزء الذي ستصنع منه والظروف التي سيعمل فيها.
+</p>
+</div>
+
+<nav>
+<a href="#steel">الفولاذ</a>
+<a href="#aluminum">الألومنيوم</a>
+<a href="#magnesium">المغنيسيوم</a>
+<a href="#carbon">ألياف الكربون</a>
+<a href="#polymer">البوليمرات</a>
+<a href="#glass">الزجاج</a>
+<a href="#battery">مواد البطاريات</a>
+<a href="#testing">الاختبارات</a>
+<a href="#recycling">إعادة التدوير</a>
+<a href="#quiz">الاختبار</a>
+</nav>
+
+<section id="steel">
+<h2 class="heading">1. الفولاذ Steel</h2>
+<p class="desc">
+الفولاذ من أكثر المواد استعمالاً في صناعة السيارات، وهو سبيكة أساسها الحديد والكربون. وتضاف إليه عناصر أخرى لتحسين خواصه حسب الاستخدام.
+</p>
+<img class="banner" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=85" alt="تصنيع المعادن">
+<div class="grid">
+<div class="card"><div class="icon">🏗️</div><h3>الفولاذ التقليدي</h3><p>يستخدم في أجزاء الهيكل والحوامل وبعض المكونات الميكانيكية. يتميز بتكلفته المناسبة وسهولة تشكيله ولحامه نسبياً.</p></div>
+<div class="card"><div class="icon">🛡️</div><h3>الفولاذ عالي المقاومة</h3><p>يوفر مقاومة أكبر للتشوه، ويساعد على تصميم هياكل أكثر أماناً مع إمكانية تقليل سماكة بعض الأجزاء.</p></div>
+<div class="card"><div class="icon">⚙️</div><h3>فولاذ السبائك</h3><p>تضاف إليه عناصر مثل الكروم والموليبدينوم لتحسين الصلابة ومقاومة التآكل والحرارة وفق التركيب والمعالجة.</p></div>
+</div>
+<div class="info"><strong>تطبيق هندسي:</strong> تستخدم أنواع مختلفة من الفولاذ في أقفاص الحماية وأعمدة الهيكل وأجزاء التعليق والتروس، وفق الأحمال ومتطلبات السلامة.</div>
+</section>
+
+<section id="aluminum">
+<h2 class="heading">2. الألومنيوم Aluminum</h2>
+<p class="desc">
+الألومنيوم معدن خفيف نسبياً مقارنة بالفولاذ، وله مقاومة جيدة للتآكل، لذلك أصبح مهماً في صناعة السيارات الحديثة.
+</p>
+<div class="grid">
+<div class="card"><h3>خفّة الوزن</h3><p>يساعد على تقليل كتلة السيارة، ما قد يحسن استهلاك الوقود أو مدى السيارة الكهربائية.</p></div>
+<div class="card"><h3>مقاومة التآكل</h3><p>تتكون على سطحه طبقة أكسيد تساعد على حمايته في ظروف كثيرة.</p></div>
+<div class="card"><h3>التوصيل الحراري</h3><p>يمتلك قدرة جيدة على نقل الحرارة، ولذلك يستخدم في بعض المبادلات الحرارية وأجزاء التبريد.</p></div>
+<div class="card"><h3>التشكيل والتصنيع</h3><p>يمكن تشكيله وصبه وبثقه، لكن بعض سبائكه تتطلب تقنيات لحام وتجميع خاصة.</p></div>
+</div>
+<p class="desc" style="margin-top:20px">من استخداماته: أجزاء الهيكل، الأبواب، غطاء المحرك، العجلات، وبعض مكونات المحركات والبطاريات.</p>
+</section>
+
+<section id="magnesium">
+<h2 class="heading">3. المغنيسيوم Magnesium</h2>
+<p class="desc">
+المغنيسيوم من أخف المعادن الإنشائية المستخدمة في التطبيقات الهندسية، ويمكن أن يساعد في تخفيض وزن السيارة.
+</p>
+<div class="grid">
+<div class="card"><h3>الوزن المنخفض</h3><p>كثافته أقل من الألومنيوم والفولاذ، ولذلك يجذب اهتمام مصممي المركبات الخفيفة.</p></div>
+<div class="card"><h3>قابلية الصب</h3><p>تستخدم بعض سبائكه في تصنيع أجزاء معقدة باستخدام عمليات الصب المناسبة.</p></div>
+<div class="card"><h3>التحديات</h3><p>تحتاج سبائكه إلى دراسة مقاومة التآكل والحرارة والتصنيع والحماية السطحية.</p></div>
+</div>
+<div class="info"><strong>معلومة:</strong> خفة المغنيسيوم لا تعني أنه الخيار الأفضل دائماً؛ فالمهندس يوازن بين القوة والتكلفة والمتانة وظروف العمل.</div>
+</section>
+
+<section id="carbon">
+<h2 class="heading">4. ألياف الكربون Carbon Fiber</h2>
+<img class="banner" src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85" alt="سيارة رياضية">
+<p class="desc">
+تتكون المواد المركبة المقواة بألياف الكربون من ألياف قوية داخل مادة رابطة، غالباً راتنج بوليمري. وتتميز بنسبة قوة إلى وزن مرتفعة جداً.
+</p>
+<div class="grid">
+<div class="card"><h3>قوة عالية بالنسبة للوزن</h3><p>تسمح بتصميم أجزاء خفيفة مع مقاومة ميكانيكية جيدة في اتجاهات الألياف.</p></div>
+<div class="card"><h3>الاستخدام الرياضي</h3><p>تستخدم في بعض هياكل السيارات الرياضية وأجزاء الهيكل الخارجي ومكونات الأداء العالي.</p></div>
+<div class="card"><h3>القيود</h3><p>تكلفتها مرتفعة نسبياً، كما أن إصلاحها وفحص التلف الداخلي وإعادة تدويرها قد يكون معقداً.</p></div>
+</div>
+</section>
+
+<section id="polymer">
+<h2 class="heading">5. البوليمرات والبلاستيك</h2>
+<p class="desc">
+تدخل البوليمرات في عدد كبير من أجزاء السيارات، من لوحة القيادة إلى الأنابيب والعوازل والمصدات.
+</p>
+<div class="grid">
+<div class="card"><h3>البولي بروبيلين PP</h3><p>يستخدم في بعض الأجزاء الداخلية والخارجية، ويتميز بخفة الوزن وسهولة التشكيل.</p></div>
+<div class="card"><h3>البولي أميد PA</h3><p>يستخدم في أجزاء هندسية تحتاج إلى خواص ميكانيكية وحرارية مناسبة، مثل بعض الوصلات.</p></div>
+<div class="card"><h3>البولي يوريثان PU</h3><p>يدخل في الرغوات والمقاعد وبعض المواد المرنة والعازلة.</p></div>
+<div class="card"><h3>المطاط</h3><p>يستخدم في الإطارات والأختام والحشيات ومكونات امتصاص الاهتزازات.</p></div>
+</div>
+</section>
+
+<section id="glass">
+<h2 class="heading">6. الزجاج المستخدم في السيارات</h2>
+<p class="desc">لا يستخدم زجاج السيارات العادي في جميع النوافذ؛ بل تختار أنواع خاصة وفق متطلبات الرؤية والسلامة.</p>
+<div class="grid">
+<div class="card"><h3>الزجاج المصفح</h3><p>يتكون عادة من طبقات زجاج وبينها طبقة بلاستيكية، وتساعد على إبقاء الشظايا مترابطة عند الكسر. يستخدم غالباً في الزجاج الأمامي.</p></div>
+<div class="card"><h3>الزجاج المقسى</h3><p>يعالج حرارياً لزيادة مقاومته، وعند كسره يتفتت إلى قطع صغيرة نسبياً. يستخدم غالباً في النوافذ الجانبية والخلفية.</p></div>
+<div class="card"><h3>الزجاج الذكي</h3><p>تقنيات تسمح بالتحكم في نفاذ الضوء أو التعتيم في بعض التطبيقات المتقدمة.</p></div>
+</div>
+</section>
+
+<section id="battery">
+<h2 class="heading">7. المواد المستخدمة في البطاريات</h2>
+<p class="desc">
+تحتوي بطاريات السيارات الكهربائية على مجموعة من المواد الكيميائية والإنشائية، ويؤثر تركيبها في كثافة الطاقة والتكلفة والعمر والسلامة.
+</p>
+<div class="grid">
+<div class="card"><h3>الليثيوم</h3><p>عنصر أساسي في كثير من البطاريات القابلة للشحن، وتتحرك أيوناته بين الأقطاب أثناء الشحن والتفريغ.</p></div>
+<div class="card"><h3>النيكل والمنغنيز والكوبالت</h3><p>تدخل في بعض تركيبات مواد الكاثود، وتختلف نسبها وخصائصها حسب نوع الخلية.</p></div>
+<div class="card"><h3>الفوسفات والحديد</h3><p>تستخدم كيمياء LFP فوسفات الحديد الليثيوم، وتتميز بخصائص مختلفة في التكلفة والعمر والاستقرار الحراري.</p></div>
+<div class="card"><h3>الغرافيت</h3><p>يستخدم على نطاق واسع في الأنود، حيث يستضيف أيونات الليثيوم أثناء الشحن.</p></div>
+</div>
+<div class="info"><strong>ملاحظة سلامة:</strong> بطاريات المركبات الكهربائية عالية الجهد خطيرة عند العبث بها. يجب أن يتعامل معها فني مؤهل باستخدام إجراءات العزل ومعدات الحماية المناسبة.</div>
+</section>
+
+<section id="properties">
+<h2 class="heading">8. الخواص الميكانيكية المهمة</h2>
+<table>
+<tr><th>الخاصية</th><th>المعنى الهندسي</th><th>أهميتها في السيارة</th></tr>
+<tr><td>المقاومة</td><td>قدرة المادة على تحمل الإجهاد دون فشل</td><td>حماية الهيكل والأجزاء</td></tr>
+<tr><td>الصلابة</td><td>مقاومة التشوه المرن</td><td>الحفاظ على شكل المكونات</td></tr>
+<tr><td>المتانة</td><td>قدرة المادة على امتصاص الطاقة قبل الكسر</td><td>مقاومة الصدمات</td></tr>
+<tr><td>الليونة</td><td>قابلية المادة للتشوه الدائم قبل الكسر</td><td>التشكيل الصناعي</td></tr>
+<tr><td>مقاومة التعب</td><td>مقاومة الفشل تحت أحمال متكررة</td><td>تحمل الاهتزازات ودورات التشغيل</td></tr>
+<tr><td>مقاومة التآكل</td><td>مقاومة التلف الناتج عن البيئة</td><td>إطالة عمر الأجزاء</td></tr>
+</table>
+</section>
+
+<section id="manufacturing">
+<h2 class="heading">9. طرق تصنيع أجزاء السيارات</h2>
+<div class="grid">
+<div class="card"><h3>السباكة Casting</h3><p>صب المعدن المنصهر داخل قالب للحصول على شكل محدد، وتستخدم في تصنيع بعض كتل المحركات والأجزاء المعدنية.</p></div>
+<div class="card"><h3>التشكيل Forging</h3><p>تشكيل المعدن باستخدام قوى ضغط كبيرة لتحسين بعض خواصه وتكوين أجزاء قوية.</p></div>
+<div class="card"><h3>الختم Stampings</h3><p>تشكيل الصفائح المعدنية داخل قوالب لإنتاج أجزاء الهيكل والأبواب والأغطية.</p></div>
+<div class="card"><h3>اللحام Welding</h3><p>وصل الأجزاء المعدنية باستخدام تقنيات مناسبة لنوع المادة وسماكتها ومتطلبات الجودة.</p></div>
+<div class="card"><h3>الحقن Injection Molding</h3><p>تشكيل البوليمرات عن طريق حقن المادة داخل قالب، ويستخدم في أجزاء بلاستيكية كثيرة.</p></div>
+<div class="card"><h3>التصنيع الإضافي</h3><p>بناء القطع طبقة بعد طبقة، ويستخدم في النماذج الأولية وبعض الأجزاء المتخصصة.</p></div>
+</div>
+</section>
+
+<section id="testing">
+<h2 class="heading">10. اختبارات جودة المواد</h2>
+<div class="grid">
+<div class="card"><h3>اختبار الشد</h3><p>يقيس سلوك المادة عند سحبها، ويساعد على تحديد مقاومة الشد والاستطالة.</p></div>
+<div class="card"><h3>اختبار الصلادة</h3><p>يقيس مقاومة سطح المادة للاختراق أو الخدش وفق طرق اختبار معروفة.</p></div>
+<div class="card"><h3>اختبار الصدم</h3><p>يدرس قدرة المادة على امتصاص طاقة الصدمة في ظروف محددة.</p></div>
+<div class="card"><h3>اختبار التعب</h3><p>يقيم سلوك المادة تحت أحمال متكررة خلال عدد كبير من الدورات.</p></div>
+<div class="card"><h3>اختبار التآكل</h3><p>يقيم مقاومة المادة للصدأ والتأثيرات البيئية والكيميائية.</p></div>
+<div class="card"><h3>الفحص غير الإتلافي</h3><p>يكشف العيوب الداخلية أو السطحية دون إتلاف القطعة، باستخدام تقنيات مثل الموجات فوق الصوتية.</p></div>
+</div>
+</section>
+
+<section id="recycling">
+<h2 class="heading">11. إعادة التدوير والاستدامة</h2>
+<p class="desc">
+تسعى صناعة السيارات إلى تقليل استهلاك الموارد والنفايات من خلال إعادة استخدام
+المواد واسترجاعها بعد انتهاء عمر المركبة.
+</p>
+<div class="grid">
+<div class="card"><h3>إعادة تدوير المعادن</h3><p>يمكن استرجاع الفولاذ والألومنيوم وإعادة استخدامهما في صناعات جديدة، مع الحاجة إلى الفرز والمعالجة المناسبة.</p></div>
+<div class="card"><h3>إعادة تدوير البطاريات</h3><p>تهدف إلى استرجاع مواد ذات قيمة مثل الليثيوم والنيكل والكوبالت والنحاس وفق نوع البطارية وتقنية المعالجة.</p></div>
+<div class="card"><h3>تقليل النفايات</h3><p>يساعد تحسين التصميم والتصنيع وإعادة الاستخدام على تقليل المواد المهدرة.</p></div>
+<div class="card"><h3>التصميم المستدام</h3><p>يدرس المهندسون أثر المادة من استخراجها وتصنيعها إلى استعمالها وإعادة تدويرها.</p></div>
+</div>
+<div class="info">
+<strong>خلاصة هندسية:</strong> أفضل مادة ليست دائماً الأقوى أو الأخف؛ بل هي المادة التي تحقق التوازن المناسب بين الأداء والسلامة والتكلفة والتصنيع والاستدامة.
+</div>
+</section>
+
+<section id="quiz">
+<div class="quiz">
+<h2 style="color:var(--gold)">📝 اختبر معلوماتك</h2>
+<p style="color:#aaa">ثمانية أسئلة، وكل إجابة صحيحة تساوي نقطة واحدة.</p>
+<form id="quizForm">
+
+<div class="question">
+<p>1. ما المعدن الأكثر استخداماً في هياكل كثير من السيارات؟</p>
+<label><input type="radio" name="q1" value="a"> الذهب</label>
+<label><input type="radio" name="q1" value="b"> الفولاذ</label>
+<label><input type="radio" name="q1" value="c"> النحاس</label>
+</div>
+
+<div class="question">
+<p>2. ما أهم ميزة للألومنيوم في السيارات؟</p>
+<label><input type="radio" name="q2" value="a"> خفة الوزن النسبية</label>
+<label><input type="radio" name="q2" value="b"> أنه غير قابل للتشكيل</label>
+<label><input type="radio" name="q2" value="c"> أنه أثقل من الفولاذ</label>
+</div>
+
+<div class="question">
+<p>3. ما الذي يميز ألياف الكربون؟</p>
+<label><input type="radio" name="q3" value="a"> أنها مادة سائلة</label>
+<label><input type="radio" name="q3" value="b"> أنها لا تتحمل أي إجهاد</label>
+<label><input type="radio" name="q3" value="c"> نسبة قوة إلى وزن مرتفعة</label>
+</div>
+
+<div class="question">
+<p>4. ما المادة المستخدمة غالباً في الأنود ببطاريات الليثيوم أيون؟</p>
+<label><input type="radio" name="q4" value="a"> الزجاج</label>
+<label><input type="radio" name="q4" value="b"> الغرافيت</label>
+<label><input type="radio" name="q4" value="c"> الفولاذ</label>
+</div>
+
+<div class="question">
+<p>5. ما وظيفة اختبار الشد؟</p>
+<label><input type="radio" name="q5" value="a"> قياس سلوك المادة عند سحبها</label>
+<label><input type="radio" name="q5" value="b"> قياس استهلاك الوقود</label>
+<label><input type="radio" name="q5" value="c"> قياس سرعة السيارة</label>
+</div>
+
+<div class="question">
+<p>6. أي نوع من الزجاج يستخدم غالباً في الزجاج الأمامي؟</p>
+<label><input type="radio" name="q6" value="a"> الزجاج العادي</label>
+<label><input type="radio" name="q6" value="b"> الزجاج المصفح</label>
+<label><input type="radio" name="q6" value="c"> الزجاج الورقي</label>
+</div>
+
+<div class="question">
+<p>7. ماذا تعني عملية السباكة؟</p>
+<label><input type="radio" name="q7" value="a"> صب المعدن المنصهر داخل قالب</label>
+<label><input type="radio" name="q7" value="b"> طلاء السيارة فقط</label>
+<label><input type="radio" name="q7" value="c"> شحن البطارية</label>
+</div>
+
+<div class="question">
+<p>8. لماذا نعيد تدوير مواد السيارات؟</p>
+<label><input type="radio" name="q8" value="a"> زيادة النفايات</label>
+<label><input type="radio" name="q8" value="b"> إتلاف المواد</label>
+<label><input type="radio" name="q8" value="c"> استرجاع الموارد وتقليل النفايات</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">تصحيح الإجابات</button>
+<button type="reset" onclick="resetQuiz()" style="background:#333;color:white;margin-right:8px">إعادة الاختبار</button>
+<div id="result" aria-live="polite"></div>
+</form>
+</div>
+</section>
+
+</main>
+
+<footer>
+<strong>MECHANICAL WORLD</strong>
+<p>الهندسة تبدأ باختيار المادة المناسبة ⚙️</p>
+<div class="names">
+إعداد التلميذتين:<br>
+بن صالح كوثر 🌞<br>
+بالعربي هاجر 🌚<br>
+إشراف: أستاذ مادة الميكانيك
+</div>
+<p style="font-size:12px;margin-top:15px">© 2026 MECHANICAL WORLD — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+function checkQuiz(){
+const answers={
+q1:"b",q2:"a",q3:"c",q4:"b",
+q5:"a",q6:"b",q7:"a",q8:"c"
+};
+let score=0;
+let unanswered=0;
+
+for(const key in answers){
+const selected=document.querySelector('input[name="'+key+'"]:checked');
+if(!selected) unanswered++;
+else if(selected.value===answers[key]) score++;
+}
+
+const result=document.getElementById("result");
+if(unanswered>0){
+result.style.color="#e5b85c";
+result.textContent="أجيبي عن جميع الأسئلة أولاً. المتبقي: "+unanswered;
+return;
+}
+
+let message=score===8?"ممتاز! نتيجة كاملة 🏆":
+score>=6?"رائع جداً! 👏":
+score>=4?"نتيجة جيدة، واصلي التعلم 💡":
+"راجعي المعلومات وحاولي مرة أخرى 📚";
+
+result.style.color="#c9a45c";
+result.textContent="نتيجتك: "+score+" / 8 — "+message;
+}
+
+function resetQuiz(){
+document.getElementById("result").textContent="";
+}
+</script>
+
+</body>
+</html>
