@@ -1,428 +1,341 @@
-// ==============================
-// 1. MENU
-// ==============================
 
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.getElementById("nav");
+/* =====================================
+   MECHANICAL WORLD — MAIN SCRIPT
+===================================== */
 
-if (menuBtn && nav) {
-    menuBtn.addEventListener("click", () => {
-        nav.classList.toggle("active");
-        menuBtn.textContent =
-            nav.classList.contains("active") ? "✕" : "☰";
+document.addEventListener("DOMContentLoaded", () => {
+  initNavigation();
+  initQuiz();
+  initScrollEffects();
+});
+
+/* =====================================
+   MOBILE NAVIGATION
+===================================== */
+
+function initNavigation() {
+  const menuButton = document.querySelector(".menu-toggle");
+  const nav = document.querySelector("nav");
+
+  if (!menuButton || !nav) return;
+
+  menuButton.addEventListener("click", () => {
+    nav.classList.toggle("open");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      nav.classList.contains("open")
+    );
+  });
+
+  nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
     });
-
-    nav.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            nav.classList.remove("active");
-            menuBtn.textContent = "☰";
-        });
-    });
+  });
 }
 
+/* =====================================
+   QUIZ DATA
+===================================== */
 
-// ==============================
-// 2. DARK / LIGHT MODE
-// ==============================
-
-const themeBtn = document.getElementById("themeBtn");
-
-if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-        document.body.classList.toggle("light");
-
-        const isLight =
-            document.body.classList.contains("light");
-
-        themeBtn.textContent = isLight ? "🌙" : "☀️";
-
-        localStorage.setItem(
-            "mechanicalTheme",
-            isLight ? "light" : "dark"
-        );
-    });
-
-    const savedTheme =
-        localStorage.getItem("mechanicalTheme");
-
-    if (savedTheme === "light") {
-        document.body.classList.add("light");
-        themeBtn.textContent = "🌙";
-    }
-}
-
-
-// ==============================
-// 3. ENGINE ANIMATION
-// ==============================
-
-const engineBtn = document.getElementById("engineBtn");
-const engineVisual = document.getElementById("engineVisual");
-const engineStatus = document.getElementById("engineStatus");
-
-let engineRunning = false;
-
-if (engineBtn) {
-    engineBtn.addEventListener("click", () => {
-
-        engineRunning = !engineRunning;
-
-        if (engineRunning) {
-
-            engineVisual.classList.add("running");
-
-            engineBtn.textContent = "إيقاف المحرك ⏹️";
-
-            engineStatus.textContent =
-                "المحرك يعمل الآن! تتحول طاقة الوقود إلى حركة ميكانيكية ⚙️";
-
-        } else {
-
-            engineVisual.classList.remove("running");
-
-            engineBtn.textContent = "تشغيل النموذج ⚡";
-
-            engineStatus.textContent =
-                "توقف المحرك. اضغطي تشغيل لمشاهدة الحركة من جديد.";
-
-        }
-    });
-}
-
-
-// ==============================
-// 4. CAR DASHBOARD
-// ==============================
-
-const speedSlider = document.getElementById("speedSlider");
-const speedValue = document.getElementById("speedValue");
-const rpmValue = document.getElementById("rpmValue");
-
-const speedNeedle = document.getElementById("speedNeedle");
-const rpmNeedle = document.getElementById("rpmNeedle");
-
-const sliderLabel = document.getElementById("sliderLabel");
-const driveMessage = document.getElementById("driveMessage");
-const resetSpeed = document.getElementById("resetSpeed");
-
-function updateDashboard() {
-
-    if (!speedSlider) return;
-
-    const speed = Number(speedSlider.value);
-
-    const rpm = Math.round(800 + speed * 24);
-
-    speedValue.textContent = speed;
-
-    rpmValue.textContent = rpm.toLocaleString("en-US");
-
-    sliderLabel.textContent = speed + " كم/س";
-
-    // تحريك عداد السرعة
-    const speedAngle = -130 + (speed / 220) * 260;
-
-    speedNeedle.style.transform =
-        `rotate(${speedAngle}deg)`;
-
-    // تحريك عداد المحرك
-    const rpmAngle = -130 + ((rpm - 800) / 5280) * 260;
-
-    rpmNeedle.style.transform =
-        `rotate(${rpmAngle}deg)`;
-
-    // رسالة حسب السرعة
-    if (speed === 0) {
-
-        driveMessage.textContent = "السيارة متوقفة 🅿️";
-
-    } else if (speed < 80) {
-
-        driveMessage.textContent = "سرعة منخفضة 🚗";
-
-    } else if (speed < 150) {
-
-        driveMessage.textContent = "سرعة متوسطة 🏎️";
-
-    } else {
-
-        driveMessage.textContent = "سرعة مرتفعة! ⚡";
-
-    }
-}
-
-if (speedSlider) {
-    speedSlider.addEventListener("input", updateDashboard);
-    updateDashboard();
-}
-
-if (resetSpeed) {
-    resetSpeed.addEventListener("click", () => {
-        speedSlider.value = 0;
-        updateDashboard();
-    });
-}
-
-
-// ==============================
-// 5. MECHANICAL QUIZ
-// ==============================
-
-const questions = [
-
-    {
-        question: "ما وظيفة البطارية في السيارة؟",
-        answers: [
-            "تخزين الكهرباء",
-            "تبريد المحرك",
-            "إيقاف العجلات"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "ما الجزء المسؤول عن إنتاج الحركة؟",
-        answers: [
-            "المصابيح",
-            "المحرك",
-            "الإطارات"
-        ],
-        correct: 1
-    },
-
-    {
-        question: "ما وظيفة الفرامل؟",
-        answers: [
-            "زيادة السرعة",
-            "تشغيل المحرك",
-            "إبطاء السيارة"
-        ],
-        correct: 2
-    },
-
-    {
-        question: "ما وظيفة ناقل الحركة؟",
-        answers: [
-            "نقل القوة إلى العجلات",
-            "تنظيف الهواء",
-            "تشغيل المصابيح"
-        ],
-        correct: 0
-    },
-
-    {
-        question: "ما وظيفة نظام التبريد؟",
-        answers: [
-            "زيادة الصوت",
-            "تنظيم حرارة المحرك",
-            "تغيير اتجاه السيارة"
-        ],
-        correct: 1
-    }
-
+const quizQuestions = [
+  {
+    question: "ما هو علم الميكانيك؟",
+    options: [
+      "علم دراسة الحركة والقوى",
+      "علم دراسة النباتات",
+      "علم دراسة الطقس",
+      "علم دراسة اللغات"
+    ],
+    answer: 0,
+    explanation: "الميكانيك يدرس الحركة والقوى وتأثيرها على الأجسام."
+  },
+  {
+    question: "ما وظيفة المحرك في السيارة؟",
+    options: [
+      "تزيين السيارة",
+      "تحويل الطاقة إلى حركة",
+      "تبريد العجلات",
+      "تخزين الوقود فقط"
+    ],
+    answer: 1,
+    explanation: "المحرك يحول الطاقة إلى طاقة ميكانيكية تساعد السيارة على الحركة."
+  },
+  {
+    question: "أي عنصر يساعد على إيقاف السيارة؟",
+    options: [
+      "المصابيح",
+      "المقود",
+      "نظام الفرامل",
+      "خزان الوقود"
+    ],
+    answer: 2,
+    explanation: "نظام الفرامل يبطئ السيارة ويوقفها."
+  },
+  {
+    question: "ما نوع الآلة البسيطة التي نستخدمها لرفع الأجسام؟",
+    options: [
+      "الرافعة",
+      "المصباح",
+      "البطارية",
+      "المحرك الكهربائي"
+    ],
+    answer: 0,
+    explanation: "الرافعة آلة بسيطة تساعد على رفع وتحريك الأجسام."
+  },
+  {
+    question: "ما وظيفة ناقل الحركة؟",
+    options: [
+      "تشغيل المصابيح",
+      "تغيير السرعة والعزم",
+      "تنظيف المحرك",
+      "تبريد الوقود"
+    ],
+    answer: 1,
+    explanation: "ناقل الحركة يغير نسب السرعة والعزم حسب حاجة السيارة."
+  }
 ];
+
+/* =====================================
+   QUIZ VARIABLES
+===================================== */
 
 let currentQuestion = 0;
 let score = 0;
 let answered = false;
 
-const questionText = document.getElementById("questionText");
-const answersBox = document.getElementById("answers");
-const questionCount = document.getElementById("questionCount");
-const scoreLabel = document.getElementById("scoreLabel");
-const quizFeedback = document.getElementById("quizFeedback");
-const nextQuestion = document.getElementById("nextQuestion");
-const restartQuiz = document.getElementById("restartQuiz");
-const progressBar = document.getElementById("progressBar");
+/* =====================================
+   INITIALIZE QUIZ
+===================================== */
+
+function initQuiz() {
+  const questionElement = document.getElementById("quizQuestion");
+  const optionsElement = document.getElementById("quizOptions");
+  const nextButton = document.getElementById("quizNext");
+
+  if (!questionElement || !optionsElement || !nextButton) return;
+
+  currentQuestion = 0;
+  score = 0;
+  answered = false;
+
+  nextButton.onclick = nextQuestion;
+
+  showQuestion();
+}
+
+/* =====================================
+   SHOW QUESTION
+===================================== */
 
 function showQuestion() {
+  const questionElement = document.getElementById("quizQuestion");
+  const optionsElement = document.getElementById("quizOptions");
+  const feedbackElement = document.getElementById("quizFeedback");
+  const nextButton = document.getElementById("quizNext");
+  const progress = document.getElementById("quizProgress");
+  const progressBar = document.getElementById("quizProgressBar");
+  const resultElement = document.getElementById("quizResult");
 
-    if (!questionText) return;
+  if (!questionElement || !optionsElement) return;
 
-    answered = false;
+  const question = quizQuestions[currentQuestion];
 
-    const q = questions[currentQuestion];
+  answered = false;
 
-    questionText.textContent = q.question;
+  questionElement.textContent = question.question;
+  optionsElement.innerHTML = "";
 
-    questionCount.textContent =
-        `السؤال ${currentQuestion + 1} من ${questions.length}`;
+  if (feedbackElement) feedbackElement.textContent = "";
+  if (resultElement) resultElement.innerHTML = "";
 
-    scoreLabel.textContent = `النقاط: ${score}`;
+  if (progress) {
+    progress.textContent =
+      `السؤال ${currentQuestion + 1} من ${quizQuestions.length}`;
+  }
 
-    quizFeedback.textContent = "";
-
+  if (progressBar) {
     progressBar.style.width =
-        ((currentQuestion + 1) / questions.length * 100) + "%";
+      `${(currentQuestion / quizQuestions.length) * 100}%`;
+  }
 
-    nextQuestion.disabled = true;
+  question.options.forEach((option, index) => {
+    const button = document.createElement("button");
 
-    nextQuestion.textContent =
-        currentQuestion === questions.length - 1
-            ? "عرض النتيجة 🏆"
-            : "السؤال التالي ←";
+    button.type = "button";
+    button.className = "quiz-option";
+    button.textContent = option;
 
-    answersBox.innerHTML = "";
-
-    q.answers.forEach((answer, index) => {
-
-        const button = document.createElement("button");
-
-        button.className = "answer-btn";
-
-        button.textContent = answer;
-
-        button.addEventListener("click", () => {
-
-            if (answered) return;
-
-            answered = true;
-
-            const buttons =
-                answersBox.querySelectorAll("button");
-
-            buttons.forEach((btn, i) => {
-
-                btn.disabled = true;
-
-                if (i === q.correct) {
-                    btn.classList.add("correct");
-                }
-
-                if (i === index && i !== q.correct) {
-                    btn.classList.add("wrong");
-                }
-
-            });
-
-            if (index === q.correct) {
-
-                score++;
-
-                quizFeedback.textContent =
-                    "إجابة صحيحة! أحسنتِ 🌸";
-
-            } else {
-
-                quizFeedback.textContent =
-                    "إجابة خاطئة، لا بأس! 💗";
-
-            }
-
-            scoreLabel.textContent = `النقاط: ${score}`;
-
-            nextQuestion.disabled = false;
-
-        });
-
-        answersBox.appendChild(button);
-
-    });
-}
-
-if (nextQuestion) {
-
-    nextQuestion.addEventListener("click", () => {
-
-        if (!answered) return;
-
-        if (currentQuestion < questions.length - 1) {
-
-            currentQuestion++;
-
-            showQuestion();
-
-        } else {
-
-            questionText.textContent =
-                `نتيجتك النهائية: ${score} / ${questions.length} 🏆`;
-
-            questionCount.textContent = "انتهى الاختبار";
-
-            answersBox.innerHTML = "";
-
-            progressBar.style.width = "100%";
-
-            quizFeedback.textContent =
-                score >= 4
-                    ? "رائع! أنتِ خبيرة الميكانيك 🌟"
-                    : "أحسنتِ! واصلي التعلم 💗";
-
-            nextQuestion.disabled = true;
-
-            nextQuestion.textContent = "انتهى الاختبار";
-
-        }
-
+    button.addEventListener("click", () => {
+      checkAnswer(index);
     });
 
+    optionsElement.appendChild(button);
+  });
+
+  if (nextButton) {
+    nextButton.disabled = true;
+    nextButton.textContent =
+      currentQuestion === quizQuestions.length - 1
+        ? "عرض النتيجة"
+        : "السؤال التالي";
+  }
 }
 
-if (restartQuiz) {
+/* =====================================
+   CHECK ANSWER
+===================================== */
 
-    restartQuiz.addEventListener("click", () => {
+function checkAnswer(selectedIndex) {
+  if (answered) return;
 
-        currentQuestion = 0;
-        score = 0;
+  answered = true;
 
-        showQuestion();
+  const question = quizQuestions[currentQuestion];
+  const options = document.querySelectorAll(".quiz-option");
+  const feedback = document.getElementById("quizFeedback");
+  const nextButton = document.getElementById("quizNext");
 
-    });
+  const isCorrect = selectedIndex === question.answer;
 
+  if (isCorrect) {
+    score++;
+
+    if (feedback) {
+      feedback.textContent = "إجابة صحيحة! أحسنتِ ✓";
+      feedback.style.color = "#348b50";
+    }
+  } else {
+    if (feedback) {
+      feedback.textContent =
+        `إجابة خاطئة. الإجابة الصحيحة: ${question.options[question.answer]}`;
+      feedback.style.color = "#b34c40";
+    }
+  }
+
+  options.forEach((button, index) => {
+    button.disabled = true;
+
+    if (index === question.answer) {
+      button.classList.add("correct");
+    } else if (index === selectedIndex && !isCorrect) {
+      button.classList.add("wrong");
+    }
+  });
+
+  if (feedback) {
+    const explanation = document.createElement("p");
+    explanation.textContent = question.explanation;
+    explanation.style.marginTop = "10px";
+    explanation.style.fontWeight = "400";
+    feedback.appendChild(explanation);
+  }
+
+  if (nextButton) {
+    nextButton.disabled = false;
+  }
 }
 
-if (questionText) {
+/* =====================================
+   NEXT QUESTION
+===================================== */
+
+function nextQuestion() {
+  if (!answered) return;
+
+  currentQuestion++;
+
+  if (currentQuestion < quizQuestions.length) {
     showQuestion();
+  } else {
+    showResult();
+  }
 }
 
+/* =====================================
+   FINAL RESULT
+===================================== */
 
-// ==============================
-// 6. SCROLL TO TOP
-// ==============================
+function showResult() {
+  const questionElement = document.getElementById("quizQuestion");
+  const optionsElement = document.getElementById("quizOptions");
+  const feedbackElement = document.getElementById("quizFeedback");
+  const nextButton = document.getElementById("quizNext");
+  const progress = document.getElementById("quizProgress");
+  const progressBar = document.getElementById("quizProgressBar");
+  const resultElement = document.getElementById("quizResult");
 
-const topBtn = document.getElementById("topBtn");
+  if (questionElement) {
+    questionElement.textContent = "اكتمل الاختبار!";
+  }
 
-window.addEventListener("scroll", () => {
+  if (optionsElement) optionsElement.innerHTML = "";
+  if (feedbackElement) feedbackElement.textContent = "";
+  if (nextButton) nextButton.style.display = "none";
 
-    if (!topBtn) return;
+  if (progress) progress.textContent = "النتيجة النهائية";
 
-    topBtn.style.display =
-        window.scrollY > 350 ? "block" : "none";
+  if (progressBar) progressBar.style.width = "100%";
 
-});
+  let message = "";
 
-if (topBtn) {
+  if (score === 5) {
+    message = "ممتاز! لديك معرفة رائعة بالميكانيك 🏆";
+  } else if (score >= 3) {
+    message = "أحسنت! يمكنك تطوير معلوماتك أكثر ⭐";
+  } else {
+    message = "لا بأس! حاول مرة أخرى وستتحسن 💪";
+  }
 
-    topBtn.addEventListener("click", () => {
+  if (resultElement) {
+    resultElement.innerHTML = `
+      <h2>نتيجتك: ${score} / 5</h2>
+      <p>${message}</p>
+      <button id="restartQuiz" class="btn btn-primary">
+        إعادة الاختبار
+      </button>
+    `;
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    document.getElementById("restartQuiz").addEventListener("click", () => {
+      if (nextButton) nextButton.style.display = "";
+      initQuiz();
+    });
+  }
+}
 
+/* =====================================
+   SCROLL EFFECTS
+===================================== */
+
+function initScrollEffects() {
+  const sections = document.querySelectorAll("section[id]");
+  const links = document.querySelectorAll("nav a[href^='#']");
+
+  if (!sections.length || !links.length) return;
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 130;
+
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
     });
 
+    links.forEach(link => {
+      link.classList.remove("active");
+
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
 }
 
-
-// ==============================
-// 7. CURRENT YEAR
-// ==============================
-
-const year = document.getElementById("year");
-
-if (year) {
-    year.textContent = new Date().getFullYear();
-}
-
-
-// ==============================
-// 8. WELCOME CONSOLE
-// ==============================
-
-console.log(
-    "♡ Welcome to Mechanical World! ⚙️"
-);
 
 
 
