@@ -1,0 +1,533 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دليل شامل حول نظام التكييف والتدفئة في السيارات ومكوناته وطريقة عمله وصيانته.">
+<title>نظام التكييف والتدفئة | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+ --gold:#c9a45c;
+ --black:#090909;
+ --card:#151515;
+ --white:#f5f5f5;
+ --muted:#aaa;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ font-family:'Cairo',sans-serif;
+ background:var(--black);
+ color:var(--white);
+ line-height:1.9;
+}
+a{text-decoration:none;color:inherit}
+header{
+ position:sticky;top:0;z-index:100;
+ background:rgba(9,9,9,.96);
+ border-bottom:1px solid #292929;
+ padding:15px 7%;
+ display:flex;justify-content:space-between;
+ align-items:center;gap:15px;
+}
+.logo{font-size:19px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--gold)}
+.back{
+ border:1px solid var(--gold);color:var(--gold);
+ padding:7px 17px;border-radius:5px;font-size:13px;
+}
+.hero{
+ min-height:410px;padding:75px 8%;
+ display:flex;flex-direction:column;
+ justify-content:center;align-items:flex-start;
+ background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.55)),
+ url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85') center/cover;
+ border-bottom:1px solid #292929;
+}
+.tag{color:var(--gold);font-weight:800;letter-spacing:2px}
+.hero h1{font-size:clamp(32px,6vw,57px);line-height:1.35;margin:12px 0}
+.hero p{max-width:700px;color:#ddd}
+.container{width:min(1100px,90%);margin:auto}
+section{padding:65px 0;border-bottom:1px solid #242424}
+.section-title{font-size:27px;margin-bottom:12px}
+.section-title span{color:var(--gold)}
+.subtitle{color:var(--muted);margin-bottom:25px}
+.card{
+ background:var(--card);border:1px solid #292929;
+ padding:23px;border-radius:12px;margin:15px 0;
+}
+.card h3{color:var(--gold);margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.number{font-size:27px;color:var(--gold);font-weight:900}
+.gold{color:var(--gold);font-weight:700}
+ul{padding-right:23px}
+li{margin:7px 0}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{padding:13px;text-align:right;border:1px solid #333}
+th{background:#242016;color:var(--gold)}
+td{background:#141414}
+.table-wrap{overflow-x:auto;border-radius:8px}
+.flow{
+ display:flex;flex-wrap:wrap;align-items:center;
+ justify-content:center;gap:10px;margin:25px 0;
+}
+.flow span{
+ background:#211d14;border:1px solid var(--gold);
+ color:var(--gold);padding:12px 15px;border-radius:7px;
+ font-weight:700;
+}
+.flow b{color:var(--gold)}
+.warning{border-right:4px solid #c98b45;background:#211a12}
+.quiz-question{margin:20px 0;padding:20px;background:#111;border:1px solid #333;border-radius:10px}
+.quiz-question p{font-weight:700;margin-bottom:10px}
+.quiz-question label{display:block;padding:7px;cursor:pointer;color:#ddd}
+.quiz-question input{accent-color:var(--gold);margin-left:8px}
+.btn{
+ border:0;background:var(--gold);color:#111;
+ padding:12px 25px;border-radius:6px;
+ font-family:inherit;font-weight:900;cursor:pointer;
+ margin-top:15px;
+}
+#result{margin-top:20px;padding:18px;border-radius:9px;display:none}
+footer{text-align:center;padding:35px 15px;color:var(--muted)}
+footer strong{color:var(--gold)}
+@media(max-width:600px){
+ header{padding:12px 5%}
+ .logo{font-size:15px}
+ .hero{padding:55px 6%;min-height:350px}
+ section{padding:45px 0}
+ .section-title{font-size:23px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <a href="index.html" class="logo">MECHANICAL <span>WORLD</span></a>
+ <a href="index.html" class="back">← الرئيسية</a>
+</header>
+
+<div class="hero">
+ <div class="tag">AUTOMOTIVE ENGINEERING / HVAC</div>
+ <h1>نظام التكييف<br>والتدفئة في السيارات</h1>
+ <p>
+ اكتشف التكنولوجيا المسؤولة عن توفير الراحة الحرارية داخل المركبة،
+ وكيف تعمل أنظمة التبريد والتدفئة والتهوية للحفاظ على بيئة مناسبة للسائق والركاب.
+ </p>
+</div>
+
+<main class="container">
+
+<section>
+ <h2 class="section-title"><span>01.</span> مقدمة عن نظام التكييف</h2>
+ <p>
+ يعتبر نظام التكييف والتدفئة والتهوية، المعروف اختصاراً باسم HVAC،
+ من الأنظمة المهمة في السيارات الحديثة. فهو لا يقتصر على تبريد الهواء
+ خلال فصل الصيف، بل يساعد أيضاً على تدفئة المقصورة في الشتاء،
+ وإزالة الضباب عن الزجاج، وتنظيم حركة الهواء وجودته داخل المركبة.
+ </p>
+ <div class="card">
+  <h3>ما الهدف من هذا النظام؟</h3>
+  <ul>
+   <li>توفير درجة حرارة مريحة للركاب.</li>
+   <li>تنظيم تدفق الهواء داخل المقصورة.</li>
+   <li>تقليل الرطوبة والمساعدة على إزالة الضباب.</li>
+   <li>تصفية الهواء من الغبار والجزيئات عبر مرشح المقصورة.</li>
+   <li>تحسين راحة القيادة في مختلف الظروف المناخية.</li>
+  </ul>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>02.</span> الفرق بين التكييف والتدفئة والتهوية</h2>
+ <div class="grid">
+  <div class="card">
+   <div class="number">01</div>
+   <h3>التكييف Air Conditioning</h3>
+   <p>يعمل على سحب الحرارة من هواء المقصورة ونقلها إلى خارج السيارة، كما يساعد على إزالة الرطوبة.</p>
+  </div>
+  <div class="card">
+   <div class="number">02</div>
+   <h3>التدفئة Heating</h3>
+   <p>توفر هواء دافئاً داخل المقصورة، وغالباً تستعمل حرارة سائل تبريد المحرك في سيارات الاحتراق.</p>
+  </div>
+  <div class="card">
+   <div class="number">03</div>
+   <h3>التهوية Ventilation</h3>
+   <p>تتحكم في دخول الهواء وتوزيعه داخل السيارة، مع إمكانية اختيار الهواء الخارجي أو إعادة تدوير الهواء الداخلي.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>03.</span> المكونات الرئيسية للنظام</h2>
+ <p class="subtitle">يتكون نظام التكييف من مجموعة أجزاء تعمل معاً في دورة متكاملة.</p>
+ <div class="grid">
+  <div class="card">
+   <h3>1. الضاغط Compressor</h3>
+   <p>يضغط غاز وسيط التبريد ويرفع ضغطه ودرجة حرارته، وهو الجزء الأساسي في دورة التكييف.</p>
+  </div>
+  <div class="card">
+   <h3>2. المكثف Condenser</h3>
+   <p>يطرد الحرارة إلى الهواء الخارجي ويساعد على تحويل وسيط التبريد من غاز إلى سائل عالي الضغط.</p>
+  </div>
+  <div class="card">
+   <h3>3. صمام التمدد Expansion Valve</h3>
+   <p>يخفض ضغط وسيط التبريد وينظم كمية تدفقه نحو المبخر.</p>
+  </div>
+  <div class="card">
+   <h3>4. المبخر Evaporator</h3>
+   <p>يمتص الحرارة من هواء المقصورة، فيبرد الهواء قبل دفعه إلى داخل السيارة.</p>
+  </div>
+  <div class="card">
+   <h3>5. المروحة Blower</h3>
+   <p>تدفع الهواء عبر المبخر أو المدفأة ثم توزعه على فتحات التهوية.</p>
+  </div>
+  <div class="card">
+   <h3>6. مرشح المقصورة Cabin Filter</h3>
+   <p>يحتجز الغبار وبعض الملوثات والجزيئات قبل دخول الهواء إلى المقصورة.</p>
+  </div>
+  <div class="card">
+   <h3>7. المجفف Receiver-Drier</h3>
+   <p>يحتوي على مادة تجفيف تمتص الرطوبة والشوائب في الأنظمة التي تستخدم خزان المجفف.</p>
+  </div>
+  <div class="card">
+   <h3>8. أنابيب التبريد</h3>
+   <p>تنقل وسيط التبريد بين الضاغط والمكثف وصمام التمدد والمبخر.</p>
+  </div>
+  <div class="card">
+   <h3>9. حساسات الضغط والحرارة</h3>
+   <p>تراقب ظروف التشغيل وترسل المعلومات إلى وحدة التحكم لحماية النظام وتنظيم عمله.</p>
+  </div>
+  <div class="card">
+   <h3>10. وحدة التحكم HVAC</h3>
+   <p>تدير إعدادات درجة الحرارة وسرعة المروحة وتوزيع الهواء والتشغيل التلقائي.</p>
+  </div>
+  <div class="card">
+   <h3>11. قلب المدفأة Heater Core</h3>
+   <p>مبادل حراري يمر عبره سائل تبريد المحرك الساخن لتدفئة هواء المقصورة في كثير من سيارات الاحتراق.</p>
+  </div>
+  <div class="card">
+   <h3>12. المبخر والمجاري الهوائية</h3>
+   <p>تساعد المجاري والبوابات الداخلية على توجيه الهواء نحو الوجه أو القدمين أو الزجاج.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>04.</span> كيف تعمل دورة التبريد؟</h2>
+ <p>
+ تعتمد دورة التكييف على انتقال الحرارة بواسطة مادة تسمى وسيط التبريد
+ أو Refrigerant. تتغير حالة هذه المادة وضغطها خلال الدورة حتى يتم
+ امتصاص الحرارة من المقصورة وطردها إلى الخارج.
+ </p>
+ <div class="flow">
+  <span>الضاغط</span><b>←</b>
+  <span>المكثف</span><b>←</b>
+  <span>صمام التمدد</span><b>←</b>
+  <span>المبخر</span><b>←</b>
+  <span>الضاغط</span>
+ </div>
+ <div class="card">
+  <h3>المرحلة الأولى: الضغط</h3>
+  <p>يسحب الضاغط وسيط التبريد من المبخر على شكل بخار منخفض الضغط، ثم يضغطه ليصبح بخاراً عالي الضغط ودرجة الحرارة.</p>
+ </div>
+ <div class="card">
+  <h3>المرحلة الثانية: التكثيف</h3>
+  <p>يمر البخار الساخن داخل المكثف، حيث يفقد حرارته إلى الهواء الخارجي ويتحول إلى سائل عالي الضغط.</p>
+ </div>
+ <div class="card">
+  <h3>المرحلة الثالثة: التمدد</h3>
+  <p>يمر السائل عبر صمام التمدد، فينخفض ضغطه ودرجة حرارته وتصبح حالته مناسبة لدخول المبخر.</p>
+ </div>
+ <div class="card">
+  <h3>المرحلة الرابعة: التبخر</h3>
+  <p>يمتص وسيط التبريد الحرارة من الهواء المار عبر المبخر ويتحول إلى بخار، ثم يعود إلى الضاغط لتبدأ الدورة من جديد.</p>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>05.</span> نظام التدفئة في السيارات</h2>
+ <p>
+ في كثير من سيارات البنزين والديزل، يستفيد نظام التدفئة من الحرارة
+ الناتجة عن عمل المحرك. يمر سائل التبريد الساخن عبر قلب المدفأة،
+ ثم تدفع المروحة الهواء خلاله لينتقل الهواء الدافئ إلى المقصورة.
+ </p>
+ <div class="grid">
+  <div class="card">
+   <h3>سائل تبريد المحرك</h3>
+   <p>ينقل الحرارة من المحرك إلى قلب المدفأة عبر دائرة التبريد.</p>
+  </div>
+  <div class="card">
+   <h3>قلب المدفأة</h3>
+   <p>ينقل الحرارة من السائل الساخن إلى الهواء المار عبره.</p>
+  </div>
+  <div class="card">
+   <h3>مروحة المقصورة</h3>
+   <p>تدفع الهواء الدافئ نحو الركاب والزجاج.</p>
+  </div>
+ </div>
+ <div class="card">
+  <h3>التدفئة في السيارات الكهربائية</h3>
+  <p>
+   لا تمتلك السيارات الكهربائية محرك احتراق تقليدياً لإنتاج حرارة مماثلة،
+   لذلك قد تستخدم سخانات كهربائية من نوع PTC أو مضخات حرارية
+   Heat Pumps لتدفئة المقصورة بكفاءة مناسبة.
+  </p>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>06.</span> أنواع أنظمة التكييف</h2>
+ <div class="grid">
+  <div class="card">
+   <h3>التكييف اليدوي Manual</h3>
+   <p>يختار السائق بنفسه درجة التبريد وسرعة المروحة واتجاه الهواء.</p>
+  </div>
+  <div class="card">
+   <h3>التكييف الأوتوماتيكي Automatic</h3>
+   <p>يحافظ على درجة حرارة محددة اعتماداً على الحساسات ووحدة التحكم.</p>
+  </div>
+  <div class="card">
+   <h3>Dual Zone</h3>
+   <p>يسمح للسائق والراكب الأمامي باختيار درجتي حرارة مختلفتين.</p>
+  </div>
+  <div class="card">
+   <h3>Multi Zone</h3>
+   <p>يوفر مناطق تحكم متعددة بدرجات الحرارة، وقد يشمل المقاعد الخلفية.</p>
+  </div>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>07.</span> وسائط التبريد Refrigerants</h2>
+ <p>
+ وسيط التبريد هو مادة تعمل داخل دائرة مغلقة لنقل الحرارة.
+ توجد أنواع مختلفة، ويجب استخدام النوع المحدد من الشركة المصنعة للسيارة.
+ </p>
+ <div class="table-wrap">
+ <table>
+  <tr><th>النوع</th><th>الاستخدام</th><th>ملاحظة</th></tr>
+  <tr><td>R134a</td><td>شائع في سيارات أقدم</td><td>له تأثير مناخي مرتفع نسبياً</td></tr>
+  <tr><td>R1234yf</td><td>مستخدم في كثير من السيارات الحديثة</td><td>أقل تأثيراً على الاحتباس الحراري</td></tr>
+ </table>
+ </div>
+ <div class="card warning">
+  <h3>تنبيه مهم</h3>
+  <p>
+   لا يجوز خلط أنواع وسائط التبريد أو استعمال نوع غير معتمد للمركبة.
+   يجب معرفة النوع والكمية الصحيحة من ملصق السيارة أو دليل الصيانة،
+   والتعامل مع الدائرة بواسطة فني مؤهل.
+  </p>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>08.</span> الأعطال الشائعة وأسبابها</h2>
+ <div class="table-wrap">
+ <table>
+  <tr><th>العطل</th><th>الأسباب المحتملة</th><th>الحل الأولي</th></tr>
+  <tr><td>هواء غير بارد</td><td>نقص وسيط التبريد أو مشكلة في الضاغط</td><td>فحص الضغط والتسرب</td></tr>
+  <tr><td>ضعف تدفق الهواء</td><td>انسداد مرشح المقصورة</td><td>فحص المرشح واستبداله عند الحاجة</td></tr>
+  <tr><td>المروحة لا تعمل</td><td>عطل كهربائي أو مقاومة أو محرك المروحة</td><td>فحص الدائرة الكهربائية</td></tr>
+  <tr><td>أصوات غير طبيعية</td><td>مشكلة في الضاغط أو المروحة</td><td>فحص الأجزاء الميكانيكية</td></tr>
+  <tr><td>رائحة كريهة</td><td>رطوبة أو تراكم الأوساخ في المبخر</td><td>تنظيف النظام وفحص التصريف</td></tr>
+  <tr><td>التدفئة ضعيفة</td><td>نقص سائل التبريد أو انسداد قلب المدفأة</td><td>فحص نظام تبريد المحرك</td></tr>
+  <tr><td>التكييف يتوقف فجأة</td><td>حساس ضغط أو خلل في التحكم</td><td>تشخيص إلكتروني متخصص</td></tr>
+ </table>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>09.</span> الصيانة الدورية</h2>
+ <div class="grid">
+  <div class="card">
+   <h3>فحص مرشح المقصورة</h3>
+   <p>يجب فحصه واستبداله حسب جدول الصيانة وظروف الاستعمال.</p>
+  </div>
+  <div class="card">
+   <h3>فحص التسربات</h3>
+   <p>التأكد من عدم وجود تسرب في الأنابيب والوصلات والمكونات.</p>
+  </div>
+  <div class="card">
+   <h3>فحص المكثف</h3>
+   <p>التأكد من عدم انسداده بالأوساخ أو الحشرات التي تعيق مرور الهواء.</p>
+  </div>
+  <div class="card">
+   <h3>فحص المروحة</h3>
+   <p>التأكد من عملها بمختلف السرعات دون أصوات غير طبيعية.</p>
+  </div>
+  <div class="card">
+   <h3>فحص التصريف</h3>
+   <p>التأكد من خروج مياه التكاثف بشكل طبيعي وعدم انسداد أنبوب التصريف.</p>
+  </div>
+  <div class="card">
+   <h3>الفحص الإلكتروني</h3>
+   <p>قراءة رموز الأعطال وفحص الحساسات ووحدة التحكم عند الحاجة.</p>
+  </div>
+ </div>
+ <div class="card warning">
+  <h3>السلامة المهنية</h3>
+  <ul>
+   <li>لا تفتح دائرة التبريد وهي تحت الضغط.</li>
+   <li>لا تطلق وسيط التبريد مباشرة في الجو.</li>
+   <li>لا تخلط الغازات أو زيوت الضاغط المختلفة.</li>
+   <li>لا تلمس الأنابيب أو الأجزاء الساخنة دون حماية.</li>
+   <li>اترك تعبئة واسترجاع وسيط التبريد لفني مؤهل ومعدات مناسبة.</li>
+  </ul>
+ </div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>10.</span> اختبار معلوماتك</h2>
+ <p class="subtitle">أجب عن الأسئلة الثمانية واكتشف مستواك في فهم نظام التكييف.</p>
+
+ <form id="quiz">
+
+ <div class="quiz-question">
+  <p>1. ما الوظيفة الأساسية للضاغط؟</p>
+  <label><input type="radio" name="q1" value="a"> تنقية الهواء</label>
+  <label><input type="radio" name="q1" value="b"> ضغط وسيط التبريد</label>
+  <label><input type="radio" name="q1" value="c"> تسخين المحرك</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>2. أين يتم طرد الحرارة إلى الهواء الخارجي؟</p>
+  <label><input type="radio" name="q2" value="a"> المكثف</label>
+  <label><input type="radio" name="q2" value="b"> المبخر</label>
+  <label><input type="radio" name="q2" value="c"> المروحة الداخلية</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>3. ما وظيفة المبخر؟</p>
+  <label><input type="radio" name="q3" value="a"> شحن البطارية</label>
+  <label><input type="radio" name="q3" value="b"> امتصاص الحرارة من هواء المقصورة</label>
+  <label><input type="radio" name="q3" value="c"> ضغط الغاز</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>4. ما وظيفة مرشح المقصورة؟</p>
+  <label><input type="radio" name="q4" value="a"> زيادة سرعة السيارة</label>
+  <label><input type="radio" name="q4" value="b"> تبريد المحرك</label>
+  <label><input type="radio" name="q4" value="c"> تصفية الهواء من الجزيئات</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>5. ما وظيفة صمام التمدد؟</p>
+  <label><input type="radio" name="q5" value="a"> خفض ضغط وسيط التبريد وتنظيم تدفقه</label>
+  <label><input type="radio" name="q5" value="b"> شحن المولد</label>
+  <label><input type="radio" name="q5" value="c"> تسخين الوقود</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>6. من أين تحصل كثير من سيارات الاحتراق على حرارة التدفئة؟</p>
+  <label><input type="radio" name="q6" value="a"> من العادم مباشرة</label>
+  <label><input type="radio" name="q6" value="b"> من سائل تبريد المحرك الساخن</label>
+  <label><input type="radio" name="q6" value="c"> من خزان الوقود</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>7. ماذا يعني نظام Dual Zone؟</p>
+  <label><input type="radio" name="q7" value="a"> وجود محركين</label>
+  <label><input type="radio" name="q7" value="b"> وجود مكثفين دائماً</label>
+  <label><input type="radio" name="q7" value="c"> التحكم بدرجتي حرارة مختلفتين</label>
+ </div>
+
+ <div class="quiz-question">
+  <p>8. ما التصرف الصحيح عند وجود تسرب لوسيط التبريد؟</p>
+  <label><input type="radio" name="q8" value="a"> إطلاق الغاز في الهواء</label>
+  <label><input type="radio" name="q8" value="b"> فحص التسرب وإصلاحه لدى فني مؤهل</label>
+  <label><input type="radio" name="q8" value="c"> خلط نوعين من الغاز</label>
+ </div>
+
+ <button class="btn" type="submit">تصحيح الاختبار</button>
+ <button class="btn" type="button" onclick="resetQuiz()" style="background:#333;color:white">إعادة المحاولة</button>
+ </form>
+
+ <div id="result"></div>
+</section>
+
+<section>
+ <h2 class="section-title"><span>11.</span> خلاصة الدرس</h2>
+ <div class="card">
+  <p>
+   نظام التكييف والتدفئة من الأنظمة الأساسية في السيارات الحديثة.
+   يعتمد التبريد على دورة انتقال الحرارة بين الضاغط والمكثف وصمام
+   التمدد والمبخر، بينما تعتمد التدفئة في كثير من سيارات الاحتراق
+   على حرارة سائل تبريد المحرك. ويساعد الفهم الصحيح لهذه المكونات
+   على تشخيص الأعطال وتنفيذ الصيانة بطريقة آمنة.
+  </p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <p>MECHANICAL <strong>WORLD</strong></p>
+ <p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+ <p>تحت إشراف أستاذ مادة الميكانيك</p>
+ <p>© 2026 جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+const answers={
+ q1:"b",q2:"a",q3:"b",q4:"c",
+ q5:"a",q6:"b",q7:"c",q8:"b"
+};
+
+const explanations={
+ q1:"الضاغط يرفع ضغط وسيط التبريد.",
+ q2:"المكثف يطرد الحرارة إلى الخارج.",
+ q3:"المبخر يمتص الحرارة من هواء المقصورة.",
+ q4:"مرشح المقصورة يحتجز الغبار والجزيئات.",
+ q5:"صمام التمدد يخفض الضغط وينظم التدفق.",
+ q6:"تستعمل كثير من سيارات الاحتراق سائل تبريد المحرك الساخن.",
+ q7:"Dual Zone يسمح بضبط منطقتين حراريتين.",
+ q8:"يجب إصلاح التسرب لدى فني مؤهل."
+};
+
+document.getElementById("quiz").addEventListener("submit",function(e){
+ e.preventDefault();
+
+ let score=0;
+ let details="";
+
+ for(let i=1;i<=8;i++){
+  const selected=document.querySelector('input[name="q'+i+'"]:checked');
+  const correct=answers["q"+i];
+
+  if(selected && selected.value===correct){
+   score++;
+   details+="<p>✅ السؤال "+i+": إجابة صحيحة.</p>";
+  }else{
+   details+="<p>❌ السؤال "+i+": "+explanations["q"+i]+"</p>";
+  }
+ }
+
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.style.background="#211d14";
+ result.style.border="1px solid #c9a45c";
+ result.innerHTML=
+  "<h3 style='color:#c9a45c;font-size:25px'>نتيجتك: "+score+" / 8</h3>"+
+  "<p>"+(score===8?"ممتاز! أتقنت الدرس بالكامل.":score>=5?"عمل جيد! راجع بعض المعلومات وحاول مجدداً.":"لا بأس، راجع الدرس وحاول مرة أخرى.")+"</p>"+
+  "<hr style='border-color:#444;margin:15px 0'>"+details;
+
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+function resetQuiz(){
+ document.getElementById("quiz").reset();
+ const result=document.getElementById("result");
+ result.style.display="none";
+ result.innerHTML="";
+ window.scrollTo({top:document.getElementById("quiz").offsetTop-100,behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
