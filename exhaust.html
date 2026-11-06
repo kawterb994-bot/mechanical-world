@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دليل هندسي شامل لنظام عادم السيارات ومكوناته وتقنيات تقليل الانبعاثات وصيانته.">
+<title>EXHAUST SYSTEM | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#c9a45c;--bg:#090909;--card:#151515;
+ --muted:#aaa;--white:#f5f5f5;--border:#292929;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Cairo',sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+header{
+ position:sticky;top:0;z-index:100;background:#090909ed;
+ border-bottom:1px solid var(--border);padding:15px 7%;
+ display:flex;justify-content:space-between;align-items:center;
+ gap:15px;flex-wrap:wrap;backdrop-filter:blur(12px)
+}
+.logo{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--gold)}
+.back{border:1px solid var(--gold);padding:7px 18px;border-radius:5px;color:var(--gold);font-size:13px}
+.back:hover{background:var(--gold);color:#000}
+.hero{
+ min-height:400px;padding:85px 8%;display:flex;align-items:center;
+ background:linear-gradient(90deg,#090909f5,#090909a8),
+ url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85') center/cover;
+ border-bottom:1px solid var(--border)
+}
+.hero-content{max-width:800px}
+.number{color:var(--gold);font-weight:800;letter-spacing:4px}
+h1{font-size:clamp(35px,6vw,65px);line-height:1.3;margin:15px 0}
+h1 span{color:var(--gold)}
+.hero p{color:#ccc;max-width:700px}
+.hero-btn{display:inline-block;margin-top:25px;padding:10px 25px;background:var(--gold);color:#090909;font-weight:800;border-radius:4px}
+.container{width:min(1120px,90%);margin:auto}
+section{padding:65px 0;border-bottom:1px solid var(--border)}
+.section-title{margin-bottom:30px}
+.section-title small{color:var(--gold);font-weight:800;letter-spacing:2px}
+.section-title h2{font-size:30px;margin-top:5px}
+.section-title p{color:var(--muted);margin-top:8px}
+.card{background:var(--card);border:1px solid var(--border);padding:23px;border-radius:9px;margin-bottom:16px}
+.card h3{color:var(--gold);margin-bottom:10px;font-size:19px}
+.card p{color:#ccc}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.tag{display:inline-block;color:var(--gold);border:1px solid #6e5930;padding:2px 10px;border-radius:20px;font-size:12px;margin-bottom:10px}
+ul{padding-right:22px;color:#ccc}
+li{margin:7px 0}
+.gold{color:var(--gold)}
+strong{color:#eee}
+.table-wrap{overflow-x:auto;border-radius:8px}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{padding:13px;border:1px solid var(--border);text-align:right}
+th{background:#282116;color:var(--gold)}
+td{color:#ccc}
+.steps{display:grid;gap:13px}
+.step{display:flex;gap:15px;align-items:flex-start;background:var(--card);padding:16px;border-radius:8px;border:1px solid var(--border)}
+.step b{min-width:35px;height:35px;display:grid;place-items:center;background:var(--gold);color:#000;border-radius:50%}
+.warning{border-right:4px solid #c68b39;background:#211b12}
+.quiz-question{margin:20px 0;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.quiz-question h3{font-size:16px;margin-bottom:12px}
+.option{display:block;width:100%;text-align:right;padding:10px 13px;margin:8px 0;background:#202020;color:white;border:1px solid #383838;border-radius:5px;font-family:inherit;cursor:pointer}
+.option:hover{border-color:var(--gold)}
+.option.selected{border-color:var(--gold);background:#302819}
+.option.correct{background:#153421;border-color:#35a766}
+.option.wrong{background:#3b1b1b;border-color:#d35c5c}
+#result{display:none;padding:20px;background:#191919;border:1px solid var(--gold);border-radius:8px;margin-top:20px}
+.action{background:var(--gold);color:#080808;border:0;padding:12px 25px;font-family:inherit;font-weight:900;border-radius:5px;cursor:pointer;margin-top:15px}
+footer{text-align:center;padding:35px 15px;color:#888;font-size:13px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){
+ header{padding:12px 5%}.logo{font-size:17px}
+ .hero{padding:65px 6%;min-height:350px}
+ .section-title h2{font-size:25px}
+ section{padding:45px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <a class="logo" href="index.html">MECHANICAL <span>WORLD</span></a>
+ <a class="back" href="index.html">← العودة للرئيسية</a>
+</header>
+
+<div class="hero">
+ <div class="hero-content">
+  <div class="number">10 / AUTOMOTIVE ENGINEERING</div>
+  <h1>EXHAUST <span>SYSTEM</span></h1>
+  <p>
+   تعرف على نظام العادم، وكيفية التخلص من غازات الاحتراق،
+   وتقنيات معالجة الانبعاثات وتقليل الضوضاء في السيارات الحديثة.
+  </p>
+  <a href="#definition" class="hero-btn">اكتشف النظام ↓</a>
+ </div>
+</div>
+
+<main class="container">
+
+<section id="definition">
+ <div class="section-title">
+  <small>01 — INTRODUCTION</small>
+  <h2>ما هو نظام العادم؟</h2>
+  <p>Exhaust System: نظام طرد غازات الاحتراق ومعالجة الانبعاثات.</p>
+ </div>
+ <div class="card">
+  <span class="tag">التعريف الهندسي</span>
+  <p>
+   نظام العادم هو مجموعة من الأنابيب والمكونات الميكانيكية
+   وأجهزة معالجة الغازات، يعمل على نقل غازات الاحتراق من أسطوانات
+   المحرك إلى خارج المركبة بطريقة آمنة ومنظمة.
+  </p>
+  <p>
+   لا تقتصر مهمته على إخراج الغازات فقط، بل يساهم في خفض الضوضاء،
+   وتقليل بعض الملوثات الناتجة عن الاحتراق، والمحافظة على ضغط
+   وتدفق مناسبين لعمل المحرك.
+  </p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>🌫️ طرد الغازات</h3><p>توجيه غازات الاحتراق بعيداً عن المحرك ومقصورة الركاب.</p></div>
+  <div class="card"><h3>🔇 تقليل الضوضاء</h3><p>خفض الأصوات والذبذبات الناتجة عن خروج الغازات.</p></div>
+  <div class="card"><h3>🌱 معالجة الانبعاثات</h3><p>تحويل أو تقليل بعض الملوثات قبل خروجها إلى الجو.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>02 — COMPONENTS</small>
+  <h2>المكونات الرئيسية لنظام العادم</h2>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>01. Exhaust Manifold</h3><p>مجمع العادم: يجمع الغازات الخارجة من أسطوانات المحرك ويوجهها نحو أنبوب العادم.</p></div>
+  <div class="card"><h3>02. Exhaust Pipe</h3><p>أنبوب العادم: ينقل الغازات بين أجزاء النظام حتى تصل إلى المخرج.</p></div>
+  <div class="card"><h3>03. Catalytic Converter</h3><p>المحول الحفاز: يساعد على تحويل بعض الغازات الضارة إلى مركبات أقل ضرراً عبر تفاعلات كيميائية.</p></div>
+  <div class="card"><h3>04. Oxygen Sensor</h3><p>حساس الأكسجين: يقيس نسبة الأكسجين في غازات العادم ويساعد وحدة التحكم على ضبط خليط الهواء والوقود.</p></div>
+  <div class="card"><h3>05. Muffler</h3><p>كاتم الصوت: يقلل مستوى ضوضاء غازات العادم باستخدام غرف ومسارات داخلية.</p></div>
+  <div class="card"><h3>06. Resonator</h3><p>الرنان: يساهم في تقليل ترددات صوتية معينة وتحسين الصوت الخارج من العادم.</p></div>
+  <div class="card"><h3>07. DPF</h3><p>مرشح جسيمات الديزل: يحجز جزءاً كبيراً من الجسيمات والسخام الناتج عن احتراق وقود الديزل.</p></div>
+  <div class="card"><h3>08. EGR</h3><p>نظام إعادة تدوير غاز العادم: يعيد جزءاً محسوباً من غازات العادم إلى السحب لتقليل تكوّن أكاسيد النيتروجين في ظروف معينة.</p></div>
+  <div class="card"><h3>09. SCR System</h3><p>نظام الاختزال الحفزي الانتقائي: يستخدم سائلاً مخصصاً مثل AdBlue في الأنظمة المناسبة للمساعدة على خفض أكاسيد النيتروجين.</p></div>
+  <div class="card"><h3>10. Exhaust Tip</h3><p>مخرج العادم: الجزء النهائي الذي تخرج منه الغازات إلى الخارج.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>03 — WORKING PRINCIPLE</small>
+  <h2>كيف يعمل نظام العادم؟</h2>
+  <p>تمر الغازات بعدة مراحل قبل خروجها من المركبة.</p>
+ </div>
+ <div class="steps">
+  <div class="step"><b>1</b><div><h3 class="gold">خروج الغازات من الأسطوانات</h3><p>بعد حدوث الاحتراق، تفتح صمامات العادم وتخرج الغازات من غرف الاحتراق.</p></div></div>
+  <div class="step"><b>2</b><div><h3 class="gold">مجمع العادم</h3><p>تتجمع الغازات القادمة من الأسطوانات داخل مجمع العادم وتتجه نحو بقية النظام.</p></div></div>
+  <div class="step"><b>3</b><div><h3 class="gold">معالجة الانبعاثات</h3><p>تمر الغازات عبر المحول الحفاز أو مرشحات وأنظمة معالجة أخرى حسب نوع المحرك.</p></div></div>
+  <div class="step"><b>4</b><div><h3 class="gold">تقليل الضوضاء</h3><p>تمر الغازات عبر كاتم الصوت والرنان لتقليل الضوضاء والاهتزازات الصوتية.</p></div></div>
+  <div class="step"><b>5</b><div><h3 class="gold">الخروج إلى الجو</h3><p>تخرج الغازات من أنبوب العادم النهائي بعد مرورها بمراحل النظام.</p></div></div>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>مسار الغازات</h3>
+  <p class="gold" style="text-align:center;font-size:17px">
+   المحرك ← مجمع العادم ← معالجة الانبعاثات ← كاتم الصوت ← مخرج العادم
+  </p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>04 — CATALYTIC CONVERTER</small>
+  <h2>المحول الحفاز Catalytic Converter</h2>
+ </div>
+ <div class="card">
+  <p>
+   المحول الحفاز جهاز لمعالجة غازات العادم، يحتوي على بنية داخلية
+   ذات مساحة سطحية كبيرة مغطاة بمواد حفازة، مثل البلاتين والبلاديوم
+   والروديوم في المحولات ثلاثية الوظائف.
+  </p>
+  <p>
+   تساعد هذه المواد على تسريع تفاعلات كيميائية تحول بعض الملوثات
+   إلى مركبات أقل ضرراً، دون أن تُستهلك المادة الحفازة بالطريقة
+   التي يُستهلك بها الوقود.
+  </p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>CO</h3><p>أول أكسيد الكربون: غاز سام ينتج عن الاحتراق غير الكامل، ويمكن أكسدته إلى ثاني أكسيد الكربون.</p></div>
+  <div class="card"><h3>HC</h3><p>الهيدروكربونات غير المحترقة: يمكن تحويل جزء منها إلى ثاني أكسيد الكربون والماء.</p></div>
+  <div class="card"><h3>NOx</h3><p>أكاسيد النيتروجين: تساعد التفاعلات الحفازة على اختزالها إلى النيتروجين والأكسجين.</p></div>
+ </div>
+ <div class="card warning">
+  <h3>معلومة مهمة</h3>
+  <p>المحول الحفاز يحتاج إلى ظروف تشغيل مناسبة. الوقود غير المحترق أو أعطال الإشعال قد تؤدي إلى ارتفاع حرارته وتلفه. لا ينبغي إزالة المحول أو تعطيل أنظمة الانبعاثات.</p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>05 — OXYGEN SENSORS</small>
+  <h2>حساسات الأكسجين</h2>
+ </div>
+ <div class="card">
+  <p>
+   حساس الأكسجين أو Oxygen Sensor يقيس كمية الأكسجين المتبقية
+   في غازات العادم. ترسل قراءته إلى وحدة التحكم الإلكترونية ECU،
+   التي تستخدم المعلومات لتعديل خليط الهواء والوقود وفق ظروف التشغيل.
+  </p>
+  <p>
+   يوجد في كثير من السيارات حساس قبل المحول الحفاز لمساعدة التحكم
+   في الاحتراق، وحساس آخر بعده لمراقبة كفاءة المحول الحفاز.
+  </p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>Upstream Sensor</h3><p>الحساس السابق للمحول، يساعد في ضبط خليط الهواء والوقود.</p></div>
+  <div class="card"><h3>Downstream Sensor</h3><p>الحساس اللاحق للمحول، يساعد في مراقبة أداء نظام المعالجة.</p></div>
+  <div class="card"><h3>ECU</h3><p>وحدة التحكم الإلكترونية التي تستقبل البيانات وتنفذ التعديلات المناسبة.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>06 — EMISSION CONTROL</small>
+  <h2>تقنيات تقليل الانبعاثات</h2>
+  <p>تستخدم السيارات الحديثة مجموعة من الأنظمة لتقليل الملوثات.</p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>EGR</h3><p>إعادة تدوير جزء من غازات العادم إلى مجرى السحب لتقليل درجات حرارة الاحتراق القصوى وخفض تكوّن NOx في ظروف معينة.</p></div>
+  <div class="card"><h3>DPF</h3><p>مرشح جسيمات الديزل الذي يحجز السخام والجسيمات الدقيقة، ويحتاج إلى عملية تجديد لإحراق السخام المتراكم.</p></div>
+  <div class="card"><h3>SCR</h3><p>تقنية تستخدم سائلاً مثل AdBlue في نظام العادم للمساعدة على تحويل أكاسيد النيتروجين إلى نيتروجين وماء.</p></div>
+  <div class="card"><h3>EVAP</h3><p>نظام التحكم في أبخرة الوقود، يمنع تسرب الأبخرة إلى الجو ويعيد توجيهها إلى المحرك في ظروف مناسبة.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>07 — EXHAUST TYPES</small>
+  <h2>أنواع أنظمة العادم</h2>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>Single Exhaust</h3><p>نظام عادم أحادي يستخدم مساراً رئيسياً واحداً لخروج الغازات.</p></div>
+  <div class="card"><h3>Dual Exhaust</h3><p>نظام عادم مزدوج يستخدم مسارين، وقد يعتمد على تصميم المحرك وعدد مجمعات العادم.</p></div>
+  <div class="card"><h3>Cat-Back</h3><p>تسمية لمجموعة الأجزاء الواقعة بعد المحول الحفاز حتى نهاية العادم، وتستخدم في بعض أنظمة التعديل.</p></div>
+  <div class="card"><h3>Performance Exhaust</h3><p>نظام عادم مصمم لتحسين تدفق الغازات أو تغيير الصوت ضمن حدود التصميم والسلامة والقوانين.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>08 — COMPARISON</small>
+  <h2>الفرق بين Muffler وCatalytic Converter</h2>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>وجه المقارنة</th><th>Muffler</th><th>Catalytic Converter</th></tr></thead>
+  <tbody>
+   <tr><td>الوظيفة</td><td>تقليل ضوضاء العادم</td><td>معالجة بعض الملوثات</td></tr>
+   <tr><td>طريقة العمل</td><td>غرف ومسارات لتقليل الموجات الصوتية</td><td>تفاعلات كيميائية حفازة</td></tr>
+   <tr><td>التأثير الأساسي</td><td>الهدوء الصوتي</td><td>تقليل الانبعاثات الضارة</td></tr>
+   <tr><td>الموقع</td><td>غالباً في الجزء الخلفي من النظام</td><td>قريب نسبياً من المحرك في كثير من التصاميم</td></tr>
+  </tbody>
+ </table>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>09 — FAULTS & MAINTENANCE</small>
+  <h2>الأعطال الشائعة والصيانة</h2>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>العَرَض</th><th>احتمال السبب</th><th>الإجراء</th></tr></thead>
+  <tbody>
+   <tr><td>صوت عادم مرتفع</td><td>ثقب أو كسر في الأنبوب أو كاتم الصوت</td><td>فحص الوصلات والأنابيب</td></tr>
+   <tr><td>رائحة غازات داخل السيارة</td><td>تسرب في نظام العادم أو مشكلة تهوية</td><td>إيقاف الاستخدام في مكان آمن وفحص السيارة فوراً</td></tr>
+   <tr><td>ضعف أداء المحرك</td><td>انسداد أو تقييد تدفق العادم أو عطل آخر</td><td>تشخيص شامل</td></tr>
+   <tr><td>ارتفاع استهلاك الوقود</td><td>خلل في حساس الأكسجين أو الاحتراق أو أنظمة أخرى</td><td>فحص الحساسات والاحتراق</td></tr>
+   <tr><td>ظهور لمبة المحرك</td><td>خلل في حساس أو المحول أو نظام الانبعاثات</td><td>قراءة رموز OBD</td></tr>
+   <tr><td>اهتزاز أو صوت معدني</td><td>تلف قاعدة أو حاجز حراري أو جزء من العادم</td><td>فحص التثبيت والمكونات</td></tr>
+  </tbody>
+ </table>
+ </div>
+ <div class="grid" style="margin-top:20px">
+  <div class="card"><h3>🔍 فحص التسربات</h3><p>افحص الأنابيب والوصلات بحثاً عن الشقوق أو آثار السخام غير الطبيعية.</p></div>
+  <div class="card"><h3>🌡️ الحماية الحرارية</h3><p>تأكد من سلامة الحواجز الحرارية ووسائل تثبيت الأنابيب.</p></div>
+  <div class="card"><h3>🧪 فحص الانبعاثات</h3><p>راقب أداء الحساسات والمحول الحفاز ومرشحات الجسيمات.</p></div>
+  <div class="card"><h3>🔧 التشخيص</h3><p>استخدم جهاز تشخيص مناسباً عند ظهور رموز أعطال مرتبطة بالعادم.</p></div>
+ </div>
+ <div class="card warning">
+  <h3>⚠️ السلامة أولاً</h3>
+  <p>
+   تحتوي غازات العادم على أول أكسيد الكربون، وهو غاز سام عديم اللون والرائحة.
+   لا تشغل المحرك داخل مكان مغلق، ولا تقترب من أجزاء العادم الساخنة.
+   إذا دخلت رائحة العادم إلى المقصورة، توقف في مكان آمن واطلب فحص السيارة.
+  </p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>10 — KNOWLEDGE TEST</small>
+  <h2>اختبر معلوماتك</h2>
+  <p>أجب عن الأسئلة الثمانية واكتشف مدى فهمك لنظام العادم.</p>
+ </div>
+ <div id="quiz"></div>
+ <button class="action" onclick="checkQuiz()">تصحيح الاختبار</button>
+ <div id="result"></div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>11 — CONCLUSION</small>
+  <h2>الخلاصة الهندسية</h2>
+ </div>
+ <div class="card">
+  <p>
+   نظام العادم عنصر أساسي في هندسة السيارات، فهو ينظم خروج غازات
+   الاحتراق ويقلل الضوضاء ويساهم في معالجة الانبعاثات. تتعاون
+   مكوناته الميكانيكية والحساسات ووحدات التحكم لتحقيق تشغيل أكثر
+   كفاءة وتقليل التأثير البيئي للمركبة.
+  </p>
+  <p class="gold" style="font-weight:800;margin-top:12px">
+   CLEANER EMISSIONS. SMARTER ENGINEERING.
+  </p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <p>MECHANICAL <strong>WORLD</strong> — AUTOMOTIVE ENGINEERING</p>
+ <p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+ <p>بإشراف أستاذ مادة الميكانيك</p>
+ <p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+</footer>
+
+<script>
+const questions=[
+ {q:"ما الوظيفة الأساسية لنظام العادم؟",a:["تخزين الوقود","طرد غازات الاحتراق ومعالجة الانبعاثات","تبريد الإطارات","تشغيل البطارية"],c:1},
+ {q:"ما وظيفة المحول الحفاز؟",a:["زيادة صوت المحرك","معالجة بعض الملوثات كيميائياً","تخزين الزيت","زيادة ضغط الإطارات"],c:1},
+ {q:"ما وظيفة Muffler؟",a:["تقليل ضوضاء العادم","توليد الكهرباء","تغذية المحرك بالوقود","تغيير السرعات"],c:0},
+ {q:"ماذا يقيس حساس الأكسجين؟",a:["ضغط الإطارات","نسبة الأكسجين في غازات العادم","سرعة السيارة","مستوى الوقود"],c:1},
+ {q:"ما وظيفة DPF؟",a:["حجز جسيمات السخام في محركات الديزل","تبريد الزيت","زيادة ضغط التيربو","تشغيل المصابيح"],c:0},
+ {q:"ما معنى EGR؟",a:["نظام الفرامل","إعادة تدوير جزء من غازات العادم","نظام التوجيه","ناقل الحركة"],c:1},
+ {q:"أي غاز من غازات العادم سام وعديم اللون والرائحة؟",a:["الأكسجين","النيتروجين","أول أكسيد الكربون","بخار الماء"],c:2},
+ {q:"أين يجب تجنب تشغيل المحرك؟",a:["في الهواء الطلق","داخل مكان مغلق دون تهوية مناسبة","في مركز الصيانة المجهز","على طريق مفتوح"],c:1}
+];
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((question,index)=>{
+ const box=document.createElement("div");
+ box.className="quiz-question";
+ box.innerHTML=`<h3>${index+1}. ${question.q}</h3>`;
+ question.a.forEach((answer,i)=>{
+  const button=document.createElement("button");
+  button.className="option";
+  button.type="button";
+  button.textContent=answer;
+  button.onclick=()=>{
+   box.querySelectorAll(".option").forEach(item=>item.classList.remove("selected"));
+   button.classList.add("selected");
+   box.dataset.answer=i;
+  };
+  box.appendChild(button);
+ });
+ quiz.appendChild(box);
+});
+
+function checkQuiz(){
+ let score=0;
+ const boxes=document.querySelectorAll(".quiz-question");
+
+ boxes.forEach((box,index)=>{
+  const selected=box.querySelector(".selected");
+  const options=box.querySelectorAll(".option");
+
+  options.forEach((option,i)=>{
+   option.disabled=true;
+   if(i===questions[index].c)option.classList.add("correct");
+  });
+
+  if(selected && Number(box.dataset.answer)===questions[index].c){
+   score++;
+  }else if(selected){
+   selected.classList.add("wrong");
+  }
+ });
+
+ const percentage=Math.round(score/questions.length*100);
+ let message="واصل المراجعة، يمكنك تحسين نتيجتك.";
+ if(score>=7)message="ممتاز! لديك فهم قوي لنظام العادم.";
+ else if(score>=5)message="جيد جداً! راجع بعض التفاصيل.";
+ else if(score>=3)message="نتيجة مقبولة، حاول مرة أخرى بعد المراجعة.";
+
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+  <h2 class="gold">نتيجتك: ${score} / ${questions.length}</h2>
+  <h3>${percentage}%</h3>
+  <p>${message}</p>
+  <button class="action" onclick="resetQuiz()">إعادة الاختبار</button>
+ `;
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function resetQuiz(){
+ document.querySelectorAll(".quiz-question").forEach(box=>{
+  delete box.dataset.answer;
+  box.querySelectorAll(".option").forEach(option=>{
+   option.disabled=false;
+   option.classList.remove("selected","correct","wrong");
+  });
+ });
+ document.getElementById("result").style.display="none";
+ document.getElementById("quiz").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
