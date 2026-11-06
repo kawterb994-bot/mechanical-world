@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام الوقود والحقن | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a45c;--bg:#090909;--panel:#151515;--white:#f5f5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--white);line-height:1.9}
+header{background:#101010;border-bottom:1px solid #34302a;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:19px;font-weight:800;letter-spacing:1px;color:var(--gold);direction:ltr}
+header a,.back{color:var(--gold);text-decoration:none}
+.hero{padding:75px 8%;background:linear-gradient(90deg,#090909ed,#09090999),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=85') center/cover}
+.hero small{color:var(--gold);letter-spacing:3px;direction:ltr;display:block}
+h1{font-size:clamp(30px,5vw,54px);margin:12px 0}
+.hero p{max-width:750px;color:#ddd}
+.container{width:min(1100px,90%);margin:45px auto}
+.section-title{color:var(--gold);font-size:27px;margin:35px 0 18px;border-right:4px solid var(--gold);padding-right:13px}
+p{color:#ccc;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid #292929;border-radius:12px;padding:22px;transition:.25s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card h3{color:var(--gold);margin-bottom:8px}
+.highlight{background:#17140e;border-right:4px solid var(--gold);padding:20px;margin:20px 0;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--panel);font-size:14px}
+th,td{padding:13px;border:1px solid #333;text-align:center}
+th{background:#282115;color:var(--gold)}
+.quiz{background:var(--panel);padding:25px;border-radius:12px;border:1px solid #39332a;margin-top:20px}
+.question{padding:17px 0;border-bottom:1px solid #333}
+.question h3{font-size:16px;margin-bottom:12px}
+.option{display:block;background:#222;padding:10px 13px;margin:7px 0;border-radius:7px;cursor:pointer;border:1px solid transparent}
+.option:hover{border-color:var(--gold)}
+.option input{margin-left:8px;accent-color:var(--gold)}
+button{background:var(--gold);color:#111;border:0;padding:12px 25px;border-radius:7px;font-family:inherit;font-weight:800;cursor:pointer;margin-top:18px}
+#result{margin-top:18px;color:var(--gold);font-weight:bold}
+footer{text-align:center;padding:30px 15px;background:#101010;border-top:1px solid #333;color:#aaa;margin-top:60px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){header{padding:15px 5%}.hero{padding:55px 6%}.container{width:92%}table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">MECHANICAL WORLD</div>
+ <a href="index.html">← العودة إلى الرئيسية</a>
+</header>
+
+<section class="hero">
+ <small>VEHICLE ENGINEERING / 07</small>
+ <h1>نظام الوقود والحقن والاحتراق</h1>
+ <p>رحلة الوقود من الخزان إلى غرفة الاحتراق، وكيف تتحكم الأنظمة الميكانيكية والإلكترونية في كمية الوقود وتوقيت حقنه للحصول على أداء وكفاءة أفضل.</p>
+</section>
+
+<main class="container">
+
+<h2 class="section-title">1. مقدمة عن نظام الوقود</h2>
+<p>نظام الوقود هو مجموعة من المكونات التي تخزن الوقود وتنقله وتجهزه وتوصله إلى المحرك بالكمية والضغط المناسبين. وفي محركات الاحتراق الداخلي، يمتزج الوقود بالهواء ثم يحترق داخل الأسطوانات لإنتاج الطاقة الحرارية التي تتحول إلى حركة ميكانيكية.</p>
+<p>تختلف طريقة تجهيز الخليط حسب نوع المحرك؛ فمحركات البنزين تستخدم عادةً شمعة إشعال لإشعال الخليط، بينما تعتمد محركات الديزل على ارتفاع درجة حرارة الهواء نتيجة ضغطه ثم حقن الوقود فيه.</p>
+
+<div class="highlight">
+<strong>المبدأ الأساسي:</strong>
+يحتاج الاحتراق إلى وقود وهواء ومصدر اشتعال مناسب حسب تصميم المحرك. وتؤثر دقة الحقن وكمية الهواء وتوقيت الاحتراق في القوة واستهلاك الوقود والانبعاثات.
+</div>
+
+<h2 class="section-title">2. المكونات الأساسية لنظام الوقود</h2>
+<div class="grid">
+<article class="card">
+<h3>خزان الوقود (Fuel Tank)</h3>
+<p>يخزن البنزين أو الديزل بطريقة آمنة، ويصمم لتحمل ظروف التشغيل والاهتزازات والتغيرات الحرارية.</p>
+</article>
+<article class="card">
+<h3>مضخة الوقود (Fuel Pump)</h3>
+<p>تنقل الوقود من الخزان باتجاه المحرك، وتوفر ضغطاً وتدفقاً يتناسبان مع متطلبات نظام الحقن.</p>
+</article>
+<article class="card">
+<h3>مرشح الوقود (Fuel Filter)</h3>
+<p>يحتجز الأوساخ والجزيئات التي قد تضر المضخة أو الحاقنات أو المكونات الدقيقة.</p>
+</article>
+<article class="card">
+<h3>أنابيب الوقود</h3>
+<p>تنقل الوقود بين الخزان والمضخة والمرشح وسكة الحقن، ويجب أن تكون مناسبة للضغط ونوع الوقود.</p>
+</article>
+<article class="card">
+<h3>حاقن الوقود (Injector)</h3>
+<p>يرش الوقود على شكل قطرات دقيقة أو نمط رش محدد، وفق تصميم المحرك وظروف التشغيل.</p>
+</article>
+<article class="card">
+<h3>منظم ضغط الوقود</h3>
+<p>يساعد على المحافظة على ضغط مناسب في الأنظمة التي تستخدمه، وفق طريقة تصميم دائرة الوقود.</p>
+</article>
+</div>
+
+<h2 class="section-title">3. كيف يعمل نظام الوقود؟</h2>
+<div class="grid">
+<article class="card"><h3>المرحلة الأولى: التخزين</h3><p>يتم تخزين الوقود في الخزان مع تجهيزات مراقبة مستواه وتهوية النظام حسب التصميم.</p></article>
+<article class="card"><h3>المرحلة الثانية: الضخ</h3><p>تسحب المضخة الوقود وتدفعه عبر خطوط الإمداد.</p></article>
+<article class="card"><h3>المرحلة الثالثة: الترشيح</h3><p>يمر الوقود عبر المرشح لإزالة الشوائب التي قد تعيق عمل النظام.</p></article>
+<article class="card"><h3>المرحلة الرابعة: الحقن</h3><p>تتحكم وحدة المحرك في الحاقنات لتوصيل الكمية المطلوبة في الوقت المناسب.</p></article>
+</div>
+
+<h2 class="section-title">4. أنظمة حقن الوقود في محركات البنزين</h2>
+<div class="grid">
+<article class="card">
+<h3>الحقن غير المباشر (MPI)</h3>
+<p>يتم حقن الوقود في مجرى السحب بالقرب من صمام السحب، ثم يدخل الخليط إلى الأسطوانة. يتميز ببنية معروفة وبسيطة نسبياً.</p>
+</article>
+<article class="card">
+<h3>الحقن المباشر (GDI)</h3>
+<p>يتم حقن الوقود مباشرة داخل غرفة الاحتراق بضغط مرتفع. يسمح بتحكم دقيق في عملية الحقن، ويحتاج إلى مكونات مصممة للعمل تحت ضغط عالٍ.</p>
+</article>
+<article class="card">
+<h3>الحقن الإلكتروني</h3>
+<p>تستخدم وحدة التحكم الإلكترونية بيانات الحساسات لتحديد كمية الوقود وتوقيت الحقن وفق ظروف المحرك.</p>
+</article>
+</div>
+
+<h2 class="section-title">5. نظام حقن الديزل</h2>
+<p>تعتمد محركات الديزل على ضغط الهواء داخل الأسطوانة حتى ترتفع حرارته، ثم يحقن الوقود بضغط مرتفع جداً ليتشتت داخل الهواء الساخن ويبدأ الاحتراق الذاتي.</p>
+<div class="grid">
+<article class="card">
+<h3>مضخة الضغط العالي</h3>
+<p>ترفع ضغط الوقود إلى المستوى المطلوب في أنظمة الديزل الحديثة.</p>
+</article>
+<article class="card">
+<h3>سكة الوقود المشتركة (Common Rail)</h3>
+<p>تخزن الوقود المضغوط في مجمع مشترك يغذي الحاقنات، وتتحكم الوحدة الإلكترونية في عملية الحقن.</p>
+</article>
+<article class="card">
+<h3>حاقنات الديزل</h3>
+<p>تتحكم بدقة في كمية الوقود وتوقيت الحقن ونمط الرش داخل غرفة الاحتراق.</p>
+</article>
+<article class="card">
+<h3>شمعات التسخين</h3>
+<p>تساعد على تسهيل التشغيل البارد في كثير من محركات الديزل، لكنها ليست مصدر الاشتعال الأساسي أثناء التشغيل العادي.</p>
+</article>
+</div>
+
+<h2 class="section-title">6. الفرق بين البنزين والديزل</h2>
+<table>
+<thead><tr><th>وجه المقارنة</th><th>محرك البنزين</th><th>محرك الديزل</th></tr></thead>
+<tbody>
+<tr><td>طريقة الاشتعال</td><td>بواسطة شمعة الإشعال عادةً</td><td>اشتعال ذاتي بسبب حرارة ضغط الهواء</td></tr>
+<tr><td>طريقة تجهيز الخليط</td><td>حسب نظام الحقن وتصميم المحرك</td><td>يحقن الوقود داخل الهواء المضغوط</td></tr>
+<tr><td>نسبة الضغط</td><td>أقل عادةً</td><td>أعلى عادةً</td></tr>
+<tr><td>الوقود</td><td>البنزين</td><td>الديزل</td></tr>
+<tr><td>الاستخدام</td><td>سيارات ركوب ومركبات متنوعة</td><td>سيارات وشاحنات ومعدات متنوعة</td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">7. غرفة الاحتراق (Combustion Chamber)</h2>
+<p>غرفة الاحتراق هي الحيز الذي يحدث داخله احتراق الوقود والهواء. يتغير شكلها وحجمها حسب تصميم المحرك، وتؤثر هندستها في كفاءة الاحتراق وتوزيع الحرارة والأداء.</p>
+<div class="grid">
+<article class="card"><h3>رأس الأسطوانة</h3><p>يشكل الجزء العلوي من غرفة الاحتراق ويحتوي على مكونات مثل الصمامات وشمعة الإشعال في محركات البنزين.</p></article>
+<article class="card"><h3>المكبس</h3><p>يشكل الحد المتحرك لغرفة الاحتراق، ويضغط الخليط أو الهواء حسب مرحلة عمل المحرك.</p></article>
+<article class="card"><h3>شمعة الإشعال</h3><p>تولد شرارة كهربائية في محركات البنزين ذات الإشعال بالشرارة.</p></article>
+<article class="card"><h3>الحاقن</h3><p>يوصل الوقود إلى موضع الحقن المحدد وفق تصميم نظام التغذية.</p></article>
+</div>
+
+<h2 class="section-title">8. مراحل الاحتراق في محرك البنزين رباعي الأشواط</h2>
+<div class="grid">
+<article class="card"><h3>1. شوط السحب</h3><p>ينزل المكبس ويدخل الهواء والوقود وفق نظام تجهيز الخليط المستخدم.</p></article>
+<article class="card"><h3>2. شوط الضغط</h3><p>يصعد المكبس ويضغط الخليط داخل الأسطوانة، مع إغلاق الصمامات.</p></article>
+<article class="card"><h3>3. شوط القدرة</h3><p>تحدث الشرارة قرب نهاية الضغط، وينتشر اللهب داخل الخليط فتدفع الغازات المكبس إلى الأسفل.</p></article>
+<article class="card"><h3>4. شوط العادم</h3><p>يصعد المكبس ويدفع الغازات المحترقة إلى خارج الأسطوانة عبر صمام العادم.</p></article>
+</div>
+
+<h2 class="section-title">9. نسبة الهواء إلى الوقود</h2>
+<p>تعبر نسبة الهواء إلى الوقود (Air-Fuel Ratio) عن كتلة الهواء مقارنة بكتلة الوقود الداخلة إلى المحرك. ويؤثر تغير هذه النسبة في أداء الاحتراق والانبعاثات واستهلاك الوقود.</p>
+<table>
+<thead><tr><th>حالة الخليط</th><th>المعنى</th><th>الأثر المحتمل</th></tr></thead>
+<tbody>
+<tr><td>خليط فقير</td><td>هواء أكثر بالنسبة إلى الوقود</td><td>قد يقل استهلاك الوقود ضمن ظروف معينة، لكن الفقر الشديد قد يسبب مشاكل</td></tr>
+<tr><td>خليط غني</td><td>وقود أكثر بالنسبة إلى الهواء</td><td>قد يزيد الاستهلاك والانبعاثات</td></tr>
+<tr><td>خليط قريب من المتكافئ</td><td>نسبة هواء ووقود مناسبة كيميائياً للاحتراق الكامل النظري</td><td>مرجع مهم لضبط كثير من محركات البنزين</td></tr>
+</tbody>
+</table>
+<div class="highlight">
+<strong>معلومة علمية:</strong>
+تبلغ النسبة التقريبية المتكافئة لمحرك بنزين تقليدي يعمل بوقود شائع نحو 14.7 كتلة هواء لكل كتلة وقود واحدة، لكن القيمة الفعلية تتغير حسب تركيب الوقود وظروف التشغيل.
+</div>
+
+<h2 class="section-title">10. الحساسات المرتبطة بالحقن</h2>
+<div class="grid">
+<article class="card"><h3>حساس تدفق الهواء MAF</h3><p>يقيس كتلة الهواء الداخل للمحرك لمساعدة وحدة التحكم على تحديد كمية الوقود.</p></article>
+<article class="card"><h3>حساس الضغط MAP</h3><p>يقيس ضغط الهواء في مجمع السحب ويستخدم لتقدير حمل المحرك.</p></article>
+<article class="card"><h3>حساس الأكسجين</h3><p>يراقب الأكسجين في غازات العادم ويساعد على تصحيح خليط الهواء والوقود.</p></article>
+<article class="card"><h3>حساس عمود المرفق</h3><p>يوفر معلومات السرعة والموضع اللازمة لتوقيت الحقن والإشعال.</p></article>
+</div>
+
+<h2 class="section-title">11. نظام التحكم في الانبعاثات</h2>
+<p>تنتج عن احتراق الوقود غازات ومركبات مختلفة. تستخدم السيارات أنظمة متعددة للحد من الانبعاثات الضارة وتحسين الاحتراق.</p>
+<div class="grid">
+<article class="card"><h3>المحول الحفاز</h3><p>يساعد على تحويل بعض الملوثات في غازات العادم إلى مركبات أقل ضرراً.</p></article>
+<article class="card"><h3>صمام EGR</h3><p>يعيد جزءاً من غازات العادم إلى مجرى السحب في ظروف محددة للمساعدة على تقليل أكاسيد النيتروجين.</p></article>
+<article class="card"><h3>فلتر جسيمات الديزل DPF</h3><p>يحتجز الجسيمات الدقيقة الناتجة عن احتراق الديزل، ويحتاج إلى عملية تجديد للتخلص من تراكم السخام.</p></article>
+<article class="card"><h3>نظام EVAP</h3><p>يحد من تسرب أبخرة الوقود إلى الجو ويخزنها مؤقتاً لإعادة إدخالها إلى المحرك وفق ظروف التشغيل.</p></article>
+</div>
+
+<h2 class="section-title">12. الأعطال الشائعة وأسبابها</h2>
+<table>
+<thead><tr><th>العَرَض</th><th>سبب محتمل</th><th>طريقة التشخيص</th></tr></thead>
+<tbody>
+<tr><td>صعوبة تشغيل المحرك</td><td>ضعف ضغط الوقود أو خلل الحاقنات</td><td>فحص ضغط الوقود والإشارات</td></tr>
+<tr><td>زيادة الاستهلاك</td><td>خلل في الحساسات أو الحقن أو ظروف التشغيل</td><td>قراءة البيانات وفحص النظام</td></tr>
+<tr><td>تقطيع المحرك</td><td>خلل في الحقن أو الإشعال أو دخول الهواء</td><td>تشخيص شامل للمحرك</td></tr>
+<tr><td>ضعف التسارع</td><td>انسداد مرشح أو نقص ضغط الوقود</td><td>قياس الضغط والتدفق</td></tr>
+<tr><td>رائحة وقود</td><td>احتمال وجود تسرب</td><td>إيقاف السيارة وفحصها فوراً</td></tr>
+<tr><td>دخان أسود</td><td>احتراق غير مثالي أو خليط غني في بعض الحالات</td><td>فحص الحقن والهواء والعادم</td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">13. الصيانة والسلامة</h2>
+<div class="grid">
+<article class="card"><h3>جودة الوقود</h3><p>استخدام نوع الوقود المحدد في دليل المركبة وتجنب الوقود الملوث.</p></article>
+<article class="card"><h3>تغيير المرشح</h3><p>الالتزام بجدول استبدال مرشح الوقود حسب توصيات الشركة.</p></article>
+<article class="card"><h3>فحص التسرب</h3><p>مراقبة وجود رائحة أو آثار وقود والتعامل معها فوراً.</p></article>
+<article class="card"><h3>تنظيف الحاقنات</h3><p>فحص الحاقنات عند وجود أعراض فعلية، واستخدام طرق تنظيف مناسبة للمحرك.</p></article>
+</div>
+<div class="highlight">
+<strong>تحذير سلامة:</strong>
+الوقود قابل للاشتعال، وأنظمة الحقن المباشر والديزل قد تعمل تحت ضغط مرتفع جداً. لا تفك خطوط الوقود أو الحاقنات بنفسك. يجب تنفيذ الفحص والصيانة لدى فني مؤهل، بعيداً عن مصادر اللهب والشرر.
+</div>
+
+<h2 class="section-title">14. اختبار معلوماتك</h2>
+<p>اختبر معلوماتك حول نظام الوقود والحقن والاحتراق.</p>
+<div class="quiz">
+<div id="questions"></div>
+<button onclick="correctQuiz()">تصحيح الاختبار</button>
+<button onclick="resetQuiz()" style="background:#333;color:white">إعادة المحاولة</button>
+<div id="result"></div>
+</div>
+
+</main>
+
+<footer>
+<strong>MECHANICAL WORLD</strong>
+<p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+<p>إشراف أستاذ مادة الميكانيك</p>
+<p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+<a class="back" href="index.html">العودة إلى الصفحة الرئيسية ↑</a>
+</footer>
+
+<script>
+const questions=[
+{q:"ما الوظيفة الأساسية لنظام الوقود؟",o:["تبريد المحرك","تخزين الوقود ونقله وتوصيله للمحرك","توجيه العجلات","شحن البطارية"],a:1},
+{q:"ما وظيفة حاقن الوقود؟",o:["رش الوقود بالكمية والتوقيت المناسبين","تصفية الزيت","تبريد الأسطوانات","تشغيل بادئ الحركة"],a:0},
+{q:"أين يحدث الحقن في نظام GDI؟",o:["داخل خزان الوقود","داخل غرفة الاحتراق مباشرة","داخل المبرد","داخل علبة التروس"],a:1},
+{q:"كيف يشتعل الوقود في محرك الديزل؟",o:["بشمعة إشعال تقليدية","بواسطة حرارة الهواء المضغوط","بواسطة البطارية مباشرة","بواسطة المولد"],a:1},
+{q:"ما وظيفة سكة Common Rail؟",o:["تخزين الوقود المضغوط وتغذية الحاقنات","تبريد الزيت","تخزين الكهرباء","تدوير العجلات"],a:0},
+{q:"ما وظيفة حساس الأكسجين؟",o:["قياس سرعة العجلة","مراقبة الأكسجين في العادم","قياس ضغط الإطارات","قياس مستوى الزيت"],a:1},
+{q:"ما المقصود بالخليط الغني؟",o:["هواء أكثر بالنسبة للوقود","وقود أكثر بالنسبة للهواء","غياب الوقود","غياب الهواء تماماً"],a:1},
+{q:"لماذا يجب الحذر عند التعامل مع نظام الحقن؟",o:["لأن الوقود قد يشتعل والضغط قد يكون مرتفعاً","لأن الإطارات ساخنة دائماً","لأن الزيت يتجمد","لأن البطارية فارغة"],a:0}
+];
+function renderQuiz(){
+document.getElementById("questions").innerHTML=questions.map((q,i)=>`
+<div class="question"><h3>${i+1}. ${q.q}</h3>
+${q.o.map((v,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}">${v}</label>`).join("")}
+</div>`).join("");
+document.getElementById("result").textContent="";
+}
+function correctQuiz(){
+let score=0,answered=0;
+questions.forEach((q,i)=>{
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected){answered++;if(Number(selected.value)===q.a)score++;}
+});
+if(answered!==questions.length){
+document.getElementById("result").textContent="أجيبي عن جميع الأسئلة أولاً ("+answered+"/"+questions.length+")";
+return;
+}
+document.getElementById("result").textContent="نتيجتك: "+score+" / "+questions.length+" — "+(score===8?"ممتاز!":"واصلي التعلم، يمكنك تحسين نتيجتك!");
+}
+function resetQuiz(){renderQuiz();}
+renderQuiz();
+</script>
+</body>
+</html>
+
