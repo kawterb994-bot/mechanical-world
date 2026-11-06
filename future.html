@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="اكتشف مستقبل صناعة السيارات: الكهرباء والهيدروجين والذكاء الاصطناعي والقيادة الذاتية.">
+<title>مستقبل السيارات | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#c9a45c;
+  --bg:#090909;
+  --card:#151515;
+  --text:#f2f2f2;
+  --muted:#aaa;
+  --line:#292929;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.9;
+}
+a{text-decoration:none;color:inherit}
+header{
+  background:#080808;
+  border-bottom:1px solid #292929;
+  padding:17px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.logo{
+  color:var(--gold);
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.back{
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:8px 18px;
+  border-radius:7px;
+  transition:.3s;
+}
+.back:hover{background:var(--gold);color:#111}
+.hero{
+  min-height:480px;
+  display:flex;
+  align-items:center;
+  padding:70px 8%;
+  background:
+  linear-gradient(90deg,rgba(0,0,0,.93),rgba(0,0,0,.65)),
+  url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+.hero-content{max-width:760px}
+.tag{
+  color:var(--gold);
+  border:1px solid #806b42;
+  display:inline-block;
+  padding:5px 15px;
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:18px;
+}
+h1{font-size:clamp(32px,5vw,58px);line-height:1.4;margin-bottom:18px}
+h1 span{color:var(--gold)}
+.hero p{color:#ccc;font-size:17px;max-width:650px}
+.container{width:min(1120px,90%);margin:auto}
+.intro{
+  padding:55px 0 25px;
+  text-align:center;
+}
+.section-title{
+  font-size:29px;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+.intro p{color:#bbb;max-width:850px;margin:auto}
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin:25px auto 45px;
+}
+nav a{
+  background:#151515;
+  border:1px solid #303030;
+  padding:8px 15px;
+  border-radius:6px;
+  font-size:13px;
+  transition:.3s;
+}
+nav a:hover{border-color:var(--gold);color:var(--gold)}
+section{padding:32px 0;scroll-margin-top:20px}
+.section-heading{
+  color:var(--gold);
+  font-size:26px;
+  margin-bottom:18px;
+  border-right:4px solid var(--gold);
+  padding-right:14px;
+}
+.section-desc{color:#bbb;margin-bottom:22px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:22px;
+  border-radius:12px;
+  transition:.3s;
+}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.card .icon{font-size:29px;margin-bottom:10px}
+.card h3{color:var(--gold);font-size:18px;margin-bottom:9px}
+.card p{color:#bbb;font-size:14px}
+.info-box{
+  background:#17140e;
+  border-right:4px solid var(--gold);
+  padding:19px 22px;
+  border-radius:8px;
+  margin:20px 0;
+  color:#ddd;
+}
+.info-box strong{color:var(--gold)}
+.feature-image{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:12px;
+  border:1px solid #333;
+  margin:20px 0;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:20px 0;
+  background:#131313;
+  font-size:14px;
+}
+th,td{
+  border:1px solid #333;
+  padding:12px;
+  text-align:right;
+}
+th{background:#252015;color:var(--gold)}
+td{color:#ccc}
+.steps{counter-reset:step}
+.step{
+  background:var(--card);
+  border:1px solid var(--line);
+  padding:17px;
+  margin-bottom:12px;
+  border-radius:9px;
+}
+.step h3{color:var(--gold);margin-bottom:5px}
+.quiz{
+  background:#121212;
+  border:1px solid #5a492d;
+  border-radius:14px;
+  padding:25px;
+  margin:25px 0 60px;
+}
+.quiz h2{color:var(--gold);margin-bottom:8px}
+.question{
+  padding:18px 0;
+  border-bottom:1px solid #333;
+}
+.question p{font-weight:700;margin-bottom:10px}
+.question label{
+  display:block;
+  color:#ccc;
+  padding:7px 10px;
+  cursor:pointer;
+  border-radius:5px;
+}
+.question label:hover{background:#222}
+.question input{accent-color:var(--gold);margin-left:8px}
+.quiz button{
+  background:var(--gold);
+  color:#111;
+  border:0;
+  padding:12px 25px;
+  border-radius:7px;
+  font-family:inherit;
+  font-weight:800;
+  cursor:pointer;
+  margin-top:20px;
+}
+#result{margin-top:18px;font-weight:800;font-size:19px}
+footer{
+  background:#050505;
+  border-top:1px solid #333;
+  text-align:center;
+  padding:30px 15px;
+  color:#999;
+}
+footer strong{color:var(--gold)}
+.names{margin-top:12px;color:#ddd}
+@media(max-width:600px){
+  header{padding:14px 5%}
+  .hero{padding:55px 6%;min-height:420px}
+  .hero p{font-size:15px}
+  .section-heading{font-size:22px}
+  .feature-image{height:200px}
+  table{font-size:12px}
+  th,td{padding:8px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="index.html">⚙ MECHANICAL WORLD</a>
+  <a class="back" href="index.html">← العودة للرئيسية</a>
+</header>
+
+<div class="hero">
+  <div class="hero-content">
+    <span class="tag">TECHNOLOGY • INNOVATION • TOMORROW</span>
+    <h1>مستقبل السيارات <span>والهندسة</span></h1>
+    <p>
+      رحلة داخل عالم تقنيات السيارات القادمة، حيث تلتقي الهندسة الميكانيكية
+      بالطاقة النظيفة والذكاء الاصطناعي والأنظمة الذكية لتغيير طريقة تنقل الإنسان.
+    </p>
+  </div>
+</div>
+
+<main class="container">
+
+<div class="intro">
+  <h2 class="section-title">كيف ستكون سيارات المستقبل؟</h2>
+  <p>
+    تشهد صناعة السيارات تحولاً كبيراً؛ فلم تعد السيارة مجرد محرك وعجلات وناقل حركة،
+    بل أصبحت منظومة تقنية متكاملة تجمع بين الميكانيك والكهرباء والبرمجيات
+    والاتصالات. وتهدف التطورات الحديثة إلى تحسين الكفاءة، وتقليل الانبعاثات،
+    ورفع مستوى السلامة والراحة.
+  </p>
+</div>
+
+<nav>
+  <a href="#electric">السيارات الكهربائية</a>
+  <a href="#hydrogen">الهيدروجين</a>
+  <a href="#autonomous">القيادة الذاتية</a>
+  <a href="#ai">الذكاء الاصطناعي</a>
+  <a href="#connected">السيارات المتصلة</a>
+  <a href="#materials">المواد والاستدامة</a>
+  <a href="#comparison">المقارنة</a>
+  <a href="#quiz">الاختبار</a>
+</nav>
+
+<section id="electric">
+  <h2 class="section-heading">1. السيارات الكهربائية EV</h2>
+  <p class="section-desc">
+    تعتمد السيارات الكهربائية على محركات كهربائية تستمد الطاقة من بطاريات قابلة
+    لإعادة الشحن، بدلاً من الاعتماد على الاحتراق الداخلي للبنزين أو الديزل.
+  </p>
+
+  <img class="feature-image"
+  src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=1200&q=85"
+  alt="سيارة كهربائية">
+
+  <div class="grid">
+    <article class="card">
+      <div class="icon">🔋</div>
+      <h3>البطارية</h3>
+      <p>
+        تخزن الطاقة الكهربائية التي يحتاجها المحرك. وتستخدم كثير من السيارات
+        الحديثة بطاريات الليثيوم أيون، التي تتميز بكثافة طاقة جيدة وقابلية لإعادة الشحن.
+      </p>
+    </article>
+    <article class="card">
+      <div class="icon">⚡</div>
+      <h3>المحرك الكهربائي</h3>
+      <p>
+        يحول الطاقة الكهربائية إلى حركة دورانية. ويوفر عزماً مرتفعاً منذ السرعات
+        المنخفضة، ما يمنح السيارة تسارعاً سريعاً وسلساً.
+      </p>
+    </article>
+    <article class="card">
+      <div class="icon">🔌</div>
+      <h3>الشحن</h3>
+      <p>
+        يمكن شحن السيارة من المنزل أو محطات الشحن العامة. ويختلف زمن الشحن
+        حسب قدرة الشاحن وسعة البطارية ودرجة حرارتها وحالة الشحن.
+      </p>
+    </article>
+    <article class="card">
+      <div class="icon">🌡️</div>
+      <h3>إدارة الحرارة</h3>
+      <p>
+        تحتاج البطارية والمحركات والإلكترونيات إلى درجات حرارة مناسبة.
+        لذلك تستخدم أنظمة تبريد وتدفئة للمحافظة على الأداء والعمر التشغيلي.
+      </p>
+    </article>
+  </div>
+
+  <div class="info-box">
+    <strong>معلومة هندسية:</strong>
+    كثافة الطاقة تعبر عن مقدار الطاقة المخزنة بالنسبة إلى كتلة أو حجم البطارية.
+    وكلما تحسنت كثافة الطاقة أمكن زيادة المدى أو تقليل وزن البطارية، مع مراعاة
+    السلامة والتكلفة والعمر الافتراضي.
+  </div>
+
+  <h3 class="section-heading">مكونات منظومة الدفع الكهربائي</h3>
+  <div class="steps">
+    <div class="step">
+      <h3>01 — البطارية عالية الجهد</h3>
+      <p>تخزن الطاقة وتزود منظومة الدفع بالكهرباء.</p>
+    </div>
+    <div class="step">
+      <h3>02 — العاكس Inverter</h3>
+      <p>يحول التيار المستمر القادم من البطارية إلى تيار مناسب للمحرك، وفق نوع النظام.</p>
+    </div>
+    <div class="step">
+      <h3>03 — وحدة التحكم</h3>
+      <p>تنظم الطاقة والعزم والسرعة وتراقب حالة مكونات النظام.</p>
+    </div>
+    <div class="step">
+      <h3>04 — المحرك وناقل التخفيض</h3>
+      <p>يحولان الطاقة إلى حركة تنتقل نحو العجلات.</p>
+    </div>
+  </div>
+</section>
+
+<section id="hydrogen">
+  <h2 class="section-heading">2. الهيدروجين وخلايا الوقود</h2>
+  <p class="section-desc">
+    الهيدروجين أحد الخيارات المطروحة لتطوير وسائل نقل منخفضة الانبعاثات،
+    خصوصاً عند إنتاجه باستخدام مصادر طاقة متجددة.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>كيف تعمل خلية الوقود؟</h3>
+      <p>
+        تستقبل خلية الوقود الهيدروجين والأكسجين، وتحدث داخلها تفاعلات
+        كهروكيميائية تنتج الكهرباء لتشغيل المحرك الكهربائي.
+      </p>
+    </article>
+    <article class="card">
+      <h3>الناتج الأساسي</h3>
+      <p>
+        في خلية وقود الهيدروجين من نوع PEM، يكون الماء والحرارة من نواتج
+        التفاعل أثناء التشغيل، ولا يحدث احتراق تقليدي داخل المحرك الكهربائي.
+      </p>
+    </article>
+    <article class="card">
+      <h3>التخزين</h3>
+      <p>
+        يخزن الهيدروجين عادة تحت ضغط مرتفع في خزانات مصممة بمعايير سلامة خاصة،
+        ويحتاج إلى تجهيزات مخصصة للتزود بالوقود.
+      </p>
+    </article>
+    <article class="card">
+      <h3>التحديات</h3>
+      <p>
+        تشمل تكلفة الإنتاج والتخزين والنقل، وقلة محطات التزود بالهيدروجين،
+        وكفاءة سلسلة إنتاجه واستخدامه.
+      </p>
+    </article>
+  </div>
+
+  <div class="info-box">
+    <strong>ملاحظة:</strong>
+    لا يعني أن السيارة لا تطلق انبعاثات من العادم أن دورة حياتها خالية تماماً
+    من الانبعاثات؛ فالأثر البيئي يعتمد أيضاً على طريقة إنتاج الطاقة والوقود.
+  </div>
+</section>
+
+<section id="autonomous">
+  <h2 class="section-heading">3. القيادة الذاتية وأنظمة ADAS</h2>
+  <p class="section-desc">
+    تعتمد أنظمة مساعدة السائق والقيادة الذاتية على الكاميرات والرادارات
+    وأجهزة الاستشعار والبرمجيات لفهم الطريق ومراقبة محيط السيارة.
+  </p>
+
+  <img class="feature-image"
+  src="https://images.unsplash.com/photo-1535378620166-273708d44e4c?auto=format&fit=crop&w=1200&q=85"
+  alt="تقنيات السيارات والقيادة الذكية">
+
+  <div class="grid">
+    <article class="card">
+      <h3>الكاميرات</h3>
+      <p>تتعرف على المسارات وإشارات المرور والمركبات والمشاة والعلامات المرورية.</p>
+    </article>
+    <article class="card">
+      <h3>الرادار</h3>
+      <p>يساعد على قياس المسافة والسرعة النسبية للأجسام، ويدعم أنظمة مراقبة الطريق.</p>
+    </article>
+    <article class="card">
+      <h3>LiDAR</h3>
+      <p>يستخدم نبضات الليزر لبناء تصور ثلاثي الأبعاد للأجسام والمساحات المحيطة.</p>
+    </article>
+    <article class="card">
+      <h3>وحدات المعالجة</h3>
+      <p>تحلل بيانات المستشعرات وتساعد النظام على اتخاذ قرارات القيادة المناسبة.</p>
+    </article>
+  </div>
+
+  <h3 class="section-heading" style="margin-top:30px">مستويات أتمتة القيادة</h3>
+  <table>
+    <tr><th>المستوى</th><th>الوصف</th></tr>
+    <tr><td>0</td><td>لا توجد أتمتة للقيادة، مع إمكانية وجود تنبيهات.</td></tr>
+    <tr><td>1</td><td>مساعدة السائق في وظيفة واحدة مثل التحكم بالسرعة أو التوجيه.</td></tr>
+    <tr><td>2</td><td>النظام يساعد في التوجيه والتحكم بالسرعة مع ضرورة مراقبة السائق.</td></tr>
+    <tr><td>3</td><td>أتمتة مشروطة في ظروف محددة، مع استعداد المستخدم للتدخل عند الطلب.</td></tr>
+    <tr><td>4</td><td>أتمتة عالية ضمن نطاق تشغيل محدد، دون الحاجة لتدخل بشري أثناء عملها ضمن ذلك النطاق.</td></tr>
+    <tr><td>5</td><td>أتمتة كاملة في جميع ظروف القيادة التي يمكن أن يقود فيها الإنسان.</td></tr>
+  </table>
+
+  <div class="info-box">
+    <strong>تنبيه سلامة:</strong>
+    أنظمة مساعدة السائق ليست كلها قيادة ذاتية. يجب على السائق الالتزام
+    بتعليمات الشركة المصنعة والقوانين، وعدم الاعتماد على النظام خارج حدوده.
+  </div>
+</section>
+
+<section id="ai">
+  <h2 class="section-heading">4. الذكاء الاصطناعي في السيارات</h2>
+  <p class="section-desc">
+    أصبح الذكاء الاصطناعي جزءاً مهماً من تطور السيارات الحديثة؛ إذ يساعد
+    على تحليل البيانات والتنبؤ بالأعطال وتحسين تجربة القيادة.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <div class="icon">🧠</div>
+      <h3>التشخيص الذكي</h3>
+      <p>تحليل بيانات الحساسات للكشف المبكر عن التغيرات غير الطبيعية في أداء المحرك والأنظمة.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🔧</div>
+      <h3>الصيانة التنبؤية</h3>
+      <p>تقدير احتمالية تعطل بعض المكونات اعتماداً على الاستخدام والبيانات التشغيلية.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🚦</div>
+      <h3>فهم الطريق</h3>
+      <p>تحليل الصور والبيانات للتعرف على المركبات والمشاة والعوائق وإشارات المرور.</p>
+    </article>
+    <article class="card">
+      <div class="icon">📊</div>
+      <h3>تحسين الأداء</h3>
+      <p>المساعدة في إدارة الطاقة وتوزيع العزم وتحسين استهلاك الوقود وفق ظروف التشغيل.</p>
+    </article>
+  </div>
+</section>
+
+<section id="connected">
+  <h2 class="section-heading">5. السيارات المتصلة وتقنية V2X</h2>
+  <p class="section-desc">
+    السيارة المتصلة تستطيع تبادل المعلومات مع أنظمة أخرى عبر شبكات الاتصال،
+    مما يساعد على تحسين السلامة وإدارة حركة المرور.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>V2V — سيارة إلى سيارة</h3>
+      <p>تبادل معلومات مثل الموقع والسرعة والتنبيهات بين المركبات المتوافقة.</p>
+    </article>
+    <article class="card">
+      <h3>V2I — سيارة إلى بنية تحتية</h3>
+      <p>التواصل مع إشارات المرور والطرق والتجهيزات الذكية.</p>
+    </article>
+    <article class="card">
+      <h3>V2P — سيارة إلى شخص</h3>
+      <p>إمكانية تبادل تنبيهات مع أجهزة مستخدمي الطريق مثل المشاة وراكبي الدراجات.</p>
+    </article>
+    <article class="card">
+      <h3>الأمن السيبراني</h3>
+      <p>حماية أنظمة السيارة والاتصالات والبيانات من الاختراق وسوء الاستخدام.</p>
+    </article>
+  </div>
+
+  <div class="info-box">
+    <strong>لماذا الاتصال مهم؟</strong>
+    يمكن أن يساعد تبادل المعلومات في تنبيه السائق إلى مخاطر لا تظهر مباشرة
+    في مجال رؤيته، لكنه يحتاج إلى شبكات موثوقة وحماية قوية للبيانات.
+  </div>
+</section>
+
+<section id="materials">
+  <h2 class="section-heading">6. المواد والاستدامة في سيارات المستقبل</h2>
+  <p class="section-desc">
+    تتجه الشركات إلى تطوير مواد تجمع بين القوة وخفة الوزن، لأن تقليل كتلة
+    السيارة يساعد على تحسين الكفاءة واستهلاك الطاقة.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <h3>الألومنيوم</h3>
+      <p>خفيف نسبياً ومقاوم للتآكل، ويستخدم في هياكل وأجزاء مختلفة من السيارات.</p>
+    </article>
+    <article class="card">
+      <h3>الفولاذ عالي المقاومة</h3>
+      <p>يساعد في توفير صلابة ومقاومة جيدة للتشوه في مناطق الحماية الهيكلية.</p>
+    </article>
+    <article class="card">
+      <h3>ألياف الكربون</h3>
+      <p>تتميز بنسبة قوة إلى وزن مرتفعة، لكنها غالباً مرتفعة التكلفة وتتطلب تصنيعاً متخصصاً.</p>
+    </article>
+    <article class="card">
+      <h3>إعادة التدوير</h3>
+      <p>استرجاع المعادن والمواد من المركبات والبطاريات لتقليل النفايات واستهلاك الموارد.</p>
+    </article>
+  </div>
+</section>
+
+<section id="alternative">
+  <h2 class="section-heading">7. مصادر الطاقة والوقود البديل</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>الوقود الحيوي</h3>
+      <p>وقود ينتج من مواد حيوية، ويمكن أن يستخدم في بعض المحركات بعد مراعاة توافقه مع نظام الوقود.</p>
+    </article>
+    <article class="card">
+      <h3>الوقود الإلكتروني E-Fuels</h3>
+      <p>وقود صناعي ينتج باستخدام الهيدروجين ومصادر الكربون، وتعتمد فائدته البيئية على طريقة إنتاجه والطاقة المستخدمة.</p>
+    </article>
+    <article class="card">
+      <h3>الطاقة الشمسية</h3>
+      <p>يمكن الاستفادة من الألواح الشمسية لتوفير جزء من الطاقة لبعض الأنظمة أو للمساعدة في الشحن، لكنها لا تكفي عادة وحدها لدفع سيارة تقليدية لمسافات طويلة.</p>
+    </article>
+  </div>
+</section>
+
+<section id="challenges">
+  <h2 class="section-heading">8. التحديات التي تواجه سيارات المستقبل</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>التكلفة</h3>
+      <p>تحتاج البطاريات وأجهزة الاستشعار والمعالجات المتقدمة إلى استثمارات كبيرة.</p>
+    </article>
+    <article class="card">
+      <h3>البنية التحتية</h3>
+      <p>توسيع محطات الشحن والهيدروجين وتحسين شبكات الكهرباء والاتصال.</p>
+    </article>
+    <article class="card">
+      <h3>السلامة</h3>
+      <p>اختبار الأنظمة الجديدة والتأكد من عملها بشكل موثوق في ظروف مختلفة.</p>
+    </article>
+    <article class="card">
+      <h3>البيئة</h3>
+      <p>تقليل أثر استخراج المواد الخام وتصنيع البطاريات والتخلص منها وإعادة تدويرها.</p>
+    </article>
+    <article class="card">
+      <h3>الخصوصية</h3>
+      <p>حماية بيانات السائقين والمركبات التي تجمعها أنظمة الاتصال والخدمات الذكية.</p>
+    </article>
+    <article class="card">
+      <h3>التشريعات</h3>
+      <p>تطوير قوانين ومعايير تنظم الاختبارات والقيادة الآلية والمسؤولية عند وقوع الحوادث.</p>
+    </article>
+  </div>
+</section>
+
+<section id="comparison">
+  <h2 class="section-heading">9. مقارنة تقنيات سيارات المستقبل</h2>
+  <p class="section-desc">
+    لكل تقنية مميزات وتحديات، ولا توجد تقنية واحدة تناسب جميع الاستخدامات والبلدان.
+  </p>
+  <table>
+    <tr>
+      <th>التقنية</th>
+      <th>مصدر الطاقة</th>
+      <th>أهم ميزة</th>
+      <th>أبرز تحدٍ</th>
+    </tr>
+    <tr>
+      <td>كهربائية بالكامل</td>
+      <td>البطارية</td>
+      <td>كفاءة دفع عالية وانعدام انبعاثات العادم أثناء القيادة</td>
+      <td>الشحن والبطاريات والبنية التحتية</td>
+    </tr>
+    <tr>
+      <td>خلية وقود</td>
+      <td>الهيدروجين</td>
+      <td>تعبئة سريعة نسبياً في المحطات المناسبة</td>
+      <td>الإنتاج والتخزين والمحطات</td>
+    </tr>
+    <tr>
+      <td>هجينة</td>
+      <td>وقود وبطارية</td>
+      <td>الجمع بين محرك احتراق ومحرك كهربائي</td>
+      <td>تعقيد المنظومة والصيانة</td>
+    </tr>
+    <tr>
+      <td>قيادة ذاتية</td>
+      <td>ليست مصدراً للطاقة</td>
+      <td>مساعدة السائق وأتمتة بعض مهام القيادة</td>
+      <td>السلامة والظروف المعقدة والتشريعات</td>
+    </tr>
+  </table>
+</section>
+
+<section id="conclusion">
+  <h2 class="section-heading">10. خلاصة: إلى أين تتجه صناعة السيارات؟</h2>
+  <p class="section-desc">
+    مستقبل السيارات لن يعتمد على المحرك وحده، بل على تكامل مجموعة من التخصصات:
+    الهندسة الميكانيكية، والهندسة الكهربائية، والإلكترونيات، والبرمجة،
+    والذكاء الاصطناعي، وعلوم المواد والطاقة.
+  </p>
+  <div class="info-box">
+    <strong>الفكرة الأساسية:</strong>
+    مهندس المستقبل لا يدرس أجزاء السيارة فقط، بل يفهم كيف تعمل الأنظمة معاً،
+    وكيف يمكن تطويرها لتصبح أكثر كفاءة وأماناً واستدامة.
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="quiz">
+    <h2>📝 اختبر معلوماتك</h2>
+    <p style="color:#aaa">أجب عن الأسئلة الثمانية واحصل على نتيجتك من 8 نقاط.</p>
+
+    <form id="quizForm">
+      <div class="question">
+        <p>1. ما مصدر الطاقة الأساسي في السيارة الكهربائية بالكامل؟</p>
+        <label><input type="radio" name="q1" value="a"> البنزين</label>
+        <label><input type="radio" name="q1" value="b"> البطارية</label>
+        <label><input type="radio" name="q1" value="c"> الديزل</label>
+      </div>
+
+      <div class="question">
+        <p>2. ما وظيفة العاكس Inverter في السيارة الكهربائية؟</p>
+        <label><input type="radio" name="q2" value="a"> تحويل التيار الكهربائي إلى النوع المناسب للمحرك</label>
+        <label><input type="radio" name="q2" value="b"> تبريد الإطارات</label>
+        <label><input type="radio" name="q2" value="c"> تخزين الوقود</label>
+      </div>
+
+      <div class="question">
+        <p>3. ما الناتج الأساسي في خلية وقود الهيدروجين أثناء التشغيل؟</p>
+        <label><input type="radio" name="q3" value="a"> البنزين</label>
+        <label><input type="radio" name="q3" value="b"> الفحم</label>
+        <label><input type="radio" name="q3" value="c"> الماء والحرارة</label>
+      </div>
+
+      <div class="question">
+        <p>4. ماذا تعني تقنية ADAS؟</p>
+        <label><input type="radio" name="q4" value="a"> نظام تكييف</label>
+        <label><input type="radio" name="q4" value="b"> أنظمة مساعدة السائق المتقدمة</label>
+        <label><input type="radio" name="q4" value="c"> نظام العادم</label>
+      </div>
+
+      <div class="question">
+        <p>5. ما وظيفة الرادار في أنظمة مساعدة السائق؟</p>
+        <label><input type="radio" name="q5" value="a"> قياس المسافة والسرعة النسبية للأجسام</label>
+        <label><input type="radio" name="q5" value="b"> تشغيل المصابيح فقط</label>
+        <label><input type="radio" name="q5" value="c"> شحن البطارية</label>
+      </div>
+
+      <div class="question">
+        <p>6. ماذا تعني V2V؟</p>
+        <label><input type="radio" name="q6" value="a"> سيارة إلى منزل</label>
+        <label><input type="radio" name="q6" value="b"> سيارة إلى سيارة</label>
+        <label><input type="radio" name="q6" value="c"> محرك إلى بطارية</label>
+      </div>
+
+      <div class="question">
+        <p>7. لماذا تستخدم بعض السيارات مواد خفيفة الوزن؟</p>
+        <label><input type="radio" name="q7" value="a"> لزيادة استهلاك الطاقة</label>
+        <label><input type="radio" name="q7" value="b"> لإلغاء نظام الفرامل</label>
+        <label><input type="radio" name="q7" value="c"> لتحسين الكفاءة وتقليل الكتلة</label>
+      </div>
+
+      <div class="question">
+        <p>8. هل تعني أنظمة مساعدة السائق أن السائق يمكنه تجاهل الطريق؟</p>
+        <label><input type="radio" name="q8" value="a"> نعم دائماً</label>
+        <label><input type="radio" name="q8" value="b"> لا، يجب الالتزام بحدود النظام ومراقبة الطريق حسب مستواه</label>
+        <label><input type="radio" name="q8" value="c"> نعم داخل المدينة فقط</label>
+      </div>
+
+      <button type="button" onclick="checkQuiz()">تصحيح الإجابات</button>
+      <button type="reset" onclick="resetResult()" style="background:#333;color:white;margin-right:8px">إعادة الاختبار</button>
+      <div id="result" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>MECHANICAL WORLD</strong>
+  <p>المعرفة الهندسية تصنع ابتكارات المستقبل ⚙️</p>
+  <div class="names">
+    إعداد التلميذتين:<br>
+    بن صالح كوثر 🌞<br>
+    بالعربي هاجر 🌚<br>
+    إشراف: أستاذ مادة الميكانيك
+  </div>
+  <p style="margin-top:15px;font-size:12px">© 2026 MECHANICAL WORLD — جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+function checkQuiz(){
+  const answers={
+    q1:"b",q2:"a",q3:"c",q4:"b",
+    q5:"a",q6:"b",q7:"c",q8:"b"
+  };
+
+  let score=0;
+  let unanswered=0;
+
+  for(let key in answers){
+    const selected=document.querySelector('input[name="'+key+'"]:checked');
+    if(!selected){
+      unanswered++;
+    }else if(selected.value===answers[key]){
+      score++;
+    }
+  }
+
+  const result=document.getElementById("result");
+
+  if(unanswered>0){
+    result.style.color="#e5b85c";
+    result.textContent="أجيبي عن جميع الأسئلة أولاً. الأسئلة المتبقية: "+unanswered;
+    return;
+  }
+
+  let message="";
+  if(score===8) message="ممتاز! أنتِ خبيرة في تقنيات المستقبل 🏆";
+  else if(score>=6) message="رائع جداً! لديك معرفة قوية 👏";
+  else if(score>=4) message="جيد! واصلي التعلم والتطوير 💡";
+  else message="لا بأس، راجعي الدرس وحاولي مرة أخرى 📚";
+
+  result.style.color="#c9a45c";
+  result.textContent="نتيجتك: "+score+" / 8 — "+message;
+}
+
+function resetResult(){
+  document.getElementById("result").textContent="";
+}
+</script>
+
+</body>
+</html>
