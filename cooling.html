@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>نظام التبريد والتزييت | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#c9a45c;--bg:#090909;--panel:#151515;--white:#f5f5f5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--white);line-height:1.9}
+header{background:#101010;border-bottom:1px solid #34302a;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:19px;font-weight:800;letter-spacing:1px;color:var(--gold);direction:ltr}
+header a,.back{color:var(--gold);text-decoration:none}
+.hero{padding:75px 8%;background:linear-gradient(90deg,#090909ed,#09090999),url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1600&q=85') center/cover}
+.hero small{color:var(--gold);letter-spacing:3px;direction:ltr;display:block}
+h1{font-size:clamp(30px,5vw,54px);margin:12px 0}
+.hero p{max-width:750px;color:#ddd}
+.container{width:min(1100px,90%);margin:45px auto}
+.section-title{color:var(--gold);font-size:27px;margin:35px 0 18px;border-right:4px solid var(--gold);padding-right:13px}
+p{color:#ccc;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.card{background:var(--panel);border:1px solid #292929;border-radius:12px;padding:22px;transition:.25s}
+.card:hover{border-color:var(--gold);transform:translateY(-4px)}
+.card img{width:100%;height:155px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+.card h3{color:var(--gold);margin-bottom:8px}
+.highlight{background:#17140e;border-right:4px solid var(--gold);padding:20px;margin:20px 0;border-radius:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;background:var(--panel);font-size:14px}
+th,td{padding:13px;border:1px solid #333;text-align:center}
+th{background:#282115;color:var(--gold)}
+.quiz{background:var(--panel);padding:25px;border-radius:12px;border:1px solid #39332a;margin-top:20px}
+.question{padding:17px 0;border-bottom:1px solid #333}
+.question h3{font-size:16px;margin-bottom:12px}
+.option{display:block;background:#222;padding:10px 13px;margin:7px 0;border-radius:7px;cursor:pointer;border:1px solid transparent}
+.option:hover{border-color:var(--gold)}
+.option input{margin-left:8px;accent-color:var(--gold)}
+button{background:var(--gold);color:#111;border:0;padding:12px 25px;border-radius:7px;font-family:inherit;font-weight:800;cursor:pointer;margin-top:18px}
+#result{margin-top:18px;color:var(--gold);font-weight:bold}
+footer{text-align:center;padding:30px 15px;background:#101010;border-top:1px solid #333;color:#aaa;margin-top:60px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){header{padding:15px 5%}.hero{padding:55px 6%}.container{width:92%}table{font-size:12px}th,td{padding:8px}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">MECHANICAL WORLD</div>
+ <a href="index.html">← العودة إلى الرئيسية</a>
+</header>
+
+<section class="hero">
+ <small>VEHICLE ENGINEERING / 06</small>
+ <h1>نظام التبريد والتزييت</h1>
+ <p>دراسة هندسية لنظامين أساسيين يحافظان على سلامة المحرك: التحكم في درجة الحرارة وتقليل الاحتكاك بين الأجزاء المتحركة.</p>
+</section>
+
+<main class="container">
+
+<h2 class="section-title">1. لماذا يحتاج المحرك إلى التبريد والتزييت؟</h2>
+<p>أثناء احتراق خليط الهواء والوقود داخل أسطوانات المحرك، تتولد حرارة كبيرة. كما تتحرك أجزاء معدنية بسرعة عالية وتتلامس تحت أحمال وضغوط مختلفة. لذلك يحتاج المحرك إلى نظامين متكاملين.</p>
+<p>نظام التبريد ينظم درجة حرارة التشغيل ويمنع ارتفاعها المفرط، أما نظام التزييت فيكوّن طبقة زيتية بين الأسطح المتحركة لتقليل الاحتكاك والتآكل والمساعدة على نقل الحرارة والشوائب.</p>
+
+<div class="highlight">
+<strong>معلومة هندسية:</strong>
+لا يهدف نظام التبريد إلى جعل المحرك بارداً دائماً، بل إلى المحافظة على درجة حرارة تشغيل مناسبة وفق تصميم الشركة المصنعة.
+</div>
+
+<h2 class="section-title">2. نظام التبريد (Cooling System)</h2>
+<p>نظام التبريد في محركات الاحتراق الداخلي السائلة يعتمد على تدوير سائل التبريد بين المحرك والمبرد (Radiator). يمتص السائل الحرارة من أجزاء المحرك، ثم يمر عبر المبرد للتخلص من جزء كبير منها إلى الهواء الخارجي.</p>
+
+<div class="grid">
+ <article class="card">
+  <h3>المبرد (Radiator)</h3>
+  <p>مبادل حراري يتكون من قنوات وأنابيب وزعانف معدنية. يمر سائل التبريد داخله، وينتقل جزء من حرارته إلى الهواء المار بين الزعانف.</p>
+ </article>
+ <article class="card">
+  <h3>مضخة الماء (Water Pump)</h3>
+  <p>تدفع سائل التبريد عبر قنوات المحرك والمبرد، وتساعد على استمرار دورانه في الدائرة.</p>
+ </article>
+ <article class="card">
+  <h3>منظم الحرارة (Thermostat)</h3>
+  <p>ينظم مرور سائل التبريد إلى المبرد حسب درجة الحرارة، ويساعد المحرك على الوصول إلى درجة التشغيل المناسبة.</p>
+ </article>
+ <article class="card">
+  <h3>مروحة التبريد (Cooling Fan)</h3>
+  <p>تدفع الهواء عبر المبرد، وتكون مهمة خصوصاً عند توقف السيارة أو السير بسرعات منخفضة.</p>
+ </article>
+ <article class="card">
+  <h3>سائل التبريد (Coolant)</h3>
+  <p>خليط مصمم لنقل الحرارة والحماية من التجمد والغليان والتآكل وفق مواصفات المركبة.</p>
+ </article>
+ <article class="card">
+  <h3>خزان التمدد</h3>
+  <p>يسمح باستيعاب تمدد السائل عند ارتفاع حرارته، ويساعد على مراقبة مستواه في الأنظمة المصممة لذلك.</p>
+ </article>
+</div>
+
+<h2 class="section-title">3. كيف يعمل نظام التبريد؟</h2>
+<div class="grid">
+ <article class="card">
+  <h3>المرحلة الأولى: امتصاص الحرارة</h3>
+  <p>يمر سائل التبريد داخل الممرات المحيطة بأسطوانات المحرك ورأس الأسطوانات، فيمتص الحرارة.</p>
+ </article>
+ <article class="card">
+  <h3>المرحلة الثانية: انتقال السائل</h3>
+  <p>تدفع المضخة السائل خلال الدائرة، ويتحكم منظم الحرارة في مسار دورانه حسب درجة الحرارة.</p>
+ </article>
+ <article class="card">
+  <h3>المرحلة الثالثة: تبادل الحرارة</h3>
+  <p>يمر السائل الساخن عبر المبرد، فتنتقل الحرارة من السائل إلى الأنابيب والزعانف ثم إلى الهواء.</p>
+ </article>
+ <article class="card">
+  <h3>المرحلة الرابعة: تكرار الدورة</h3>
+  <p>يعود السائل بعد انخفاض حرارته إلى المحرك، وتتكرر العملية باستمرار أثناء التشغيل.</p>
+ </article>
+</div>
+
+<h2 class="section-title">4. أنواع أنظمة التبريد</h2>
+<div class="grid">
+ <article class="card">
+  <h3>التبريد بالهواء</h3>
+  <p>يعتمد على انتقال الحرارة مباشرة من أجزاء المحرك إلى الهواء عبر زعانف معدنية. يوجد في بعض المحركات الصغيرة والدراجات النارية.</p>
+ </article>
+ <article class="card">
+  <h3>التبريد بالسائل</h3>
+  <p>يعتمد على سائل يدور داخل قنوات المحرك والمبرد. يتميز بالقدرة على التحكم في توزيع الحرارة، وهو شائع في السيارات الحديثة.</p>
+ </article>
+</div>
+
+<h2 class="section-title">5. أنواع سوائل التبريد</h2>
+<p>تحتوي سوائل التبريد عادة على ماء معالج ومركبات مانعة للتجمد ومثبطات للتآكل. تختلف التركيبات والمواصفات بين الشركات المصنعة.</p>
+<table>
+<thead><tr><th>الخاصية</th><th>أهميتها</th></tr></thead>
+<tbody>
+<tr><td>نقل الحرارة</td><td>المساعدة على نقل الحرارة من المحرك إلى المبرد</td></tr>
+<tr><td>مقاومة التجمد</td><td>تقليل خطر تجمد السائل في درجات الحرارة المنخفضة</td></tr>
+<tr><td>رفع درجة الغليان</td><td>تقليل احتمال الغليان ضمن ظروف التشغيل المحددة</td></tr>
+<tr><td>مقاومة التآكل</td><td>حماية الممرات المعدنية ومكونات النظام</td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">6. نظام التزييت (Lubrication System)</h2>
+<p>نظام التزييت مسؤول عن إيصال الزيت إلى الأجزاء المتحركة داخل المحرك. تتكون طبقة زيتية تفصل بين الأسطح المعدنية، مما يقلل الاحتكاك والتآكل ويساعد على إطالة عمر المحرك.</p>
+<div class="grid">
+ <article class="card">
+  <h3>حوض الزيت (Oil Pan)</h3>
+  <p>خزان يوجد أسفل المحرك، يتجمع فيه الزيت بعد عودته من أجزاء التزييت.</p>
+ </article>
+ <article class="card">
+  <h3>مضخة الزيت (Oil Pump)</h3>
+  <p>تسحب الزيت من الحوض وتدفعه عبر الممرات لتغذية أجزاء المحرك.</p>
+ </article>
+ <article class="card">
+  <h3>مرشح الزيت (Oil Filter)</h3>
+  <p>يحتجز كثيراً من الشوائب والجزيئات الناتجة عن التشغيل، ويساعد على المحافظة على نظافة الزيت.</p>
+ </article>
+ <article class="card">
+  <h3>ممرات الزيت</h3>
+  <p>قنوات داخل جسم المحرك ورأس الأسطوانات تنقل الزيت إلى المحامل والأجزاء المتحركة.</p>
+ </article>
+ <article class="card">
+  <h3>مقياس الزيت (Dipstick)</h3>
+  <p>يسمح بفحص مستوى الزيت يدوياً في السيارات المجهزة به، وفق خطوات الشركة المصنعة.</p>
+ </article>
+ <article class="card">
+  <h3>مبرد الزيت (Oil Cooler)</h3>
+  <p>يساعد على خفض حرارة الزيت عندما يكون ذلك ضرورياً وفق تصميم المحرك.</p>
+ </article>
+</div>
+
+<h2 class="section-title">7. وظائف زيت المحرك</h2>
+<div class="grid">
+ <article class="card"><h3>تقليل الاحتكاك</h3><p>تكوين طبقة فاصلة بين الأسطح المتحركة لتقليل التلامس المباشر.</p></article>
+ <article class="card"><h3>التبريد</h3><p>امتصاص جزء من الحرارة ونقلها بعيداً عن الأجزاء الساخنة.</p></article>
+ <article class="card"><h3>التنظيف</h3><p>حمل بعض الرواسب والجزيئات إلى مرشح الزيت.</p></article>
+ <article class="card"><h3>الحماية</h3><p>المساعدة على حماية الأسطح المعدنية من الصدأ والتآكل.</p></article>
+ <article class="card"><h3>الإحكام</h3><p>المساعدة على تحسين الإحكام بين حلقات المكبس وجدران الأسطوانة.</p></article>
+ <article class="card"><h3>تقليل الضوضاء</h3><p>تخفيف بعض الأصوات الناتجة عن حركة الأجزاء المعدنية.</p></article>
+</div>
+
+<h2 class="section-title">8. درجات لزوجة الزيت</h2>
+<p>اللزوجة هي مقاومة السائل للجريان. يحدد معيار SAE درجات لزوجة زيوت المحركات، مثل 5W-30 أو 10W-40.</p>
+<table>
+<thead><tr><th>الرمز</th><th>المعنى المبسط</th></tr></thead>
+<tbody>
+<tr><td>5W</td><td>يشير إلى تصنيف أداء الزيت في درجات الحرارة المنخفضة، وW تعني Winter</td></tr>
+<tr><td>30</td><td>يشير إلى تصنيف اللزوجة عند درجة الحرارة العالية وفق معيار SAE</td></tr>
+<tr><td>10W-40</td><td>زيت متعدد الدرجات له تصنيف بارد وآخر ساخن مختلف</td></tr>
+</tbody>
+</table>
+<div class="highlight">
+<strong>ملاحظة:</strong>
+لا تختاري الزيت بناءً على اللزوجة فقط. يجب احترام مواصفات الشركة المصنعة ومعايير الجودة المحددة للمحرك.
+</div>
+
+<h2 class="section-title">9. دورة الزيت داخل المحرك</h2>
+<div class="grid">
+ <article class="card"><h3>1. السحب</h3><p>تسحب مضخة الزيت الزيت من حوض المحرك عبر مصفاة السحب.</p></article>
+ <article class="card"><h3>2. الترشيح</h3><p>يمر الزيت عبر مرشح الزيت الذي يحتجز كثيراً من الشوائب.</p></article>
+ <article class="card"><h3>3. التوزيع</h3><p>ينتقل الزيت عبر القنوات إلى المحامل وأجزاء المحرك المختلفة.</p></article>
+ <article class="card"><h3>4. العودة</h3><p>يرجع الزيت بفعل الجاذبية إلى حوض الزيت لتبدأ الدورة من جديد.</p></article>
+</div>
+
+<h2 class="section-title">10. أعطال نظام التبريد والتزييت</h2>
+<table>
+<thead><tr><th>العَرَض</th><th>أسباب محتملة</th><th>التصرف المناسب</th></tr></thead>
+<tbody>
+<tr><td>ارتفاع حرارة المحرك</td><td>تسرب سائل أو خلل بالمضخة أو المروحة</td><td>إيقاف السيارة بأمان وفحص النظام</td></tr>
+<tr><td>نقص سائل التبريد</td><td>تسرب في الخراطيم أو المبرد أو أجزاء أخرى</td><td>فحص مصدر التسرب</td></tr>
+<tr><td>تسرب الزيت</td><td>تلف حشية أو مانع تسرب</td><td>تحديد مصدر التسرب وإصلاحه</td></tr>
+<tr><td>انخفاض ضغط الزيت</td><td>نقص الزيت أو خلل المضخة أو تآكل داخلي</td><td>إيقاف المحرك والتحقق فوراً</td></tr>
+<tr><td>دخان أبيض كثيف مستمر</td><td>قد يشير إلى دخول سائل التبريد إلى غرفة الاحتراق</td><td>تشخيص فني متخصص</td></tr>
+<tr><td>صوت غير طبيعي بالمحرك</td><td>قد ينتج عن نقص التزييت أو أسباب ميكانيكية أخرى</td><td>إيقاف المحرك عند وجود تحذير ضغط الزيت</td></tr>
+</tbody>
+</table>
+
+<h2 class="section-title">11. الصيانة الدورية</h2>
+<div class="grid">
+ <article class="card"><h3>فحص مستوى الزيت</h3><p>قياس المستوى بالطريقة المحددة من الشركة المصنعة، وعدم تجاوز الحد الأعلى أو النزول عن الحد الأدنى.</p></article>
+ <article class="card"><h3>تغيير الزيت والمرشح</h3><p>الالتزام بفترات الصيانة المحددة حسب نوع المحرك وظروف الاستعمال.</p></article>
+ <article class="card"><h3>فحص سائل التبريد</h3><p>مراقبة المستوى والحالة واستخدام السائل المعتمد للمركبة.</p></article>
+ <article class="card"><h3>فحص الخراطيم</h3><p>البحث عن التشققات والانتفاخات والتسربات في خراطيم التبريد.</p></article>
+</div>
+<div class="highlight">
+<strong>تحذير سلامة:</strong>
+لا تفتح غطاء المبرد أو خزان الضغط والمحرك ساخن؛ فقد يندفع سائل شديد السخونة ويسبب حروقاً. عند ارتفاع الحرارة، توقف في مكان آمن واتبع تعليمات دليل المركبة.
+</div>
+
+<h2 class="section-title">12. اختبار معلوماتك</h2>
+<p>أجب عن الأسئلة الثمانية ثم اضغط على تصحيح الاختبار.</p>
+<div class="quiz">
+<div id="questions"></div>
+<button onclick="correctQuiz()">تصحيح الاختبار</button>
+<button onclick="resetQuiz()" style="background:#333;color:white">إعادة المحاولة</button>
+<div id="result"></div>
+</div>
+
+</main>
+
+<footer>
+<strong>MECHANICAL WORLD</strong>
+<p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+<p>إشراف أستاذ مادة الميكانيك</p>
+<p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+<a class="back" href="index.html">العودة إلى الصفحة الرئيسية ↑</a>
+</footer>
+
+<script>
+const questions=[
+{q:"ما الوظيفة الأساسية لنظام التبريد؟",o:["زيادة سرعة المحرك","تنظيم درجة حرارة المحرك","تغيير السرعات","تخزين الوقود"],a:1},
+{q:"ما وظيفة مضخة الماء؟",o:["تدوير سائل التبريد","ضخ الوقود","تدوير الزيت فقط","تشغيل البطارية"],a:0},
+{q:"ما وظيفة منظم الحرارة Thermostat؟",o:["قياس سرعة السيارة","تنظيم مرور سائل التبريد حسب الحرارة","تغيير لزوجة الزيت","تشغيل المصابيح"],a:1},
+{q:"ما وظيفة مضخة الزيت؟",o:["تدوير سائل التبريد","دفع الزيت عبر ممرات المحرك","تصفية الوقود","تبريد الإطارات"],a:1},
+{q:"ما وظيفة مرشح الزيت؟",o:["زيادة ضغط الوقود","احتجاز الشوائب من الزيت","تغيير درجة حرارة الهواء","تشغيل المحرك"],a:1},
+{q:"ماذا تعني اللزوجة؟",o:["مقاومة السائل للجريان","سرعة دوران العجلة","قوة البطارية","درجة حرارة المحرك"],a:0},
+{q:"ماذا يجب فعله عند ظهور تحذير انخفاض ضغط الزيت؟",o:["مواصلة القيادة","زيادة سرعة المحرك","إيقاف المحرك بأمان والتحقق فوراً","فتح غطاء المبرد"],a:2},
+{q:"لماذا لا نفتح غطاء المبرد والمحرك ساخن؟",o:["لأن الوقود يتجمد","خوفاً من اندفاع سائل ساخن مضغوط","لأن البطارية تتوقف","لأن الزيت يتجمد"],a:1}
+];
+function renderQuiz(){
+document.getElementById("questions").innerHTML=questions.map((q,i)=>`
+<div class="question"><h3>${i+1}. ${q.q}</h3>
+${q.o.map((v,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}">${v}</label>`).join("")}
+</div>`).join("");
+document.getElementById("result").textContent="";
+}
+function correctQuiz(){
+let score=0,answered=0;
+questions.forEach((q,i)=>{
+const selected=document.querySelector('input[name="q'+i+'"]:checked');
+if(selected){answered++;if(Number(selected.value)===q.a)score++;}
+});
+if(answered!==questions.length){
+document.getElementById("result").textContent="أجب عن جميع الأسئلة أولاً ("+answered+"/"+questions.length+")";
+return;
+}
+document.getElementById("result").textContent="نتيجتك: "+score+" / "+questions.length+" — "+(score===8?"ممتاز!":"واصل التعلم، يمكنك تحسين نتيجتك!");
+}
+function resetQuiz(){renderQuiz();}
+renderQuiz();
+</script>
+</body>
+</html>
