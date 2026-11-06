@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="دليل هندسي شامل حول نظام نقل الحركة في السيارات وأنواع علب السرعة ومكوناتها وصيانتها.">
+<title>TRANSMISSION SYSTEM | MECHANICAL WORLD</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+ --gold:#c9a45c;--bg:#090909;--card:#151515;
+ --muted:#aaa;--white:#f5f5f5;--border:#292929;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Cairo',sans-serif;line-height:1.9}
+a{text-decoration:none;color:inherit}
+header{
+ position:sticky;top:0;z-index:100;background:#090909ed;
+ border-bottom:1px solid var(--border);padding:15px 7%;
+ display:flex;justify-content:space-between;align-items:center;
+ gap:15px;flex-wrap:wrap;backdrop-filter:blur(12px)
+}
+.logo{font-size:21px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--gold)}
+.back{border:1px solid var(--gold);padding:7px 18px;border-radius:5px;color:var(--gold);font-size:13px}
+.back:hover{background:var(--gold);color:#000}
+.hero{
+ min-height:400px;padding:85px 8%;display:flex;align-items:center;
+ background:linear-gradient(90deg,#090909f5,#090909a8),
+ url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85') center/cover;
+ border-bottom:1px solid var(--border)
+}
+.hero-content{max-width:800px}
+.number{color:var(--gold);font-weight:800;letter-spacing:4px}
+h1{font-size:clamp(35px,6vw,65px);line-height:1.3;margin:15px 0}
+h1 span{color:var(--gold)}
+.hero p{color:#ccc;max-width:700px}
+.hero-btn{display:inline-block;margin-top:25px;padding:10px 25px;background:var(--gold);color:#090909;font-weight:800;border-radius:4px}
+.container{width:min(1120px,90%);margin:auto}
+section{padding:65px 0;border-bottom:1px solid var(--border)}
+.section-title{margin-bottom:30px}
+.section-title small{color:var(--gold);font-weight:800;letter-spacing:2px}
+.section-title h2{font-size:30px;margin-top:5px}
+.section-title p{color:var(--muted);margin-top:8px}
+.card{background:var(--card);border:1px solid var(--border);padding:23px;border-radius:9px;margin-bottom:16px}
+.card h3{color:var(--gold);margin-bottom:10px;font-size:19px}
+.card p{color:#ccc}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:17px}
+.tag{display:inline-block;color:var(--gold);border:1px solid #6e5930;padding:2px 10px;border-radius:20px;font-size:12px;margin-bottom:10px}
+ul{padding-right:22px;color:#ccc}
+li{margin:7px 0}
+.gold{color:var(--gold)}
+strong{color:#eee}
+.table-wrap{overflow-x:auto;border-radius:8px}
+table{width:100%;border-collapse:collapse;min-width:550px}
+th,td{padding:13px;border:1px solid var(--border);text-align:right}
+th{background:#282116;color:var(--gold)}
+td{color:#ccc}
+.steps{display:grid;gap:13px}
+.step{display:flex;gap:15px;align-items:flex-start;background:var(--card);padding:16px;border-radius:8px;border:1px solid var(--border)}
+.step b{min-width:35px;height:35px;display:grid;place-items:center;background:var(--gold);color:#000;border-radius:50%}
+.warning{border-right:4px solid #c68b39;background:#211b12}
+.quiz-question{margin:20px 0;padding:20px;background:var(--card);border:1px solid var(--border);border-radius:8px}
+.quiz-question h3{font-size:16px;margin-bottom:12px}
+.option{display:block;width:100%;text-align:right;padding:10px 13px;margin:8px 0;background:#202020;color:white;border:1px solid #383838;border-radius:5px;font-family:inherit;cursor:pointer}
+.option:hover{border-color:var(--gold)}
+.option.selected{border-color:var(--gold);background:#302819}
+.option.correct{background:#153421;border-color:#35a766}
+.option.wrong{background:#3b1b1b;border-color:#d35c5c}
+#result{display:none;padding:20px;background:#191919;border:1px solid var(--gold);border-radius:8px;margin-top:20px}
+.action{background:var(--gold);color:#080808;border:0;padding:12px 25px;font-family:inherit;font-weight:900;border-radius:5px;cursor:pointer;margin-top:15px}
+footer{text-align:center;padding:35px 15px;color:#888;font-size:13px}
+footer strong{color:var(--gold)}
+@media(max-width:600px){
+ header{padding:12px 5%}.logo{font-size:17px}
+ .hero{padding:65px 6%;min-height:350px}
+ .section-title h2{font-size:25px}
+ section{padding:45px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <a class="logo" href="index.html">MECHANICAL <span>WORLD</span></a>
+ <a class="back" href="index.html">← العودة للرئيسية</a>
+</header>
+
+<div class="hero">
+ <div class="hero-content">
+  <div class="number">09 / AUTOMOTIVE ENGINEERING</div>
+  <h1>TRANSMISSION <span>SYSTEM</span></h1>
+  <p>
+   اكتشف نظام نقل الحركة في السيارات، وكيف تنتقل الطاقة الميكانيكية
+   من المحرك إلى العجلات، وما دور علبة السرعة في التحكم بالسرعة والعزم.
+  </p>
+  <a href="#definition" class="hero-btn">اكتشف النظام ↓</a>
+ </div>
+</div>
+
+<main class="container">
+
+<section id="definition">
+ <div class="section-title">
+  <small>01 — INTRODUCTION</small>
+  <h2>ما هو نظام نقل الحركة؟</h2>
+  <p>Transmission System: أحد أهم الأنظمة الميكانيكية في المركبة.</p>
+ </div>
+ <div class="card">
+  <span class="tag">التعريف الهندسي</span>
+  <p>
+   نظام نقل الحركة هو مجموعة من المكونات الميكانيكية التي تنقل القدرة
+   والعزم الناتجين عن المحرك إلى العجلات المحركة. يسمح هذا النظام
+   بتغيير العلاقة بين سرعة دوران المحرك وسرعة العجلات، حتى تتمكن
+   السيارة من الانطلاق والتسارع وصعود المرتفعات والسير بسرعات مختلفة.
+  </p>
+  <p>
+   لا يستطيع المحرك وحده توفير الظروف المثالية لكل سرعات القيادة؛
+   لذلك نحتاج إلى ناقل الحركة الذي يختار النسبة المناسبة حسب سرعة
+   المركبة وحملها وظروف الطريق.
+  </p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>⚙️ الوظيفة</h3><p>نقل القدرة الميكانيكية من المحرك إلى العجلات.</p></div>
+  <div class="card"><h3>🚘 التحكم</h3><p>تغيير نسب السرعة والعزم حسب حاجة السائق.</p></div>
+  <div class="card"><h3>↩️ الرجوع</h3><p>توفير حركة عكسية للمركبة عند اختيار وضع الرجوع.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>02 — MAIN COMPONENTS</small>
+  <h2>المكونات الأساسية لنظام نقل الحركة</h2>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>01. Clutch</h3><p>القابض: يربط المحرك بناقل الحركة أو يفصل بينهما مؤقتاً في السيارات اليدوية.</p></div>
+  <div class="card"><h3>02. Gearbox</h3><p>علبة السرعة: تحتوي على التروس التي توفر نسب نقل مختلفة للسرعة والعزم.</p></div>
+  <div class="card"><h3>03. Torque Converter</h3><p>محول العزم: ينقل القدرة في كثير من نواقل الحركة الأوتوماتيكية باستخدام سائل ناقل الحركة.</p></div>
+  <div class="card"><h3>04. Drive Shaft</h3><p>عمود نقل الحركة: ينقل الدوران إلى مجموعة التخفيض النهائية في المركبات التي تحتاج إليه.</p></div>
+  <div class="card"><h3>05. Differential</h3><p>الترس التفاضلي: يسمح للعجلتين المحركتين بالدوران بسرعتين مختلفتين أثناء الانعطاف.</p></div>
+  <div class="card"><h3>06. Axles</h3><p>أنصاف المحاور: تنقل عزم الدوران من مجموعة التخفيض أو التفاضل إلى العجلات.</p></div>
+  <div class="card"><h3>07. Transmission Fluid</h3><p>سائل ناقل الحركة: يساهم في التزييت والتبريد ونقل الضغط الهيدروليكي في الأنظمة المناسبة.</p></div>
+  <div class="card"><h3>08. Control Unit</h3><p>وحدة التحكم TCU: تدير تبديل السرعات في كثير من نواقل الحركة الإلكترونية.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>03 — HOW IT WORKS</small>
+  <h2>كيف تنتقل الحركة من المحرك إلى العجلات؟</h2>
+  <p>تختلف التفاصيل حسب نوع السيارة، لكن المبدأ العام يعتمد على نقل العزم عبر عدة مراحل.</p>
+ </div>
+ <div class="steps">
+  <div class="step"><b>1</b><div><h3 class="gold">إنتاج الطاقة</h3><p>يولد المحرك عزماً دورانياً نتيجة عملية الاحتراق داخل الأسطوانات، أو من المحرك الكهربائي في السيارات الكهربائية.</p></div></div>
+  <div class="step"><b>2</b><div><h3 class="gold">نقل الحركة</h3><p>تنتقل الحركة عبر القابض في الناقل اليدوي، أو عبر محول العزم أو نظام اقتران مناسب في بعض النواقل الأوتوماتيكية.</p></div></div>
+  <div class="step"><b>3</b><div><h3 class="gold">اختيار نسبة التروس</h3><p>تحدد علبة السرعة النسبة المناسبة بين سرعة دوران المحرك وخرج ناقل الحركة.</p></div></div>
+  <div class="step"><b>4</b><div><h3 class="gold">التخفيض النهائي</h3><p>تنتقل الحركة إلى مجموعة التخفيض النهائية والتفاضل، حيث يتم توزيع العزم وفق تصميم المركبة.</p></div></div>
+  <div class="step"><b>5</b><div><h3 class="gold">تحريك العجلات</h3><p>تنقل أنصاف المحاور العزم إلى العجلات المحركة، فتتحرك السيارة على الطريق.</p></div></div>
+ </div>
+ <div class="card" style="margin-top:20px">
+  <h3>مسار انتقال الحركة</h3>
+  <p class="gold" style="text-align:center;font-size:17px">
+   المحرك ← ناقل الحركة ← التخفيض النهائي ← التفاضل ← العجلات
+  </p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>04 — TRANSMISSION TYPES</small>
+  <h2>أنواع ناقل الحركة</h2>
+  <p>توجد تقنيات متعددة، ولكل نوع طريقة مختلفة في تغيير نسب السرعة.</p>
+ </div>
+ <div class="grid">
+  <div class="card">
+   <h3>Manual Transmission</h3>
+   <p>ناقل الحركة اليدوي: يختار السائق السرعة بنفسه بواسطة ذراع التبديل ودواسة القابض.</p>
+   <ul><li>تحكم مباشر للسائق.</li><li>يعتمد على القابض والتروس.</li><li>يتطلب مهارة في التبديل.</li></ul>
+  </div>
+  <div class="card">
+   <h3>Automatic Transmission</h3>
+   <p>ناقل الحركة الأوتوماتيكي: يغير السرعات تلقائياً وفق سرعة السيارة وحمل المحرك وظروف القيادة.</p>
+   <ul><li>سهولة الاستخدام.</li><li>تبديل آلي للسرعات.</li><li>يستخدم محول العزم في كثير من التصاميم.</li></ul>
+  </div>
+  <div class="card">
+   <h3>CVT Transmission</h3>
+   <p>ناقل الحركة المتغير باستمرار: يوفر نسب نقل متغيرة ضمن مجال معين دون خطوات تروس ثابتة تقليدية.</p>
+   <ul><li>تغيير سلس للنسبة.</li><li>قد يساعد في تحسين استهلاك الوقود.</li><li>يستخدم غالباً نظام بكرات وحزام أو سلسلة.</li></ul>
+  </div>
+  <div class="card">
+   <h3>DCT / DSG</h3>
+   <p>ناقل الحركة مزدوج القابض: يستخدم قابضين لإدارة مجموعتين من التروس، ما يسمح بتبديل سريع للسرعات.</p>
+   <ul><li>استجابة سريعة.</li><li>كفاءة جيدة في ظروف مناسبة.</li><li>قد يكون جافاً أو رطباً.</li></ul>
+  </div>
+  <div class="card">
+   <h3>AMT</h3>
+   <p>ناقل حركة يدوي مؤتمت: يعتمد على بنية ميكانيكية يدوية مع مشغلات تتحكم في القابض وتبديل التروس.</p>
+   <ul><li>تبديل آلي.</li><li>بنية قريبة من الناقل اليدوي.</li><li>قد يشعر السائق بتوقف بسيط أثناء التبديل.</li></ul>
+  </div>
+  <div class="card">
+   <h3>Electric Drive</h3>
+   <p>نظام نقل الحركة الكهربائي: تستخدم كثير من السيارات الكهربائية نسبة تخفيض ثابتة بدلاً من علبة سرعات متعددة تقليدية.</p>
+   <ul><li>عزم متاح بسرعة منخفضة.</li><li>أجزاء ميكانيكية أقل في كثير من التصاميم.</li><li>لا يحتاج عادة إلى قابض تقليدي.</li></ul>
+  </div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>05 — GEAR RATIOS</small>
+  <h2>كيف تعمل نسب التروس؟</h2>
+ </div>
+ <div class="card">
+  <p>
+   نسبة التروس هي العلاقة بين عدد أسنان الترسين المتعشقين، أو بين سرعة
+   دوران عمود الدخول وسرعة دوران عمود الخروج. في ناقل الحركة التقليدي،
+   تساعد النسبة المنخفضة رقمياً من حيث السرعة الخارجة على توفير سرعة
+   دوران أقل وعزم أكبر عند الخرج، مع مراعاة الفواقد الميكانيكية.
+  </p>
+  <h3 style="margin-top:20px">مثال مبسط</h3>
+  <p>
+   إذا كانت نسبة النقل 3:1، فإن عمود الخرج يدور تقريباً دورة واحدة
+   مقابل كل ثلاث دورات لعمود الدخول، ويكون عزم الخرج أعلى نظرياً
+   بثلاث مرات تقريباً قبل احتساب الفواقد.
+  </p>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>السرعة</th><th>الاستخدام</th><th>الهدف</th></tr></thead>
+  <tbody>
+   <tr><td>الأولى</td><td>الانطلاق وصعود المرتفعات</td><td>عزم أكبر وسرعة أقل</td></tr>
+   <tr><td>الثانية</td><td>التسارع الأولي</td><td>التوازن بين العزم والسرعة</td></tr>
+   <tr><td>الثالثة والرابعة</td><td>القيادة العادية</td><td>سرعة أعلى تدريجياً</td></tr>
+   <tr><td>الخامسة والسادسة وما بعدها</td><td>السير بسرعات مرتفعة</td><td>تقليل سرعة دوران المحرك عند ظروف مناسبة</td></tr>
+   <tr><td>R</td><td>الرجوع للخلف</td><td>عكس اتجاه دوران الخرج</td></tr>
+  </tbody>
+ </table>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>06 — DIFFERENTIAL</small>
+  <h2>ما هو الترس التفاضلي؟</h2>
+ </div>
+ <div class="card">
+  <p>
+   الترس التفاضلي أو Differential هو مجموعة تروس تسمح للعجلتين
+   المحركتين على المحور نفسه بالدوران بسرعتين مختلفتين عند الانعطاف.
+   فعندما تدخل السيارة منعطفاً، تقطع العجلة الخارجية مسافة أكبر
+   من العجلة الداخلية، ولذلك تحتاج إلى سرعة دوران أعلى.
+  </p>
+  <p>
+   يساعد التفاضل على توزيع العزم بين العجلات وفق تصميمه وظروف التماسك،
+   ويقلل إجهاد الإطارات وأجزاء نقل الحركة أثناء الانعطاف.
+  </p>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>Open Differential</h3><p>تفاضل مفتوح يسمح باختلاف سرعة العجلتين، لكنه قد يحد من القدرة على الحركة إذا فقدت إحدى العجلتين التماسك.</p></div>
+  <div class="card"><h3>Limited Slip Differential</h3><p>تفاضل محدود الانزلاق يقلل فرق السرعة بين العجلات في ظروف محددة لتحسين نقل العزم.</p></div>
+  <div class="card"><h3>Locking Differential</h3><p>تفاضل قابل للقفل يربط العجلتين أو يحد من اختلاف سرعتهما، ويستخدم في بعض سيارات الطرق الوعرة.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>07 — DRIVE LAYOUTS</small>
+  <h2>أنظمة دفع السيارات</h2>
+ </div>
+ <div class="grid">
+  <div class="card"><h3>FWD — دفع أمامي</h3><p>تنتقل القوة إلى العجلات الأمامية. يتميز غالباً ببساطة التصميم وتوفير المساحة والوزن.</p></div>
+  <div class="card"><h3>RWD — دفع خلفي</h3><p>تنتقل القوة إلى العجلات الخلفية. يوجد في كثير من السيارات الرياضية وبعض السيارات الكبيرة.</p></div>
+  <div class="card"><h3>AWD — دفع رباعي مستمر أو تلقائي</h3><p>يوزع القوة على المحورين الأمامي والخلفي وفق تصميم النظام وظروف القيادة.</p></div>
+  <div class="card"><h3>4WD — دفع رباعي قابل للاختيار</h3><p>يستخدم في كثير من المركبات المخصصة للطرق الوعرة، وقد يوفر أوضاع دفع مختلفة.</p></div>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>08 — COMPARISON</small>
+  <h2>مقارنة بين أنواع ناقل الحركة</h2>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>النوع</th><th>طريقة التبديل</th><th>أهم ميزة</th><th>ملاحظة</th></tr></thead>
+  <tbody>
+   <tr><td>Manual</td><td>يدوي</td><td>تحكم مباشر</td><td>يحتاج إلى استخدام القابض</td></tr>
+   <tr><td>Automatic</td><td>تلقائي</td><td>راحة القيادة</td><td>تختلف كفاءته حسب التصميم</td></tr>
+   <tr><td>CVT</td><td>تغيير مستمر للنسبة</td><td>سلاسة التبديل</td><td>يحتاج إلى سائل مناسب لمواصفاته</td></tr>
+   <tr><td>DCT</td><td>تلقائي بقابضين</td><td>سرعة التبديل</td><td>له متطلبات صيانة خاصة</td></tr>
+   <tr><td>AMT</td><td>يدوي مؤتمت</td><td>بساطة البنية نسبياً</td><td>قد يظهر تفاوت في سلاسة التبديل</td></tr>
+  </tbody>
+ </table>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>09 — FAULTS & MAINTENANCE</small>
+  <h2>الأعطال الشائعة والصيانة</h2>
+  <p>يساعد الفحص الدوري على حماية ناقل الحركة وإطالة عمره التشغيلي.</p>
+ </div>
+ <div class="table-wrap">
+ <table>
+  <thead><tr><th>العَرَض</th><th>احتمال السبب</th><th>الإجراء</th></tr></thead>
+  <tbody>
+   <tr><td>صعوبة تبديل السرعات</td><td>خلل في القابض أو آلية التبديل أو التحكم</td><td>فحص النظام</td></tr>
+   <tr><td>انزلاق السرعة</td><td>تآكل القابض أو مشكلة ضغط أو سائل</td><td>تشخيص فني</td></tr>
+   <tr><td>تسرب سائل</td><td>تلف مانع تسرب أو وصلة</td><td>تحديد مكان التسرب وإصلاحه</td></tr>
+   <tr><td>اهتزاز أثناء الحركة</td><td>مشكلة في القابض أو قواعد المحرك أو نقل الحركة</td><td>فحص شامل</td></tr>
+   <tr><td>صوت طقطقة أو طنين</td><td>احتمال تآكل تروس أو محامل أو أجزاء أخرى</td><td>فحص لدى مختص</td></tr>
+   <tr><td>تأخر التعشيق</td><td>خلل هيدروليكي أو إلكتروني أو مستوى سائل غير مناسب</td><td>تشخيص حسب نوع الناقل</td></tr>
+  </tbody>
+ </table>
+ </div>
+ <div class="grid" style="margin-top:20px">
+  <div class="card"><h3>🛢️ سائل ناقل الحركة</h3><p>افحصه وغيّره حسب جدول الشركة المصنعة، واستخدم النوع المطابق تماماً لمواصفات الناقل.</p></div>
+  <div class="card"><h3>🔍 الفحص الدوري</h3><p>راقب التسربات والأصوات والاهتزازات والتغيرات غير الطبيعية أثناء التبديل.</p></div>
+  <div class="card"><h3>🚘 أسلوب القيادة</h3><p>تجنب الانتقال بين D وR قبل التوقف الكامل، ولا تضغط على المحرك بصورة مفرطة.</p></div>
+  <div class="card"><h3>⚙️ التشخيص الإلكتروني</h3><p>يمكن قراءة رموز الأعطال المتعلقة بناقل الحركة باستخدام جهاز تشخيص مناسب.</p></div>
+ </div>
+ <div class="card warning">
+  <h3>⚠️ تنبيه مهم</h3>
+  <p>لا تخلط بين سوائل نواقل الحركة المختلفة. فكل ناقل قد يتطلب مواصفة محددة، وبعض الأنظمة تحتاج إلى إجراءات خاصة لفحص مستوى السائل أو تغييره. استعن بدليل المركبة وفني مختص.</p>
+ </div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>10 — KNOWLEDGE TEST</small>
+  <h2>اختبر معلوماتك</h2>
+  <p>ثمانية أسئلة لاختبار فهمك لنظام نقل الحركة.</p>
+ </div>
+ <div id="quiz"></div>
+ <button class="action" onclick="checkQuiz()">تصحيح الاختبار</button>
+ <div id="result"></div>
+</section>
+
+<section>
+ <div class="section-title">
+  <small>11 — CONCLUSION</small>
+  <h2>الخلاصة الهندسية</h2>
+ </div>
+ <div class="card">
+  <p>
+   نظام نقل الحركة هو حلقة أساسية بين المحرك والعجلات. فهو لا يقتصر
+   على تغيير السرعات، بل ينظم انتقال العزم ويوفر ظروفاً مناسبة
+   لانطلاق المركبة وتسارعها وسيرها في مختلف الطرق.
+  </p>
+  <p>
+   إن فهم القابض والتروس والتفاضل وأنظمة الدفع يساعد على فهم طريقة
+   عمل السيارة وتشخيص الأعطال والمحافظة على كفاءة المركبة.
+  </p>
+  <p class="gold" style="font-weight:800;margin-top:12px">
+   ENGINEERING IS THE ART OF UNDERSTANDING MOTION.
+  </p>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <p>MECHANICAL <strong>WORLD</strong> — AUTOMOTIVE ENGINEERING</p>
+ <p>إعداد التلميذتين: بن صالح كوثر 🌞 | بالعربي هاجر 🌚</p>
+ <p>بإشراف أستاذ مادة الميكانيك</p>
+ <p>© 2026 جميع الحقوق محفوظة للمشروع التعليمي</p>
+</footer>
+
+<script>
+const questions=[
+ {q:"ما الوظيفة الأساسية لنظام نقل الحركة؟",a:["تبريد المحرك","نقل القدرة من المحرك إلى العجلات","تنقية الهواء","تخزين الوقود"],c:1},
+ {q:"ما وظيفة القابض Clutch في الناقل اليدوي؟",a:["فصل وربط المحرك بناقل الحركة","تبريد الفرامل","زيادة ضغط الإطارات","تشغيل المصابيح"],c:0},
+ {q:"ما وظيفة الترس التفاضلي؟",a:["إيقاف المحرك","السماح للعجلتين بالدوران بسرعتين مختلفتين عند الانعطاف","زيادة حرارة الزيت","تغيير الوقود"],c:1},
+ {q:"أي ناقل يستخدم قابضين؟",a:["CVT","Manual","DCT","ناقل كهربائي ثابت النسبة"],c:2},
+ {q:"ما معنى FWD؟",a:["دفع خلفي","دفع أمامي","دفع رباعي","ناقل يدوي"],c:1},
+ {q:"ما الميزة الأساسية لناقل CVT؟",a:["نسب متغيرة باستمرار","عدم الحاجة إلى صيانة","استخدام الوقود مباشرة","إلغاء المحرك"],c:0},
+ {q:"ما وظيفة سائل ناقل الحركة؟",a:["طلاء هيكل السيارة","المساعدة في التزييت والتبريد ونقل الضغط حسب التصميم","تنظيف الزجاج","تبريد الإطارات"],c:1},
+ {q:"متى يجب الانتقال من D إلى R؟",a:["أثناء السرعة العالية","قبل تشغيل المحرك","بعد التوقف الكامل للمركبة","في كل منعطف"],c:2}
+];
+
+const quiz=document.getElementById("quiz");
+
+questions.forEach((question,index)=>{
+ const box=document.createElement("div");
+ box.className="quiz-question";
+ box.innerHTML=`<h3>${index+1}. ${question.q}</h3>`;
+ question.a.forEach((answer,i)=>{
+  const button=document.createElement("button");
+  button.className="option";
+  button.type="button";
+  button.textContent=answer;
+  button.onclick=()=>{
+   box.querySelectorAll(".option").forEach(item=>item.classList.remove("selected"));
+   button.classList.add("selected");
+   box.dataset.answer=i;
+  };
+  box.appendChild(button);
+ });
+ quiz.appendChild(box);
+});
+
+function checkQuiz(){
+ let score=0;
+ const boxes=document.querySelectorAll(".quiz-question");
+
+ boxes.forEach((box,index)=>{
+  const selected=box.querySelector(".selected");
+  const options=box.querySelectorAll(".option");
+
+  options.forEach((option,i)=>{
+   option.disabled=true;
+   if(i===questions[index].c)option.classList.add("correct");
+  });
+
+  if(selected && Number(box.dataset.answer)===questions[index].c){
+   score++;
+  }else if(selected){
+   selected.classList.add("wrong");
+  }
+ });
+
+ const percentage=Math.round(score/questions.length*100);
+ let message="واصل المراجعة، ستتحسن نتيجتك مع التدريب.";
+ if(score>=7)message="ممتاز! فهمك لنظام نقل الحركة قوي.";
+ else if(score>=5)message="جيد جداً! راجع بعض التفاصيل لتصل إلى الإتقان.";
+ else if(score>=3)message="نتيجة مقبولة، أعد قراءة الدرس وحاول مرة أخرى.";
+
+ const result=document.getElementById("result");
+ result.style.display="block";
+ result.innerHTML=`
+  <h2 class="gold">نتيجتك: ${score} / ${questions.length}</h2>
+  <h3>${percentage}%</h3>
+  <p>${message}</p>
+  <button class="action" onclick="resetQuiz()">إعادة الاختبار</button>
+ `;
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function resetQuiz(){
+ document.querySelectorAll(".quiz-question").forEach(box=>{
+  delete box.dataset.answer;
+  box.querySelectorAll(".option").forEach(option=>{
+   option.disabled=false;
+   option.classList.remove("selected","correct","wrong");
+  });
+ });
+ document.getElementById("result").style.display="none";
+ document.getElementById("quiz").scrollIntoView({behavior:"smooth"});
+}
+</script>
+
+</body>
+</html>
